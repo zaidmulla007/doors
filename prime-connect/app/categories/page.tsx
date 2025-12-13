@@ -1,0 +1,90 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Package } from "lucide-react";
+import { categories } from "../data";
+
+const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+export default function CategoriesPage() {
+    return (
+        <>
+            <section className="relative pt-32 pb-20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
+                <div className="absolute inset-0" style={{ background: "var(--gradient-radial)" }} />
+
+                <div className="container-custom relative">
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                        className="max-w-3xl"
+                    >
+                        <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
+                            Categories
+                        </motion.span>
+                        <motion.h1 variants={fadeInUp} className="text-gray-900 mb-6">
+                            Explore Our <span className="gradient-text">Product Categories</span>
+                        </motion.h1>
+                        <motion.p variants={fadeInUp} className="text-xl text-gray-600 mb-8">
+                            Jump straight into the product family you need.
+                        </motion.p>
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className="section-padding bg-white">
+                <div className="container-custom">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        {categories.map((category) => (
+                            <motion.div
+                                key={category.id}
+                                variants={fadeInUp}
+                                whileHover={{ y: -10, scale: 1.02 }}
+                                className="group relative rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-2xl transition-all overflow-hidden"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                                <div className="relative p-8 h-full flex flex-col">
+                                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center mb-6 group-hover:from-blue-500 group-hover:to-purple-500 transition-all">
+                                        <Package className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+                                    </div>
+
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{category.name}</h3>
+                                    <p className="text-gray-600 mb-6 flex-grow">{category.description}</p>
+
+                                    <div className="flex items-center justify-between mt-auto">
+                                        <Link
+                                            href={`/products?category=${encodeURIComponent(category.name)}`}
+                                            className="inline-flex items-center text-blue-600 font-medium gap-1 group-hover:gap-2 transition-all"
+                                        >
+                                            Explore Products
+                                            <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-500/20 transition-colors pointer-events-none" />
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+        </>
+    );
+}
