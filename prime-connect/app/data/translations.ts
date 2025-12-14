@@ -1,0 +1,610 @@
+export type Language = 'en' | 'ar' | 'zh';
+
+export const translations = {
+    en: {
+        header: {
+            home: "Home",
+            corePanels: "Core Panels",
+            categories: "Categories",
+            products: "Products",
+            about: "About Us",
+            contact: "Contact Us",
+            followUs: "Follow us:",
+            logoName: "Prime Connects",
+            logoTagline: "Doors & Cabinet Solutions",
+        },
+        hero: {
+            badge: "25+ Years of Manufacturing Excellence",
+            titleStart: "A Global Legacy in",
+            titleGradient: "Manufacturing Excellence",
+            description: "Multinational manufacturer of doors, panels, and cabinetry serving commercial, residential, hospitality, education, and healthcare projects across UAE and China.",
+            discoverMore: "Discover More",
+            exploreProducts: "Explore Products",
+            stats: {
+                factories: "Factories",
+                countries: "Countries",
+                years: "Years",
+                projects: "Projects"
+            }
+        },
+        about: {
+            sectionTitle: "About Prime Connects",
+            headingStart: "Building Tomorrow's Spaces with",
+            headingGradient: "Quality & Innovation",
+            desc1: "Primeconnects Doors & Cabinets Solutions is a multinational enterprise integrating manufacturing and trade, with a strong legacy of over 25 years in the industry. Originally established in China, our company has built a reputation for quality and innovation in architectural decoration and construction materials.",
+            desc2: "With a fully equipped manufacturing facility in the UAE, we proudly serve the region with premium-quality doors, panels, and cabinetry — supported by advanced R&D, skilled professionals, and a network of six factories across China and the UAE.",
+            learnMore: "Learn More",
+            cardTitle: "Prime Connects",
+            cardSubtitle: "Manufacturing Excellence Since 1999"
+        },
+        products: {
+            sectionTitle: "Our Solutions",
+            headingStart: "Explore Our",
+            headingGradient: "Product Range",
+            description: "From precision-built doors to engineered panels and bespoke cabinetry, we deliver reliable solutions for residential and commercial projects.",
+            categories: {
+                doors: { title: "Doors", desc: "Premium quality doors for all applications" },
+                panels: { title: "Panels", desc: "Premium quality panels for all applications" },
+                cabinetry: { title: "Cabinetry", desc: "Premium quality cabinetry for all applications" }
+            },
+            explore: "Explore",
+            viewAll: "View All Categories"
+        },
+        global: {
+            sectionTitle: "Global Network",
+            headingGradient: "6 Factories. 2 Countries.",
+            headingEnd: "One Standard of Excellence.",
+            description: "Primeconnects operates a multinational manufacturing network across the UAE and China, ensuring consistent quality, reliable supply, and regional responsiveness.",
+            contactSales: "Contact Sales",
+            factories: {
+                doorUAE: { type: "Door Factory", city: "United Arab Emirates" },
+                wpc: { type: "WPC Factory", city: "Jiangxi, China" },
+                woodenDoor: { type: "Wooden Door Factory", city: "Zhejiang, China" },
+                cabinet: { type: "Cabinet Factory", city: "Zhejiang, China" },
+                steelDoor: { type: "Steel Entrance Door Factory", city: "Zhejiang, China" },
+                fireproof: { type: "Fireproof Door Factory", city: "Shanghai, China" }
+            }
+        },
+        sectors: {
+            sectionTitle: "Industries We Serve",
+            headingStart: "Trusted Across",
+            headingGradient: "Sectors",
+            description: "From commercial towers to private villas, Primeconnects delivers durable doors, engineered panels, and cabinet systems tailored to each application.",
+            items: {
+                commercial: { title: "Commercial Buildings", desc: "Office towers, retail, mixed-use developments" },
+                hospitality: { title: "Hospitality", desc: "Hotels, resorts, serviced apartments" },
+                education: { title: "Education", desc: "Schools, universities, training centers" },
+                healthcare: { title: "Healthcare", desc: "Hospitals, clinics, labs" },
+                industrial: { title: "Industrial", desc: "Warehouses, plants, logistics hubs" },
+                residential: { title: "Residential", desc: "Villas, apartments, communities" }
+            },
+            discussProject: "Discuss Your Project",
+            viewProducts: "View Products"
+        },
+        features: {
+            sectionTitle: "Why Choose Us",
+            headingStart: "Engineered for Performance.",
+            headingGradient: "Built for Longevity.",
+            description: "From material research to final inspection, Primeconnects combines advanced R&D, stringent quality assurance, and tailored manufacturing to meet project specifications with confidence.",
+            items: {
+                rnd: { title: "Advanced R&D", desc: "In-house material testing and continuous product improvement for demanding environments." },
+                qa: { title: "Quality Assurance", desc: "ISO-aligned processes, batch traceability, and multi-stage inspections at every factory." },
+                custom: { title: "Custom Manufacturing", desc: "Door sizes, cores, finishes, and cabinet modules tailored to architect/designer specs." },
+                compliance: { title: "Compliance & Safety", desc: "Fire-rating options and regional code compliance supported by documentation." },
+                precision: { title: "Precision & Fit", desc: "CNC machining and controlled tolerances ensure clean installation and long-term stability." },
+                materials: { title: "Material Options", desc: "MDF, MR MDF, WPC, marine & construction plywood, melamine/film-faced boards." }
+            },
+            cta: {
+                title: "Ready to Start Your Project?",
+                desc: "Multi-factory QA checkpoints • Rapid prototyping • Technical drawings & submittals support",
+                requestSpecs: "Request Specs",
+                viewProducts: "View Products"
+            }
+        },
+        footer: {
+            sitemap: "Sitemap",
+            contactUs: "Contact Us",
+            ourCompany: "Our Company",
+            companyDesc: "6 Factories across UAE and China. 25+ years of manufacturing excellence.",
+            getInTouch: "Get in Touch",
+            rights: "Prime Connects. All rights reserved.",
+            arabicTagline: "برايم كونيكتس حلول للأبواب والخزائن",
+            address: "Warehouse No.8, Industrial area 18, Maliha Road, Sharjah, UAE"
+        },
+        contact: {
+            badge: "Contact Us",
+            title: "We're Here to",
+            titleHighlight: "Help",
+            description: "Tell us about your project — doors, panels, or cabinetry — and we'll get back within one business day.",
+            requestQuote: "Request a Quote",
+            dubaiOffice: "Dubai",
+            officeHighlight: "Office",
+            addressLabel: "Address",
+            addressValue: "Warehouse No.8, Industrial area 18, Warehouse land Maliha Road, Sharjah, UAE",
+            openMaps: "Open in Google Maps",
+            phoneLabel: "Phone",
+            emailLabel: "Email",
+            contactPerson: "Contact Person",
+            interactiveMap: "Interactive Map",
+            viewOnMaps: "View on Google Maps →",
+            sendMessage: "Send a Message",
+            formSubtitle: "Fill out the form and our team will get back to you shortly.",
+            fullName: "Full Name *",
+            emailAddress: "Email Address *",
+            phoneNumber: "Phone Number",
+            companyName: "Company Name",
+            message: "Message *",
+            namePlaceholder: "John Doe",
+            emailPlaceholder: "john@company.com",
+            phonePlaceholder: "+971 XX XXX XXXX",
+            companyPlaceholder: "Your Company",
+            messagePlaceholder: "Tell us about your project requirements...",
+            send: "Send Message",
+            responseTime: "We typically respond within 24 hours",
+            successTitle: "Message Sent!",
+            successMessage: "We'll get back to you within one business day."
+        },
+        aboutPage: {
+            badge: "About Us",
+            title: "About",
+            titleHighlight: "Primeconnects",
+            description: "A multinational manufacturer of doors, panels, and cabinetry with 25+ years of excellence.",
+            contactUs: "Contact Us",
+            storyTitle: "Our Story &",
+            storyHighlight: "Legacy",
+            storyP1: "Primeconnects integrates manufacturing and trade with a legacy of innovation and quality. Originally established in China, we expanded with a fully equipped UAE facility to serve the region with premium solutions.",
+            storyP2: "Today, we combine advanced R&D, disciplined quality control, and customer-first service across every project. Our mission is to deliver durable, precision-crafted products that combine technology, craftsmanship, and design excellence.",
+            yearsExp: "Years Experience",
+            factories: "Factories",
+            countries: "Countries",
+            companyName: "Prime Connects",
+            companyTagline: "Excellence in Every Detail",
+            journeyTitle: "Our",
+            journeyHighlight: "Journey",
+            timeline1Year: "1999",
+            timeline1Title: "Founded in China",
+            timeline1Desc: "Established our first manufacturing facility in China, marking the beginning of our journey in architectural solutions.",
+            timeline2Year: "2015",
+            timeline2Title: "Expanded Product Lines",
+            timeline2Desc: "Diversified our portfolio to include comprehensive door, panel, and cabinetry solutions for various sectors.",
+            timeline3Year: "2024",
+            timeline3Title: "UAE Manufacturing Unit",
+            timeline3Desc: "Opened our state-of-the-art facility in UAE to better serve the Middle East and North Africa region.",
+            certTitle: "Certifications &",
+            certHighlight: "Compliance",
+            certDesc: "Our processes align with international standards for safety and quality.",
+            cert1: "ISO 9001:2015 Quality Management",
+            cert2: "ISO 14001 Environmental Management",
+            cert3: "Fire Safety Compliance",
+            cert4: "Regional Building Codes",
+            ctaTitle: "Ready to Work With Us?",
+            ctaDesc: "Let's discuss how we can help bring your project to life with our premium doors, panels, and cabinetry solutions.",
+            ctaButton: "Get in Touch"
+        },
+        productsPage: {
+            title: "Our Products",
+            subtitle: "Browse all products",
+            viewDetails: "View Details",
+            loading: "Loading products..."
+        },
+        productDetail: {
+            backToProducts: "Back to Products",
+            productImages: "Product Images",
+            noImage: "No Image",
+            inquire: "Inquire",
+            specifications: "Product Specifications",
+            applications: "Applications"
+        },
+        categoriesPage: {
+            badge: "Categories",
+            title: "Explore Our",
+            titleHighlight: "Product Categories",
+            subtitle: "Jump straight into the product family you need.",
+            exploreProducts: "Explore Products"
+        }
+    },
+    ar: {
+        header: {
+            home: "الرئيسية",
+            corePanels: "الألواح الأساسية",
+            categories: "فئات",
+            products: "منتجات",
+            about: "معلومات عنا",
+            contact: "اتصل بنا",
+            followUs: "تابعنا:",
+            logoName: "برايم كونيكتس",
+            logoTagline: "حلول الأبواب والخزائن",
+        },
+        hero: {
+            badge: "25+ عامًا من التميز في التصنيع",
+            titleStart: "إرث عالمي في",
+            titleGradient: "التميز في التصنيع",
+            description: "شركة تصنيع متعددة الجنسيات للأبواب والألواح والخزائن تخدم المشاريع التجارية والسكنية والفندقية والتعليمية والصحية في الإمارات والصين.",
+            discoverMore: "اكتشف المزيد",
+            exploreProducts: "استكشف المنتجات",
+            stats: {
+                factories: "مصانع",
+                countries: "دول",
+                years: "سنوات",
+                projects: "مشاريع"
+            }
+        },
+        about: {
+            sectionTitle: "عن برايم كونيكتس",
+            headingStart: "بناء مساحات الغد مع",
+            headingGradient: "الجودة والابتكار",
+            desc1: "برايم كونيكتس لحلول الأبواب والخزائن هي مؤسسة متعددة الجنسيات تدمج التصنيع والتجارة، مع إرث قوي يمتد لأكثر من 25 عامًا في الصناعة. تأسست الشركة في الأصل في الصين، وبنت سمعة طيبة للجودة والابتكار في الديكور المعماري ومواد البناء.",
+            desc2: "مع منشأة تصنيع مجهزة بالكامل في الإمارات العربية المتحدة، نفخر بخدمة المنطقة بأبواب وألواح وخزائن عالية الجودة - مدعومة بالبحث والتطوير المتقدم والمهنيين المهرة وشبكة من ستة مصانع عبر الصين والإمارات.",
+            learnMore: "اعرف المزيد",
+            cardTitle: "برايم كونيكتس",
+            cardSubtitle: "التميز في التصنيع منذ عام 1999"
+        },
+        products: {
+            sectionTitle: "حلولنا",
+            headingStart: "استكشف",
+            headingGradient: "مجموعة منتجاتنا",
+            description: "من الأبواب المبنية بدقة إلى الألواح الهندسية والخزائن المصممة خصيصًا، نقدم حلولًا موثوقة للمشاريع السكنية والتجارية.",
+            categories: {
+                doors: { title: "أبواب", desc: "أبواب عالية الجودة لجميع الاستخدامات" },
+                panels: { title: "ألواح", desc: "ألواح عالية الجودة لجميع الاستخدامات" },
+                cabinetry: { title: "خزائن", desc: "خزائن عالية الجودة لجميع الاستخدامات" }
+            },
+            explore: "استكشف",
+            viewAll: "عرض جميع الفئات"
+        },
+        global: {
+            sectionTitle: "الشبكة العالمية",
+            headingGradient: "6 مصانع. دولتان.",
+            headingEnd: "معيار واحد للتميز.",
+            description: "تدير برايم كونيكتس شبكة تصنيع متعددة الجنسيات عبر الإمارات والصين، مما يضمن الجودة المتسقة والإمداد الموثوق والاستجابة الإقليمية.",
+            contactSales: "اتصل بالمبيعات",
+            factories: {
+                doorUAE: { type: "مصنع الأبواب", city: "الإمارات العربية المتحدة" },
+                wpc: { type: "مصنع WPC", city: "جيانغشي، الصين" },
+                woodenDoor: { type: "مصنع الأبواب الخشبية", city: "تشجيانغ، الصين" },
+                cabinet: { type: "مصنع الخزائن", city: "تشجيانغ، الصين" },
+                steelDoor: { type: "مصنع أبواب الصلب", city: "تشجيانغ، الصين" },
+                fireproof: { type: "مصنع الأبواب المقاومة للحريق", city: "شنغهاي، الصين" }
+            }
+        },
+        sectors: {
+            sectionTitle: "الصناعات التي نخدمها",
+            headingStart: "موثوق به عبر",
+            headingGradient: "القطاعات",
+            description: "من الأبراج التجارية إلى الفلل الخاصة، تقدم برايم كونيكتس أبوابًا متينة وألواحًا هندسية وأنظمة خزانة مصممة خصيصًا لكل تطبيق.",
+            items: {
+                commercial: { title: "المباني التجارية", desc: "أبراج المكاتب، التجزئة، المشاريع متعددة الاستخدامات" },
+                hospitality: { title: "الضيافة", desc: "الفنادق، المنتجعات، الشقق الفندقية" },
+                education: { title: "التعليم", desc: "المدارس، الجامعات، مراكز التدريب" },
+                healthcare: { title: "الرعاية الصحية", desc: "المستشفيات، العيادات، المختبرات" },
+                industrial: { title: "الصناعية", desc: "المستودعات، المصانع، المراكز اللوجستية" },
+                residential: { title: "السكنية", desc: "الفلل، الشقق، المجتمعات" }
+            },
+            discussProject: "ناقش مشروعك",
+            viewProducts: "عرض المنتجات"
+        },
+        features: {
+            sectionTitle: "لماذا تختارنا",
+            headingStart: "مصممة للأداء.",
+            headingGradient: "بنيت لتدوم.",
+            description: "من بحث المواد إلى الفحص النهائي، تجمع برايم كونيكتس بين البحث والتطوير المتقدم وضمان الجودة الصارم والتصنيع المخصص لتلبية مواصفات المشروع بثقة.",
+            items: {
+                rnd: { title: "بحث وتطوير متقدم", desc: "اختبار المواد الداخلي وتحسين المنتج المستمر للبيئات المتطلبة." },
+                qa: { title: "ضمان الجودة", desc: "عمليات متوافقة مع ISO، وتتبع الدفعات، وفحوصات متعددة المراحل في كل مصنع." },
+                custom: { title: "تصنيع مخصص", desc: "أحجام الأبواب، النوى، التشطيبات، ووحدات الخزانة المصممة خصيصًا لمواصفات المهندس/المصمم." },
+                compliance: { title: "الامتثال والسلامة", desc: "خيارات مقاومة للحريق والامتثال للقوانين الإقليمية مدعومة بالوثائق." },
+                precision: { title: "الدقة والملاءمة", desc: "يضمن التصنيع باستخدام الحاسب الآلي والتسامح المتحكم فيه التثبيت النظيف والاستقرار طويل الأمد." },
+                materials: { title: "خيارات المواد", desc: "MDF، MR MDF، WPC، الخشب الرقائقي البحري والإنشائي، ألواح الميلامين/الفيلم." }
+            },
+            cta: {
+                title: "جاهز لبدء مشروعك؟",
+                desc: "نقاط فحص جودة متعددة المصانع • نماذج أولية سريعة • دعم الرسومات الفنية والتقديمات",
+                requestSpecs: "طلب المواصفات",
+                viewProducts: "عرض المنتجات"
+            }
+        },
+        footer: {
+            sitemap: "خريطة الموقع",
+            contactUs: "اتصل بنا",
+            ourCompany: "شركتنا",
+            companyDesc: "6 مصانع عبر الإمارات والصين. 25+ عامًا من التميز في التصنيع.",
+            getInTouch: "تواصل معنا",
+            rights: "برايم كونيكتس. جميع الحقوق محفوظة.",
+            arabicTagline: "برايم كونيكتس حلول للأبواب والخزائن",
+            address: "مستودع رقم 8، المنطقة الصناعية 18، طريق مليحة، الشارقة، الإمارات العربية المتحدة"
+        },
+        contact: {
+            badge: "اتصل بنا",
+            title: "نحن هنا",
+            titleHighlight: "للمساعدة",
+            description: "أخبرنا عن مشروعك - أبواب أو ألواح أو خزائن - وسنرد عليك خلال يوم عمل واحد.",
+            requestQuote: "طلب عرض سعر",
+            dubaiOffice: "مكتب",
+            officeHighlight: "دبي",
+            addressLabel: "العنوان",
+            addressValue: "مستودع رقم 8، المنطقة الصناعية 18، طريق مليحة، الشارقة، الإمارات",
+            openMaps: "فتح في خرائط جوجل",
+            phoneLabel: "الهاتف",
+            emailLabel: "البريد الإلكتروني",
+            contactPerson: "شخص الاتصال",
+            interactiveMap: "خريطة تفاعلية",
+            viewOnMaps: "عرض على خرائط جوجل ←",
+            sendMessage: "أرسل رسالة",
+            formSubtitle: "املأ النموذج وسيتواصل معك فريقنا قريباً.",
+            fullName: "الاسم الكامل *",
+            emailAddress: "البريد الإلكتروني *",
+            phoneNumber: "رقم الهاتف",
+            companyName: "اسم الشركة",
+            message: "الرسالة *",
+            namePlaceholder: "محمد أحمد",
+            emailPlaceholder: "email@company.com",
+            phonePlaceholder: "+971 XX XXX XXXX",
+            companyPlaceholder: "شركتك",
+            messagePlaceholder: "أخبرنا عن متطلبات مشروعك...",
+            send: "إرسال الرسالة",
+            responseTime: "نرد عادة خلال 24 ساعة",
+            successTitle: "تم إرسال الرسالة!",
+            successMessage: "سنرد عليك خلال يوم عمل واحد."
+        },
+        aboutPage: {
+            badge: "من نحن",
+            title: "عن",
+            titleHighlight: "برايم كونيكتس",
+            description: "شركة متعددة الجنسيات لتصنيع الأبواب والألواح والخزائن مع أكثر من 25 عامًا من التميز.",
+            contactUs: "اتصل بنا",
+            storyTitle: "قصتنا و",
+            storyHighlight: "إرثنا",
+            storyP1: "تدمج برايم كونيكتس التصنيع والتجارة مع إرث من الابتكار والجودة. تأسست في الصين، وتوسعت مع منشأة مجهزة بالكامل في الإمارات لخدمة المنطقة بحلول متميزة.",
+            storyP2: "اليوم، نجمع بين البحث والتطوير المتقدم، ومراقبة الجودة الصارمة، وخدمة العملاء أولاً في كل مشروع. مهمتنا تقديم منتجات متينة ومصنعة بدقة تجمع بين التكنولوجيا والحرفية والتميز في التصميم.",
+            yearsExp: "سنوات الخبرة",
+            factories: "مصانع",
+            countries: "دول",
+            companyName: "برايم كونيكتس",
+            companyTagline: "التميز في كل تفصيل",
+            journeyTitle: "رحلتنا",
+            journeyHighlight: "عبر الزمن",
+            timeline1Year: "1999",
+            timeline1Title: "تأسست في الصين",
+            timeline1Desc: "أنشأنا أول منشأة تصنيع لنا في الصين، مما يمثل بداية رحلتنا في الحلول المعمارية.",
+            timeline2Year: "2015",
+            timeline2Title: "توسيع خطوط الإنتاج",
+            timeline2Desc: "تنويع محفظتنا لتشمل حلول الأبواب والألواح والخزائن الشاملة للقطاعات المختلفة.",
+            timeline3Year: "2024",
+            timeline3Title: "وحدة التصنيع في الإمارات",
+            timeline3Desc: "افتتحنا منشأتنا الحديثة في الإمارات لخدمة منطقة الشرق الأوسط وشمال أفريقيا بشكل أفضل.",
+            certTitle: "الشهادات و",
+            certHighlight: "الامتثال",
+            certDesc: "تتوافق عملياتنا مع المعايير الدولية للسلامة والجودة.",
+            cert1: "ISO 9001:2015 إدارة الجودة",
+            cert2: "ISO 14001 الإدارة البيئية",
+            cert3: "الامتثال للسلامة من الحرائق",
+            cert4: "كودات البناء الإقليمية",
+            ctaTitle: "مستعد للعمل معنا؟",
+            ctaDesc: "دعنا نناقش كيف يمكننا مساعدتك في إحياء مشروعك مع أبوابنا وألواحنا وحلول الخزائن المتميزة.",
+            ctaButton: "تواصل معنا"
+        },
+        productsPage: {
+            title: "منتجاتنا",
+            subtitle: "تصفح جميع المنتجات",
+            viewDetails: "عرض التفاصيل",
+            loading: "جاري تحميل المنتجات..."
+        },
+        productDetail: {
+            backToProducts: "العودة إلى المنتجات",
+            productImages: "صور المنتج",
+            noImage: "لا توجد صورة",
+            inquire: "استفسار",
+            specifications: "مواصفات المنتج",
+            applications: "التطبيقات"
+        },
+        categoriesPage: {
+            badge: "الفئات",
+            title: "استكشف",
+            titleHighlight: "فئات منتجاتنا",
+            subtitle: "انتقل مباشرة إلى عائلة المنتجات التي تحتاجها.",
+            exploreProducts: "استكشاف المنتجات"
+        }
+    },
+    zh: {
+        header: {
+            home: "首页",
+            corePanels: "核心板材",
+            categories: "类别",
+            products: "产品",
+            about: "关于我们",
+            contact: "联系我们",
+            followUs: "关注我们：",
+            logoName: "普莱姆连接",
+            logoTagline: "门业与橱柜解决方案",
+        },
+        hero: {
+            badge: "25+ 年制造卓越",
+            titleStart: "全球传承",
+            titleGradient: "制造卓越",
+            description: "为阿联酋和中国的商业、住宅、酒店、教育和医疗项目提供门、板材和橱柜的跨国制造商。",
+            discoverMore: "发现更多",
+            exploreProducts: "探索产品",
+            stats: {
+                factories: "工厂",
+                countries: "国家",
+                years: "年",
+                projects: "项目"
+            }
+        },
+        about: {
+            sectionTitle: "关于 Prime Connects",
+            headingStart: "以质量与创新",
+            headingGradient: "构建未来空间",
+            desc1: "Primeconnects 门业与橱柜解决方案是一家集制造与贸易为一体的跨国企业，在行业内拥有超过 25 年的深厚底蕴。公司最初成立于中国，在建筑装饰和建筑材料领域建立了质量与创新的声誉。",
+            desc2: "我们在阿联酋拥有设备齐全的制造工厂，自豪地为该地区提供优质的门、板材和橱柜——并得到先进的研发、熟练的专业人员以及遍布中国和阿联酋的六家工厂网络的支持。",
+            learnMore: "了解更多",
+            cardTitle: "Prime Connects",
+            cardSubtitle: "自 1999 年以来的卓越制造"
+        },
+        products: {
+            sectionTitle: "我们的解决方案",
+            headingStart: "探索我们的",
+            headingGradient: "产品系列",
+            description: "从精密制造的门到工程板材和定制橱柜，我们为住宅和商业项目提供可靠的解决方案。",
+            categories: {
+                doors: { title: "门", desc: "适用于所有应用的高品质门" },
+                panels: { title: "板材", desc: "适用于所有应用的高品质板材" },
+                cabinetry: { title: "橱柜", desc: "适用于所有应用的高品质橱柜" }
+            },
+            explore: "探索",
+            viewAll: "查看所有类别"
+        },
+        global: {
+            sectionTitle: "全球网络",
+            headingGradient: "6 家工厂。2 个国家。",
+            headingEnd: "统一的卓越标准。",
+            description: "Primeconnects 在阿联酋和中国运营跨国制造网络，确保始终如一的质量、可靠的供应和区域响应能力。",
+            contactSales: "联系销售",
+            factories: {
+                doorUAE: { type: "门厂", city: "阿联酋" },
+                wpc: { type: "WPC 工厂", city: "中国江西" },
+                woodenDoor: { type: "木门工厂", city: "中国浙江" },
+                cabinet: { type: "橱柜厂", city: "中国浙江" },
+                steelDoor: { type: "钢制入户门厂", city: "中国浙江" },
+                fireproof: { type: "防火门厂", city: "中国上海" }
+            }
+        },
+        sectors: {
+            sectionTitle: "我们服务的行业",
+            headingStart: "深受各行业",
+            headingGradient: "信赖",
+            description: "从商业大厦到私人别墅，Primeconnects 提供耐用的门、工程板材和专为各项应用量身定制的橱柜系统。",
+            items: {
+                commercial: { title: "商业建筑", desc: "办公楼、零售、综合开发项目" },
+                hospitality: { title: "酒店业", desc: "酒店、度假村、服务式公寓" },
+                education: { title: "教育", desc: "学校、大学、培训中心" },
+                healthcare: { title: "医疗保健", desc: "医院、诊所、实验室" },
+                industrial: { title: "工业", desc: "仓库、工厂、物流中心" },
+                residential: { title: "住宅", desc: "别墅、公寓、社区" }
+            },
+            discussProject: "洽谈您的项目",
+            viewProducts: "查看产品"
+        },
+        features: {
+            sectionTitle: "为什么选择我们",
+            headingStart: "为性能而设计。",
+            headingGradient: "为长久而建。",
+            description: "从材料研究到最终通过，Primeconnects 结合了先进的研发、严格的质量保证和定制制造，以满怀信心地满足项目规格。",
+            items: {
+                rnd: { title: "先进研发", desc: "内部材料测试和持续的产品改进，以适应苛刻的环境。" },
+                qa: { title: "质量保证", desc: "符合 ISO 的流程、批次可追溯性以及每个工厂的多阶段检查。" },
+                custom: { title: "定制制造", desc: "根据建筑师/设计师的规格定制门尺寸、芯材、饰面和橱柜模块。" },
+                compliance: { title: "合规与安全", desc: "由文件支持的防火选项和区域代码合规性。" },
+                precision: { title: "精密与贴合", desc: "CNC 加工和受控公差确保安装整洁和长期稳定性。" },
+                materials: { title: "材料选择", desc: "MDF、防潮 MDF、WPC、海洋和建筑胶合板、三聚氰胺/覆膜板。" }
+            },
+            cta: {
+                title: "准备好开始您的项目了吗？",
+                desc: "多工厂质量检查点 • 快速原型制作 • 技术图纸和提交支持",
+                requestSpecs: "索取规格",
+                viewProducts: "查看产品"
+            }
+        },
+        footer: {
+            sitemap: "网站地图",
+            contactUs: "联系我们",
+            ourCompany: "我们的公司",
+            companyDesc: "遍布阿联酋和中国的 6 家工厂。25+ 年制造卓越。",
+            getInTouch: "取得联系",
+            rights: "Prime Connects. 保留所有权利。",
+            arabicTagline: "Prime Connects 门业与橱柜解决方案",
+            address: "阿联酋沙迦 Maliha 路 18 号工业区 8 号仓库"
+        },
+        contact: {
+            badge: "联系我们",
+            title: "我们随时",
+            titleHighlight: "为您服务",
+            description: "告诉我们您的项目需求 - 门、面板或橱柜 - 我们将在一个工作日内回复。",
+            requestQuote: "请求报价",
+            dubaiOffice: "迪拜",
+            officeHighlight: "办公室",
+            addressLabel: "地址",
+            addressValue: "阿联酋沙迦 Maliha 路 18 号工业区 8 号仓库",
+            openMaps: "在谷歌地图中打开",
+            phoneLabel: "电话",
+            emailLabel: "电子邮件",
+            contactPerson: "联系人",
+            interactiveMap: "互动地图",
+            viewOnMaps: "在谷歌地图上查看 →",
+            sendMessage: "发送消息",
+            formSubtitle: "填写表格，我们的团队将尽快与您联系。",
+            fullName: "全名 *",
+            emailAddress: "电子邮箱 *",
+            phoneNumber: "电话号码",
+            companyName: "公司名称",
+            message: "留言 *",
+            namePlaceholder: "张三",
+            emailPlaceholder: "email@company.com",
+            phonePlaceholder: "+971 XX XXX XXXX",
+            companyPlaceholder: "您的公司",
+            messagePlaceholder: "告诉我们您的项目需求...",
+            send: "发送消息",
+            responseTime: "我们通常在24小时内回复",
+            successTitle: "消息已发送！",
+            successMessage: "我们将在一个工作日内回复您。"
+        },
+        aboutPage: {
+            badge: "关于我们",
+            title: "关于",
+            titleHighlight: "普莱姆连接",
+            description: "跨国门业、面板和橱柜制造商，拥有超过25年的卓越经验。",
+            contactUs: "联系我们",
+            storyTitle: "我们的故事 &",
+            storyHighlight: "传承",
+            storyP1: "普莱姆连接将制造和贸易与创新和质量的传承相结合。最初在中国成立，我们在阿联酋扩展了一个设备齐全的设施，为该地区提供优质解决方案。",
+            storyP2: "如今，我们在每个项目中结合先进的研发、严格的质量控制和客户至上的服务。我们的使命是提供耐用、精密制造的产品，融合技术、工艺和设计卓越。",
+            yearsExp: "年经验",
+            factories: "工厂",
+            countries: "国家",
+            companyName: "普莱姆连接",
+            companyTagline: "每个细节都追求卓越",
+            journeyTitle: "我们的",
+            journeyHighlight: "历程",
+            timeline1Year: "1999",
+            timeline1Title: "在中国成立",
+            timeline1Desc: "在中国建立了我们的第一个制造工厂，标志着我们在建筑解决方案领域旅程的开始。",
+            timeline2Year: "2015",
+            timeline2Title: "扩展产品线",
+            timeline2Desc: "多元化我们的产品组合，涵盖针对各个行业的全面门业、面板和橱柜解决方案。",
+            timeline3Year: "2024",
+            timeline3Title: "阿联酋制造工厂",
+            timeline3Desc: "在阿联酋开设了最先进的设施，以更好地服务中东和北非地区。",
+            certTitle: "认证 &",
+            certHighlight: "合规",
+            certDesc: "我们的流程符合国际安全和质量标准。",
+            cert1: "ISO 9001:2015 质量管理",
+            cert2: "ISO 14001 环境管理",
+            cert3: "消防安全合规",
+            cert4: "区域建筑规范",
+            ctaTitle: "准备与我们合作吗？",
+            ctaDesc: "让我们讨论如何通过我们的优质门业、面板和橱柜解决方案帮助您的项目成为现实。",
+            ctaButton: "取得联系"
+        },
+        productsPage: {
+            title: "我们的产品",
+            subtitle: "浏览所有产品",
+            viewDetails: "查看详情",
+            loading: "正在加载产品..."
+        },
+        productDetail: {
+            backToProducts: "返回产品",
+            productImages: "产品图片",
+            noImage: "无图片",
+            inquire: "咨询",
+            specifications: "产品规格",
+            applications: "应用领域"
+        },
+        categoriesPage: {
+            badge: "类别",
+            title: "探索我们的",
+            titleHighlight: "产品类别",
+            subtitle: "直接跳转到您需要的产品系列。",
+            exploreProducts: "探索产品"
+        }
+    }
+};

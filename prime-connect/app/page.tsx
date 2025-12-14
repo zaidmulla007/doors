@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +20,10 @@ import {
   Ruler,
   Layers,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import { useLanguage } from "./context/LanguageContext";
 
 // Animation variants
 const fadeInUp = {
@@ -39,142 +44,113 @@ const scaleIn = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
 };
 
-// Sectors data
-const sectors = [
-  { icon: Building2, title: "Commercial Buildings", desc: "Office towers, retail, mixed-use developments" },
-  { icon: Hotel, title: "Hospitality", desc: "Hotels, resorts, serviced apartments" },
-  { icon: GraduationCap, title: "Education", desc: "Schools, universities, training centers" },
-  { icon: Stethoscope, title: "Healthcare", desc: "Hospitals, clinics, labs" },
-  { icon: Factory, title: "Industrial", desc: "Warehouses, plants, logistics hubs" },
-  { icon: Home, title: "Residential", desc: "Villas, apartments, communities" },
-];
-
-// Features data
-const features = [
-  { icon: FlaskConical, title: "Advanced R&D", desc: "In-house material testing and continuous product improvement for demanding environments." },
-  { icon: ShieldCheck, title: "Quality Assurance", desc: "ISO-aligned processes, batch traceability, and multi-stage inspections at every factory." },
-  { icon: Settings, title: "Custom Manufacturing", desc: "Door sizes, cores, finishes, and cabinet modules tailored to architect/designer specs." },
-  { icon: FileCheck, title: "Compliance & Safety", desc: "Fire-rating options and regional code compliance supported by documentation." },
-  { icon: Ruler, title: "Precision & Fit", desc: "CNC machining and controlled tolerances ensure clean installation and long-term stability." },
-  { icon: Layers, title: "Material Options", desc: "MDF, MR MDF, WPC, marine & construction plywood, melamine/film-faced boards." },
-];
-
-// Factories data
-const factories = [
-  { country: "UAE", city: "United Arab Emirates", type: "Door Factory", flag: "🇦🇪" },
-  { country: "China", city: "Jiangxi, China", type: "WPC Factory", flag: "🇨🇳" },
-  { country: "China", city: "Zhejiang, China", type: "Wooden Door Factory", flag: "🇨🇳" },
-  { country: "China", city: "Zhejiang, China", type: "Cabinet Factory", flag: "🇨🇳" },
-  { country: "China", city: "Zhejiang, China", type: "Steel Entrance Door Factory", flag: "🇨🇳" },
-  { country: "China", city: "Shanghai, China", type: "Fireproof Door Factory", flag: "🇨🇳" },
-];
-
-// Product categories
-const categories = [
-  { name: "Doors", image: "/products/doors.jpg", count: "50+ Products" },
-  { name: "Panels", image: "/products/panels.jpg", count: "30+ Products" },
-  { name: "Cabinetry", image: "/products/cabinets.jpg", count: "40+ Products" },
+// Hero slides data
+const heroSlides = [
+  { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80", alt: "Modern wooden doors" },
+  { image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80", alt: "Luxury interior doors" },
+  { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80", alt: "Modern cabinet solutions" },
+  { image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80", alt: "Contemporary home interiors" },
+  { image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80", alt: "Premium door designs" },
+  { image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1920&q=80", alt: "Manufacturing excellence" },
 ];
 
 export default function HomePage() {
+  const { t } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Sectors data with keys for translation
+  const sectors = [
+    { icon: Building2, id: "commercial" },
+    { icon: Hotel, id: "hospitality" },
+    { icon: GraduationCap, id: "education" },
+    { icon: Stethoscope, id: "healthcare" },
+    { icon: Factory, id: "industrial" },
+    { icon: Home, id: "residential" },
+  ];
+
+  // Features data with keys
+  const features = [
+    { icon: FlaskConical, id: "rnd" },
+    { icon: ShieldCheck, id: "qa" },
+    { icon: Settings, id: "custom" },
+    { icon: FileCheck, id: "compliance" },
+    { icon: Ruler, id: "precision" },
+    { icon: Layers, id: "materials" },
+  ];
+
+  // Factories data - ids map to translation keys (global.factories.*)
+  const factories = [
+    { id: "doorUAE", flag: "🇦🇪" },
+    { id: "wpc", flag: "🇨🇳" },
+    { id: "woodenDoor", flag: "🇨🇳" },
+    { id: "cabinet", flag: "🇨🇳" },
+    { id: "steelDoor", flag: "🇨🇳" },
+    { id: "fireproof", flag: "🇨🇳" },
+  ];
+
+  const productCategories = [
+    { id: 'doors', image: "/products/doors.jpg", icon: Home, color: "blue", index: 0 },
+    { id: 'panels', image: "/products/panels.jpg", icon: Layers, color: "purple", index: 1 },
+    { id: 'cabinetry', image: "/products/cabinets.jpg", icon: Settings, color: "indigo", index: 2 },
+  ];
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
-        <div className="absolute inset-0" style={{ background: "var(--gradient-radial)" }} />
-
-        {/* Floating Shapes */}
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-32 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-32 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/4 w-48 h-48 bg-indigo-400/15 rounded-full blur-2xl"
-        />
-
-        <div className="relative container-custom text-center z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.div variants={fadeInUp} className="mb-6">
-              <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-sm font-medium text-blue-700 mb-4">
-                25+ Years of Manufacturing Excellence
-              </span>
-            </motion.div>
-
-            <motion.h1 variants={fadeInUp} className="mb-6">
-              <span className="block text-gray-900">A Global Legacy in</span>
-              <span className="gradient-text">Manufacturing Excellence</span>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeInUp}
-              className="text-xl text-gray-600 max-w-2xl mx-auto mb-10"
-            >
-              Multinational manufacturer of doors, panels, and cabinetry serving commercial,
-              residential, hospitality, education, and healthcare projects across UAE and China.
-            </motion.p>
-
+      {/* Hero Section - Image Carousel */}
+      <section className="relative h-screen w-full overflow-hidden pt-20">
+        {/* Slides */}
+        <div className="relative h-full w-full">
+          {heroSlides.map((slide, index) => (
             <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: index === currentSlide ? 1 : 0 }}
+              transition={{ duration: 0.7 }}
+              className={`absolute inset-0 ${index === currentSlide ? 'z-10' : 'z-0'}`}
             >
-              <Link href="/about" className="btn-primary">
-                Discover More
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link href="/products" className="btn-secondary">
-                Explore Products
-              </Link>
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/30" />
             </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              variants={fadeInUp}
-              className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16"
-            >
-              {[
-                { value: "6", label: "Factories" },
-                { value: "2", label: "Countries" },
-                { value: "25+", label: "Years" },
-                { value: "1000+", label: "Projects" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <span className="text-4xl md:text-5xl font-bold gradient-text">{stat.value}</span>
-                  <p className="text-gray-500 mt-1">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
+          ))}
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        {/* Navigation Arrows */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all"
+          aria-label="Previous slide"
         >
-          <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex items-start justify-center p-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-3 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"
+          <ChevronLeft size={28} />
+        </button>
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1))}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all"
+          aria-label="Next slide"
+        >
+          <ChevronRight size={28} />
+        </button>
+
+        {/* Dot Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${index === currentSlide
+                  ? 'bg-white w-8'
+                  : 'bg-white/50 hover:bg-white/75'
+                }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
-          </div>
-        </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* About Section */}
@@ -190,29 +166,22 @@ export default function HomePage() {
               variants={staggerContainer}
             >
               <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
-                About Prime Connects
+                {t('about.sectionTitle')}
               </motion.span>
               <motion.h2 variants={fadeInUp} className="mb-6 text-gray-900">
-                Building Tomorrow's Spaces with{" "}
-                <span className="gradient-text">Quality & Innovation</span>
+                {t('about.headingStart')} {" "}
+                <span className="gradient-text">{t('about.headingGradient')}</span>
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-gray-600 mb-6 text-lg">
-                Primeconnects Doors & Cabinets Solutions is a multinational enterprise
-                integrating manufacturing and trade, with a strong legacy of over 25 years
-                in the industry. Originally established in China, our company has built a
-                reputation for quality and innovation in architectural decoration and
-                construction materials.
+                {t('about.desc1')}
               </motion.p>
               <motion.p variants={fadeInUp} className="text-gray-600 mb-8">
-                With a fully equipped manufacturing facility in the UAE, we proudly serve
-                the region with premium-quality doors, panels, and cabinetry — supported by
-                advanced R&D, skilled professionals, and a network of six factories across
-                China and the UAE.
+                {t('about.desc2')}
               </motion.p>
               <motion.div variants={fadeInUp}>
                 <Link href="/about" className="btn-primary">
-                  Learn More
-                  <ArrowRight className="w-5 h-5" />
+                  {t('about.learnMore')}
+                  <ArrowRight className="w-5 h-5 rtl:rotate-180" />
                 </Link>
               </motion.div>
             </motion.div>
@@ -225,14 +194,14 @@ export default function HomePage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-6 rounded-2xl bg-white shadow-lg flex items-center justify-center">
-                      <Image src="/logo.png" alt="Prime Connects" width={80} height={80} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Prime Connects</h3>
-                    <p className="text-gray-600">Manufacturing Excellence Since 1999</p>
-                  </div>
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/WecEaqY_9PQ?autoplay=1&mute=1"
+                    title="Prime Connects Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
                 </div>
               </div>
               {/* Decorative Elements */}
@@ -254,14 +223,13 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
-              Our Solutions
+              {t('products.sectionTitle')}
             </motion.span>
             <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-              Explore Our <span className="gradient-text">Product Range</span>
+              {t('products.headingStart')} <span className="gradient-text">{t('products.headingGradient')}</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
-              From precision-built doors to engineered panels and bespoke cabinetry,
-              we deliver reliable solutions for residential and commercial projects.
+              {t('products.description')}
             </motion.p>
           </motion.div>
 
@@ -272,9 +240,9 @@ export default function HomePage() {
             variants={staggerContainer}
             className="grid md:grid-cols-3 gap-8"
           >
-            {["Doors", "Panels", "Cabinetry"].map((category, index) => (
+            {productCategories.map((cat, index) => (
               <motion.div
-                key={category}
+                key={cat.id}
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
                 className="group relative rounded-2xl overflow-hidden bg-white shadow-lg"
@@ -283,23 +251,21 @@ export default function HomePage() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/80 backdrop-blur flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        {index === 0 && <Home className="w-10 h-10 text-blue-600" />}
-                        {index === 1 && <Layers className="w-10 h-10 text-purple-600" />}
-                        {index === 2 && <Settings className="w-10 h-10 text-indigo-600" />}
+                        <cat.icon className={`w-10 h-10 text-${cat.color}-600`} />
                       </div>
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{category}</h3>
-                  <p className="text-gray-500 text-sm mb-4">Premium quality {category.toLowerCase()} for all applications</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t(`products.categories.${cat.id}.title`)}</h3>
+                  <p className="text-gray-500 text-sm mb-4">{t(`products.categories.${cat.id}.desc`)}</p>
                   <Link
                     href={`/categories`}
                     className="inline-flex items-center text-blue-600 font-medium group-hover:gap-2 gap-1 transition-all"
                   >
-                    Explore
-                    <ArrowRight className="w-4 h-4" />
+                    {t('products.explore')}
+                    <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                   </Link>
                 </div>
                 {/* Gradient Border Effect */}
@@ -315,7 +281,7 @@ export default function HomePage() {
             className="text-center mt-12"
           >
             <Link href="/categories" className="btn-secondary">
-              View All Categories
+              {t('products.viewAll')}
             </Link>
           </motion.div>
         </div>
@@ -334,15 +300,14 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
-              Global Network
+              {t('global.sectionTitle')}
             </motion.span>
             <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-              <span className="gradient-text">6 Factories. 2 Countries.</span>
-              <br />One Standard of Excellence.
+              <span className="gradient-text">{t('global.headingGradient')}</span>
+              <br />{t('global.headingEnd')}
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
-              Primeconnects operates a multinational manufacturing network across the UAE and China,
-              ensuring consistent quality, reliable supply, and regional responsiveness.
+              {t('global.description')}
             </motion.p>
           </motion.div>
 
@@ -366,11 +331,11 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {factory.type}
+                      {t(`global.factories.${factory.id}.type`)}
                     </h3>
                     <p className="text-gray-500 text-sm flex items-center gap-1 mt-1">
                       <MapPin className="w-3 h-3" />
-                      {factory.city}
+                      {t(`global.factories.${factory.id}.city`)}
                     </p>
                   </div>
                 </div>
@@ -385,8 +350,8 @@ export default function HomePage() {
             className="text-center mt-12"
           >
             <Link href="/contact" className="btn-primary">
-              Contact Sales
-              <ArrowRight className="w-5 h-5" />
+              {t('global.contactSales')}
+              <ArrowRight className="w-5 h-5 rtl:rotate-180" />
             </Link>
           </motion.div>
         </div>
@@ -407,14 +372,13 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <motion.span variants={fadeInUp} className="text-blue-400 font-semibold mb-4 block">
-              Industries We Serve
+              {t('sectors.sectionTitle')}
             </motion.span>
             <motion.h2 variants={fadeInUp} className="text-white mb-4">
-              Trusted Across <span className="gradient-text">Sectors</span>
+              {t('sectors.headingStart')} <span className="gradient-text">{t('sectors.headingGradient')}</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-400 max-w-2xl mx-auto">
-              From commercial towers to private villas, Primeconnects delivers durable doors,
-              engineered panels, and cabinet systems tailored to each application.
+              {t('sectors.description')}
             </motion.p>
           </motion.div>
 
@@ -435,8 +399,8 @@ export default function HomePage() {
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <sector.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{sector.title}</h3>
-                <p className="text-gray-400">{sector.desc}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{t(`sectors.items.${sector.id}.title`)}</h3>
+                <p className="text-gray-400">{t(`sectors.items.${sector.id}.desc`)}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -448,11 +412,11 @@ export default function HomePage() {
             className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/contact" className="btn-primary">
-              Discuss Your Project
-              <ArrowRight className="w-5 h-5" />
+              {t('sectors.discussProject')}
+              <ArrowRight className="w-5 h-5 rtl:rotate-180" />
             </Link>
             <Link href="/products" className="btn-secondary !border-white/20 !text-black hover:!bg-white/10">
-              View Products
+              {t('sectors.viewProducts')}
             </Link>
           </motion.div>
         </div>
@@ -469,15 +433,14 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
-              Why Choose Us
+              {t('features.sectionTitle')}
             </motion.span>
             <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-              Engineered for Performance.
-              <br /><span className="gradient-text">Built for Longevity.</span>
+              {t('features.headingStart')}
+              <br /><span className="gradient-text">{t('features.headingGradient')}</span>
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
-              From material research to final inspection, Primeconnects combines advanced R&D,
-              stringent quality assurance, and tailored manufacturing to meet project specifications with confidence.
+              {t('features.description')}
             </motion.p>
           </motion.div>
 
@@ -498,8 +461,8 @@ export default function HomePage() {
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center mb-6 group-hover:from-blue-500 group-hover:to-purple-500 transition-all">
                   <feature.icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{t(`features.items.${feature.id}.title`)}</h3>
+                <p className="text-gray-600">{t(`features.items.${feature.id}.desc`)}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -513,15 +476,15 @@ export default function HomePage() {
           >
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Start Your Project?</h3>
-                <p className="text-gray-600">Multi-factory QA checkpoints • Rapid prototyping • Technical drawings & submittals support</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('features.cta.title')}</h3>
+                <p className="text-gray-600">{t('features.cta.desc')}</p>
               </div>
               <div className="flex gap-4">
                 <Link href="/contact" className="btn-primary">
-                  Request Specs
+                  {t('features.cta.requestSpecs')}
                 </Link>
                 <Link href="/products" className="btn-secondary">
-                  View Products
+                  {t('features.cta.viewProducts')}
                 </Link>
               </div>
             </div>

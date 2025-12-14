@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, MapPin, Award, CheckCircle } from "lucide-react";
+import { ArrowRight, Calendar, Award } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -15,20 +16,22 @@ const staggerContainer = {
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const timeline = [
-    { year: "1999", title: "Founded in China", description: "Established our first manufacturing facility in China, marking the beginning of our journey in architectural solutions." },
-    { year: "2015", title: "Expanded Product Lines", description: "Diversified our portfolio to include comprehensive door, panel, and cabinetry solutions for various sectors." },
-    { year: "2024", title: "UAE Manufacturing Unit", description: "Opened our state-of-the-art facility in UAE to better serve the Middle East and North Africa region." },
-];
-
-const certifications = [
-    "ISO 9001:2015 Quality Management",
-    "ISO 14001 Environmental Management",
-    "Fire Safety Compliance",
-    "Regional Building Codes",
-];
-
 export default function AboutPage() {
+    const { t } = useLanguage();
+
+    const timeline = [
+        { year: t('aboutPage.timeline1Year'), title: t('aboutPage.timeline1Title'), description: t('aboutPage.timeline1Desc') },
+        { year: t('aboutPage.timeline2Year'), title: t('aboutPage.timeline2Title'), description: t('aboutPage.timeline2Desc') },
+        { year: t('aboutPage.timeline3Year'), title: t('aboutPage.timeline3Title'), description: t('aboutPage.timeline3Desc') },
+    ];
+
+    const certifications = [
+        t('aboutPage.cert1'),
+        t('aboutPage.cert2'),
+        t('aboutPage.cert3'),
+        t('aboutPage.cert4'),
+    ];
+
     return (
         <>
             {/* Hero Section */}
@@ -44,17 +47,17 @@ export default function AboutPage() {
                         className="max-w-3xl"
                     >
                         <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
-                            About Us
+                            {t('aboutPage.badge')}
                         </motion.span>
                         <motion.h1 variants={fadeInUp} className="text-gray-900 mb-6">
-                            About <span className="gradient-text">Primeconnects</span>
+                            {t('aboutPage.title')} <span className="gradient-text">{t('aboutPage.titleHighlight')}</span>
                         </motion.h1>
                         <motion.p variants={fadeInUp} className="text-xl text-gray-600 mb-8">
-                            A multinational manufacturer of doors, panels, and cabinetry with 25+ years of excellence.
+                            {t('aboutPage.description')}
                         </motion.p>
                         <motion.div variants={fadeInUp}>
                             <Link href="/contact" className="btn-primary">
-                                Contact Us
+                                {t('aboutPage.contactUs')}
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </motion.div>
@@ -73,30 +76,26 @@ export default function AboutPage() {
                             variants={staggerContainer}
                         >
                             <motion.h2 variants={fadeInUp} className="text-gray-900 mb-6">
-                                Our Story & <span className="gradient-text">Legacy</span>
+                                {t('aboutPage.storyTitle')} <span className="gradient-text">{t('aboutPage.storyHighlight')}</span>
                             </motion.h2>
                             <motion.p variants={fadeInUp} className="text-gray-600 mb-6 text-lg">
-                                Primeconnects integrates manufacturing and trade with a legacy of innovation and quality.
-                                Originally established in China, we expanded with a fully equipped UAE facility to serve
-                                the region with premium solutions.
+                                {t('aboutPage.storyP1')}
                             </motion.p>
                             <motion.p variants={fadeInUp} className="text-gray-600 mb-6">
-                                Today, we combine advanced R&D, disciplined quality control, and customer-first service
-                                across every project. Our mission is to deliver durable, precision-crafted products that
-                                combine technology, craftsmanship, and design excellence.
+                                {t('aboutPage.storyP2')}
                             </motion.p>
                             <motion.div variants={fadeInUp} className="flex flex-wrap gap-8 mt-8">
                                 <div className="text-center">
                                     <span className="text-4xl font-bold gradient-text">25+</span>
-                                    <p className="text-gray-500 text-sm">Years Experience</p>
+                                    <p className="text-gray-500 text-sm">{t('aboutPage.yearsExp')}</p>
                                 </div>
                                 <div className="text-center">
                                     <span className="text-4xl font-bold gradient-text">6</span>
-                                    <p className="text-gray-500 text-sm">Factories</p>
+                                    <p className="text-gray-500 text-sm">{t('aboutPage.factories')}</p>
                                 </div>
                                 <div className="text-center">
                                     <span className="text-4xl font-bold gradient-text">2</span>
-                                    <p className="text-gray-500 text-sm">Countries</p>
+                                    <p className="text-gray-500 text-sm">{t('aboutPage.countries')}</p>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -111,8 +110,8 @@ export default function AboutPage() {
                                 <div className="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                                     <div className="text-center p-8">
                                         <Image src="/logo.png" alt="Prime Connects" width={150} height={150} className="mx-auto mb-6" />
-                                        <h3 className="text-2xl font-bold text-gray-800">Prime Connects</h3>
-                                        <p className="text-gray-600">Excellence in Every Detail</p>
+                                        <h3 className="text-2xl font-bold text-gray-800">{t('aboutPage.companyName')}</h3>
+                                        <p className="text-gray-600">{t('aboutPage.companyTagline')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +133,7 @@ export default function AboutPage() {
                         className="text-center mb-16"
                     >
                         <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-                            Our <span className="gradient-text">Journey</span>
+                            {t('aboutPage.journeyTitle')} <span className="gradient-text">{t('aboutPage.journeyHighlight')}</span>
                         </motion.h2>
                     </motion.div>
 
@@ -178,10 +177,10 @@ export default function AboutPage() {
                         className="text-center mb-16"
                     >
                         <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-                            Certifications & <span className="gradient-text">Compliance</span>
+                            {t('aboutPage.certTitle')} <span className="gradient-text">{t('aboutPage.certHighlight')}</span>
                         </motion.h2>
                         <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
-                            Our processes align with international standards for safety and quality.
+                            {t('aboutPage.certDesc')}
                         </motion.p>
                     </motion.div>
 
@@ -210,7 +209,7 @@ export default function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white mb-20">
                 <div className="container-custom text-center">
                     <motion.div
                         initial="hidden"
@@ -219,14 +218,14 @@ export default function AboutPage() {
                         variants={staggerContainer}
                     >
                         <motion.h2 variants={fadeInUp} className="text-white mb-4">
-                            Ready to Work With Us?
+                            {t('aboutPage.ctaTitle')}
                         </motion.h2>
                         <motion.p variants={fadeInUp} className="text-blue-100 max-w-2xl mx-auto mb-8">
-                            Let's discuss how we can help bring your project to life with our premium doors, panels, and cabinetry solutions.
+                            {t('aboutPage.ctaDesc')}
                         </motion.p>
                         <motion.div variants={fadeInUp}>
                             <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors">
-                                Get in Touch
+                                {t('aboutPage.ctaButton')}
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </motion.div>
