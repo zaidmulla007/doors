@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Globe, Download } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { navigationCategories } from "../lib/constants";
 
 // Brochures data (PDFs will be added later)
 const brochures = [
@@ -42,6 +43,7 @@ export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [isBrochuresOpen, setIsBrochuresOpen] = useState(false);
 
@@ -53,13 +55,10 @@ export default function Header() {
 
     const currentLangLabel = languages.find(l => l.code === language)?.label || "English";
 
-    const corePanelOptions = [
-        { name: "Melamine Faced Plywood", href: "/product/melamine-faced-plywood" },
-        { name: "Film Faced Plywood", href: "/product/film-faced-plywood" },
-        { name: "Melamine Faced MDF Panels", href: "/product/melamine-faced-mdf-panels" },
-        { name: "FILM FACED MDF PANELS", href: "/product/film-faced-mdf-panels" },
-        { name: "Core Panel Plywood", href: "/product/core-panel-plywood" },
-    ];
+
+
+    // Use shared navigation categories
+    const productCategories = navigationCategories;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -71,9 +70,7 @@ export default function Header() {
 
     const navLinks = [
         { name: t('header.home'), href: "/" },
-        { name: t('header.corePanels'), href: "/products?category=Core Panels", hasDropdown: true },
-        { name: t('header.categories'), href: "/categories" },
-        { name: t('header.products'), href: "/products" },
+        { name: t('header.products'), href: "/products", hasDropdown: true },
         { name: t('header.about'), href: "/about" },
         { name: t('header.contact'), href: "/contact" },
     ];
@@ -133,7 +130,12 @@ export default function Header() {
                                 key={link.name}
                                 className="relative group"
                                 onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
-                                onMouseLeave={() => link.hasDropdown && setActiveDropdown(null)}
+                                onMouseLeave={() => {
+                                    if (link.hasDropdown) {
+                                        setActiveDropdown(null);
+                                        setActiveCategory(null);
+                                    }
+                                }}
                             >
                                 <Link
                                     href={link.href}
@@ -143,7 +145,7 @@ export default function Header() {
                                     {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
                                 </Link>
 
-                                {/* Dropdown Menu */}
+                                {/* Mega Menu Dropdown */}
                                 {link.hasDropdown && (
                                     <AnimatePresence>
                                         {activeDropdown === link.name && (
@@ -152,18 +154,81 @@ export default function Header() {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0, y: 10 }}
                                                 transition={{ duration: 0.2 }}
-                                                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64"
+                                                className="absolute left-0 top-full pt-4 z-50"
                                             >
-                                                <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden p-2">
-                                                    {corePanelOptions.map((option) => (
-                                                        <Link
-                                                            key={option.name}
-                                                            href={option.href}
-                                                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors"
-                                                        >
-                                                            {option.name}
-                                                        </Link>
-                                                    ))}
+                                                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex shadow-blue-900/5">
+                                                    {/* Left Sidebar: Categories */}
+                                                    <div className="w-64 bg-white p-2 flex flex-col gap-1">
+                                                        {productCategories.map((category) => {
+                                                            if (category.name === "Color Card") {
+                                                                return (
+                                                                    <Link
+                                                                        key={category.name}
+                                                                        href={`/product/${category.items[0]?.slug || 'color-card'}`}
+                                                                        onMouseEnter={() => setActiveCategory(null)}
+                                                                        className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                                                    >
+                                                                        <div className="flex items-center gap-3">
+                                                                            <span className="font-medium text-sm">{category.name}</span>
+                                                                        </div>
+                                                                    </Link>
+                                                                );
+                                                            }
+                                                            return (
+                                                                <div
+                                                                    key={category.name}
+                                                                    onMouseEnter={() => setActiveCategory(category.name)}
+                                                                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.name
+                                                                        ? "bg-blue-50 text-blue-600"
+                                                                        : "text-gray-600 hover:bg-gray-50"
+                                                                        }`}
+                                                                >
+                                                                    <div className="flex items-center gap-3">
+                                                                        <span className="font-medium text-sm">{category.name}</span>
+                                                                    </div>
+                                                                    {activeCategory === category.name && (
+                                                                        <ChevronDown className="w-4 h-4 rotate-[-90deg] text-blue-600" />
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+
+                                                    {/* Right Content: Items - Only Visible if Category Active */}
+                                                    {activeCategory && (
+                                                        <div className="w-[800px] p-6 bg-gray-50/50 border-l border-gray-100 min-h-[300px]">
+                                                            <div className="h-full flex flex-col">
+                                                                <div className="mb-4 pb-3 border-b border-gray-200 flex items-baseline justify-between">
+                                                                    <h3 className="text-xl font-bold text-gray-900">
+                                                                        {activeCategory}
+                                                                    </h3>
+                                                                    <Link
+                                                                        href={`/products?category=${activeCategory}`}
+                                                                        className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                                                                    >
+                                                                        View All <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
+                                                                    </Link>
+                                                                </div>
+
+                                                                <div className="grid grid-cols-3 gap-4 content-start">
+                                                                    {productCategories
+                                                                        .find(c => c.name === activeCategory)
+                                                                        ?.items.map((item, idx) => (
+                                                                            <Link
+                                                                                key={idx}
+                                                                                href={`/product/${item.slug}`}
+                                                                                className="group flex items-center gap-3 p-2 rounded-lg bg-white border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all"
+                                                                            >
+                                                                                <div className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
+                                                                                <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
+                                                                                    {item.name}
+                                                                                </span>
+                                                                            </Link>
+                                                                        ))}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </motion.div>
                                         )}
@@ -250,16 +315,25 @@ export default function Header() {
                                             {link.name}
                                         </Link>
                                         {link.hasDropdown && (
-                                            <div className="pl-4 mt-2 border-l-2 border-gray-100 space-y-2">
-                                                {corePanelOptions.map(option => (
-                                                    <Link
-                                                        key={option.name}
-                                                        href={option.href}
-                                                        onClick={() => setIsMobileMenuOpen(false)}
-                                                        className="block text-gray-600 text-sm py-1"
-                                                    >
-                                                        {option.name}
-                                                    </Link>
+                                            <div className="mt-3 space-y-4">
+                                                {productCategories.map((category, catIndex) => (
+                                                    <div key={catIndex} className="pl-4 border-l-2 border-blue-200">
+                                                        <div className="flex items-center gap-2 mb-2">
+                                                            <span className="font-medium text-gray-800 text-sm">{category.name}</span>
+                                                        </div>
+                                                        <div className="pl-4 space-y-1">
+                                                            {category.items.map((item, itemIndex) => (
+                                                                <Link
+                                                                    key={itemIndex}
+                                                                    href={`/product/${item.slug}`}
+                                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                                    className="block text-gray-600 text-xs py-1 hover:text-blue-600"
+                                                                >
+                                                                    {item.name}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
                                                 ))}
                                             </div>
                                         )}

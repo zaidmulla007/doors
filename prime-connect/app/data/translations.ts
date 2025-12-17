@@ -192,6 +192,7 @@ export const translations = {
             productImages: "Product Images",
             noImage: "No Image",
             inquire: "Inquire",
+            features: "Key Features",
             specifications: "Product Specifications",
             applications: "Applications"
         },
@@ -394,6 +395,7 @@ export const translations = {
             productImages: "صور المنتج",
             noImage: "لا توجد صورة",
             inquire: "استفسار",
+            features: "الميزات الرئيسية",
             specifications: "مواصفات المنتج",
             applications: "التطبيقات"
         },
@@ -596,6 +598,7 @@ export const translations = {
             productImages: "产品图片",
             noImage: "无图片",
             inquire: "咨询",
+            features: "主要特点",
             specifications: "产品规格",
             applications: "应用领域"
         },

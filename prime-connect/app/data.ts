@@ -3,304 +3,436 @@ export const categories = [
         id: "doors",
         name: { en: "Doors", ar: "أبواب", zh: "门" },
         description: {
-            en: "Interior, exterior, fire-rated, and specialty doors for all applications",
-            ar: "أبواب داخلية وخارجية ومقاومة للحريق ومتخصصة لجميع الاستخدامات",
-            zh: "适用于所有应用的室内门、室外门、防火门和特种门"
+            en: "Wide range of high quality doors including PVC, Melamine, WPC, and Fire-rated options.",
+            ar: "تشكيلة واسعة من الأبواب عالية الجودة بما في ذلك PVC والميلامين و WPC والخيارات المقاومة للحريق.",
+            zh: "种类繁多的优质门，包括PVC、三聚氰胺、WPC和防火选项。"
         },
         image: "https://images.unsplash.com/photo-1582205313222-297eb040854d?auto=format&fit=crop&w=800&q=80",
         slug: "doors"
     },
     {
-        id: "core-panels",
-        name: { en: "Core Panels", ar: "الألواح الأساسية", zh: "核心板材" },
+        id: "cabinet",
+        name: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
         description: {
-            en: "MDF, WPC, plywood, and specialty panel solutions",
-            ar: "حلول MDF و WPC والخشب الرقائقي والألواح المتخصصة",
-            zh: "MDF、WPC、胶合板和特种面板解决方案"
-        },
-        image: "https://images.unsplash.com/photo-1519962533758-d42111d40eb8?auto=format&fit=crop&w=800&q=80",
-        slug: "core-panels"
-    },
-    {
-        id: "doors-hardware-accessories",
-        name: { en: "Doors Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
-        description: {
-            en: "Essential hardware including hinges, locks, and handles",
-            ar: "الأجهزة الأساسية بما في ذلك المفصلات والأقفال والمقابض",
-            zh: "包括铰链、锁和把手在内的基本五金件"
-        },
-        image: "https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=800&q=80",
-        slug: "doors-hardware-accessories"
-    },
-    {
-        id: "general-items",
-        name: { en: "General Items", ar: "عناصر عامة", zh: "通用物品" },
-        description: {
-            en: "Various construction and finishing items",
-            ar: "عناصر البناء والتشطيب المختلفة",
-            zh: "各种建筑和装修物品"
-        },
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-        slug: "general-items"
-    },
-    {
-        id: "miscellaneous-items",
-        name: { en: "Miscellaneous Items", ar: "عناصر متنوعة", zh: "杂项物品" },
-        description: {
-            en: "Additional accessories and components",
-            ar: "الملحقات والمكونات الإضافية",
-            zh: "其他配件和组件"
-        },
-        image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80",
-        slug: "miscellaneous-items"
-    },
-    {
-        id: "kitchen-cabinets",
-        name: { en: "Kitchen Cabinets", ar: "خزائن المطبخ", zh: "厨柜" },
-        description: {
-            en: "Modern kitchen systems and cabinetry",
-            ar: "أنظمة المطابخ الحديثة والخزائن",
-            zh: "现代厨房系统和橱柜"
+            en: "Modern cabinets for kitchen, closets, and storage solutions.",
+            ar: "خزائن حديثة للمطبخ والخزائن وحلول التخزين.",
+            zh: "用于厨房、衣柜和储藏解决方案的现代橱柜。"
         },
         image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80",
-        slug: "kitchen-cabinets"
+        slug: "cabinet"
     },
     {
-        id: "wardrobes",
-        name: { en: "Wardrobes", ar: "خزائن الملابس", zh: "衣柜" },
+        id: "color-card",
+        name: { en: "Color Card", ar: "بطاقة الألوان", zh: "色卡" },
         description: {
-            en: "Custom wardrobe solutions",
-            ar: "حلول خزائن الملابس المخصصة",
-            zh: "定制衣柜解决方案"
+            en: "Explore our variety of material finishes and color options.",
+            ar: "استكشف مجموعتنا المتنوعة من تشطيبات المواد وخيارات الألوان.",
+            zh: "探索我们要种材料饰面和颜色选项。"
         },
-        image: "https://images.unsplash.com/photo-1595415729796-b072e2d96c81?auto=format&fit=crop&w=800&q=80",
-        slug: "wardrobes"
+        image: "https://images.unsplash.com/photo-1523456722026-6b21ba37ee1d?auto=format&fit=crop&w=800&q=80",
+        slug: "color-card"
+    },
+    {
+        id: "hardware-accessories",
+        name: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
+        description: {
+            en: "Essential hardware components for doors and cabinets.",
+            ar: "مكونات الأجهزة الأساسية للأبواب والخزائن.",
+            zh: "门和橱柜的基本五金组件。"
+        },
+        image: "https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=800&q=80",
+        slug: "hardware-accessories"
     }
 ];
 
 export const products = [
-    // CORE PANELS - Specific Data from User Screenshots
+    // --- CORE PANELS ---
     {
         id: "melamine-faced-plywood",
-        name: {
-            en: "Melamine Faced Plywood",
-            ar: "خشب رقائقي مغطى بالميلامين",
-            zh: "三聚氰胺贴面胶合板"
-        },
-        category: { en: "Core Panels", ar: "الألواح الأساسية", zh: "核心板材" },
+        name: { en: "Melamine Faced Plywood", ar: "خشب رقائقي مغطى بالميلامين", zh: "三聚氰胺贴面胶合板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "melamine-faced-plywood",
-        description: {
-            en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor",
-            ar: "لوح أنيق ومتين بسطح مغطى بالميلامين يوفر تشطيبًا زخرفيًا ومقاومة للخدوش والبقع. مثالي للأثاث والخزائن وتغطية الجدران والديكور الداخلي",
-            zh: "一种优雅耐用的板材，带有三聚氰胺涂层表面，提供装饰性饰面，耐刮擦和污渍。适用于家具、橱柜、墙板和室内装饰"
+        description: { en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor.", ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع.", zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。" },
+        images: ["https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=800&q=80"],
+        specifications: {
+            "Thickness": "6mm-25mm",
+            "Sizes": "1220X2440X18mm,1220X2440X15mm or as per customers' required specifications",
+            "Glue": "E0,E1,E2,MR",
+            "Density": "680-780KG/m3",
+            "Moisture": "8–20%",
+            "Surface finish": "Melamine Paper",
+            "Color": "Solid color (white, black, blue, etc.); wood grain (cherry, beech, walnut, etc.)",
+            "Material": "Wood Chips (Poplar, Pine, Combi etc.)",
+            "Usage": "High-end Furniture Wardrobe/Kitchen Cabinet/TV Cabinet/Closets",
+            "Certifications": "CARB, CE,ISO9001:2000, ISO14001"
         },
-        specifications: [
-            { key: { en: "Thickness", ar: "السماكة", zh: "厚度" }, value: "6mm-25mm" },
-            { key: { en: "Sizes", ar: "الأحجام", zh: "尺寸" }, value: "1220x2440x18mm, 1220x2440x15mm" },
-            { key: { en: "Glue", ar: "الغراء", zh: "胶水" }, value: "E0, E1, E2, MR" },
-            { key: { en: "Density", ar: "الكثافة", zh: "密度" }, value: "680-780KG/m3" },
-            { key: { en: "Moisture", ar: "الرطوبة", zh: "含水率" }, value: "8-20%" },
-            { key: { en: "Surface finish", ar: "التشطيب السطحي", zh: "表面处理" }, value: { en: "Melamine Paper", ar: "ورق الميلامين", zh: "三聚氰胺纸" } },
-            { key: { en: "Color", ar: "اللون", zh: "颜色" }, value: { en: "Solid colors, wood grain", ar: "ألوان صلبة، حبيبات خشبية", zh: "纯色、木纹" } },
-            { key: { en: "Material", ar: "المادة", zh: "材料" }, value: { en: "Wood Chips (Poplar, Pine)", ar: "رقائق الخشب (الحور، الصنوبر)", zh: "木屑（杨木、松木）" } },
-            { key: { en: "Usage", ar: "الاستخدام", zh: "用途" }, value: { en: "Furniture, Wardrobe, Kitchen Cabinet", ar: "الأثاث، خزانة الملابس، خزانة المطبخ", zh: "家具、衣柜、厨柜" } },
-            { key: { en: "Certifications", ar: "الشهادات", zh: "认证" }, value: "CARB, CE, ISO9001, ISO14001" }
-        ],
-        images: ["https://images.unsplash.com/photo-1610368153400-u7t6241b711d?auto=format&fit=crop&w=800&q=80"]
+        variants: Array.from({ length: 6 }, (_, i) => ({
+            name: `MFP-${100 + i}`,
+            image: `https://images.unsplash.com/photo-${['1517646331032-9e8563c523a1', '1582205313222-297eb040854d'][i % 2]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
     {
         id: "film-faced-plywood",
-        name: {
-            en: "Film Faced Plywood",
-            ar: "خشب رقائقي مغطى بالفيلم",
-            zh: "覆膜胶合板"
-        },
-        category: { en: "Core Panels", ar: "الألواح الأساسية", zh: "核心板材" },
+        name: { en: "Film Faced Plywood", ar: "خشب رقائقي مغطى بالفيلم", zh: "覆膜胶合板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "film-faced-plywood",
-        description: {
-            en: "Film Faced Plywood is a durable, water-resistant plywood coated with a protective film, widely used for concrete formwork and construction",
-            ar: "خشب رقائقي مغطى بالفيلم هو خشب متين ومقاوم للماء مغطى بفيلم واقي، يستخدم على نطاق واسع في صب الخرسانة والبناء",
-            zh: "覆膜胶合板是一种耐用、防水的胶合板，涂有保护膜，广泛用于混凝土模板和建筑"
+        description: { en: "Film Faced Plywood is a durable, water-resistant plywood coated with a protective film, widely used for concrete formwork and construction.", ar: "خشب رقائقي مغطى بالفيلم متين ومقاوم للماء ومغطى بفيلم واقٍ، ويستخدم على نطاق واسع في قوالب الخرسانة والبناء.", zh: "覆膜胶合板是一种耐用、防水的胶合板，涂有保护膜，广泛用于混凝土模板和建筑。" },
+        images: ["https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Furniture Manufacturing: Beds, Tables, Cabinets", "Building Decoration: Wall panels, Ceilings", "Display Racks & Moldings", "Construction & Flooring: Formwork"],
+            ar: ["تصنيع الأثاث", "زخرفة المباني", "رفوف العرض", "البناء والأرضيات"],
+            zh: ["家具制造", "建筑装饰", "展示架", "建筑和地板"]
         },
-        specifications: [
-            { key: { en: "Thickness", ar: "السماكة", zh: "厚度" }, value: "1-25mm" },
-            { key: { en: "Sizes", ar: "الأحجام", zh: "尺寸" }, value: "1220x2440mm, 1535x2440mm, 1830x2440mm" },
-            { key: { en: "Glue", ar: "الغراء", zh: "胶水" }, value: "E2, E1, E0, CARB" },
-            { key: { en: "Density", ar: "الكثافة", zh: "密度" }, value: "680-1000 kg/m³" },
-            { key: { en: "Moisture", ar: "الرطوبة", zh: "含水率" }, value: "4-12%" },
-            { key: { en: "Surface finish", ar: "التشطيب السطحي", zh: "表面处理" }, value: "VENEER" },
-            { key: { en: "Material", ar: "المادة", zh: "材料" }, value: { en: "Poplar, Pine, Hardwood", ar: "الحور، الصنوبر، الخشب الصلب", zh: "杨木、松木、硬木" } },
-            { key: { en: "Certifications", ar: "الشهادات", zh: "认证" }, value: "CARB, CE, ISO9001, ISO14001" }
-        ],
-        applications: [
-            { en: "Furniture Manufacturing: Used for making strong, stylish, and durable furniture pieces", ar: "تصنيع الأثاث: يستخدم لصنع قطع أثاث قوية وأنيقة ومتينة", zh: "家具制造：用于制作坚固、时尚、耐用的家具" },
-            { en: "Cabinets & Wardrobes: Ideal for modular kitchens and wardrobes", ar: "الخزائن والدواليب: مثالي للمطابخ النمطية والدواليب", zh: "橱柜和衣柜：适用于模块化厨房和衣柜" },
-            { en: "Partitions & Displays: Strong and decorative option for office and retail", ar: "الفواصل والعروض: خيار قوي وزخرفي للمكاتب والتجزئة", zh: "隔断和展示：办公室和零售的坚固装饰选择" },
-            { en: "Construction & Flooring: Durable panels for formwork and flooring", ar: "البناء والأرضيات: ألواح متينة للقوالب والأرضيات", zh: "建筑和地板：用于模板和地板的耐用板材" }
-        ],
-        images: ["https://images.unsplash.com/photo-1541363659972-0050aa738e4a?auto=format&fit=crop&w=800&q=80"]
+        specifications: {
+            "Thickness": "1-25mm or customized",
+            "Sizes": "1220x2440mm, 1535x2440mm 1830x2440mm",
+            "Glue": "E2, E1, E0, CARB",
+            "Density": "680kgs/m3 ~ 1000kgs/m3",
+            "Moisture": "4-12%",
+            "Surface finish": "VENEER",
+            "Color": "Solid colors, wood grain, stone colors, etc.",
+            "Material": "Poplar, Pine and hardwood combi",
+            "Usage": "Furniture manufacturing, building decoration, display racks",
+            "Certifications": "CARB, CE,ISO9001:2000, ISO14001"
+        },
+        variants: Array.from({ length: 6 }, (_, i) => ({
+            name: `FFP-${200 + i}`,
+            image: `https://images.unsplash.com/photo-${['1595166442656-7876a4ba0c7b', '1613545325278-f24b0cae1224'][i % 2]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
     {
         id: "melamine-faced-mdf-panels",
-        name: {
-            en: "Melamine Faced MDF Panels",
-            ar: "ألواح MDF مغطاة بالميلامين",
-            zh: "三聚氰胺贴面MDF板"
-        },
-        category: { en: "Core Panels", ar: "الألواح الأساسية", zh: "核心板材" },
+        name: { en: "Melamine Faced MDF Panels", ar: "ألواح MDF مغطاة بالميلامين", zh: "三聚氰胺贴面MDF板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "melamine-faced-mdf-panels",
-        description: {
-            en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor.",
-            ar: "لوح أنيق ومتين بسطح مغطى بالميلامين يوفر تشطيبًا زخرفيًا ومقاومة للخدوش والبقع. مثالي للأثاث والخزائن وتغطية الجدران والديكور الداخلي.",
-            zh: "一种优雅耐用的板材，带有三聚氰胺涂层表面，提供装饰性饰面，耐刮擦和污渍。适用于家具、橱柜、墙板和室内装饰。"
+        description: { en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor.", ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع.", zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。" },
+        images: ["https://images.unsplash.com/photo-1543444465-34372e90c51e?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Shelving & Racks", "Doors & Panels", "Hotel & Restaurant Interiors", "False Ceilings"],
+            ar: ["الأرفف والرفوف", "الأبواب واللوحات", "الديكورات الداخلية للفنادق والمطاعم", "الأسقف المستعارة"],
+            zh: ["货架和架子", "门和面板", "酒店和餐厅内饰", "吊顶"]
         },
-        specifications: [
-            { key: { en: "Thickness", ar: "السماكة", zh: "厚度" }, value: "2.5mm - 25mm" },
-            { key: { en: "Glue", ar: "الغراء", zh: "胶水" }, value: "E0/E1/E2" },
-            { key: { en: "Density", ar: "الكثافة", zh: "密度" }, value: { en: "Wood fiber core", ar: "لب ألياف الخشب", zh: "木纤维芯" } },
-            { key: { en: "Moisture", ar: "الرطوبة", zh: "含水率" }, value: { en: "Standard moisture resistance", ar: "مقاومة رطوبة قياسية", zh: "标准防潮" } },
-            { key: { en: "Surface finish", ar: "التشطيب السطحي", zh: "表面处理" }, value: { en: "Plain, Matt, Textured, High-gloss", ar: "سادة، مطفي، محكم، لامع", zh: "平面、哑光、纹理、高光" } }
-        ],
-        applications: [
-            { en: "Shelving & Racks: Strong and stylish option for storage", ar: "الأرفف والحوامل: خيار قوي وأنيق للتخزين", zh: "货架：坚固时尚的存储选择" },
-            { en: "Doors & Panels: Provides smooth and durable surface for interior doors", ar: "الأبواب والألواح: توفر سطحًا ناعمًا ومتينًا للأبواب الداخلية", zh: "门板：为室内门提供光滑耐用的表面" },
-            { en: "Hotel & Restaurant Interiors: Adds warmth and elegance", ar: "ديكورات الفنادق والمطاعم: تضيف الدفء والأناقة", zh: "酒店和餐厅室内设计：增添温馨和优雅" },
-            { en: "False Ceilings: Enhances interiors with decorative wooden ceiling panels", ar: "الأسقف المعلقة: تعزز الديكورات الداخلية بألواح خشبية زخرفية", zh: "吊顶：装饰木质天花板美化室内" }
-        ],
-        images: ["https://images.unsplash.com/photo-1620615307374-2dc4aa441999?auto=format&fit=crop&w=800&q=80"]
+        specifications: {
+            "Thickness": "2.5 mm to 25 mm (Common: 9, 12, 15, 17, 18 mm)",
+            "Glue": "E0/E1/E2 bonding systems",
+            "Density": "Wood fiber core (poplar, pine, hardwood)",
+            "Moisture": "Standard moisture resistance (Interior)",
+            "Surface finish": "Plain, melamine (matt, textured, gloss, embossed)",
+            "Color": "Solid colors, wood grain, marble patterns",
+            "Material": "Wood fiber (poplar, pine, combi)",
+            "Usage": "Furniture, interior decoration, flooring",
+            "Certifications": "CARB, CE,ISO9001:2000, ISO14001"
+        },
+        variants: Array.from({ length: 6 }, (_, i) => ({
+            name: `MDF-P-${300 + i}`,
+            image: `https://images.unsplash.com/photo-${['1543444465-34372e90c51e', '1517646331032-9e8563c523a1'][i % 2]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
     {
         id: "film-faced-mdf-panels",
-        name: {
-            en: "Film Faced MDF Panels",
-            ar: "ألواح MDF مغطاة بالفيلم",
-            zh: "覆膜MDF板"
-        },
-        category: { en: "Core Panels", ar: "الألواح الأساسية", zh: "核心板材" },
+        name: { en: "Film Faced MDF Panels", ar: "ألواح MDF مغطاة بالفيلم", zh: "覆膜MDF板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "film-faced-mdf-panels",
-        description: {
-            en: "A strong and durable panel with a smooth film coating that provides resistance to moisture, wear, and abrasion. It is widely used in construction formwork, shuttering, and other heavy-duty applications where reusability and strength are essential",
-            ar: "لوح قوي ومتين بطلاء فيلم ناعم يوفر مقاومة للرطوبة والتآكل. يستخدم على نطاق واسع في قوالب البناء والتطبيقات الشاقة",
-            zh: "一种坚固耐用的板材，覆有光滑的薄膜涂层，具有防潮、耐磨性能。广泛用于建筑模板和其他重型应用"
-        },
-        images: ["https://images.unsplash.com/photo-1549419137-b6a6773295c5?auto=format&fit=crop&w=800&q=80"]
+        description: { en: "A strong and durable panel with a smooth film coating that provides resistance to moisture, wear, and abrasion. It is widely used in construction formwork, shuttering, and heavy-duty applications.", ar: "لوح قوي ومتين بطبقة فيلم ناعمة توفر مقاومة للرطوبة والتآكل والاحتكاك.", zh: "一种坚固耐用的面板，具有光滑的薄膜涂层，可防潮、耐磨和耐磨损。" },
+        images: ["https://images.unsplash.com/photo-1622372738946-67e0231446f1?auto=format&fit=crop&w=800&q=80"],
+        variants: Array.from({ length: 6 }, (_, i) => ({
+            name: `FFMDF-${400 + i}`,
+            image: `https://images.unsplash.com/photo-${['1622372738946-67e0231446f1', '1595166442656-7876a4ba0c7b'][i % 2]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
     {
         id: "core-panel-plywood",
-        name: {
-            en: "Core Panel Plywood",
-            ar: "خشب رقائقي أساسي",
-            zh: "芯板胶合板"
-        },
-        category: { en: "Core Panels", ar: "الألواح الأساسية", zh: "核心板材" },
+        name: { en: "Core Panel Plywood", ar: "خشب رقائقي للألواح الأساسية", zh: "芯板胶合板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "core-panel-plywood",
-        description: {
-            en: "Core Panel Plywood - Strong and stable plywood made with layered wood veneers at the core, ideal for doors, partitions, furniture, and wall panels",
-            ar: "خشب رقائقي أساسي - خشب قوي ومستقر مصنوع من طبقات من القشرة الخشبية، مثالي للأبواب والفواصل والأثاث والألواح الجدارية",
-            zh: "芯板胶合板 - 由层状木材单板制成的坚固稳定的胶合板，适用于门、隔断、家具和墙板"
-        },
-        specifications: [
-            { key: { en: "Thickness", ar: "السماكة", zh: "厚度" }, value: "2.5mm - 25mm" },
-            { key: { en: "Glue", ar: "الغراء", zh: "胶水" }, value: "E0/E1/E2" },
-            { key: { en: "Density", ar: "الكثافة", zh: "密度" }, value: { en: "Wood fiber core", ar: "لب ألياف الخشب", zh: "木纤维芯" } },
-            { key: { en: "Moisture", ar: "الرطوبة", zh: "含水率" }, value: { en: "Standard moisture resistance", ar: "مقاومة رطوبة قياسية", zh: "标准防潮" } },
-            { key: { en: "Surface finish", ar: "التشطيب السطحي", zh: "表面处理" }, value: { en: "Plain, various melamine finishes", ar: "سادة، تشطيبات ميلامين متنوعة", zh: "平面、各种三聚氰胺饰面" } },
-            { key: { en: "Color", ar: "اللون", zh: "颜色" }, value: { en: "Solid colors, wood grain colors", ar: "ألوان صلبة، ألوان حبيبات الخشب", zh: "纯色、木纹色" } },
-            { key: { en: "Material", ar: "المادة", zh: "材料" }, value: { en: "Poplar, Pine or combination", ar: "الحور، الصنوبر أو مزيج", zh: "杨木、松木或组合" } },
-            { key: { en: "Usage", ar: "الاستخدام", zh: "用途" }, value: { en: "Furniture, interior decoration", ar: "الأثاث، الديكور الداخلي", zh: "家具、室内装饰" } },
-            { key: { en: "Certifications", ar: "الشهادات", zh: "认证" }, value: "CARB, CE, ISO9001, ISO14001" }
-        ],
-        images: ["https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80"]
+        description: { en: "Strong and stable plywood made with layered wood veneers at the core, ideal for doors, partitions, furniture, and wall panels.", ar: "خشب رقائقي قوي ومستقر مصنوع من قشرة خشبية ذات طبقات في القلب، مثالي للأبواب والجدران والأثاث وألواح الجدران.", zh: "坚固稳定的胶合板，核心由层状木单板制成，是门、隔断、家具和墙板的理想选择。" },
+        images: ["https://images.unsplash.com/photo-1519962533758-d42111d40eb8?auto=format&fit=crop&w=800&q=80"],
+        variants: Array.from({ length: 6 }, (_, i) => ({
+            name: `CPP-${500 + i}`,
+            image: `https://images.unsplash.com/photo-${['1519962533758-d42111d40eb8', '1582205313222-297eb040854d'][i % 2]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
 
-    // Other Existing Products
+    // --- DOORS ---
+    // --- DOORS ---
+    {
+        id: "mdf-doors",
+        name: { en: "MDF DOORS", ar: "أبواب MDF", zh: "MDF门" },
+        category: { en: "Doors", ar: "أبواب", zh: "门" },
+        slug: "mdf-doors",
+        description: { en: "Durable MDF doors available in various designs and finishes.", ar: "أبواب MDF متينة متوفرة بتصاميم وتشطيبات مختلفة.", zh: "耐用的MDF门，有多种设计和饰面可供选择。" },
+        images: ["https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Versatile Design", "Smooth Finish", "Cost-Effective"],
+            ar: ["تصميم متعدد الاستخدامات", "تشطيب ناعم", "فعال من حيث التكلفة"],
+            zh: ["多功能设计", "光滑饰面", "性价比高"]
+        },
+        specifications: {
+            "Material": "MDF",
+            "Thickness": "35mm - 45mm",
+            "Warranty": "3 Years"
+        },
+        variants: Array.from({ length: 12 }, (_, i) => ({
+            name: `MDF-${100 + i}`,
+            image: `https://images.unsplash.com/photo-${[
+                '1517646331032-9e8563c523a1', '1582205313222-297eb040854d', '1533090481720-856c6e3c1960',
+                '1487700160041-babef9c3cb55', '1622372738946-67e0231446f1', '1600607686527-6fb886090705'
+            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
+        }))
+    },
+    {
+        id: "wpc-doors",
+        name: { en: "WPC DOORS", ar: "أبواب WPC", zh: "WPC门" },
+        category: { en: "Doors", ar: "أبواب", zh: "门" },
+        slug: "wpc-doors",
+        description: { en: "Waterproof and termite-proof WPC doors for long-lasting durability.", ar: "أبواب WPC مقاومة للماء والنمل الأبيض لمتانة طويلة الأمد.", zh: "防水防白蚁WPC门，持久耐用。" },
+        images: ["https://images.unsplash.com/photo-1533090481720-856c6e3c1960?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Waterproof", "Termite Proof", "Eco-Friendly"],
+            ar: ["مقاوم للماء", "مقاوم للنمل الأبيض", "صديق للبيئة"],
+            zh: ["防水", "防白蚁", "环保"]
+        },
+        specifications: {
+            "Material": "Wood Plastic Composite",
+            "Thickness": "40mm",
+            "Warranty": "10 Years"
+        },
+        variants: Array.from({ length: 12 }, (_, i) => ({
+            name: `WPC-${400 + i}`,
+            image: `https://images.unsplash.com/photo-${[
+                '1533090481720-856c6e3c1960', '1582205313222-297eb040854d', '1517646331032-9e8563c523a1',
+                '1595166442656-7876a4ba0c7b', '1613545325278-f24b0cae1224', '1600607686527-6fb886090705'
+            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
+        }))
+    },
+    {
+        id: "iron-and-steel-doors",
+        name: { en: "IRON AND STEEL DOORS", ar: "أبواب حديدية وفولاذية", zh: "钢铁门" },
+        category: { en: "Doors", ar: "أبواب", zh: "门" },
+        slug: "iron-and-steel-doors",
+        description: { en: "Secure and robust iron and steel doors for maximum security.", ar: "أبواب حديدية وفولاذية آمنة وقوية لأقصى قدر من الأمان.", zh: "安全坚固的钢铁门，提供最大的安全性。" },
+        images: ["https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["High Security", "Durable", "Weather Resistant"],
+            ar: ["أمان عالي", "متين", "مقاوم للعوامل الجوية"],
+            zh: ["高安全性", "耐用", "耐候"]
+        },
+        specifications: {
+            "Material": "Galvanized Steel / Iron",
+            "Thickness": "50mm - 70mm",
+            "Locking System": "Multipoint"
+        },
+        variants: Array.from({ length: 12 }, (_, i) => ({
+            name: `ISD-${900 + i}`,
+            image: `https://images.unsplash.com/photo-${[
+                '1519710164239-da123dc03ef4', '1613545325278-f24b0cae1224', '1595166442656-7876a4ba0c7b',
+                '1600607686527-6fb886090705', '1622372738946-67e0231446f1', '1487700160041-babef9c3cb55'
+            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
+        }))
+    },
+    {
+        id: "wooden-doors",
+        name: { en: "WOODEN DOORS", ar: "أبواب خشبية", zh: "木门" },
+        category: { en: "Doors", ar: "أبواب", zh: "门" },
+        slug: "wooden-doors",
+        description: { en: "Classic and elegant wooden doors including Melamine, PET, and Solid Wood.", ar: "أبواب خشبية كلاسيكية وأنيقة بما في ذلك الميلامين و PET والخشب الصلب.", zh: "经典而优雅的木门，包括三聚氰胺、PET和实木。" },
+        images: ["https://images.unsplash.com/photo-1582205313222-297eb040854d?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Natural Look", "Sound Insulation", "Premium Finish"],
+            ar: ["مظهر طبيعي", "عزل الصوت", "تشطيب ممتاز"],
+            zh: ["自然外观", "隔音", "优质饰面"]
+        },
+        specifications: {
+            "Material": "Solid Wood / Engineered Wood",
+            "Finish": "Veneer / Laminate / Paint",
+            "Warranty": "5 Years"
+        },
+        variants: Array.from({ length: 12 }, (_, i) => ({
+            name: `WD-${300 + i}`,
+            image: `https://images.unsplash.com/photo-${[
+                '1582205313222-297eb040854d', '1595515106969-1ce29566ff1c', '1487700160041-babef9c3cb55',
+                '1622372738946-67e0231446f1', '1517646331032-9e8563c523a1', '1533090481720-856c6e3c1960'
+            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
+        }))
+    },
     {
         id: "aluminium-doors",
-        name: { en: "Aluminium Doors", ar: "أبواب الألومنيوم", zh: "铝门" },
+        name: { en: "ALUMINIUM DOORS", ar: "أبواب ألومنيوم", zh: "铝门" },
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "aluminium-doors",
-        description: {
-            en: "High-quality aluminium doors designed for modern aesthetics and durability.",
-            ar: "أبواب ألومنيوم عالية الجودة مصممة للجماليات الحديثة والمتانة.",
-            zh: "高品质铝门，设计现代美观且耐用。"
+        description: { en: "Modern aluminium doors available in glass and wood combinations.", ar: "أبواب ألومنيوم حديثة متوفرة في مجموعات الزجاج والخشب.", zh: "现代铝门，提供玻璃和木材组合。" },
+        images: ["https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Lightweight", "Corrosion Resistant", "Modern Aesthetic"],
+            ar: ["خفيفة الوزن", "مقاومة للتآكل", "جمالية حديثة"],
+            zh: ["轻便", "耐腐蚀", "现代美学"]
         },
-        specifications: [
-            { key: { en: "Material", ar: "المادة", zh: "材料" }, value: { en: "Aluminium Alloy", ar: "سبائك الألومنيوم", zh: "铝合金" } },
-            { key: { en: "Glass", ar: "الزجاج", zh: "玻璃" }, value: { en: "Double Glazed / Tempered", ar: "زجاج مزدوج / مقسى", zh: "双层/钢化玻璃" } },
-            { key: { en: "Finish", ar: "التشطيب", zh: "表面处理" }, value: { en: "Powder Coated / Anodized", ar: "طلاء مسحوق / أنودة", zh: "粉末喷涂/阳极氧化" } }
-        ],
-        images: ["https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80"]
-    },
-    {
-        id: "accessories",
-        name: { en: "Accessories", ar: "الإكسسوارات", zh: "配件" },
-        category: { en: "Doors Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
-        slug: "accessories",
-        description: {
-            en: "General door accessories and hardware components.",
-            ar: "ملحقات الأبواب العامة ومكونات الأجهزة.",
-            zh: "通用门配件和五金组件。"
+        specifications: {
+            "Material": "Aluminium Alloy",
+            "Glazing": "Double/Triple Glazed",
+            "Profile Thickness": "1.4mm - 2.0mm"
         },
-        images: ["https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80"]
-    },
-    {
-        id: "door-hinges",
-        name: { en: "Door Hinges", ar: "مفصلات الأبواب", zh: "门铰链" },
-        category: { en: "Doors Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
-        slug: "door-hinges",
-        description: {
-            en: "Durable stainless steel door hinges for smooth operation.",
-            ar: "مفصلات أبواب من الفولاذ المقاوم للصدأ متينة للتشغيل السلس.",
-            zh: "耐用的不锈钢门铰链，操作顺畅。"
-        },
-        images: ["https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80"]
-    },
-    {
-        id: "door-smart-locks",
-        name: { en: "Door Smart Locks", ar: "أقفال الأبواب الذكية", zh: "智能门锁" },
-        category: { en: "Doors Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
-        slug: "door-smart-locks",
-        description: {
-            en: "Advanced smart lock systems for keyless entry and security.",
-            ar: "أنظمة أقفال ذكية متقدمة للدخول بدون مفتاح والأمان.",
-            zh: "先进的智能锁系统，提供无钥匙进入和安全保障。"
-        },
-        images: ["https://images.unsplash.com/photo-1558002038-109177381793?auto=format&fit=crop&w=800&q=80"]
-    },
-    {
-        id: "hinges-glass-shelf-clips",
-        name: { en: "Hinges/Glass Shelf Clips", ar: "مفصلات/مشابك رفوف زجاجية", zh: "铰链/玻璃搁板夹" },
-        category: { en: "Doors Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
-        slug: "hinges-glass-shelf-clips",
-        description: {
-            en: "Specialized clips and hinges for glass cabinetry.",
-            ar: "مشابك ومفصلات متخصصة لخزائن الزجاج.",
-            zh: "用于玻璃橱柜的专用夹子和铰链。"
-        },
-        images: ["https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=800&q=80"]
+        variants: Array.from({ length: 12 }, (_, i) => ({
+            name: `ALD-${800 + i}`,
+            image: `https://images.unsplash.com/photo-${[
+                '1595166442656-7876a4ba0c7b', '1613545325278-f24b0cae1224', '1600607686527-6fb886090705',
+                '1519710164239-da123dc03ef4', '1622372738946-67e0231446f1', '1487700160041-babef9c3cb55'
+            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
     {
         id: "emergency-exit-doors",
-        name: { en: "Emergency Exit Doors", ar: "أبواب الخروج في حالات الطوارئ", zh: "紧急出口门" },
+        name: { en: "EMERGENCY EXIT DOORS", ar: "أبواب الخروج في حالات الطوارئ", zh: "紧急出口门" },
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "emergency-exit-doors",
-        description: {
-            en: "Fire-rated emergency exit doors adhering to safety standards.",
-            ar: "أبواب خروج طوارئ مقاومة للحريق تلتزم بمعايير السلامة.",
-            zh: "符合安全标准的防火紧急出口门。"
+        description: { en: "Certified emergency exit and fire-rated doors for safety.", ar: "أبواب خروج طوارئ ومقاومة للحريق معتمدة للسلامة.", zh: "经认证的紧急出口和防火门，确保安全。" },
+        images: ["https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=800&q=80"],
+        features: {
+            en: ["Fire Resistant", "Panic Bar Included", "Certified Safety"],
+            ar: ["مقاوم للحريق", "يشمل شريط الذعر", "سلامة معتمدة"],
+            zh: ["耐火", "包含推杆", "安全认证"]
         },
-        images: ["https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=800&q=80"]
+        specifications: {
+            "Fire Rating": "60/90/120 Mins",
+            "Material": "Steel / Composite",
+            "Certification": "UL / BS / EN"
+        },
+        variants: Array.from({ length: 12 }, (_, i) => ({
+            name: `EXIT-${1000 + i}`,
+            image: `https://images.unsplash.com/photo-${[
+                '1613545325278-f24b0cae1224', '1519710164239-da123dc03ef4', '1595166442656-7876a4ba0c7b',
+                '1618220179428-22790b461013', '1622372738946-67e0231446f1', '1487700160041-babef9c3cb55'
+            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
+        }))
     },
     {
-        id: "iron-steel-doors",
-        name: { en: "Iron/Steel Doors", ar: "أبواب حديد/فولاذ", zh: "铁/钢门" },
+        id: "doors-color-cards",
+        name: { en: "DOORS COLOR CARDS", ar: "بطاقات ألوان الأبواب", zh: "门色卡" },
         category: { en: "Doors", ar: "أبواب", zh: "门" },
-        slug: "iron-steel-doors",
-        description: {
-            en: "Security steel doors for industrial and residential use.",
-            ar: "أبواب فولاذية أمنية للاستخدام الصناعي والسكني.",
-            zh: "工业和住宅用安全钢门。"
-        },
-        images: ["https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"]
+        slug: "doors-color-cards",
+        description: { en: "Explore our wide range of color options for your doors.", ar: "استكشف مجموعتنا الواسعة من خيارات الألوان لأبوابك.", zh: "探索我们为您的门提供的广泛颜色选项。" },
+        images: ["https://images.unsplash.com/photo-1523456722026-6b21ba37ee1d?auto=format&fit=crop&w=800&q=80"],
+        variants: [
+            { name: "Classic Oak", image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=300&q=80" },
+            { name: "Dark Walnut", image: "https://images.unsplash.com/photo-1543444465-34372e90c51e?auto=format&fit=crop&w=300&q=80" },
+            { name: "Cherry Wood", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1960?auto=format&fit=crop&w=300&q=80" },
+            { name: "Mahogany", image: "https://images.unsplash.com/photo-1589139266795-8c01d3b07446?auto=format&fit=crop&w=300&q=80" },
+            { name: "Ash Grey", image: "https://images.unsplash.com/photo-1629898086082-f54c25bd2830?auto=format&fit=crop&w=300&q=80" },
+            { name: "Pure White", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=300&q=80" },
+            { name: "Matte Black", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=300&q=80" },
+            { name: "Teak Finish", image: "https://images.unsplash.com/photo-1610363060661-827d09b3054f?auto=format&fit=crop&w=300&q=80" }
+        ]
+    },
+
+    // --- CABINETS ---
+    {
+        id: "kitchen-cabinet",
+        name: { en: "Kitchen Cabinet", ar: "خزانة مطبخ", zh: "橱柜" },
+        category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
+        slug: "kitchen-cabinet",
+        description: { en: "Custom kitchen cabinets designed for functionality and style.", ar: "خزائن مطبخ مخصصة مصممة للوظائف والأناقة.", zh: "专为功能性和风格设计的定制厨柜。" },
+        images: ["https://images.unsplash.com/photo-1556911220-e620418f47f8?auto=format&fit=crop&w=800&q=80"],
+        variants: [
+            { name: "CA-001", image: "https://images.unsplash.com/photo-1556911220-e620418f47f8?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-002", image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-003", image: "https://images.unsplash.com/photo-1556909190-e7352514d7bd?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-004", image: "https://images.unsplash.com/photo-1556909138-ac7c532467b7?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-005", image: "https://images.unsplash.com/photo-1556909212-c28f73f5d554?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-006", image: "https://images.unsplash.com/photo-1556157382-97eda2d622ca?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-007", image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=300&q=80" },
+            { name: "CA-008", image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=300&q=80" }
+        ]
+    },
+    {
+        id: "closet",
+        name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" },
+        category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
+        slug: "closet",
+        description: { en: "Spacious and organized closets for your storage needs.", ar: "خزائن واسعة ومنظمة لاحتياجات التخزين الخاصة بك.", zh: "宽敞有序的衣柜，满足您的储物需求。" },
+        images: ["https://images.unsplash.com/photo-1595415729796-b072e2d96c81?auto=format&fit=crop&w=800&q=80"],
+        variants: [
+            { name: "CL-001", image: "https://images.unsplash.com/photo-1595415729796-b072e2d96c81?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-002", image: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-003", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-004", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-005", image: "https://images.unsplash.com/photo-1595515106918-0b3c220555a8?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-006", image: "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-007", image: "https://images.unsplash.com/photo-1616137615002-c743825832a8?auto=format&fit=crop&w=300&q=80" },
+            { name: "CL-008", image: "https://images.unsplash.com/photo-1522771753035-4a53c9d1314d?auto=format&fit=crop&w=300&q=80" }
+        ]
+    },
+    {
+        id: "bar-cabinet",
+        name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" },
+        category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
+        slug: "bar-cabinet",
+        description: { en: "Stylish bar cabinets for entertaining and storage.", ar: "خزائن بار أنيقة للترفيه والتخزين.", zh: "时尚的酒柜，用于娱乐和储藏。" },
+        images: ["https://images.unsplash.com/photo-1594953932225-451950ccf8ba?auto=format&fit=crop&w=800&q=80"],
+        variants: [
+            { name: "CB-001", image: "https://images.unsplash.com/photo-1594953932225-451950ccf8ba?auto=format&fit=crop&w=300&q=80" },
+            { name: "CB-002", image: "https://images.unsplash.com/photo-1595514588049-93878b277156?auto=format&fit=crop&w=300&q=80" },
+            { name: "CB-003", image: "https://images.unsplash.com/photo-1595514588037-124675704179?auto=format&fit=crop&w=300&q=80" },
+            { name: "CB-004", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80" },
+            { name: "CB-005", image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&q=80" },
+            { name: "CB-006", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=300&q=80" }
+        ]
+    },
+
+    // --- COLOR CARD ---
+    {
+        id: "color-card",
+        name: { en: "Color Card", ar: "بطاقة الألوان", zh: "色卡" },
+        category: { en: "Color Card", ar: "بطاقة الألوان", zh: "色卡" },
+        slug: "color-card",
+        description: { en: "View our extensive range of colors and textures.", ar: "شاهد مجموعتنا الواسعة من الألوان والقوام.", zh: "查看我们广泛的颜色和纹理选项。" },
+        images: ["https://images.unsplash.com/photo-1523456722026-6b21ba37ee1d?auto=format&fit=crop&w=800&q=80"],
+        colors: [
+            { name: "Classic Oak", image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=300&q=80" },
+            { name: "Dark Walnut", image: "https://images.unsplash.com/photo-1543444465-34372e90c51e?auto=format&fit=crop&w=300&q=80" },
+            { name: "Cherry Wood", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1960?auto=format&fit=crop&w=300&q=80" },
+            { name: "Mahogany", image: "https://images.unsplash.com/photo-1589139266795-8c01d3b07446?auto=format&fit=crop&w=300&q=80" },
+            { name: "Ash Grey", image: "https://images.unsplash.com/photo-1629898086082-f54c25bd2830?auto=format&fit=crop&w=300&q=80" },
+            { name: "Pure White", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=300&q=80" },
+            { name: "Matte Black", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=300&q=80" },
+            { name: "Teak Finish", image: "https://images.unsplash.com/photo-1610363060661-827d09b3054f?auto=format&fit=crop&w=300&q=80" }
+        ]
+    },
+
+    // --- HARDWARE ACCESSORIES ---
+    {
+        id: "door-hardware-accessories",
+        name: { en: "Door Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
+        category: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
+        slug: "door-hardware-accessories",
+        description: { en: "Handles, locks, hinges, and other essential door hardware.", ar: "مقابض، أقفال، مفصلات، وغيرها من أجهزة الأبواب الأساسية.", zh: "把手、锁、铰链和其他基本门五金件。" },
+        images: ["https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=800&q=80"],
+        variants: [
+            { name: "Luxury Handle-01", image: "https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=300&q=80" },
+            { name: "Smart Lock-X1", image: "https://images.unsplash.com/photo-1558002038-1091a1662721?auto=format&fit=crop&w=300&q=80" },
+            { name: "Hinge Set-H1", image: "https://images.unsplash.com/photo-1622372738946-67e0231446f1?auto=format&fit=crop&w=300&q=80" },
+            { name: "Door Closer-DC", image: "https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=300&q=80" },
+            { name: "Door Stopper-DS", image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=300&q=80" },
+            { name: "Cylinder Lock-CL", image: "https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=300&q=80" },
+            { name: "Pull Handle-PH", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=300&q=80" },
+            { name: "Mortise Lock-ML", image: "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?auto=format&fit=crop&w=300&q=80" }
+        ]
+    },
+    {
+        id: "fire-rated-door-hardware",
+        name: { en: "Fire Rated Door Hardware", ar: "أجهزة أبواب مقاومة للحريق", zh: "防火门五金" },
+        category: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
+        slug: "fire-rated-door-hardware",
+        description: { en: "Specialized hardware designed for fire-rated doors.", ar: "أجهزة متخصصة مصممة للأبواب المقاومة للحريق.", zh: "专为防火门设计的特种五金。" },
+        images: ["https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80"],
+        variants: [
+            { name: "Panic Bar-PB100", image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=300&q=80" },
+            { name: "Fire Door Closer-FDC", image: "https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=300&q=80" },
+            { name: "Steel Hinge-SH200", image: "https://images.unsplash.com/photo-1622372738946-67e0231446f1?auto=format&fit=crop&w=300&q=80" },
+            { name: "Fire Lock-FL50", image: "https://images.unsplash.com/photo-1558002038-1091a1662721?auto=format&fit=crop&w=300&q=80" },
+            { name: "Emergency Push Bar", image: "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?auto=format&fit=crop&w=300&q=80" },
+            { name: "Smoke Seal-SS", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=300&q=80" },
+            { name: "Auto Drop Seal", image: "https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=300&q=80" },
+            { name: "Fire Rated Handle", image: "https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=300&q=80" }
+        ]
     }
 ];

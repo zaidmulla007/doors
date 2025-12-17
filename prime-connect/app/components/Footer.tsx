@@ -12,9 +12,8 @@ export default function Footer() {
 
     const sitemapLinks = [
         { name: t('header.home'), href: "/" },
-        { name: t('header.about'), href: "/about" },
         { name: t('header.products'), href: "/products" },
-        { name: t('header.categories'), href: "/categories" },
+        { name: t('header.about'), href: "/about" },
         { name: t('header.contact'), href: "/contact" },
     ];
 
