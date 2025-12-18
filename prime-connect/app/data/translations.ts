@@ -12,6 +12,10 @@ export const translations = {
             followUs: "Follow us:",
             logoName: "Prime Connects",
             logoTagline: "Doors & Cabinet Solutions",
+            downloadBrochures: "Download Brochures",
+            brochuresTitle: "Download Brochures",
+            brochuresDesc: "Select a brochure to download.",
+            download: "Download",
         },
         hero: {
             badge: "25+ Years of Manufacturing Excellence",
@@ -202,6 +206,13 @@ export const translations = {
             titleHighlight: "Product Categories",
             subtitle: "Jump straight into the product family you need.",
             exploreProducts: "Explore Products"
+        },
+        br: {
+            general: "Primeconnects General Catalogue",
+            doors: "Prime Connects Doors Brochure",
+            locks: "Primeconnects Cylinder Locks Brochure",
+            hinges: "Primeconnects Hinges Brochure",
+            smartLocks: "Primeconnects Smart Rim Locks Brochure"
         }
     },
     ar: {
@@ -215,6 +226,10 @@ export const translations = {
             followUs: "تابعنا:",
             logoName: "برايم كونيكتس",
             logoTagline: "حلول الأبواب والخزائن",
+            downloadBrochures: "تحميل الكتيبات",
+            brochuresTitle: "تحميل الكتيبات",
+            brochuresDesc: "اختر كتيبًا لتحميله.",
+            download: "تحميل",
         },
         hero: {
             badge: "25+ عامًا من التميز في التصنيع",
@@ -405,6 +420,13 @@ export const translations = {
             titleHighlight: "فئات منتجاتنا",
             subtitle: "انتقل مباشرة إلى عائلة المنتجات التي تحتاجها.",
             exploreProducts: "استكشاف المنتجات"
+        },
+        br: {
+            general: "كتالوج برايم كونيكتس العام",
+            doors: "كتيب أبواب برايم كونيكتس",
+            locks: "كتيب أقفال السلندر من برايم كونيكتس",
+            hinges: "كتيب مفصلات برايم كونيكتس",
+            smartLocks: "كتيب أقفال ريم الذكية من برايم كونيكتس"
         }
     },
     zh: {
@@ -418,6 +440,10 @@ export const translations = {
             followUs: "关注我们：",
             logoName: "普莱姆连接",
             logoTagline: "门业与橱柜解决方案",
+            downloadBrochures: "下载手册",
+            brochuresTitle: "下载手册",
+            brochuresDesc: "请选择要下载的手册。",
+            download: "下载",
         },
         hero: {
             badge: "25+ 年制造卓越",
@@ -608,6 +634,13 @@ export const translations = {
             titleHighlight: "产品类别",
             subtitle: "直接跳转到您需要的产品系列。",
             exploreProducts: "探索产品"
+        },
+        br: {
+            general: "普莱姆连接通用产品目录",
+            doors: "普莱姆连接门手册",
+            locks: "普莱姆连接锁芯手册",
+            hinges: "普莱姆连接合页手册",
+            smartLocks: "普莱姆连接智能门锁手册"
         }
     }
 };

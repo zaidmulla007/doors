@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -44,19 +44,53 @@ const scaleIn = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
 };
 
-// Hero slides data
+// Hero slides data - using 5 representative images for a cleaner look
 const heroSlides = [
-  { image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80", alt: "Modern wooden doors" },
-  { image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80", alt: "Luxury interior doors" },
-  { image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80", alt: "Modern cabinet solutions" },
-  { image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80", alt: "Contemporary home interiors" },
-  { image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80", alt: "Premium door designs" },
-  { image: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1920&q=80", alt: "Manufacturing excellence" },
+  { image: "/banner-images/1.png", alt: "Modern door solutions" },
+  { image: "/banner-images/2.png", alt: "Premium manufacturing" },
+  { image: "/banner-images/3.png", alt: "Architectural designs" },
+  { image: "/banner-images/4.png", alt: "Quality craftsmanship" },
+  { image: "/banner-images/5.png", alt: "Innovative interiors" },
 ];
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? '100%' : '-100%',
+    opacity: 0
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1
+  },
+  exit: (direction: number) => ({
+    zIndex: 0,
+    x: direction < 0 ? '100%' : '-100%',
+    opacity: 0
+  })
+};
 
 export default function HomePage() {
   const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentSlide((prev) => {
+      let next = prev + newDirection;
+      if (next < 0) next = heroSlides.length - 1;
+      if (next >= heroSlides.length) next = 0;
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      paginate(1);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Sectors data with keys for translation
   const sectors = [
@@ -100,38 +134,44 @@ export default function HomePage() {
       <section className="relative h-screen w-full overflow-hidden pt-20">
         {/* Slides */}
         <div className="relative h-full w-full">
-          {heroSlides.map((slide, index) => (
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentSlide ? 1 : 0 }}
-              transition={{ duration: 0.7 }}
-              className={`absolute inset-0 ${index === currentSlide ? 'z-10' : 'z-0'}`}
+              key={currentSlide}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              className="absolute inset-0 shadow-2xl"
             >
               <Image
-                src={slide.image}
-                alt={slide.alt}
+                src={heroSlides[currentSlide].image}
+                alt={heroSlides[currentSlide].alt}
                 fill
                 className="object-cover"
-                priority={index === 0}
+                priority
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/30" />
+              {/* Overlay with a bit more depth */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
             </motion.div>
-          ))}
+          </AnimatePresence>
         </div>
 
         {/* Navigation Arrows */}
         <button
-          onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all"
+          onClick={() => paginate(-1)}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all border border-white/30"
           aria-label="Previous slide"
         >
           <ChevronLeft size={28} />
         </button>
         <button
-          onClick={() => setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1))}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all"
+          onClick={() => paginate(1)}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all border border-white/30"
           aria-label="Next slide"
         >
           <ChevronRight size={28} />
@@ -142,10 +182,13 @@ export default function HomePage() {
           {heroSlides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${index === currentSlide
-                  ? 'bg-white w-8'
-                  : 'bg-white/50 hover:bg-white/75'
+              onClick={() => {
+                setDirection(index > currentSlide ? 1 : -1);
+                setCurrentSlide(index);
+              }}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                ? 'bg-white w-8'
+                : 'bg-white/50 hover:bg-white/75'
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />

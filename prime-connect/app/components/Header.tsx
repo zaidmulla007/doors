@@ -8,15 +8,6 @@ import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtu
 import { useLanguage } from "../context/LanguageContext";
 import { navigationCategories } from "../lib/constants";
 
-// Brochures data (PDFs will be added later)
-const brochures = [
-    { name: "Primeconnects General Catalogue", file: "/brochures/general-catalogue.pdf" },
-    { name: "Prime Connects Doors Brochure", file: "/brochures/doors-brochure.pdf" },
-    { name: "Primeconnects Cylinder Locks Brochure", file: "/brochures/cylinder-locks.pdf" },
-    { name: "Primeconnects Hinges Brochure", file: "/brochures/hinges.pdf" },
-    { name: "Primeconnects Smart Rim Locks Brochure", file: "/brochures/smart-rim-locks.pdf" },
-];
-
 // Social Media & Contact Data
 const contactInfo = {
     emails: ["info@primeconnects.ae", "abde@primeconnects.ae"],
@@ -54,6 +45,15 @@ export default function Header() {
     ];
 
     const currentLangLabel = languages.find(l => l.code === language)?.label || "English";
+
+    // Brochures data with translations
+    const brochures = [
+        { name: t('br.general'), file: "/brochures/PrimeconnectsGeneralCatalogue.pdf" },
+        { name: t('br.doors'), file: "/brochures/PrimeConnectsDoorscatalogue.pdf" },
+        { name: t('br.locks'), file: "/brochures/PrimeconnectsCylinderLocks.pdf" },
+        { name: t('br.hinges'), file: "/brochures/PrimeconnectsHinges.pdf" },
+        { name: t('br.smartLocks'), file: "/brochures/PrimeconnectsSmartRimLocks.pdf" },
+    ];
 
 
 
@@ -282,7 +282,7 @@ export default function Header() {
                             className="flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all"
                         >
                             <Download size={16} />
-                            Download Brochures
+                            {t('header.downloadBrochures')}
                         </button>
                     </div>
 
@@ -390,9 +390,9 @@ export default function Header() {
                             {/* Modal Header */}
                             <div className="flex items-start justify-between p-4 border-b border-gray-100">
                                 <div>
-                                    <h2 className="text-base font-semibold text-gray-900">Download Brochures</h2>
+                                    <h4 className="text-base font-semibold text-gray-900">{t('header.brochuresTitle')}</h4>
                                     <p className="text-gray-500 text-xs mt-0.5">
-                                        Select a brochure to download.
+                                        {t('header.brochuresDesc')}
                                     </p>
                                 </div>
                                 <button
@@ -417,7 +417,7 @@ export default function Header() {
                                             className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-blue-600 hover:text-white text-gray-700 rounded-md text-xs font-medium transition-colors"
                                         >
                                             <Download size={14} />
-                                            Download
+                                            {t('header.download')}
                                         </a>
                                     </div>
                                 ))}

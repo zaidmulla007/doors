@@ -189,19 +189,31 @@ export default function AboutPage() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={staggerContainer}
-                        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+                        className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
                     >
                         {certifications.map((cert, index) => (
                             <motion.div
                                 key={index}
                                 variants={fadeInUp}
-                                whileHover={{ scale: 1.05 }}
-                                className="p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 text-center"
+                                className="group"
                             >
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mx-auto mb-4">
-                                    <Award className="w-6 h-6 text-white" />
+                                <div className="relative aspect-[1/1.4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white mb-6 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 cursor-zoom-in">
+                                    <Image
+                                        src={`/certificates/${index + 1}.png`}
+                                        alt={cert}
+                                        fill
+                                        className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </div>
-                                <p className="font-medium text-gray-800">{cert}</p>
+                                <div className="text-center px-4">
+                                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-600 transition-colors duration-300">
+                                        <Award className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                                    </div>
+                                    <p className="font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                                        {cert}
+                                    </p>
+                                </div>
                             </motion.div>
                         ))}
                     </motion.div>
