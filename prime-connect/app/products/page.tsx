@@ -196,9 +196,9 @@ function ProductsContent() {
                                                 {parentName}
                                             </span>
                                         </div>
-                                        <h3 className="text-xs md:text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1 mb-3">
+                                        <h4 className="text-xs md:text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1 mb-3">
                                             {itemName}
-                                        </h3>
+                                        </h4>
                                         <div className="flex items-center gap-1 text-blue-600 text-[10px] font-bold">
                                             <span>{t('productsPage.viewDetails')}</span>
                                             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
