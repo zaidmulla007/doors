@@ -86,15 +86,15 @@ export default function AboutPage() {
                             </motion.p>
                             <motion.div variants={fadeInUp} className="flex flex-wrap gap-8 mt-8">
                                 <div className="text-center">
-                                    <span className="text-4xl font-bold gradient-text">25+</span>
+                                    <span className="text-4xl font-bold gradient-text">{t('common.stat25Plus')}</span>
                                     <p className="text-gray-500 text-sm">{t('aboutPage.yearsExp')}</p>
                                 </div>
                                 <div className="text-center">
-                                    <span className="text-4xl font-bold gradient-text">6</span>
+                                    <span className="text-4xl font-bold gradient-text">{t('common.stat6')}</span>
                                     <p className="text-gray-500 text-sm">{t('aboutPage.factories')}</p>
                                 </div>
                                 <div className="text-center">
-                                    <span className="text-4xl font-bold gradient-text">2</span>
+                                    <span className="text-4xl font-bold gradient-text">{t('common.stat2')}</span>
                                     <p className="text-gray-500 text-sm">{t('aboutPage.countries')}</p>
                                 </div>
                             </motion.div>
@@ -123,8 +123,9 @@ export default function AboutPage() {
             </section>
 
             {/* Timeline Section */}
-            <section className="section-padding bg-gray-50">
-                <div className="container-custom">
+            <section className="section-padding bg-gradient-to-br from-blue-500 to-purple-500 text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "var(--gradient-radial)" }} />
+                <div className="container-custom relative">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -132,8 +133,8 @@ export default function AboutPage() {
                         variants={staggerContainer}
                         className="text-center mb-16"
                     >
-                        <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-                            {t('aboutPage.journeyTitle')} <span className="gradient-text">{t('aboutPage.journeyHighlight')}</span>
+                        <motion.h2 variants={fadeInUp} className="text-white mb-4">
+                            {t('aboutPage.journeyTitle')} <span className="text-white">{t('aboutPage.journeyHighlight')}</span>
                         </motion.h2>
                     </motion.div>
 
@@ -148,17 +149,17 @@ export default function AboutPage() {
                                 className="flex gap-6 mb-12 last:mb-0"
                             >
                                 <div className="flex flex-col items-center">
-                                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-lg">
+                                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-bold shadow-lg border-2 border-white/40">
                                         <Calendar className="w-6 h-6" />
                                     </div>
                                     {index < timeline.length - 1 && (
-                                        <div className="w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-500 mt-4" />
+                                        <div className="w-0.5 h-full bg-white/30 mt-4" />
                                     )}
                                 </div>
                                 <div className="flex-1 pb-8">
-                                    <span className="text-blue-600 font-bold text-lg">{item.year}</span>
-                                    <h3 className="text-xl font-bold text-gray-900 mt-1 mb-2">{item.title}</h3>
-                                    <p className="text-gray-600">{item.description}</p>
+                                    <span className="text-white font-bold text-lg">{item.year}</span>
+                                    <h3 className="text-xl font-bold text-white mt-1 mb-2">{item.title}</h3>
+                                    <p className="text-white/90">{item.description}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -221,8 +222,9 @@ export default function AboutPage() {
             </section>
 
             {/* Global Network Section */}
-            <section className="section-padding bg-gray-50/50">
-                <div className="container-custom">
+            <section className="section-padding bg-gradient-to-br from-blue-500 to-purple-500 text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "var(--gradient-radial)" }} />
+                <div className="container-custom relative">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -230,10 +232,10 @@ export default function AboutPage() {
                         variants={staggerContainer}
                         className="text-center mb-16"
                     >
-                        <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-                            {t('global.sectionTitle')} <span className="gradient-text">{t('global.headingGradient')}</span>
+                        <motion.h2 variants={fadeInUp} className="text-white mb-4">
+                            {t('global.sectionTitle')} <span className="text-white">{t('global.headingGradient')}</span>
                         </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
+                        <motion.p variants={fadeInUp} className="text-white/90 max-w-2xl mx-auto">
                             {t('global.description')}
                         </motion.p>
                     </motion.div>
@@ -249,17 +251,17 @@ export default function AboutPage() {
                             <motion.div
                                 key={key}
                                 variants={fadeInUp}
-                                className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all group"
+                                className="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/20 shadow-lg hover:bg-white/20 hover:shadow-xl transition-all group"
                             >
                                 <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors">
-                                        <Factory className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
+                                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">
+                                        <Factory className="w-5 h-5 text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-base font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                                        <h4 className="text-base font-bold text-white mb-1 transition-colors">
                                             {t(`global.factories.${key}.type`)}
                                         </h4>
-                                        <div className="flex items-center gap-1.5 text-gray-500 text-sm">
+                                        <div className="flex items-center gap-1.5 text-white/80 text-sm">
                                             <MapPin className="w-3.5 h-3.5" />
                                             <span>{t(`global.factories.${key}.city`)}</span>
                                         </div>
@@ -272,7 +274,7 @@ export default function AboutPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white mb-20">
+            <section className="section-padding bg-white">
                 <div className="container-custom text-center">
                     <motion.div
                         initial="hidden"
@@ -280,16 +282,16 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         variants={staggerContainer}
                     >
-                        <motion.h2 variants={fadeInUp} className="text-white mb-4">
+                        <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
                             {t('aboutPage.ctaTitle')}
                         </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-blue-100 max-w-2xl mx-auto mb-8">
+                        <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto mb-8">
                             {t('aboutPage.ctaDesc')}
                         </motion.p>
                         <motion.div variants={fadeInUp}>
-                            <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+                            <Link href="/contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg hover:shadow-xl">
                                 {t('aboutPage.ctaButton')}
-                                <ArrowRight className="w-5 h-5" />
+                                <ArrowRight className="w-5 h-5 rtl:rotate-180" />
                             </Link>
                         </motion.div>
                     </motion.div>

@@ -81,7 +81,7 @@ export default function ContactPage() {
                             </motion.h2>
 
                             <motion.div variants={fadeInUp} className="space-y-6 mb-10">
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
+                                <div className="flex items-center gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
                                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
                                         <MapPin className="w-6 h-6 text-white" />
                                     </div>
@@ -97,57 +97,57 @@ export default function ContactPage() {
                                             className="inline-flex items-center gap-1 text-blue-600 font-medium mt-2 hover:gap-2 transition-all"
                                         >
                                             {t('contact.openMaps')}
-                                            <ArrowRight className="w-4 h-4" />
+                                            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                                         </a>
                                     </div>
                                 </div>
 
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
+                                <div className="flex items-center gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
                                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
                                         <Phone className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-gray-900 mb-1">{t('contact.phoneLabel')}</h4>
                                         <a href="tel:+97165733816" className="text-gray-600 hover:text-blue-600 block">
-                                            +971 6 573 3816
+                                            {t('common.phoneAjman')}
                                         </a>
                                         <a href="tel:+971589126137" className="text-gray-600 hover:text-blue-600 block">
-                                            +971 58 912 6137
+                                            {t('common.phoneSales')}
                                         </a>
                                     </div>
                                 </div>
 
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
+                                <div className="flex items-center gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
                                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
                                         <Mail className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-gray-900 mb-1">{t('contact.emailLabel')}</h4>
                                         <a href="mailto:info@primeconnects.ae" className="text-gray-600 hover:text-blue-600 block">
-                                            info@primeconnects.ae
+                                            {t('common.emailInfo')}
                                         </a>
-                                        <a href="mailto:sales@primeconnects.ae" className="text-gray-600 hover:text-blue-600 block">
-                                            sales@primeconnects.ae
+                                        <a href="mailto:abde@primeconnects.ae" className="text-gray-600 hover:text-blue-600 block">
+                                            {t('common.emailAbde')}
                                         </a>
                                     </div>
                                 </div>
 
-                                <div className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
+                                <div className="flex items-center gap-4 p-6 rounded-2xl bg-gray-50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all">
                                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
                                         <User className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-gray-900 mb-1">{t('contact.contactPerson')}</h4>
-                                        <p className="text-gray-600">Abde Mostafa</p>
+                                        <p className="text-gray-600">{t('common.contactPersonName')}</p>
                                         <a href="mailto:abde@primeconnects.ae" className="text-blue-600 text-sm">
-                                            abde@primeconnects.ae
+                                            {t('common.emailAbde')}
                                         </a>
                                     </div>
                                 </div>
                             </motion.div>
 
                             {/* Map Placeholder */}
-                            <motion.div
+                            {/* <motion.div
                                 variants={fadeInUp}
                                 className="rounded-2xl overflow-hidden shadow-lg h-64 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center"
                             >
@@ -163,7 +163,7 @@ export default function ContactPage() {
                                         {t('contact.viewOnMaps')}
                                     </a>
                                 </div>
-                            </motion.div>
+                            </motion.div> */}
                         </motion.div>
 
                         {/* Contact Form */}

@@ -16,6 +16,48 @@ export const translations = {
             brochuresTitle: "Download Brochures",
             brochuresDesc: "Select a brochure to download.",
             download: "Download",
+            viewAll: "View All",
+            langEn: "English",
+            langAr: "Arabic",
+            langZh: "Chinese",
+        },
+        common: {
+            emailInfo: "info@primeconnects.ae",
+            emailAbde: "abde@primeconnects.ae",
+            contactPersonName: "Abde Mostafa",
+            phoneAjman: "+971 6 573 3816",
+            phoneSales: "+971 58 912 6137",
+            zetacoding: "Zetacoding",
+            stat25Plus: "25+",
+            stat6: "6",
+            stat2: "2",
+            stat1000Plus: "1000+",
+            stat1: "1",
+            stat3: "3",
+            stat4: "4",
+            stat5: "5",
+            year1999: "1999",
+            year2015: "2015",
+            year2024: "2024",
+            productSpecs: {
+                thickness: "Thickness",
+                sizes: "Sizes",
+                glue: "Glue",
+                density: "Density",
+                moisture: "Moisture",
+                surfacefinish: "Surface Finish",
+                color: "Color",
+                material: "Material",
+                usage: "Usage",
+                certifications: "Certifications",
+                warranty: "Warranty",
+                lockingsystem: "Locking System",
+                finish: "Finish",
+                glazing: "Glazing",
+                profilethickness: "Profile Thickness",
+                firerating: "Fire Rating",
+                certification: "Certification"
+            }
         },
         hero: {
             badge: "25+ Years of Manufacturing Excellence",
@@ -29,7 +71,15 @@ export const translations = {
                 countries: "Countries",
                 years: "Years",
                 projects: "Projects"
-            }
+            },
+            previousSlide: "Previous slide",
+            nextSlide: "Next slide",
+            goToSlide: "Go to slide",
+            alt1: "Modern door solutions",
+            alt2: "Premium manufacturing",
+            alt3: "Architectural designs",
+            alt4: "Quality craftsmanship",
+            alt5: "Innovative interiors"
         },
         about: {
             sectionTitle: "About Prime Connects",
@@ -102,7 +152,7 @@ export const translations = {
             },
             cta: {
                 title: "Ready to Start Your Project?",
-                desc: "Multi-factory QA checkpoints • Rapid prototyping • Technical drawings & submittals support",
+                desc: "6 Factory QA checkpoints • Rapid prototyping • Technical drawings & submittals support",
                 requestSpecs: "Request Specs",
                 viewProducts: "View Products"
             }
@@ -115,7 +165,8 @@ export const translations = {
             getInTouch: "Get in Touch",
             rights: "Prime Connects. All rights reserved.",
             arabicTagline: "برايم كونيكتس حلول للأبواب والخزائن",
-            address: "Warehouse No.8, Industrial area 18, Maliha Road, Sharjah, UAE"
+            address: "Warehouse No.8, Industrial area 18, Maliha Road, Sharjah, UAE",
+            poweredBy: "Powered By"
         },
         contact: {
             badge: "Contact Us",
@@ -188,10 +239,15 @@ export const translations = {
             ctaButton: "Get in Touch"
         },
         productsPage: {
-            title: "Our Products",
-            subtitle: "Browse all products",
+            title: "Product Collection",
+            subtitle: "Explore our comprehensive range of high-performance architectural solutions.",
             viewDetails: "View Details",
-            loading: "Loading products..."
+            loading: "Loading products...",
+            showing: "Showing results for:",
+            clearFilters: "Clear all filters",
+            noResultsTitle: "No products found",
+            noResultsDesc: "Try adjusting your filters or search criteria to find what you're looking for.",
+            viewAllProducts: "View All Products"
         },
         productDetail: {
             backToProducts: "Back to Products",
@@ -200,7 +256,23 @@ export const translations = {
             inquire: "Inquire",
             features: "Key Features",
             specifications: "Product Specifications",
-            applications: "Applications"
+            applications: "Applications",
+            colorShades: "Color Shades",
+            availableModels: "Available Models in",
+            interestedFinish: "Interested in this finish?",
+            interestedModel: "Interested in this model?",
+            fillForm: "Fill out the form below to inquire specifically about the",
+            option: "option",
+            modelDetail: "Model Detail",
+            finishTexture: "Product Finish / Texture",
+            yourName: "Your Name",
+            emailAddress: "Email Address",
+            phoneNumber: "Phone Number",
+            messageRequirements: "Message or specific requirements...",
+            sendInquiry: "Send Inquiry"
+        },
+        sidebar: {
+            productCenter: "Product Center"
         },
         categoriesPage: {
             badge: "Categories",
@@ -232,9 +304,51 @@ export const translations = {
             brochuresTitle: "تحميل الكتيبات",
             brochuresDesc: "اختر كتيبًا لتحميله.",
             download: "تحميل",
+            viewAll: "عرض الكل",
+            langEn: "الإنجليزية",
+            langAr: "العربية",
+            langZh: "الصينية",
+        },
+        common: {
+            emailInfo: "info@primeconnects.ae",
+            emailAbde: "abde@primeconnects.ae",
+            contactPersonName: "عبده مصطفى",
+            phoneAjman: "٣٨١٦ ٥٧٣ ٦ ٩٧١+",
+            phoneSales: "٦١٣٧ ٩١٢ ٥٨ ٩٧١+",
+            zetacoding: "زيتا كودينج",
+            stat25Plus: "٢٥+",
+            stat6: "٦",
+            stat2: "٢",
+            stat1000Plus: "١٠٠٠+",
+            stat1: "١",
+            stat3: "٣",
+            stat4: "٤",
+            stat5: "٥",
+            year1999: "١٩٩٩",
+            year2015: "٢٠١٥",
+            year2024: "٢٠٢٤",
+            productSpecs: {
+                thickness: "السماكة",
+                sizes: "الأحجام",
+                glue: "الغراء",
+                density: "الكثافة",
+                moisture: "الرطوبة",
+                surfacefinish: "تشطيب السطح",
+                color: "اللون",
+                material: "المادة",
+                usage: "الاستخدام",
+                certifications: "الشهادات",
+                warranty: "الضمان",
+                lockingsystem: "نظام القفل",
+                finish: "التشطيب",
+                glazing: "الزجاج",
+                profilethickness: "سماكة البروفيل",
+                firerating: "تصنيف الحريق",
+                certification: "الشهادة"
+            }
         },
         hero: {
-            badge: "25+ عامًا من التميز في التصنيع",
+            badge: "٢٥+ عامًا من التميز في التصنيع",
             titleStart: "إرث عالمي في",
             titleGradient: "التميز في التصنيع",
             description: "شركة تصنيع متعددة الجنسيات للأبواب والألواح والخزائن تخدم المشاريع التجارية والسكنية والفندقية والتعليمية والصحية في الإمارات والصين.",
@@ -245,17 +359,25 @@ export const translations = {
                 countries: "دول",
                 years: "سنوات",
                 projects: "مشاريع"
-            }
+            },
+            previousSlide: "الشريحة السابقة",
+            nextSlide: "الشريحة التالية",
+            goToSlide: "اذهب إلى الشريحة",
+            alt1: "حلول الأبواب الحديثة",
+            alt2: "تصنيع متميز",
+            alt3: "تصاميم معمارية",
+            alt4: "براعة الجودة",
+            alt5: "تصميمات داخلية مبتكرة"
         },
         about: {
             sectionTitle: "عن برايم كونيكتس",
             headingStart: "بناء مساحات الغد مع",
             headingGradient: "الجودة والابتكار",
-            desc1: "برايم كونيكتس لحلول الأبواب والخزائن هي مؤسسة متعددة الجنسيات تدمج التصنيع والتجارة، مع إرث قوي يمتد لأكثر من 25 عامًا في الصناعة. تأسست الشركة في الأصل في الصين، وبنت سمعة طيبة للجودة والابتكار في الديكور المعماري ومواد البناء.",
+            desc1: "برايم كونيكتس لحلول الأبواب والخزائن هي مؤسسة متعددة الجنسيات تدمج التصنيع والتجارة، مع إرث قوي يمتد لأكثر من ٢٥ عامًا في الصناعة. تأسست الشركة في الأصل في الصين، وبنت سمعة طيبة للجودة والابتكار في الديكور المعماري ومواد البناء.",
             desc2: "مع منشأة تصنيع مجهزة بالكامل في الإمارات العربية المتحدة، نفخر بخدمة المنطقة بأبواب وألواح وخزائن عالية الجودة - مدعومة بالبحث والتطوير المتقدم والمهنيين المهرة وشبكة من ستة مصانع عبر الصين والإمارات.",
             learnMore: "اعرف المزيد",
             cardTitle: "برايم كونيكتس",
-            cardSubtitle: "التميز في التصنيع منذ عام 1999"
+            cardSubtitle: "التميز في التصنيع منذ عام ١٩٩٩"
         },
         products: {
             sectionTitle: "حلولنا",
@@ -274,7 +396,7 @@ export const translations = {
         },
         global: {
             sectionTitle: "الشبكة العالمية",
-            headingGradient: "6 مصانع. دولتان.",
+            headingGradient: "٦ مصانع. دولتان.",
             headingEnd: "معيار واحد للتميز.",
             description: "تدير برايم كونيكتس شبكة تصنيع متعددة الجنسيات عبر الإمارات والصين، مما يضمن الجودة المتسقة والإمداد الموثوق والاستجابة الإقليمية.",
             contactSales: "اتصل بالمبيعات",
@@ -318,7 +440,7 @@ export const translations = {
             },
             cta: {
                 title: "جاهز لبدء مشروعك؟",
-                desc: "نقاط فحص جودة متعددة المصانع • نماذج أولية سريعة • دعم الرسومات الفنية والتقديمات",
+                desc: "٦ نقاط فحص جودة للمصانع • نماذج أولية سريعة • دعم الرسومات الفنية والتقديمات",
                 requestSpecs: "طلب المواصفات",
                 viewProducts: "عرض المنتجات"
             }
@@ -327,11 +449,12 @@ export const translations = {
             sitemap: "خريطة الموقع",
             contactUs: "اتصل بنا",
             ourCompany: "شركتنا",
-            companyDesc: "6 مصانع عبر الإمارات والصين. 25+ عامًا من التميز في التصنيع.",
+            companyDesc: "٦ مصانع عبر الإمارات والصين. ٢٥+ عامًا من التميز في التصنيع.",
             getInTouch: "تواصل معنا",
             rights: "برايم كونيكتس. جميع الحقوق محفوظة.",
             arabicTagline: "برايم كونيكتس حلول للأبواب والخزائن",
-            address: "مستودع رقم 8، المنطقة الصناعية 18، طريق مليحة، الشارقة، الإمارات العربية المتحدة"
+            address: "مستودع رقم ٨، المنطقة الصناعية ١٨، طريق مليحة، الشارقة، الإمارات العربية المتحدة",
+            poweredBy: "مدعوم بواسطة"
         },
         contact: {
             badge: "اتصل بنا",
@@ -339,10 +462,10 @@ export const translations = {
             titleHighlight: "للمساعدة",
             description: "أخبرنا عن مشروعك - أبواب أو ألواح أو خزائن - وسنرد عليك خلال يوم عمل واحد.",
             requestQuote: "طلب عرض سعر",
-            dubaiOffice: "مكتب",
-            officeHighlight: "دبي",
+            dubaiOffice: "دبي",
+            officeHighlight: "مكتب",
             addressLabel: "العنوان",
-            addressValue: "مستودع رقم 8، المنطقة الصناعية 18، طريق مليحة، الشارقة، الإمارات",
+            addressValue: "مستودع رقم ٨، المنطقة الصناعية ١٨، طريق مليحة، الشارقة، الإمارات العربية المتحدة",
             openMaps: "فتح في خرائط جوجل",
             phoneLabel: "الهاتف",
             emailLabel: "البريد الإلكتروني",
@@ -358,11 +481,11 @@ export const translations = {
             message: "الرسالة *",
             namePlaceholder: "محمد أحمد",
             emailPlaceholder: "email@company.com",
-            phonePlaceholder: "+971 XX XXX XXXX",
+            phonePlaceholder: "+٩٧١ XX XXX XXXX",
             companyPlaceholder: "شركتك",
             messagePlaceholder: "أخبرنا عن متطلبات مشروعك...",
             send: "إرسال الرسالة",
-            responseTime: "نرد عادة خلال 24 ساعة",
+            responseTime: "نرد عادة خلال ٢٤ ساعة",
             successTitle: "تم إرسال الرسالة!",
             successMessage: "سنرد عليك خلال يوم عمل واحد."
         },
@@ -370,7 +493,7 @@ export const translations = {
             badge: "من نحن",
             title: "عن",
             titleHighlight: "برايم كونيكتس",
-            description: "شركة متعددة الجنسيات لتصنيع الأبواب والألواح والخزائن مع أكثر من 25 عامًا من التميز.",
+            description: "شركة متعددة الجنسيات لتصنيع الأبواب والألواح والخزائن مع أكثر من ٢٥ عامًا من التميز.",
             contactUs: "اتصل بنا",
             storyTitle: "قصتنا و",
             storyHighlight: "إرثنا",
@@ -383,13 +506,13 @@ export const translations = {
             companyTagline: "التميز في كل تفصيل",
             journeyTitle: "رحلتنا",
             journeyHighlight: "عبر الزمن",
-            timeline1Year: "1999",
+            timeline1Year: "١٩٩٩",
             timeline1Title: "تأسست في الصين",
             timeline1Desc: "أنشأنا أول منشأة تصنيع لنا في الصين، مما يمثل بداية رحلتنا في الحلول المعمارية.",
-            timeline2Year: "2015",
+            timeline2Year: "٢٠١٥",
             timeline2Title: "توسيع خطوط الإنتاج",
             timeline2Desc: "تنويع محفظتنا لتشمل حلول الأبواب والألواح والخزائن الشاملة للقطاعات المختلفة.",
-            timeline3Year: "2024",
+            timeline3Year: "٢٠٢٤",
             timeline3Title: "وحدة التصنيع في الإمارات",
             timeline3Desc: "افتتحنا منشأتنا الحديثة في الإمارات لخدمة منطقة الشرق الأوسط وشمال أفريقيا بشكل أفضل.",
             certTitle: "الشهادات و",
@@ -404,10 +527,15 @@ export const translations = {
             ctaButton: "تواصل معنا"
         },
         productsPage: {
-            title: "منتجاتنا",
-            subtitle: "تصفح جميع المنتجات",
+            title: "مجموعة المنتجات",
+            subtitle: "استكشف مجموعتنا الشاملة من الحلول المعمارية عالية الأداء.",
             viewDetails: "عرض التفاصيل",
-            loading: "جاري تحميل المنتجات..."
+            loading: "جاري تحميل المنتجات...",
+            showing: "عرض النتائج لـ:",
+            clearFilters: "مسح جميع الفلاتر",
+            noResultsTitle: "لم يتم العثور على منتجات",
+            noResultsDesc: "حاول تعديل الفلاتر أو معايير البحث للعثور على ما تبحث عنه.",
+            viewAllProducts: "عرض جميع المنتجات"
         },
         productDetail: {
             backToProducts: "العودة إلى المنتجات",
@@ -416,7 +544,23 @@ export const translations = {
             inquire: "استفسار",
             features: "الميزات الرئيسية",
             specifications: "مواصفات المنتج",
-            applications: "التطبيقات"
+            applications: "التطبيقات",
+            colorShades: "درجات الألوان",
+            availableModels: "الموديلات المتاحة في",
+            interestedFinish: "مهتم بهذا التشطيب؟",
+            interestedModel: "مهتم بهذا الموديل؟",
+            fillForm: "املأ النموذج أدناه للاستفسار تحديدًا عن",
+            option: "الخيار",
+            modelDetail: "تفاصيل الموديل",
+            finishTexture: "تشطيب / نسيج المنتج",
+            yourName: "اسمك",
+            emailAddress: "البريد الإلكتروني",
+            phoneNumber: "رقم الهاتف",
+            messageRequirements: "رسالة أو متطلبات محددة...",
+            sendInquiry: "إرسال الاستفسار"
+        },
+        sidebar: {
+            productCenter: "مركز المنتجات"
         },
         categoriesPage: {
             badge: "الفئات",
@@ -448,6 +592,48 @@ export const translations = {
             brochuresTitle: "下载手册",
             brochuresDesc: "请选择要下载的手册。",
             download: "下载",
+            viewAll: "查看全部",
+            langEn: "英语",
+            langAr: "阿拉伯语",
+            langZh: "中文",
+        },
+        common: {
+            emailInfo: "info@primeconnects.ae",
+            emailAbde: "abde@primeconnects.ae",
+            contactPersonName: "阿部代·莫斯塔法",
+            phoneAjman: "+971 6 573 3816",
+            phoneSales: "+971 58 912 6137",
+            zetacoding: "泽塔编程",
+            stat25Plus: "25+",
+            stat6: "6",
+            stat2: "2",
+            stat1000Plus: "1000+",
+            stat1: "1",
+            stat3: "3",
+            stat4: "4",
+            stat5: "5",
+            year1999: "1999",
+            year2015: "2015",
+            year2024: "2024",
+            productSpecs: {
+                thickness: "厚度",
+                sizes: "尺寸",
+                glue: "胶水",
+                density: "密度",
+                moisture: "湿度",
+                surfacefinish: "表面处理",
+                color: "颜色",
+                material: "材质",
+                usage: "用途",
+                certifications: "认证",
+                warranty: "保修",
+                lockingsystem: "锁定系统",
+                finish: "饰面",
+                glazing: "玻璃窗",
+                profilethickness: "剖面厚度",
+                firerating: "防火等级",
+                certification: "认证"
+            }
         },
         hero: {
             badge: "25+ 年制造卓越",
@@ -461,7 +647,15 @@ export const translations = {
                 countries: "国家",
                 years: "年",
                 projects: "项目"
-            }
+            },
+            previousSlide: "上一张幻灯片",
+            nextSlide: "下一张幻灯片",
+            goToSlide: "跳转到幻灯片",
+            alt1: "现代门业解决方案",
+            alt2: "优质制造",
+            alt3: "建筑设计",
+            alt4: "精湛工艺",
+            alt5: "创新内饰"
         },
         about: {
             sectionTitle: "关于 Prime Connects",
@@ -495,7 +689,7 @@ export const translations = {
             description: "Primeconnects 在阿联酋和中国运营跨国制造网络，确保始终如一的质量、可靠的供应和区域响应能力。",
             contactSales: "联系销售",
             factories: {
-                doorUAE: { type: "门厂", city: "阿联酋" },
+                doorUAE: { type: "门厂", city: "阿拉伯联合酋长国" },
                 wpc: { type: "WPC 工厂", city: "中国江西" },
                 woodenDoor: { type: "木门工厂", city: "中国浙江" },
                 cabinet: { type: "橱柜厂", city: "中国浙江" },
@@ -534,7 +728,7 @@ export const translations = {
             },
             cta: {
                 title: "准备好开始您的项目了吗？",
-                desc: "多工厂质量检查点 • 快速原型制作 • 技术图纸和提交支持",
+                desc: "6 家工厂质量检查点 • 快速原型制作 • 技术图纸和提交支持",
                 requestSpecs: "索取规格",
                 viewProducts: "查看产品"
             }
@@ -547,7 +741,8 @@ export const translations = {
             getInTouch: "取得联系",
             rights: "Prime Connects. 保留所有权利。",
             arabicTagline: "Prime Connects 门业与橱柜解决方案",
-            address: "阿联酋沙迦 Maliha 路 18 号工业区 8 号仓库"
+            address: "阿联酋沙迦 Maliha 路 18 号工业区 8 号仓库",
+            poweredBy: "强力驱动"
         },
         contact: {
             badge: "联系我们",
@@ -578,7 +773,7 @@ export const translations = {
             companyPlaceholder: "您的公司",
             messagePlaceholder: "告诉我们您的项目需求...",
             send: "发送消息",
-            responseTime: "我们通常在24小时内回复",
+            responseTime: "我们通常在 24 小时内回复",
             successTitle: "消息已发送！",
             successMessage: "我们将在一个工作日内回复您。"
         },
@@ -586,7 +781,7 @@ export const translations = {
             badge: "关于我们",
             title: "关于",
             titleHighlight: "普莱姆连接",
-            description: "跨国门业、面板和橱柜制造商，拥有超过25年的卓越经验。",
+            description: "跨国门业、面板和橱柜制造商，拥有超过 25 年的卓越经验。",
             contactUs: "联系我们",
             storyTitle: "我们的故事 &",
             storyHighlight: "传承",
@@ -601,7 +796,7 @@ export const translations = {
             journeyHighlight: "历程",
             timeline1Year: "1999",
             timeline1Title: "在中国成立",
-            timeline1Desc: "在中国建立了我们的第一个制造工厂，标志着我们在建筑解决方案领域旅程的开始。",
+            timeline1Desc: "在中国建立了我们的第一个制造工厂，标志着我们在建筑解决方案领域历程的开始。",
             timeline2Year: "2015",
             timeline2Title: "扩展产品线",
             timeline2Desc: "多元化我们的产品组合，涵盖针对各个行业的全面门业、面板和橱柜解决方案。",
@@ -620,10 +815,15 @@ export const translations = {
             ctaButton: "取得联系"
         },
         productsPage: {
-            title: "我们的产品",
-            subtitle: "浏览所有产品",
+            title: "产品系列",
+            subtitle: "探索我们全面的高性能建筑解决方案系列。",
             viewDetails: "查看详情",
-            loading: "正在加载产品..."
+            loading: "正在加载产品...",
+            showing: "显示结果：",
+            clearFilters: "清除所有筛选",
+            noResultsTitle: "未找到产品",
+            noResultsDesc: "请尝试调整您的筛选或搜索条件以找到您要找的内容。",
+            viewAllProducts: "查看所有产品"
         },
         productDetail: {
             backToProducts: "返回产品",
@@ -632,7 +832,23 @@ export const translations = {
             inquire: "咨询",
             features: "主要特点",
             specifications: "产品规格",
-            applications: "应用领域"
+            applications: "应用领域",
+            colorShades: "颜色色调",
+            availableModels: "可用型号",
+            interestedFinish: "对这种饰面感兴趣？",
+            interestedModel: "对这个型号感兴趣？",
+            fillForm: "填写下面的表格以专门咨询",
+            option: "选项",
+            modelDetail: "型号详情",
+            finishTexture: "产品饰面/纹理",
+            yourName: "您的姓名",
+            emailAddress: "电子邮箱",
+            phoneNumber: "电话号码",
+            messageRequirements: "留言或具体要求...",
+            sendInquiry: "发送咨询"
+        },
+        sidebar: {
+            productCenter: "产品中心"
         },
         categoriesPage: {
             badge: "类别",

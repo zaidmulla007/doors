@@ -1,5 +1,16 @@
 export const categories = [
     {
+        id: "core-panels",
+        name: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
+        description: {
+            en: "Premium quality core panels including Melamine Faced Plywood, MDF, and Film Faced options for construction and furniture.",
+            ar: "ألواح أساسية عالية الجودة بما في ذلك الخشب الرقائقي والميلامين و MDF والخoptionsيارات المغطاة بالفيلم للبناء والأثاث.",
+            zh: "优质核心板，包括三聚氰胺贴面胶合板、MDF 和覆膜选项，用于建筑和家具。"
+        },
+        image: "/core-panel/MelamineFacedPlywood/1.jpg",
+        slug: "core-panels"
+    },
+    {
         id: "doors",
         name: { en: "Doors", ar: "أبواب", zh: "门" },
         description: {
@@ -52,105 +63,158 @@ export const products = [
         name: { en: "Melamine Faced Plywood", ar: "خشب رقائقي مغطى بالميلامين", zh: "三聚氰胺贴面胶合板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "melamine-faced-plywood",
-        description: { en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor.", ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع.", zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。" },
-        images: ["https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=800&q=80"],
+        description: {
+            en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor",
+            ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع. مثالي للأثاث والخزائن وألواح الجدران والديكور الداخلي.",
+            zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。是家具、橱柜、墙板和室内装饰的理想选择。"
+        },
+        images: ["/core-panel/MelamineFacedPlywood/1.jpg"],
         specifications: {
             "Thickness": "6mm-25mm",
-            "Sizes": "1220X2440X18mm,1220X2440X15mm or as per customers' required specifications",
-            "Glue": "E0,E1,E2,MR",
+            "Sizes": "1220X2440X18mm, 1220X2440X15mm or as per customers' required specifications",
+            "Glue": "E0, E1, E2, MR",
             "Density": "680-780KG/m3",
-            "Moisture": "8–20%",
+            "Moisture": "8-20%",
             "Surface finish": "Melamine Paper",
-            "Color": "Solid color (white, black, blue, etc.); wood grain (cherry, beech, walnut, etc.)",
-            "Material": "Wood Chips (Poplar, Pine, Combi etc.)",
-            "Usage": "High-end Furniture Wardrobe/Kitchen Cabinet/TV Cabinet/Closets",
-            "Certifications": "CARB, CE,ISO9001:2000, ISO14001"
-        },
-        variants: Array.from({ length: 6 }, (_, i) => ({
-            name: `MFP-${100 + i}`,
-            image: `https://images.unsplash.com/photo-${['1517646331032-9e8563c523a1', '1582205313222-297eb040854d'][i % 2]}?auto=format&fit=crop&w=300&q=80`
-        }))
+            "Color": "solid color(white,black,blue,yellow,red etc.);wood grain(cherry,beech,walnut,teak etc.) cloth grain",
+            "Material": "Wood Chips(Poplar,Pine,Combi etc.)",
+            "Usage": "Widely used for High-end Furniture Wardrobe/Kitchen Cabinet/TV Cabinet/Closets",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
     },
     {
         id: "film-faced-plywood",
         name: { en: "Film Faced Plywood", ar: "خشب رقائقي مغطى بالفيلم", zh: "覆膜胶合板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "film-faced-plywood",
-        description: { en: "Film Faced Plywood is a durable, water-resistant plywood coated with a protective film, widely used for concrete formwork and construction.", ar: "خشب رقائقي مغطى بالفيلم متين ومقاوم للماء ومغطى بفيلم واقٍ، ويستخدم على نطاق واسع في قوالب الخرسانة والبناء.", zh: "覆膜胶合板是一种耐用、防水的胶合板，涂有保护膜，广泛用于混凝土模板和建筑。" },
-        images: ["https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=800&q=80"],
-        features: {
-            en: ["Furniture Manufacturing: Beds, Tables, Cabinets", "Building Decoration: Wall panels, Ceilings", "Display Racks & Moldings", "Construction & Flooring: Formwork"],
-            ar: ["تصنيع الأثاث", "زخرفة المباني", "رفوف العرض", "البناء والأرضيات"],
-            zh: ["家具制造", "建筑装饰", "展示架", "建筑和地板"]
+        description: {
+            en: "Film Faced Plywood is a durable, water-resistant plywood coated with a protective film, widely used for concrete formwork and construction",
+            ar: "الخشب الرقائقي المغطى بالفيلم هو خشب رقائقي متين ومقاوم للماء ومطلي بفيلم واقٍ، ويستخدم على نطاق واسع في قوالب الخرسانة والبناء.",
+            zh: "覆膜胶合板是一种耐用、防水的胶合板，涂有保护膜，广泛用于混凝土模板和建筑。"
         },
+        images: ["/core-panel/FilmFacedPlywood/1.jpg"],
         specifications: {
-            "Thickness": "1-25mm or customized",
-            "Sizes": "1220x2440mm, 1535x2440mm 1830x2440mm",
+            "Thickness": "1-25mm or customized as per clients' requirements",
+            "Sizes": "1220x2440mm, 1535x2440mm 1830x2440mm or as clients requirement",
             "Glue": "E2, E1, E0, CARB",
             "Density": "680kgs/m3 ~ 1000kgs/m3",
             "Moisture": "4-12%",
             "Surface finish": "VENEER",
-            "Color": "Solid colors, wood grain, stone colors, etc.",
+            "Color": "Solid colors, wood grain colors, fancy colors, stone colors, etc or customized as per clients' requirements",
             "Material": "Poplar, Pine and hardwood combi",
-            "Usage": "Furniture manufacturing, building decoration, display racks",
-            "Certifications": "CARB, CE,ISO9001:2000, ISO14001"
+            "Usage": "It is widely used in furniture manufacturing, such as beds, tables, cabinets, etc. It is also used in building decoration, like wall panels, ceilings, etc. Moreover, it can be used to make display racks, decorative moldings, etc., enhancing the aesthetics and quality of the space.",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
         },
-        variants: Array.from({ length: 6 }, (_, i) => ({
-            name: `FFP-${200 + i}`,
-            image: `https://images.unsplash.com/photo-${['1595166442656-7876a4ba0c7b', '1613545325278-f24b0cae1224'][i % 2]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        applications: {
+            en: [
+                "Furniture Manufacturing: Used for making strong, stylish, and durable furniture pieces",
+                "Cabinets & Wardrobes: Ideal for modular kitchens and wardrobes with smooth finishes",
+                "Partitions & Displays: Strong and Decorative option for office and retail partitions",
+                "Construction & Flooring: Durable and reusable panels widely used in formwork and flooring"
+            ],
+            ar: [
+                "تصنيع الأثاث: يستخدم لصنع قطع أثاث قوية وأنيقة ومتينة",
+                "الخزائن والخزائن: مثالي للمطابخ والخزائن المعيارية ذات التشطيبات الناعمة",
+                "القواطع والعروض: خيار قوي وزخرفي لقواطع المكاتب والتجزئة",
+                "البناء والأرضيات: ألواح متينة وقابلة لإعادة الاستخدام تستخدم على نطاق واسع في قوالب صب الخرسانة والأرضيات"
+            ],
+            zh: [
+                "家具制造：用于制造坚固、时尚且耐用的家具部件",
+                "橱柜和衣柜：是具有光滑饰面的模块化厨房和衣柜的理想选择",
+                "隔断和展示：办公和零售隔断的坚固且具装饰性的选择",
+                "建筑和地板：耐用且可重复使用的面板，广泛用于模板和地板"
+            ]
+        }
     },
     {
         id: "melamine-faced-mdf-panels",
         name: { en: "Melamine Faced MDF Panels", ar: "ألواح MDF مغطاة بالميلامين", zh: "三聚氰胺贴面MDF板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "melamine-faced-mdf-panels",
-        description: { en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor.", ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع.", zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。" },
-        images: ["https://images.unsplash.com/photo-1543444465-34372e90c51e?auto=format&fit=crop&w=800&q=80"],
-        features: {
-            en: ["Shelving & Racks", "Doors & Panels", "Hotel & Restaurant Interiors", "False Ceilings"],
-            ar: ["الأرفف والرفوف", "الأبواب واللوحات", "الديكورات الداخلية للفنادق والمطاعم", "الأسقف المستعارة"],
-            zh: ["货架和架子", "门和面板", "酒店和餐厅内饰", "吊顶"]
+        description: {
+            en: "An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor.",
+            ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع. مثالي للأثاث والخزائن وألواح الجدران والديكور الداخلي.",
+            zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。是家具、橱柜、墙板和室内装饰的理想选择。"
         },
+        images: ["/core-panel/MelamineFacedMDFPanels/1.jpg"],
         specifications: {
-            "Thickness": "2.5 mm to 25 mm (Common: 9, 12, 15, 17, 18 mm)",
-            "Glue": "E0/E1/E2 bonding systems",
-            "Density": "Wood fiber core (poplar, pine, hardwood)",
-            "Moisture": "Standard moisture resistance (Interior)",
-            "Surface finish": "Plain, melamine (matt, textured, gloss, embossed)",
-            "Color": "Solid colors, wood grain, marble patterns",
-            "Material": "Wood fiber (poplar, pine, combi)",
-            "Usage": "Furniture, interior decoration, flooring",
-            "Certifications": "CARB, CE,ISO9001:2000, ISO14001"
+            "Thickness": "Ranges from 2.5 mm to 25 mm, with common options like 9 mm, 12 mm, 15 mm, 17 mm, 18 mm",
+            "Glue": "Uses E0/E1/E2 bonding systems, and can include melamine glue depending on the application",
+            "Density": "Wood fiber core from poplar, pine, hardwood, or combinations",
+            "Moisture": "Standard moisture resistance (not marine-grade); ideal for dry interiors",
+            "Surface finish": "Options include plain, various melamine finishes (matt, textured, high-gloss, embossed), with colors ranging from solid to wood grains, cloth or marble patterns",
+            "Color": "Solid colors, wood grain colors, fancy colors, stone colors, etc or customized as per clients' requirements",
+            "Material": "Made from wood fiber, typically poplar, pine, or a combination (\"combi\") offering a stable and lightweight core.",
+            "Usage": "Widely used for furniture, interior decoration, and as a wood flooring material. Mainly intended for indoor environments; not specified as marine-grade or moisture-resistant for outdoor exposure.",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
         },
-        variants: Array.from({ length: 6 }, (_, i) => ({
-            name: `MDF-P-${300 + i}`,
-            image: `https://images.unsplash.com/photo-${['1543444465-34372e90c51e', '1517646331032-9e8563c523a1'][i % 2]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        applications: {
+            en: [
+                "Shelving & Racks: Strong and stylish option for storage shelves in homes or shops.",
+                "Doors & Panels: Provides smooth and durable surface for interior doors.",
+                "Hotel & Restaurant Interiors: Adds warmth and elegance to hospitality spaces",
+                "False Ceilings: Enhances interiors with decorative wooden ceiling panels."
+            ],
+            ar: [
+                "الأرفف والرفوف: خيار قوي وأنيق لرفوف التخزين في المنازل أو المحلات التجارية.",
+                "الأبواب والألواح: يوفر سطحًا ناعمًا ومتينًا للأبواب الداخلية.",
+                "الديكورات الداخلية للفنادق والمطاعم: يضيف الدفء والأناقة لمساحات الضيافة",
+                "الأسقف المستعارة: يعزز الديكورات الداخلية بألواح سقف خشبية زخرفية."
+            ],
+            zh: [
+                "货架和架子：家庭或商店存储货架的坚固且时尚的选择。",
+                "门和面板：为室内门提供光滑耐用的表面。",
+                "酒店和餐厅内饰：为接待空间增添温馨和优雅",
+                "吊顶：用装饰木制天花板增强室内效果。"
+            ]
+        }
     },
     {
         id: "film-faced-mdf-panels",
         name: { en: "Film Faced MDF Panels", ar: "ألواح MDF مغطاة بالفيلم", zh: "覆膜MDF板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "film-faced-mdf-panels",
-        description: { en: "A strong and durable panel with a smooth film coating that provides resistance to moisture, wear, and abrasion. It is widely used in construction formwork, shuttering, and heavy-duty applications.", ar: "لوح قوي ومتين بطبقة فيلم ناعمة توفر مقاومة للرطوبة والتآكل والاحتكاك.", zh: "一种坚固耐用的面板，具有光滑的薄膜涂层，可防潮、耐磨和耐磨损。" },
-        images: ["https://images.unsplash.com/photo-1622372738946-67e0231446f1?auto=format&fit=crop&w=800&q=80"],
-        variants: Array.from({ length: 6 }, (_, i) => ({
-            name: `FFMDF-${400 + i}`,
-            image: `https://images.unsplash.com/photo-${['1622372738946-67e0231446f1', '1595166442656-7876a4ba0c7b'][i % 2]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        description: {
+            en: "A strong and durable panel with a smooth film coating that provides resistance to moisture, wear, and abrasion. It is widely used in construction formwork, shuttering, and other heavy-duty applications where reusability and strength are essential",
+            ar: "لوح قوي ومتين بطبقة فيلم ناعمة توفر مقاومة للرطوبة والتآكل والاحتكاك. يستخدم على نطاق واسع في قوالب صب الخرسانة والبناء والتطبيقات الشاقة الأخرى حيث تكون إعادة الاستخدام والقوة أمرًا ضروريًا.",
+            zh: "一种坚固耐用的面板，具有光滑的薄膜涂层，可防潮、耐磨和耐磨损。它广泛用于建筑模板、模板和其他重型应用，在这些应用中，重复使用性和强度至关重要。"
+        },
+        images: ["/core-panel/FILMFACEDMDFPANELS/1.jpg"],
+        specifications: {
+            "Thickness": "1-25mm or customized as per clients' requirements",
+            "Sizes": "1220x2440mm, 1535x2440mm 1830x2440mm or as clients requirement",
+            "Glue": "E2, E1, E0, CARB",
+            "Density": "680kgs/m3 ~ 1000kgs/m3",
+            "Moisture": "4-12%",
+            "Surface finish": "VENEER",
+            "Color": "Solid colors, wood grain colors, fancy colors, stone colors, etc or customized as per clients' requirements",
+            "Material": "Poplar, Pine and hardwood combi",
+            "Usage": "It is widely used in furniture manufacturing, such as beds, tables, cabinets, etc. It is also used in building decoration, like wall panels, ceilings, etc. Moreover, it can be used to make display racks, decorative moldings, etc., enhancing the aesthetics and quality of the space.",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
     },
     {
         id: "core-panel-plywood",
         name: { en: "Core Panel Plywood", ar: "خشب رقائقي للألواح الأساسية", zh: "芯板胶合板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
         slug: "core-panel-plywood",
-        description: { en: "Strong and stable plywood made with layered wood veneers at the core, ideal for doors, partitions, furniture, and wall panels.", ar: "خشب رقائقي قوي ومستقر مصنوع من قشرة خشبية ذات طبقات في القلب، مثالي للأبواب والجدران والأثاث وألواح الجدران.", zh: "坚固稳定的胶合板，核心由层状木单板制成，是门、隔断、家具和墙板的理想选择。" },
-        images: ["https://images.unsplash.com/photo-1519962533758-d42111d40eb8?auto=format&fit=crop&w=800&q=80"],
-        variants: Array.from({ length: 6 }, (_, i) => ({
-            name: `CPP-${500 + i}`,
-            image: `https://images.unsplash.com/photo-${['1519962533758-d42111d40eb8', '1582205313222-297eb040854d'][i % 2]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        description: {
+            en: "Core Panel Plywood Strong and stable plywood made with layered wood veneers at the core, ideal for doors, partitions, furniture, and wall panels",
+            ar: "الخشب الرقائقي للألواح الأساسية خشب رقائقي قوي ومستقر مصنوع من قشور خشبية ذات طبقات في القلب، مثالي للأبواب والقواطع والأثاث وألواح الجدران.",
+            zh: "芯板胶合板，坚固稳定的胶合板，核心由层状木单板制成，是门、隔断、家具和墙板的理想选择。"
+        },
+        images: ["/core-panel/CORE-PANEL-PLYWOOD/1.jpg"],
+        specifications: {
+            "Thickness": "Also ranges from 2.5 mm to 25 mm",
+            "Glue": "Uses E0/E1/E2 bonding systems, and can include melamine glue depending on the application",
+            "Density": "Wood fiber core from poplar, pine, hardwood, or combinations",
+            "Moisture": "Standard moisture resistance (not marine-grade); ideal for dry interiors",
+            "Surface finish": "Options include plain, various melamine finishes (matt, textured, high-gloss, embossed), with colors ranging from solid to wood grains, cloth or marble patterns",
+            "Color": "Solid colors, wood grain colors, fancy colors, stone colors, etc or customized as per clients' requirements",
+            "Material": "Made from wood fiber, typically poplar, pine, or a combination (\"combi\") offering a stable and lightweight core.",
+            "Usage": "Widely used for furniture, interior decoration, and as a wood flooring material. Mainly intended for indoor environments; not specified as marine-grade or moisture-resistant for outdoor exposure.",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
     },
 
     // --- DOORS ---

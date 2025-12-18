@@ -41,9 +41,9 @@ export default function Header() {
     const [isBrochuresOpen, setIsBrochuresOpen] = useState(false);
 
     const languages = [
-        { code: "en", label: "English" },
-        { code: "ar", label: "Arabic" },
-        { code: "zh", label: "Chinese" }
+        { code: "en", label: t('header.langEn') },
+        { code: "ar", label: t('header.langAr') },
+        { code: "zh", label: t('header.langZh') }
     ];
 
     const currentLangLabel = languages.find(l => l.code === language)?.label || "English";
@@ -83,18 +83,20 @@ export default function Header() {
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs py-2 hidden lg:block">
                 <div className="container-custom flex justify-center items-center gap-6">
                     <div className="flex items-center gap-4">
-                        {contactInfo.emails.map(email => (
-                            <a key={email} href={`mailto:${email}`} className="flex items-center gap-1 hover:text-gray-200">
-                                <Mail size={14} /> {email}
-                            </a>
-                        ))}
+                        <a href="mailto:info@primeconnects.ae" className="flex items-center gap-1 hover:text-gray-200">
+                            <Mail size={14} /> {t('common.emailInfo')}
+                        </a>
+                        <a href="mailto:abde@primeconnects.ae" className="flex items-center gap-1 hover:text-gray-200">
+                            <Mail size={14} /> {t('common.emailAbde')}
+                        </a>
                     </div>
                     <div className="flex items-center gap-4">
-                        {contactInfo.phones.map(phone => (
-                            <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`} className="flex items-center gap-1 hover:text-gray-200">
-                                <Phone size={14} /> {phone}
-                            </a>
-                        ))}
+                        <a href="tel:+97165733816" className="flex items-center gap-1 hover:text-gray-200">
+                            <Phone size={14} /> {t('common.phoneAjman')}
+                        </a>
+                        <a href="tel:+971589126137" className="flex items-center gap-1 hover:text-gray-200">
+                            <Phone size={14} /> {t('common.phoneSales')}
+                        </a>
                     </div>
                     <div className="flex items-center gap-3 ml-4">
                         {socialLinks.map(social => (
@@ -178,33 +180,34 @@ export default function Header() {
                                                         {/* Left Sidebar: Categories */}
                                                         <div className="w-64 bg-white p-2 flex flex-col gap-1">
                                                             {productCategories.map((category) => {
-                                                                if (category.name === "Color Card") {
+                                                                const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
+                                                                if (category.name.en === "Color Card") {
                                                                     return (
                                                                         <Link
-                                                                            key={category.name}
+                                                                            key={category.slug}
                                                                             href={`/product/${category.items[0]?.slug || 'color-card'}`}
                                                                             onMouseEnter={() => setActiveCategory(null)}
                                                                             className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
                                                                         >
                                                                             <div className="flex items-center gap-3">
-                                                                                <span className="font-medium text-sm">{category.name}</span>
+                                                                                <span className="font-medium text-sm">{categoryName}</span>
                                                                             </div>
                                                                         </Link>
                                                                     );
                                                                 }
                                                                 return (
                                                                     <div
-                                                                        key={category.name}
-                                                                        onMouseEnter={() => setActiveCategory(category.name)}
-                                                                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.name
+                                                                        key={category.slug}
+                                                                        onMouseEnter={() => setActiveCategory(category.slug)}
+                                                                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.slug
                                                                             ? "bg-blue-50 text-blue-600"
                                                                             : "text-gray-600 hover:bg-gray-50"
                                                                             }`}
                                                                     >
                                                                         <div className="flex items-center gap-3">
-                                                                            <span className="font-medium text-sm">{category.name}</span>
+                                                                            <span className="font-medium text-sm">{categoryName}</span>
                                                                         </div>
-                                                                        {activeCategory === category.name && (
+                                                                        {activeCategory === category.slug && (
                                                                             <ChevronDown className="w-4 h-4 rotate-[-90deg] text-blue-600" />
                                                                         )}
                                                                     </div>
@@ -213,40 +216,46 @@ export default function Header() {
                                                         </div>
 
                                                         {/* Right Content: Items - Only Visible if Category Active */}
-                                                        {activeCategory && (
-                                                            <div className="w-[800px] p-6 bg-gray-50/50 border-l border-gray-100 min-h-[300px]">
-                                                                <div className="h-full flex flex-col">
-                                                                    <div className="mb-4 pb-3 border-b border-gray-200 flex items-baseline justify-between">
-                                                                        <h3 className="text-xl font-bold text-gray-900">
-                                                                            {activeCategory}
-                                                                        </h3>
-                                                                        <Link
-                                                                            href={`/products?category=${activeCategory}`}
-                                                                            className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
-                                                                        >
-                                                                            View All <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
-                                                                        </Link>
-                                                                    </div>
+                                                        {activeCategory && (() => {
+                                                            const activeCat = productCategories.find(c => c.slug === activeCategory);
+                                                            if (!activeCat) return null;
+                                                            const activeCatName = activeCat.name[language as keyof typeof activeCat.name] || activeCat.name.en;
+                                                            return (
+                                                                <div className="w-64 p-4 bg-gray-50/50 border-l border-gray-100">
+                                                                    <div className="h-full flex flex-col">
+                                                                        <div className="mb-3 pb-2 border-b border-gray-200 flex items-baseline justify-between">
+                                                                            <h3 className="text-sm font-bold text-gray-900">
+                                                                                {activeCatName}
+                                                                            </h3>
+                                                                            <Link
+                                                                                href={`/products?category=${activeCat.slug}`}
+                                                                                className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                                                                            >
+                                                                                {t('header.viewAll')} <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
+                                                                            </Link>
+                                                                        </div>
 
-                                                                    <div className="grid grid-cols-3 gap-4 content-start">
-                                                                        {productCategories
-                                                                            .find(c => c.name === activeCategory)
-                                                                            ?.items.map((item, idx) => (
-                                                                                <Link
-                                                                                    key={idx}
-                                                                                    href={`/product/${item.slug}`}
-                                                                                    className="group flex items-center gap-3 p-2 rounded-lg bg-white border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all"
-                                                                                >
-                                                                                    <div className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
-                                                                                    <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
-                                                                                        {item.name}
-                                                                                    </span>
-                                                                                </Link>
-                                                                            ))}
+                                                                        <div className="flex flex-col gap-1">
+                                                                            {activeCat.items.map((item, idx) => {
+                                                                                const itemName = item.name[language as keyof typeof item.name] || item.name.en;
+                                                                                return (
+                                                                                    <Link
+                                                                                        key={idx}
+                                                                                        href={`/product/${item.slug}`}
+                                                                                        className="group flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-blue-50 transition-all"
+                                                                                    >
+                                                                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
+                                                                                        <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
+                                                                                            {itemName}
+                                                                                        </span>
+                                                                                    </Link>
+                                                                                );
+                                                                            })}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        )}
+                                                            );
+                                                        })()}
                                                     </div>
                                                 </motion.div>
                                             )}
@@ -340,25 +349,31 @@ export default function Header() {
                                             </Link>
                                             {link.hasDropdown && (
                                                 <div className="mt-3 space-y-4">
-                                                    {productCategories.map((category, catIndex) => (
-                                                        <div key={catIndex} className="pl-4 border-l-2 border-blue-200">
-                                                            <div className="flex items-center gap-2 mb-2">
-                                                                <span className="font-medium text-gray-800 text-sm">{category.name}</span>
+                                                    {productCategories.map((category, catIndex) => {
+                                                        const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
+                                                        return (
+                                                            <div key={catIndex} className="pl-4 border-l-2 border-blue-200">
+                                                                <div className="flex items-center gap-2 mb-2">
+                                                                    <span className="font-medium text-gray-800 text-sm">{categoryName}</span>
+                                                                </div>
+                                                                <div className="pl-4 space-y-1">
+                                                                    {category.items.map((item, itemIndex) => {
+                                                                        const itemName = item.name[language as keyof typeof item.name] || item.name.en;
+                                                                        return (
+                                                                            <Link
+                                                                                key={itemIndex}
+                                                                                href={`/product/${item.slug}`}
+                                                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                                                className="block text-gray-600 text-xs py-1 hover:text-blue-600"
+                                                                            >
+                                                                                {itemName}
+                                                                            </Link>
+                                                                        );
+                                                                    })}
+                                                                </div>
                                                             </div>
-                                                            <div className="pl-4 space-y-1">
-                                                                {category.items.map((item, itemIndex) => (
-                                                                    <Link
-                                                                        key={itemIndex}
-                                                                        href={`/product/${item.slug}`}
-                                                                        onClick={() => setIsMobileMenuOpen(false)}
-                                                                        className="block text-gray-600 text-xs py-1 hover:text-blue-600"
-                                                                    >
-                                                                        {item.name}
-                                                                    </Link>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    ))}
+                                                        );
+                                                    })}
                                                 </div>
                                             )}
                                         </div>
@@ -368,16 +383,18 @@ export default function Header() {
                                 {/* Mobile Contact Info & Language */}
                                 <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-4">
                                     <div className="flex flex-col gap-2">
-                                        {contactInfo.emails.map(email => (
-                                            <a key={email} href={`mailto:${email}`} className="text-sm text-gray-600 flex items-center gap-2">
-                                                <Mail size={16} /> {email}
-                                            </a>
-                                        ))}
-                                        {contactInfo.phones.map(phone => (
-                                            <a key={phone} href={`tel:${phone}`} className="text-sm text-gray-600 flex items-center gap-2">
-                                                <Phone size={16} /> {phone}
-                                            </a>
-                                        ))}
+                                        <a href="mailto:info@primeconnects.ae" className="text-sm text-gray-600 flex items-center gap-2">
+                                            <Mail size={16} /> {t('common.emailInfo')}
+                                        </a>
+                                        <a href="mailto:abde@primeconnects.ae" className="text-sm text-gray-600 flex items-center gap-2">
+                                            <Mail size={16} /> {t('common.emailAbde')}
+                                        </a>
+                                        <a href="tel:+97165733816" className="text-sm text-gray-600 flex items-center gap-2">
+                                            <Phone size={16} /> {t('common.phoneAjman')}
+                                        </a>
+                                        <a href="tel:+971589126137" className="text-sm text-gray-600 flex items-center gap-2">
+                                            <Phone size={16} /> {t('common.phoneSales')}
+                                        </a>
                                     </div>
 
                                     <div className="flex gap-4 mt-2">

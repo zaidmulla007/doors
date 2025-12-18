@@ -38,9 +38,8 @@ export default function ProductPage() {
     // Get translated product data
     const productName = getTranslated(product.name, language);
     const productDescription = getTranslated(product.description, language);
-    const productFeatures = language === 'ar' && product.features?.ar
-        ? product.features.ar
-        : product.features?.en || [];
+    const productFeatures = (product as any).features?.[language] || (product as any).features?.en || [];
+    const productApplications = (product as any).applications?.[language] || (product as any).applications?.en || [];
 
     const variants = (product as any).variants || (product as any).colors || [];
 
@@ -132,7 +131,7 @@ export default function ProductPage() {
                                         >
                                             <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('productDetail.features')}</h2>
                                             <ul className="grid md:grid-cols-2 gap-4">
-                                                {productFeatures.map((feature, index) => (
+                                                {productFeatures.map((feature: string, index: number) => (
                                                     <li key={index} className="flex items-start gap-3 text-gray-600">
                                                         <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
                                                         <span>{feature}</span>
@@ -143,7 +142,7 @@ export default function ProductPage() {
                                     )}
 
                                     {/* Specifications Section */}
-                                    {product.specifications && Object.keys(product.specifications).length > 0 && variants.length === 0 && (
+                                    {product.specifications && Object.keys(product.specifications).length > 0 && (
                                         <motion.div
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +156,7 @@ export default function ProductPage() {
                                                         {Object.entries(product.specifications).map(([key, value], index) => (
                                                             <tr key={index} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                                                 <th className="py-4 px-6 bg-gray-50/50 font-medium text-gray-900 w-1/3 border-r border-gray-100 capitalize">
-                                                                    {key.replace(/([A-Z])/g, ' $1').trim()}
+                                                                    {t(`common.productSpecs.${key.toLowerCase().replace(/\s+/g, '')}` as any) || key.replace(/([A-Z])/g, ' $1').trim()}
                                                                 </th>
                                                                 <td className="py-4 px-6 text-gray-600">
                                                                     {typeof value === 'object' ? JSON.stringify(value) : String(value)}
@@ -170,6 +169,26 @@ export default function ProductPage() {
                                         </motion.div>
                                     )}
 
+                                    {/* Applications Section */}
+                                    {productApplications && productApplications.length > 0 && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-12 mb-8"
+                                        >
+                                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('productDetail.applications')}</h2>
+                                            <ul className="space-y-4">
+                                                {productApplications.map((app: string, index: number) => (
+                                                    <li key={index} className="flex items-start gap-4 text-gray-600">
+                                                        <div className="w-2 h-2 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                                                        <span className="text-lg leading-relaxed">{app}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </motion.div>
+                                    )}
+
                                     {/* Models/Variants Grid */}
                                     {variants.length > 0 && (
                                         <motion.div
@@ -179,7 +198,7 @@ export default function ProductPage() {
                                             className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-12"
                                         >
                                             <h4 className="text-2xl font-bold text-gray-900 mb-8">
-                                                {slug === 'color-card' ? "Color Shades" : `Available Models in ${productName}`}
+                                                {slug === 'color-card' ? t('productDetail.colorShades') : `${t('productDetail.availableModels')} ${productName}`}
                                             </h4>
                                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                                                 {variants.map((item: any, index: number) => (
@@ -238,7 +257,7 @@ export default function ProductPage() {
                                                             <div>
                                                                 <h3 className="text-2xl font-bold text-gray-900">{selectedColor.name}</h3>
                                                                 <p className="text-sm text-gray-500 mt-1">
-                                                                    {slug === 'color-card' ? "Product Finish / Texture" : "Model Detail"}
+                                                                    {slug === 'color-card' ? t('productDetail.finishTexture') : t('productDetail.modelDetail')}
                                                                 </p>
                                                             </div>
                                                             <button
@@ -252,34 +271,34 @@ export default function ProductPage() {
                                                         <div className="mt-auto space-y-4">
                                                             <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
                                                                 <h4 className="font-semibold text-blue-900 mb-2">
-                                                                    {slug === 'color-card' ? "Interested in this finish?" : "Interested in this model?"}
+                                                                    {slug === 'color-card' ? t('productDetail.interestedFinish') : t('productDetail.interestedModel')}
                                                                 </h4>
                                                                 <p className="text-sm text-blue-700 mb-4">
-                                                                    Fill out the form below to inquire specifically about the <span className="font-bold">{selectedColor.name}</span> option.
+                                                                    {t('productDetail.fillForm')} <span className="font-bold">{selectedColor.name}</span> {t('productDetail.option')}.
                                                                 </p>
                                                                 <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                                                                     <input
                                                                         type="text"
-                                                                        placeholder="Your Name"
+                                                                        placeholder={t('productDetail.yourName')}
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                                                                     />
                                                                     <input
                                                                         type="email"
-                                                                        placeholder="Email Address"
+                                                                        placeholder={t('productDetail.emailAddress')}
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                                                                     />
                                                                     <input
                                                                         type="tel"
-                                                                        placeholder="Phone Number"
+                                                                        placeholder={t('productDetail.phoneNumber')}
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                                                                     />
                                                                     <textarea
                                                                         rows={3}
-                                                                        placeholder="Message or specific requirements..."
+                                                                        placeholder={t('productDetail.messageRequirements')}
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none"
                                                                     ></textarea>
                                                                     <button className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">
-                                                                        Send Inquiry
+                                                                        {t('productDetail.sendInquiry')}
                                                                     </button>
                                                                 </form>
                                                             </div>

@@ -5,24 +5,29 @@ import Link from "next/link";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigationCategories } from "../lib/constants";
+import { useLanguage } from "../context/LanguageContext";
 
 interface ProductSidebarProps {
     activeSlug?: string;
+    activeCategory?: string;
+    filterMode?: boolean;
 }
 
-export default function ProductSidebar({ activeSlug }: ProductSidebarProps) {
-    // Determine which category should be open by default based on activeSlug
+export default function ProductSidebar({ activeSlug, activeCategory, filterMode = false }: ProductSidebarProps) {
+    const { t, language } = useLanguage();
+
+    // Determine which category should be open by default based on activeSlug or activeCategory
     const defaultOpenCategory = navigationCategories.find(cat =>
-        cat.items.some(item => item.slug === activeSlug)
-    )?.name || "Doors"; // Default to "Doors" if no match or generic
+        cat.slug === activeCategory || cat.items.some(item => item.slug === activeSlug)
+    )?.slug || "doors"; // Default to "doors" if no match
 
     const [openCategories, setOpenCategories] = useState<string[]>([defaultOpenCategory]);
 
-    const toggleCategory = (categoryName: string) => {
+    const toggleCategory = (categorySlug: string) => {
         setOpenCategories(prev =>
-            prev.includes(categoryName)
-                ? prev.filter(c => c !== categoryName)
-                : [...prev, categoryName]
+            prev.includes(categorySlug)
+                ? prev.filter(c => c !== categorySlug)
+                : [...prev, categorySlug]
         );
     };
 
@@ -31,32 +36,46 @@ export default function ProductSidebar({ activeSlug }: ProductSidebarProps) {
             {/* Sidebar Header */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4">
                 <h4 className="text-sm font-bold text-white uppercase tracking-wide">
-                    Product center
+                    {t('sidebar.productCenter')}
                 </h4>
             </div>
 
             {/* Navigation List */}
             <div className="divide-y divide-gray-100">
                 {navigationCategories.map((category) => {
-                    const isOpen = openCategories.includes(category.name);
-                    const isActiveParent = category.items.some(item => item.slug === activeSlug);
+                    const isOpen = openCategories.includes(category.slug);
+                    const isActiveParent = category.slug === activeCategory || category.items.some(item => item.slug === activeSlug);
+                    const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
 
                     return (
-                        <div key={category.name} className="bg-white">
+                        <div key={category.slug} className="bg-white">
                             {/* Category Header */}
-                            <button
-                                onClick={() => toggleCategory(category.name)}
-                                className={`w-full flex items-center justify-between px-6 py-4 text-left transition-colors hover:bg-gray-50
-                                    ${isActiveParent ? 'text-blue-600' : 'text-gray-800'}
+                            <div
+                                className={`w-full flex items-center justify-between px-6 py-4 transition-colors hover:bg-gray-50
+                                    ${isActiveParent ? 'text-blue-600 bg-blue-50/50' : 'text-gray-800'}
                                 `}
                             >
-                                <span className="font-semibold text-base">{category.name}</span>
-                                {isOpen ? (
-                                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                                {filterMode ? (
+                                    <Link
+                                        href={`/products?category=${category.slug}`}
+                                        className="flex-1 font-semibold text-base hover:text-blue-600 transition-colors"
+                                    >
+                                        {categoryName}
+                                    </Link>
                                 ) : (
-                                    <ChevronRight className="w-4 h-4 text-gray-400" />
+                                    <span className="flex-1 font-semibold text-base" onClick={() => toggleCategory(category.slug)}>{categoryName}</span>
                                 )}
-                            </button>
+                                <button
+                                    onClick={() => toggleCategory(category.slug)}
+                                    className="p-1 hover:bg-gray-200 rounded-md transition-colors"
+                                >
+                                    {isOpen ? (
+                                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                                    ) : (
+                                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                                    )}
+                                </button>
+                            </div>
 
                             {/* Sub-items */}
                             <AnimatePresence>
@@ -71,10 +90,11 @@ export default function ProductSidebar({ activeSlug }: ProductSidebarProps) {
                                         <div className="flex flex-col">
                                             {category.items.map((item) => {
                                                 const isActive = item.slug === activeSlug;
+                                                const itemName = item.name[language as keyof typeof item.name] || item.name.en;
                                                 return (
                                                     <Link
                                                         key={item.slug}
-                                                        href={`/product/${item.slug}`}
+                                                        href={filterMode ? `/products?slug=${item.slug}` : `/product/${item.slug}`}
                                                         className={`
                                                             px-8 py-3 text-sm transition-all border-l-4
                                                             ${isActive
@@ -83,7 +103,7 @@ export default function ProductSidebar({ activeSlug }: ProductSidebarProps) {
                                                             }
                                                         `}
                                                     >
-                                                        {item.name}
+                                                        {itemName}
                                                     </Link>
                                                 );
                                             })}
@@ -98,3 +118,4 @@ export default function ProductSidebar({ activeSlug }: ProductSidebarProps) {
         </div>
     );
 }
+
