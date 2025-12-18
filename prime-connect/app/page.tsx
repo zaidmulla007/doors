@@ -391,21 +391,25 @@ export default function HomePage() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                whileHover={{ scale: 1.02 }}
-                className="p-5 rounded-2xl bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all group"
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="p-1 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 shadow-md hover:shadow-xl transition-all group"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-2xl flex-shrink-0">
-                    {factory.flag}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {t(`global.factories.${factory.id}.type`)}
-                    </h4>
-                    <p className="text-gray-500 text-sm flex items-center gap-1 mt-1">
-                      <MapPin className="w-3 h-3" />
-                      {t(`global.factories.${factory.id}.city`)}
-                    </p>
+                <div className="h-full w-full p-5 rounded-[14px] bg-white">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-2xl flex-shrink-0">
+                      {factory.flag}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {t(`global.factories.${factory.id}.type`)}
+                      </h4>
+                      {t(`global.factories.${factory.id}.city`) && (
+                        <p className="text-gray-500 text-sm flex items-center gap-1 mt-1">
+                          <MapPin className="w-3 h-3" />
+                          {t(`global.factories.${factory.id}.city`)}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -462,10 +466,9 @@ export default function HomePage() {
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border-4 border-white hover:border-blue-500/30 transition-all group"
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border-4 border-white transition-all"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6">
                   <sector.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{t(`sectors.items.${sector.id}.title`)}</h3>

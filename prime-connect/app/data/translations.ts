@@ -118,7 +118,7 @@ export const translations = {
                 woodenDoor: { type: "Wooden Door Factory", city: "Zhejiang, China" },
                 cabinet: { type: "Cabinet Factory", city: "Zhejiang, China" },
                 steelDoor: { type: "Steel Entrance Door Factory", city: "Zhejiang, China" },
-                fireproof: { type: "Fireproof Door Factory", city: "Shanghai, China" }
+                fireproof: { type: "Fireproof Door Factory", city: "" }
             }
         },
         sectors: {
@@ -406,7 +406,7 @@ export const translations = {
                 woodenDoor: { type: "مصنع الأبواب الخشبية", city: "تشجيانغ، الصين" },
                 cabinet: { type: "مصنع الخزائن", city: "تشجيانغ، الصين" },
                 steelDoor: { type: "مصنع أبواب الصلب", city: "تشجيانغ، الصين" },
-                fireproof: { type: "مصنع الأبواب المقاومة للحريق", city: "شنغهاي، الصين" }
+                fireproof: { type: "مصنع الأبواب المقاومة للحريق", city: "" }
             }
         },
         sectors: {
@@ -694,7 +694,7 @@ export const translations = {
                 woodenDoor: { type: "木门工厂", city: "中国浙江" },
                 cabinet: { type: "橱柜厂", city: "中国浙江" },
                 steelDoor: { type: "钢制入户门厂", city: "中国浙江" },
-                fireproof: { type: "防火门厂", city: "中国上海" }
+                fireproof: { type: "防火门厂", city: "" }
             }
         },
         sectors: {
