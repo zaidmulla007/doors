@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, Award } from "lucide-react";
+import { ArrowRight, Calendar, Award, Factory, MapPin } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 const fadeInUp = {
@@ -213,6 +213,57 @@ export default function AboutPage() {
                                     <p className="font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors duration-300">
                                         {cert}
                                     </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Global Network Section */}
+            <section className="section-padding bg-gray-50/50">
+                <div className="container-custom">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="text-center mb-16"
+                    >
+                        <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
+                            {t('global.sectionTitle')} <span className="gradient-text">{t('global.headingGradient')}</span>
+                        </motion.h2>
+                        <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
+                            {t('global.description')}
+                        </motion.p>
+                    </motion.div>
+
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                    >
+                        {['doorUAE', 'wpc', 'woodenDoor', 'cabinet', 'steelDoor', 'fireproof'].map((key) => (
+                            <motion.div
+                                key={key}
+                                variants={fadeInUp}
+                                className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all group"
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors">
+                                        <Factory className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-base font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                                            {t(`global.factories.${key}.type`)}
+                                        </h4>
+                                        <div className="flex items-center gap-1.5 text-gray-500 text-sm">
+                                            <MapPin className="w-3.5 h-3.5" />
+                                            <span>{t(`global.factories.${key}.city`)}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}

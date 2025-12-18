@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Globe, Download } from "lucide-react";
@@ -31,6 +32,7 @@ const socialLinks = [
 
 export default function Header() {
     const { language, setLanguage, t } = useLanguage();
+    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -125,117 +127,134 @@ export default function Header() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-                        {navLinks.map((link) => (
-                            <div
-                                key={link.name}
-                                className="relative group"
-                                onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
-                                onMouseLeave={() => {
-                                    if (link.hasDropdown) {
-                                        setActiveDropdown(null);
-                                        setActiveCategory(null);
-                                    }
-                                }}
-                            >
-                                <Link
-                                    href={link.href}
-                                    className="text-gray-600 hover:text-blue-600 font-medium text-sm transition-colors py-2 flex items-center gap-1"
+                        {navLinks.map((link) => {
+                            const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                            return (
+                                <div
+                                    key={link.name}
+                                    className="relative group"
+                                    onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
+                                    onMouseLeave={() => {
+                                        if (link.hasDropdown) {
+                                            setActiveDropdown(null);
+                                            setActiveCategory(null);
+                                        }
+                                    }}
                                 >
-                                    {link.name}
-                                    {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                                </Link>
+                                    <Link
+                                        href={link.href}
+                                        className={`font-medium text-sm transition-all py-2 flex items-center gap-1 relative ${isActive
+                                            ? "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500"
+                                            : "text-gray-600 hover:text-blue-600"
+                                            }`}
+                                    >
+                                        {link.name}
+                                        {link.hasDropdown && <ChevronDown className="w-4 h-4" />}
 
-                                {/* Mega Menu Dropdown */}
-                                {link.hasDropdown && (
-                                    <AnimatePresence>
-                                        {activeDropdown === link.name && (
+                                        {/* Animated Underline */}
+                                        {isActive && (
                                             <motion.div
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 10 }}
-                                                transition={{ duration: 0.2 }}
-                                                className="absolute left-0 top-full pt-4 z-50"
-                                            >
-                                                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex shadow-blue-900/5">
-                                                    {/* Left Sidebar: Categories */}
-                                                    <div className="w-64 bg-white p-2 flex flex-col gap-1">
-                                                        {productCategories.map((category) => {
-                                                            if (category.name === "Color Card") {
+                                                layoutId="nav-underline"
+                                                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                        )}
+                                    </Link>
+
+                                    {/* Mega Menu Dropdown */}
+                                    {link.hasDropdown && (
+                                        <AnimatePresence>
+                                            {activeDropdown === link.name && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: 10 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="absolute left-0 top-full pt-4 z-50"
+                                                >
+                                                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex shadow-blue-900/5">
+                                                        {/* Left Sidebar: Categories */}
+                                                        <div className="w-64 bg-white p-2 flex flex-col gap-1">
+                                                            {productCategories.map((category) => {
+                                                                if (category.name === "Color Card") {
+                                                                    return (
+                                                                        <Link
+                                                                            key={category.name}
+                                                                            href={`/product/${category.items[0]?.slug || 'color-card'}`}
+                                                                            onMouseEnter={() => setActiveCategory(null)}
+                                                                            className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                                                        >
+                                                                            <div className="flex items-center gap-3">
+                                                                                <span className="font-medium text-sm">{category.name}</span>
+                                                                            </div>
+                                                                        </Link>
+                                                                    );
+                                                                }
                                                                 return (
-                                                                    <Link
+                                                                    <div
                                                                         key={category.name}
-                                                                        href={`/product/${category.items[0]?.slug || 'color-card'}`}
-                                                                        onMouseEnter={() => setActiveCategory(null)}
-                                                                        className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                                                        onMouseEnter={() => setActiveCategory(category.name)}
+                                                                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.name
+                                                                            ? "bg-blue-50 text-blue-600"
+                                                                            : "text-gray-600 hover:bg-gray-50"
+                                                                            }`}
                                                                     >
                                                                         <div className="flex items-center gap-3">
                                                                             <span className="font-medium text-sm">{category.name}</span>
                                                                         </div>
-                                                                    </Link>
-                                                                );
-                                                            }
-                                                            return (
-                                                                <div
-                                                                    key={category.name}
-                                                                    onMouseEnter={() => setActiveCategory(category.name)}
-                                                                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.name
-                                                                        ? "bg-blue-50 text-blue-600"
-                                                                        : "text-gray-600 hover:bg-gray-50"
-                                                                        }`}
-                                                                >
-                                                                    <div className="flex items-center gap-3">
-                                                                        <span className="font-medium text-sm">{category.name}</span>
+                                                                        {activeCategory === category.name && (
+                                                                            <ChevronDown className="w-4 h-4 rotate-[-90deg] text-blue-600" />
+                                                                        )}
                                                                     </div>
-                                                                    {activeCategory === category.name && (
-                                                                        <ChevronDown className="w-4 h-4 rotate-[-90deg] text-blue-600" />
-                                                                    )}
-                                                                </div>
-                                                            );
-                                                        })}
-                                                    </div>
+                                                                );
+                                                            })}
+                                                        </div>
 
-                                                    {/* Right Content: Items - Only Visible if Category Active */}
-                                                    {activeCategory && (
-                                                        <div className="w-[800px] p-6 bg-gray-50/50 border-l border-gray-100 min-h-[300px]">
-                                                            <div className="h-full flex flex-col">
-                                                                <div className="mb-4 pb-3 border-b border-gray-200 flex items-baseline justify-between">
-                                                                    <h3 className="text-xl font-bold text-gray-900">
-                                                                        {activeCategory}
-                                                                    </h3>
-                                                                    <Link
-                                                                        href={`/products?category=${activeCategory}`}
-                                                                        className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
-                                                                    >
-                                                                        View All <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
-                                                                    </Link>
-                                                                </div>
+                                                        {/* Right Content: Items - Only Visible if Category Active */}
+                                                        {activeCategory && (
+                                                            <div className="w-[800px] p-6 bg-gray-50/50 border-l border-gray-100 min-h-[300px]">
+                                                                <div className="h-full flex flex-col">
+                                                                    <div className="mb-4 pb-3 border-b border-gray-200 flex items-baseline justify-between">
+                                                                        <h3 className="text-xl font-bold text-gray-900">
+                                                                            {activeCategory}
+                                                                        </h3>
+                                                                        <Link
+                                                                            href={`/products?category=${activeCategory}`}
+                                                                            className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                                                                        >
+                                                                            View All <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
+                                                                        </Link>
+                                                                    </div>
 
-                                                                <div className="grid grid-cols-3 gap-4 content-start">
-                                                                    {productCategories
-                                                                        .find(c => c.name === activeCategory)
-                                                                        ?.items.map((item, idx) => (
-                                                                            <Link
-                                                                                key={idx}
-                                                                                href={`/product/${item.slug}`}
-                                                                                className="group flex items-center gap-3 p-2 rounded-lg bg-white border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all"
-                                                                            >
-                                                                                <div className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
-                                                                                <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
-                                                                                    {item.name}
-                                                                                </span>
-                                                                            </Link>
-                                                                        ))}
+                                                                    <div className="grid grid-cols-3 gap-4 content-start">
+                                                                        {productCategories
+                                                                            .find(c => c.name === activeCategory)
+                                                                            ?.items.map((item, idx) => (
+                                                                                <Link
+                                                                                    key={idx}
+                                                                                    href={`/product/${item.slug}`}
+                                                                                    className="group flex items-center gap-3 p-2 rounded-lg bg-white border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all"
+                                                                                >
+                                                                                    <div className="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
+                                                                                    <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
+                                                                                        {item.name}
+                                                                                    </span>
+                                                                                </Link>
+                                                                            ))}
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                )}
-                            </div>
-                        ))}
+                                                        )}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </nav>
 
                     {/* Right Side Actions */}
@@ -305,40 +324,46 @@ export default function Header() {
                             className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
                         >
                             <div className="container-custom py-6 flex flex-col gap-4">
-                                {navLinks.map((link) => (
-                                    <div key={link.name}>
-                                        <Link
-                                            href={link.href}
-                                            onClick={() => !link.hasDropdown && setIsMobileMenuOpen(false)}
-                                            className="text-lg font-medium text-gray-900 block"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                        {link.hasDropdown && (
-                                            <div className="mt-3 space-y-4">
-                                                {productCategories.map((category, catIndex) => (
-                                                    <div key={catIndex} className="pl-4 border-l-2 border-blue-200">
-                                                        <div className="flex items-center gap-2 mb-2">
-                                                            <span className="font-medium text-gray-800 text-sm">{category.name}</span>
+                                {navLinks.map((link) => {
+                                    const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                                    return (
+                                        <div key={link.name}>
+                                            <Link
+                                                href={link.href}
+                                                onClick={() => !link.hasDropdown && setIsMobileMenuOpen(false)}
+                                                className={`text-lg font-medium block transition-all ${isActive
+                                                    ? "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500"
+                                                    : "text-gray-900"
+                                                    }`}
+                                            >
+                                                {link.name}
+                                            </Link>
+                                            {link.hasDropdown && (
+                                                <div className="mt-3 space-y-4">
+                                                    {productCategories.map((category, catIndex) => (
+                                                        <div key={catIndex} className="pl-4 border-l-2 border-blue-200">
+                                                            <div className="flex items-center gap-2 mb-2">
+                                                                <span className="font-medium text-gray-800 text-sm">{category.name}</span>
+                                                            </div>
+                                                            <div className="pl-4 space-y-1">
+                                                                {category.items.map((item, itemIndex) => (
+                                                                    <Link
+                                                                        key={itemIndex}
+                                                                        href={`/product/${item.slug}`}
+                                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                                        className="block text-gray-600 text-xs py-1 hover:text-blue-600"
+                                                                    >
+                                                                        {item.name}
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
                                                         </div>
-                                                        <div className="pl-4 space-y-1">
-                                                            {category.items.map((item, itemIndex) => (
-                                                                <Link
-                                                                    key={itemIndex}
-                                                                    href={`/product/${item.slug}`}
-                                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                                    className="block text-gray-600 text-xs py-1 hover:text-blue-600"
-                                                                >
-                                                                    {item.name}
-                                                                </Link>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
 
                                 {/* Mobile Contact Info & Language */}
                                 <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-4">

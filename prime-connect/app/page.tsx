@@ -123,9 +123,11 @@ export default function HomePage() {
   ];
 
   const productCategories = [
-    { id: 'doors', image: "/products/doors.jpg", icon: Home, color: "blue", index: 0 },
-    { id: 'panels', image: "/products/panels.jpg", icon: Layers, color: "purple", index: 1 },
-    { id: 'cabinetry', image: "/products/cabinets.jpg", icon: Settings, color: "indigo", index: 2 },
+    { id: 'corePanels', image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop", icon: Layers, color: "blue" },
+    { id: 'doors', image: "https://images.unsplash.com/photo-1517646288024-aa25232a514d?q=80&w=800&auto=format&fit=crop", icon: Home, color: "purple" },
+    { id: 'cabinet', image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop", icon: Building2, color: "indigo" },
+    { id: 'colorCard', image: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=800&auto=format&fit=crop", icon: Layers, color: "pink" },
+    { id: 'hardware', image: "https://images.unsplash.com/photo-1581141849291-1125c7b692b5?q=80&w=800&auto=format&fit=crop", icon: ShieldCheck, color: "orange" },
   ];
 
   return (
@@ -281,38 +283,54 @@ export default function HomePage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
           >
             {productCategories.map((cat, index) => (
               <motion.div
                 key={cat.id}
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
-                className="group relative rounded-2xl overflow-hidden bg-white shadow-lg"
+                className="group relative rounded-2xl overflow-hidden bg-white shadow-lg flex flex-col"
               >
-                <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/80 backdrop-blur flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <cat.icon className={`w-10 h-10 text-${cat.color}-600`} />
+                <Link href={`/products?category=${cat.id}`} className="block">
+                  <div className="aspect-[3/2] relative overflow-hidden">
+                    <Image
+                      src={cat.image}
+                      alt={cat.id}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+
+                    <div className="absolute top-4 left-4">
+                      <div className={`w-10 h-10 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30`}>
+                        <cat.icon className="w-5 h-5 text-white" />
                       </div>
                     </div>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{t(`products.categories.${cat.id}.title`)}</h3>
-                  <p className="text-gray-500 text-sm mb-4">{t(`products.categories.${cat.id}.desc`)}</p>
+                </Link>
+
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                      {t(`products.categories.${cat.id}.title`)}
+                    </h3>
+                    <p className="text-gray-500 text-[10px] mb-3 line-clamp-1">
+                      {t(`products.categories.${cat.id}.desc`)}
+                    </p>
+                  </div>
+
                   <Link
-                    href={`/categories`}
-                    className="inline-flex items-center text-blue-600 font-medium group-hover:gap-2 gap-1 transition-all"
+                    href={`/products?category=${cat.id}`}
+                    className="inline-flex items-center text-xs font-semibold text-blue-600 group-hover:gap-2 gap-1 transition-all"
                   >
                     {t('products.explore')}
-                    <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                    <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                   </Link>
                 </div>
-                {/* Gradient Border Effect */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-500/30 transition-colors" />
+
+                {/* Visual Accent */}
+                <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-600/10 to-transparent rounded-bl-3xl -z-10`} />
               </motion.div>
             ))}
           </motion.div>
@@ -366,16 +384,16 @@ export default function HomePage() {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.02 }}
-                className="p-6 rounded-2xl bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all group"
+                className="p-5 rounded-2xl bg-white border border-gray-100 shadow-md hover:shadow-xl transition-all group"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center text-2xl flex-shrink-0">
                     {factory.flag}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h4 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                       {t(`global.factories.${factory.id}.type`)}
-                    </h3>
+                    </h4>
                     <p className="text-gray-500 text-sm flex items-center gap-1 mt-1">
                       <MapPin className="w-3 h-3" />
                       {t(`global.factories.${factory.id}.city`)}
@@ -437,7 +455,7 @@ export default function HomePage() {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/30 transition-all group"
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/30 transition-all group"
               >
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <sector.icon className="w-7 h-7 text-white" />
