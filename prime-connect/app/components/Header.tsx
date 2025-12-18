@@ -11,7 +11,7 @@ import { navigationCategories } from "../lib/constants";
 // Social Media & Contact Data
 const contactInfo = {
     emails: ["info@primeconnects.ae", "abde@primeconnects.ae"],
-    phones: ["+971 58 912 6137", "+971 06 573 3816"],
+    phones: ["+971 58 912 6137", "+971 6 573 3816"],
 };
 
 const TikTokIcon = ({ size = 16 }: { size?: number }) => (

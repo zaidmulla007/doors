@@ -108,8 +108,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-gray-900 mb-1">{t('contact.phoneLabel')}</h4>
-                                        <a href="tel:+971065733816" className="text-gray-600 hover:text-blue-600 block">
-                                            +971 06 573 3816
+                                        <a href="tel:+97165733816" className="text-gray-600 hover:text-blue-600 block">
+                                            +971 6 573 3816
                                         </a>
                                         <a href="tel:+971589126137" className="text-gray-600 hover:text-blue-600 block">
                                             +971 58 912 6137
