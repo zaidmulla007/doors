@@ -181,11 +181,12 @@ export default function Header() {
                                                         <div className="w-64 bg-white p-2 flex flex-col gap-1">
                                                             {productCategories.map((category) => {
                                                                 const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
-                                                                if (category.name.en === "Color Card") {
+                                                                // Special handling for categories without sub-items
+                                                                if (category.slug === "color-card") {
                                                                     return (
                                                                         <Link
                                                                             key={category.slug}
-                                                                            href={`/product/${category.items[0]?.slug || 'color-card'}`}
+                                                                            href={`/product/${category.slug}`}
                                                                             onMouseEnter={() => setActiveCategory(null)}
                                                                             className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
                                                                         >

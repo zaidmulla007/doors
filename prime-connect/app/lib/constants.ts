@@ -28,7 +28,6 @@ export const navigationCategories = [
         slug: "cabinet",
         items: [
             { name: { en: "Kitchen Cabinet", ar: "\u062e\u0632\u0627\u0646\u0629 \u0645\u0637\u0628\u062e", zh: "\u53a8\u67dc" }, slug: "kitchen-cabinet" },
-            { name: { en: "Bar Cabinet", ar: "\u062e\u0632\u0627\u0646\u0629 \u0628\u0627\u0631", zh: "\u9152\u67dc" }, slug: "closet" },
             { name: { en: "Bar Cabinet", ar: "\u062e\u0632\u0627\u0646\u0629 \u0628\u0627\u0631", zh: "\u9152\u67dc" }, slug: "bar-cabinet" },
         ]
     },

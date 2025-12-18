@@ -169,7 +169,52 @@ function ProductsContent() {
                         {filteredAndSortedItems.map((item) => {
                             const itemName = item.name;
                             const parentName = getTranslated(item.parentProduct.name, language);
+                            const isCorePanels = item.parentProduct.category &&
+                                (typeof item.parentProduct.category === 'string'
+                                    ? item.parentProduct.category.toLowerCase().includes('core panel')
+                                    : item.parentProduct.category.en.toLowerCase().includes('core panel'));
 
+                            // For Core Panels, use Link to navigate to product page
+                            if (isCorePanels) {
+                                return (
+                                    <Link key={item.id} href={`/product/${item.parentProduct.slug}`}>
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={fadeInUp}
+                                            whileHover={{ y: -5 }}
+                                            className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all overflow-hidden group cursor-pointer"
+                                        >
+                                            <div className="block relative bg-gray-50 aspect-square overflow-hidden mb-3">
+                                                <Image
+                                                    src={item.image || "/placeholder.jpg"}
+                                                    alt={itemName}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                />
+                                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
+                                            </div>
+
+                                            <div className="p-3 md:p-4">
+                                                <div className="mb-1">
+                                                    <span className="text-[8px] md:text-[9px] font-bold text-blue-600 uppercase tracking-widest opacity-70">
+                                                        {parentName}
+                                                    </span>
+                                                </div>
+                                                <h4 className="text-xs md:text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1 mb-3">
+                                                    {itemName}
+                                                </h4>
+                                                <div className="flex items-center gap-1 text-blue-600 text-[10px] font-bold">
+                                                    <span>{t('productsPage.viewDetails')}</span>
+                                                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    </Link>
+                                );
+                            }
+
+                            // For other products, open modal
                             return (
                                 <motion.div
                                     key={item.id}
@@ -222,7 +267,7 @@ function ProductsContent() {
                 )}
             </div>
 
-            {/* Inquiry Modal */}
+            {/* Inquiry Modal - Only for non-Core Panels products */}
             <AnimatePresence>
                 {selectedItem && (
                     <motion.div
@@ -368,7 +413,7 @@ export default function ProductsPage() {
                         <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
                             {t('productsPage.title')}
                         </h1>
-                        <p className="text-lg text-gray-500 leading-relaxed">
+                        <p className="text-lg text-black leading-relaxed">
                             {t('productsPage.subtitle')}
                         </p>
                     </div>

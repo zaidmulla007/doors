@@ -47,6 +47,22 @@ export default function ProductSidebar({ activeSlug, activeCategory, filterMode 
                     const isActiveParent = category.slug === activeCategory || category.items.some(item => item.slug === activeSlug);
                     const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
 
+                    // Special handling for "Color Card" - single direct link without dropdown
+                    if (category.slug === "color-card") {
+                        return (
+                            <div key={category.slug} className="bg-white">
+                                <Link
+                                    href={`/product/${category.slug}`}
+                                    className={`block w-full px-6 py-4 transition-colors hover:bg-gray-50 font-semibold text-base
+                                        ${activeSlug === category.slug ? 'text-blue-600 bg-blue-50/50' : 'text-gray-800'}
+                                    `}
+                                >
+                                    {categoryName}
+                                </Link>
+                            </div>
+                        );
+                    }
+
                     return (
                         <div key={category.slug} className="bg-white">
                             {/* Category Header */}

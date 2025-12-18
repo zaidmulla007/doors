@@ -106,8 +106,8 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="rounded-2xl overflow-hidden shadow-2xl">
-                                <div className="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                            <div className="shadow-2xl rounded-2xl overflow-hidden p-1 bg-gradient-to-r from-blue-500 to-purple-500">
+                                <div className="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center rounded-xl">
                                     <div className="text-center p-8">
                                         <Image src="/logo.png" alt="Prime Connects" width={150} height={150} className="mx-auto mb-6" />
                                         <h3 className="text-2xl font-bold text-gray-800">{t('aboutPage.companyName')}</h3>
@@ -115,8 +115,8 @@ export default function AboutPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-500 rounded-2xl -z-10" />
-                            <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/20 rounded-2xl -z-10" />
+                            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-500 rounded-2xl -z-10 border-4 border-blue-600" />
+                            <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/20 rounded-2xl -z-10 border-4 border-purple-400/40" />
                         </motion.div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2 }}
-                                className="flex gap-6 mb-12 last:mb-0"
+                                className="flex gap-6 mb-12 last:mb-0 bg-white/10 backdrop-blur-md p-6 rounded-2xl border-4 border-white"
                             >
                                 <div className="flex flex-col items-center">
                                     <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-bold shadow-lg border-2 border-white/40">
@@ -198,7 +198,15 @@ export default function AboutPage() {
                                 variants={fadeInUp}
                                 className="group"
                             >
-                                <div className="relative aspect-[1/1.4] rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white mb-6 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 cursor-zoom-in">
+                                <div
+                                    className="relative aspect-[1/1.4] rounded-2xl overflow-hidden shadow-lg bg-white mb-6 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 cursor-zoom-in"
+                                    style={{
+                                        border: '4px solid transparent',
+                                        backgroundImage: 'linear-gradient(white, white), linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247))',
+                                        backgroundOrigin: 'border-box',
+                                        backgroundClip: 'padding-box, border-box',
+                                    }}
+                                >
                                     <Image
                                         src={`/certificates/${index + 1}.png`}
                                         alt={cert}
@@ -251,7 +259,7 @@ export default function AboutPage() {
                             <motion.div
                                 key={key}
                                 variants={fadeInUp}
-                                className="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/20 shadow-lg hover:bg-white/20 hover:shadow-xl transition-all group"
+                                className="bg-white/10 backdrop-blur-md p-5 rounded-xl border-4 border-white shadow-lg hover:bg-white/20 hover:shadow-xl transition-all group"
                             >
                                 <div className="flex items-start gap-4">
                                     <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">

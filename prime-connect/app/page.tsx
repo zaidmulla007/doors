@@ -245,11 +245,11 @@ export default function HomePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/WecEaqY_9PQ?autoplay=1&mute=1"
+                    src="https://www.youtube.com/embed/WecEaqY_9PQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
                     title="Prime Connects Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-full"
+                    className="w-full h-full pointer-events-none"
                   />
                 </div>
               </div>
@@ -297,7 +297,7 @@ export default function HomePage() {
                 key={cat.id}
                 variants={scaleIn}
                 whileHover={{ y: -12, scale: 1.02 }}
-                className="group relative rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col h-[420px] hover:shadow-blue-500/20 transition-all duration-500"
+                className="group relative rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col h-[420px] hover:shadow-blue-500/20 transition-all duration-500 border-4 border-white"
               >
                 <Link href={`/products?category=${cat.slug}`} className="flex flex-col h-full">
                   {/* Image Area - 85% */}
@@ -463,7 +463,7 @@ export default function HomePage() {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/30 transition-all group"
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border-4 border-white hover:border-blue-500/30 transition-all group"
               >
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <sector.icon className="w-7 h-7 text-white" />
@@ -525,7 +525,13 @@ export default function HomePage() {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
-                className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:shadow-xl transition-all group"
+                className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white hover:shadow-xl transition-all group"
+                style={{
+                  border: '4px solid transparent',
+                  backgroundImage: 'linear-gradient(135deg, rgb(249, 250, 251), white), linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247))',
+                  backgroundOrigin: 'border-box',
+                  backgroundClip: 'padding-box, border-box',
+                }}
               >
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center mb-6 group-hover:from-blue-500 group-hover:to-purple-500 transition-all">
                   <feature.icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors" />

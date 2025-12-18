@@ -100,9 +100,9 @@ export default function ProductPage() {
                                                 {/* Info */}
                                                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                                                     <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-                                                        <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                                                        <h4 className="text-xl font-bold text-gray-900 mb-6">
                                                             {productName}
-                                                        </h1>
+                                                        </h4>
                                                         <p className="text-gray-600 leading-relaxed mb-8 text-lg">
                                                             {productDescription}
                                                         </p>
@@ -149,7 +149,7 @@ export default function ProductPage() {
                                             viewport={{ once: true }}
                                             className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-12"
                                         >
-                                            <h2 className="text-2xl font-bold text-gray-900 mb-8">{t('productDetail.specifications')}</h2>
+                                            <h4 className="text-lg font-bold text-gray-900 mb-8">{t('productDetail.specifications')}</h4>
                                             <div className="overflow-hidden rounded-xl border border-gray-200">
                                                 <table className="w-full text-left border-collapse">
                                                     <tbody>
