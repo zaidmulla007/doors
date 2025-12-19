@@ -104,7 +104,7 @@ export const translations = {
                 hardware: { title: "Hardware Accessories", desc: "High-grade locks, hinges and fittings" }
             },
             explore: "Explore",
-            viewAll: "View All Categories"
+            viewAll: "View All Products"
         },
         global: {
             sectionTitle: "Global Network",
@@ -392,7 +392,7 @@ export const translations = {
                 hardware: { title: "ملحقات الأجهزة", desc: "أقفال ومفصلات وتركيبات عالية الجودة" }
             },
             explore: "استكشف",
-            viewAll: "عرض جميع الفئات"
+            viewAll: "عرض جميع المنتجات"
         },
         global: {
             sectionTitle: "الشبكة العالمية",
@@ -680,7 +680,7 @@ export const translations = {
                 hardware: { title: "五金配件", desc: "高档锁具、合页及配件" }
             },
             explore: "探索",
-            viewAll: "查看所有类别"
+            viewAll: "查看所有产品"
         },
         global: {
             sectionTitle: "全球网络",
