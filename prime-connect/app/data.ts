@@ -44,6 +44,17 @@ export const categories = [
         slug: "color-card"
     },
     {
+        id: "wardrobe",
+        name: { en: "Wardrobe", ar: "خزانة الملابس", zh: "衣柜" },
+        description: {
+            en: "Elegant and functional wardrobes for your storage needs.",
+            ar: "خزائن ملابس أنيقة وعملية لتلبية احتياجاتك التخزينية.",
+            zh: "优雅实用的衣柜，满足您的储物需求。"
+        },
+        image: "/wardrobes/CLOSET001.jpg",
+        slug: "wardrobe"
+    },
+    {
         id: "hardware-accessories",
         name: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
         description: {
@@ -395,16 +406,30 @@ export const products = [
         category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
         slug: "kitchen-cabinet",
         description: { en: "Custom kitchen cabinets designed for functionality and style.", ar: "خزائن مطبخ مخصصة مصممة للوظائف والأناقة.", zh: "专为功能性和风格设计的定制厨柜。" },
-        images: ["https://images.unsplash.com/photo-1556911220-e620418f47f8?auto=format&fit=crop&w=800&q=80"],
+        images: ["/kitchen-cabinets/KC001.jpg"],
         variants: [
-            { name: "CA-001", image: "https://images.unsplash.com/photo-1556911220-e620418f47f8?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-002", image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-003", image: "https://images.unsplash.com/photo-1556909190-e7352514d7bd?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-004", image: "https://images.unsplash.com/photo-1556909138-ac7c532467b7?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-005", image: "https://images.unsplash.com/photo-1556909212-c28f73f5d554?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-006", image: "https://images.unsplash.com/photo-1556157382-97eda2d622ca?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-007", image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=300&q=80" },
-            { name: "CA-008", image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=300&q=80" }
+            { name: "KC001", image: "/kitchen-cabinets/KC001.jpg" },
+            { name: "KC003", image: "/kitchen-cabinets/KC003.jpg" },
+            { name: "KC005", image: "/kitchen-cabinets/KC005.jpg" },
+            { name: "KC006", image: "/kitchen-cabinets/KC006.jpg" },
+            { name: "KC007", image: "/kitchen-cabinets/KC007.jpg" },
+            { name: "KC009", image: "/kitchen-cabinets/KC009.jpg" },
+            { name: "KC010", image: "/kitchen-cabinets/KC010.jpg" },
+            { name: "KC011", image: "/kitchen-cabinets/KC011.jpg" },
+            { name: "KC012", image: "/kitchen-cabinets/KC012.jpg" },
+            { name: "KC013", image: "/kitchen-cabinets/KC013.jpg" },
+            { name: "KC015", image: "/kitchen-cabinets/KC015.jpg" },
+            { name: "KC017", image: "/kitchen-cabinets/KC017.jpg" },
+            { name: "KC018", image: "/kitchen-cabinets/KC018.jpg" },
+            { name: "KC019", image: "/kitchen-cabinets/KC019.jpg" },
+            { name: "KC020", image: "/kitchen-cabinets/KC020.jpg" },
+            { name: "KC021", image: "/kitchen-cabinets/KC021.jpg" },
+            { name: "KC022", image: "/kitchen-cabinets/KC022.jpg" },
+            { name: "KC023", image: "/kitchen-cabinets/KC023.jpg" },
+            { name: "KC025", image: "/kitchen-cabinets/KC025.jpg" },
+            { name: "KC026", image: "/kitchen-cabinets/KC026.jpg" },
+            { name: "KC027", image: "/kitchen-cabinets/KC027.jpg" },
+            { name: "KC028", image: "/kitchen-cabinets/KC028.jpg" }
         ]
     },
     {
@@ -462,41 +487,80 @@ export const products = [
         ]
     },
 
+    // --- WARDROBE ---
+    {
+        id: "wardrobe",
+        name: { en: "Wardrobe", ar: "خزانة الملابس", zh: "衣柜" },
+        category: { en: "Wardrobe", ar: "خزانة الملابس", zh: "衣柜" },
+        slug: "wardrobe",
+        description: { en: "Elegant and functional wardrobes for your storage needs.", ar: "خزائن ملابس أنيقة وعملية لتلبية احتياجاتك التخزينية.", zh: "优雅实用的衣柜，满足您的储物需求。" },
+        images: ["/wardrobes/CLOSET001.jpg"],
+        variants: [
+            { name: "CLOSET001", image: "/wardrobes/CLOSET001.jpg" },
+            { name: "CLOSET002", image: "/wardrobes/CLOSET002.jpg" },
+            { name: "CLOSET003", image: "/wardrobes/CLOSET003.jpg" },
+            { name: "CLOSET004", image: "/wardrobes/CLOSET004.jpg" },
+            { name: "CLOSET005", image: "/wardrobes/CLOSET005.jpg" },
+            { name: "CLOSET006", image: "/wardrobes/CLOSET006.jpg" },
+            { name: "CLOSET007", image: "/wardrobes/CLOSET007.jpg" },
+            { name: "CLOSET008", image: "/wardrobes/CLOSET008.jpg" },
+            { name: "CLOSET009", image: "/wardrobes/CLOSET009.jpg" },
+            { name: "CLOSET011", image: "/wardrobes/CLOSET011.jpg" },
+            { name: "CLOSET012", image: "/wardrobes/CLOSET012.jpg" },
+            { name: "CLOSET013", image: "/wardrobes/CLOSET013.jpg" }
+        ]
+    },
+
     // --- HARDWARE ACCESSORIES ---
     {
-        id: "door-hardware-accessories",
-        name: { en: "Door Hardware Accessories", ar: "إكسسوارات أجهزة الأبواب", zh: "门五金配件" },
+        id: "door-handles",
+        name: { en: "Door Handles", ar: "مقابض الأبواب", zh: "门把手" },
         category: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
-        slug: "door-hardware-accessories",
-        description: { en: "Handles, locks, hinges, and other essential door hardware.", ar: "مقابض، أقفال، مفصلات، وغيرها من أجهزة الأبواب الأساسية.", zh: "把手、锁、铰链和其他基本门五金件。" },
-        images: ["https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=800&q=80"],
+        slug: "door-handles",
+        description: { en: "Premium door handles with elegant designs and durable construction.", ar: "مقابض أبواب فاخرة بتصاميم أنيقة وبناء متين.", zh: "优质门把手，设计优雅，结构耐用。" },
+        images: ["/door-mech-access/door-handles/DH001.jpg"],
         variants: [
-            { name: "Luxury Handle-01", image: "https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=300&q=80" },
-            { name: "Smart Lock-X1", image: "https://images.unsplash.com/photo-1558002038-1091a1662721?auto=format&fit=crop&w=300&q=80" },
-            { name: "Hinge Set-H1", image: "https://images.unsplash.com/photo-1622372738946-67e0231446f1?auto=format&fit=crop&w=300&q=80" },
-            { name: "Door Closer-DC", image: "https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=300&q=80" },
-            { name: "Door Stopper-DS", image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=300&q=80" },
-            { name: "Cylinder Lock-CL", image: "https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=300&q=80" },
-            { name: "Pull Handle-PH", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=300&q=80" },
-            { name: "Mortise Lock-ML", image: "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?auto=format&fit=crop&w=300&q=80" }
+            { name: "DH001", image: "/door-mech-access/door-handles/DH001.jpg" },
+            { name: "DH002", image: "/door-mech-access/door-handles/DH002.jpg" },
+            { name: "DH003", image: "/door-mech-access/door-handles/DH003.jpg" },
+            { name: "DH004", image: "/door-mech-access/door-handles/DH004.jpg" },
+            { name: "DH005", image: "/door-mech-access/door-handles/DH005.jpg" },
+            { name: "DH006", image: "/door-mech-access/door-handles/DH006.jpg" },
+            { name: "DH008", image: "/door-mech-access/door-handles/DH008.jpg" },
+            { name: "DH009", image: "/door-mech-access/door-handles/DH009.jpg" },
+            { name: "DH010", image: "/door-mech-access/door-handles/DH010.png" },
+            { name: "DH011", image: "/door-mech-access/door-handles/DH011.png" },
+            { name: "DH012", image: "/door-mech-access/door-handles/DH012.png" }
         ]
     },
     {
-        id: "fire-rated-door-hardware",
-        name: { en: "Fire Rated Door Hardware", ar: "أجهزة أبواب مقاومة للحريق", zh: "防火门五金" },
+        id: "door-hinges",
+        name: { en: "Door Hinges", ar: "مفصلات الأبواب", zh: "门铰链" },
         category: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
-        slug: "fire-rated-door-hardware",
-        description: { en: "Specialized hardware designed for fire-rated doors.", ar: "أجهزة متخصصة مصممة للأبواب المقاومة للحريق.", zh: "专为防火门设计的特种五金。" },
-        images: ["https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80"],
+        slug: "door-hinges",
+        description: { en: "High-quality door hinges for smooth operation and long-lasting performance.", ar: "مفصلات أبواب عالية الجودة لتشغيل سلس وأداء طويل الأمد.", zh: "高品质门铰链，运行平稳，性能持久。" },
+        images: ["/door-mech-access/door-hinges/DHG001.jpg"],
         variants: [
-            { name: "Panic Bar-PB100", image: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=300&q=80" },
-            { name: "Fire Door Closer-FDC", image: "https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=300&q=80" },
-            { name: "Steel Hinge-SH200", image: "https://images.unsplash.com/photo-1622372738946-67e0231446f1?auto=format&fit=crop&w=300&q=80" },
-            { name: "Fire Lock-FL50", image: "https://images.unsplash.com/photo-1558002038-1091a1662721?auto=format&fit=crop&w=300&q=80" },
-            { name: "Emergency Push Bar", image: "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?auto=format&fit=crop&w=300&q=80" },
-            { name: "Smoke Seal-SS", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=300&q=80" },
-            { name: "Auto Drop Seal", image: "https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=300&q=80" },
-            { name: "Fire Rated Handle", image: "https://images.unsplash.com/photo-1583847936118-2e1194689b0d?auto=format&fit=crop&w=300&q=80" }
+            { name: "DHG001", image: "/door-mech-access/door-hinges/DHG001.jpg" },
+            { name: "DHG002", image: "/door-mech-access/door-hinges/DHG002.jpg" },
+            { name: "DHG003", image: "/door-mech-access/door-hinges/DHG003.jpg" },
+            { name: "DHG005", image: "/door-mech-access/door-hinges/DHG005.jpg" },
+            { name: "DHG006", image: "/door-mech-access/door-hinges/DHG006.jpg" }
+        ]
+    },
+    {
+        id: "doors-with-smart-locks",
+        name: { en: "Doors with Smart Locks", ar: "أبواب بأقفال ذكية", zh: "智能锁门" },
+        category: { en: "Hardware Accessories", ar: "ملحقات الأجهزة", zh: "五金配件" },
+        slug: "doors-with-smart-locks",
+        description: { en: "Modern doors equipped with advanced smart lock technology for enhanced security and convenience.", ar: "أبواب حديثة مجهزة بتقنية القفل الذكي المتقدمة لتعزيز الأمان والراحة.", zh: "配备先进智能锁技术的现代门，增强安全性和便利性。" },
+        images: ["/door-mech-access/doors-with-smart-lock/DSL001.jpg"],
+        variants: [
+            { name: "DSL001", image: "/door-mech-access/doors-with-smart-lock/DSL001.jpg" },
+            { name: "DSL002", image: "/door-mech-access/doors-with-smart-lock/DSL002.jpg" },
+            { name: "DSL003", image: "/door-mech-access/doors-with-smart-lock/DSL003.jpg" },
+            { name: "DSL004", image: "/door-mech-access/doors-with-smart-lock/DSL004.jpg" },
+            { name: "DSL005", image: "/door-mech-access/doors-with-smart-lock/DSL005.jpg" }
         ]
     }
 ];

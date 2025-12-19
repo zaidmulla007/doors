@@ -182,7 +182,7 @@ export default function Header() {
                                                             {productCategories.map((category) => {
                                                                 const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
                                                                 // Special handling for categories without sub-items
-                                                                if (category.slug === "color-card") {
+                                                                if (category.slug === "color-card" || category.slug === "wardrobe") {
                                                                     return (
                                                                         <Link
                                                                             key={category.slug}
