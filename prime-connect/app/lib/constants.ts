@@ -20,7 +20,7 @@ export const navigationCategories = [
             { name: { en: "WOODEN DOORS", ar: "أبواب خشبية", zh: "木门" }, slug: "wooden-doors" },
             { name: { en: "ALUMINIUM DOORS", ar: "أبواب ألومنيوم", zh: "铝门" }, slug: "aluminium-doors" },
             { name: { en: "EMERGENCY EXIT DOORS", ar: "أبواب الخروج في حالات الطوارئ", zh: "紧急出口门" }, slug: "emergency-exit-doors" },
-            { name: { en: "DOORS COLOR CARDS", ar: "بطاقات ألوان الأبواب", zh: "门色卡" }, slug: "doors-color-cards" },
+            { name: { en: "GLASS DOORS", ar: "أبواب زجاجية", zh: "玻璃门" }, slug: "glass-doors" },
         ]
     },
     {

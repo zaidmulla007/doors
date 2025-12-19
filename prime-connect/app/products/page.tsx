@@ -48,12 +48,12 @@ function ProductsContent() {
             sourceProducts = sourceProducts.filter(p => p.slug === activeSlug);
         }
 
-        // 2. Flatten into variants
+        // 2. Flatten into variants or colors
         let items: any[] = [];
         sourceProducts.forEach(p => {
-            const productVars = p.variants || [];
+            const productVars = p.variants || (p as any).colors || [];
             if (productVars.length > 0) {
-                productVars.forEach(v => {
+                productVars.forEach((v: any) => {
                     items.push({
                         ...v,
                         id: `${p.id}-${v.name}`,
@@ -62,7 +62,7 @@ function ProductsContent() {
                     });
                 });
             } else {
-                // If no variants, just show the product itself
+                // If no variants or colors, just show the product itself
                 items.push({
                     name: getTranslated(p.name, language),
                     image: p.images[0],

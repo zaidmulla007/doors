@@ -236,7 +236,7 @@ export const products = [
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "mdf-doors",
         description: { en: "Durable MDF doors available in various designs and finishes.", ar: "أبواب MDF متينة متوفرة بتصاميم وتشطيبات مختلفة.", zh: "耐用的MDF门，有多种设计和饰面可供选择。" },
-        images: ["https://images.unsplash.com/photo-1517646331032-9e8563c523a1?auto=format&fit=crop&w=800&q=80"],
+        images: ["/doors/mdf-doors/MDFD001.jpg"],
         features: {
             en: ["Versatile Design", "Smooth Finish", "Cost-Effective"],
             ar: ["تصميم متعدد الاستخدامات", "تشطيب ناعم", "فعال من حيث التكلفة"],
@@ -247,13 +247,21 @@ export const products = [
             "Thickness": "35mm - 45mm",
             "Warranty": "3 Years"
         },
-        variants: Array.from({ length: 12 }, (_, i) => ({
-            name: `MDF-${100 + i}`,
-            image: `https://images.unsplash.com/photo-${[
-                '1517646331032-9e8563c523a1', '1582205313222-297eb040854d', '1533090481720-856c6e3c1960',
-                '1487700160041-babef9c3cb55', '1622372738946-67e0231446f1', '1600607686527-6fb886090705'
-            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        variants: [
+            { name: "MDFD001", image: "/doors/mdf-doors/MDFD001.jpg" },
+            { name: "MDFD002", image: "/doors/mdf-doors/MDFD002.jpg" },
+            { name: "MDFD003", image: "/doors/mdf-doors/MDFD003.jpg" },
+            { name: "MDFD004", image: "/doors/mdf-doors/MDFD004.jpg" },
+            { name: "MDFD005", image: "/doors/mdf-doors/MDFD005.jpg" },
+            { name: "MDFD006", image: "/doors/mdf-doors/MDFD006.jpg" },
+            { name: "MDFD007", image: "/doors/mdf-doors/MDFD007.jpg" },
+            { name: "MDFD008", image: "/doors/mdf-doors/MDFD008.jpg" },
+            { name: "MDFD009", image: "/doors/mdf-doors/MDFD009.jpg" },
+            { name: "MDFD011", image: "/doors/mdf-doors/MDFD011.jpg" },
+            { name: "MDFD012", image: "/doors/mdf-doors/MDFD012.jpg" },
+            { name: "MDFD013", image: "/doors/mdf-doors/MDFD013.jpg" },
+            { name: "MDFD014", image: "/doors/mdf-doors/MDFD014.jpg" }
+        ]
     },
     {
         id: "wpc-doors",
@@ -261,7 +269,7 @@ export const products = [
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "wpc-doors",
         description: { en: "Waterproof and termite-proof WPC doors for long-lasting durability.", ar: "أبواب WPC مقاومة للماء والنمل الأبيض لمتانة طويلة الأمد.", zh: "防水防白蚁WPC门，持久耐用。" },
-        images: ["https://images.unsplash.com/photo-1533090481720-856c6e3c1960?auto=format&fit=crop&w=800&q=80"],
+        images: ["/doors/wpc-doors/WPCD001.jpg"],
         features: {
             en: ["Waterproof", "Termite Proof", "Eco-Friendly"],
             ar: ["مقاوم للماء", "مقاوم للنمل الأبيض", "صديق للبيئة"],
@@ -272,13 +280,20 @@ export const products = [
             "Thickness": "40mm",
             "Warranty": "10 Years"
         },
-        variants: Array.from({ length: 12 }, (_, i) => ({
-            name: `WPC-${400 + i}`,
-            image: `https://images.unsplash.com/photo-${[
-                '1533090481720-856c6e3c1960', '1582205313222-297eb040854d', '1517646331032-9e8563c523a1',
-                '1595166442656-7876a4ba0c7b', '1613545325278-f24b0cae1224', '1600607686527-6fb886090705'
-            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        variants: [
+            { name: "WPCD001", image: "/doors/wpc-doors/WPCD001.jpg" },
+            { name: "WPCD002", image: "/doors/wpc-doors/WPCD002.jpg" },
+            { name: "WPCD003", image: "/doors/wpc-doors/WPCD003.jpg" },
+            { name: "WPCD004", image: "/doors/wpc-doors/WPCD004.jpg" },
+            { name: "WPCD005", image: "/doors/wpc-doors/WPCD005.jpg" },
+            { name: "WPCD006", image: "/doors/wpc-doors/WPCD006.jpg" },
+            { name: "WPCD007", image: "/doors/wpc-doors/WPCD007.jpg" },
+            { name: "WPCD008", image: "/doors/wpc-doors/WPCD008.jpg" },
+            { name: "WPCD009", image: "/doors/wpc-doors/WPCD009.jpg" },
+            { name: "WPCD010", image: "/doors/wpc-doors/WPCD010.jpg" },
+            { name: "WPCD011", image: "/doors/wpc-doors/WPCD011.jpg" },
+            { name: "WPCD012", image: "/doors/wpc-doors/WPCD012.jpg" }
+        ]
     },
     {
         id: "iron-and-steel-doors",
@@ -286,7 +301,7 @@ export const products = [
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "iron-and-steel-doors",
         description: { en: "Secure and robust iron and steel doors for maximum security.", ar: "أبواب حديدية وفولاذية آمنة وقوية لأقصى قدر من الأمان.", zh: "安全坚固的钢铁门，提供最大的安全性。" },
-        images: ["https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"],
+        images: ["/doors/iron-steel-doors/I&SD001.jpg"],
         features: {
             en: ["High Security", "Durable", "Weather Resistant"],
             ar: ["أمان عالي", "متين", "مقاوم للعوامل الجوية"],
@@ -297,13 +312,23 @@ export const products = [
             "Thickness": "50mm - 70mm",
             "Locking System": "Multipoint"
         },
-        variants: Array.from({ length: 12 }, (_, i) => ({
-            name: `ISD-${900 + i}`,
-            image: `https://images.unsplash.com/photo-${[
-                '1519710164239-da123dc03ef4', '1613545325278-f24b0cae1224', '1595166442656-7876a4ba0c7b',
-                '1600607686527-6fb886090705', '1622372738946-67e0231446f1', '1487700160041-babef9c3cb55'
-            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        variants: [
+            { name: "I&SD001", image: "/doors/iron-steel-doors/I&SD001.jpg" },
+            { name: "I&SD002", image: "/doors/iron-steel-doors/I&SD002.jpg" },
+            { name: "I&SD003", image: "/doors/iron-steel-doors/I&SD003.jpg" },
+            { name: "I&SD004", image: "/doors/iron-steel-doors/I&SD004.jpg" },
+            { name: "I&SD005", image: "/doors/iron-steel-doors/I&SD005.jpg" },
+            { name: "I&SD006", image: "/doors/iron-steel-doors/I&SD006.jpg" },
+            { name: "I&SD007", image: "/doors/iron-steel-doors/I&SD007.jpg" },
+            { name: "I&SD008", image: "/doors/iron-steel-doors/I&SD008.jpg" },
+            { name: "I&SD009", image: "/doors/iron-steel-doors/I&SD009.jpg" },
+            { name: "I&SD010", image: "/doors/iron-steel-doors/I&SD010.jpg" },
+            { name: "I&SD011", image: "/doors/iron-steel-doors/I&SD011.jpg" },
+            { name: "I&SD012", image: "/doors/iron-steel-doors/I&SD012.jpg" },
+            { name: "I&SD013", image: "/doors/iron-steel-doors/I&SD013.jpg" },
+            { name: "I&SD014", image: "/doors/iron-steel-doors/I&SD014.jpg" },
+            { name: "I&SD015", image: "/doors/iron-steel-doors/I&SD015.jpg" }
+        ]
     },
     {
         id: "wooden-doors",
@@ -311,7 +336,7 @@ export const products = [
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "wooden-doors",
         description: { en: "Classic and elegant wooden doors including Melamine, PET, and Solid Wood.", ar: "أبواب خشبية كلاسيكية وأنيقة بما في ذلك الميلامين و PET والخشب الصلب.", zh: "经典而优雅的木门，包括三聚氰胺、PET和实木。" },
-        images: ["https://images.unsplash.com/photo-1582205313222-297eb040854d?auto=format&fit=crop&w=800&q=80"],
+        images: ["/doors/wooden-doors/WDND001.jpg"],
         features: {
             en: ["Natural Look", "Sound Insulation", "Premium Finish"],
             ar: ["مظهر طبيعي", "عزل الصوت", "تشطيب ممتاز"],
@@ -322,13 +347,23 @@ export const products = [
             "Finish": "Veneer / Laminate / Paint",
             "Warranty": "5 Years"
         },
-        variants: Array.from({ length: 12 }, (_, i) => ({
-            name: `WD-${300 + i}`,
-            image: `https://images.unsplash.com/photo-${[
-                '1582205313222-297eb040854d', '1595515106969-1ce29566ff1c', '1487700160041-babef9c3cb55',
-                '1622372738946-67e0231446f1', '1517646331032-9e8563c523a1', '1533090481720-856c6e3c1960'
-            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        variants: [
+            { name: "WDND001", image: "/doors/wooden-doors/WDND001.jpg" },
+            { name: "WDND002", image: "/doors/wooden-doors/WDND002.jpg" },
+            { name: "WDND003", image: "/doors/wooden-doors/WDND003.jpg" },
+            { name: "WDND004", image: "/doors/wooden-doors/WDND004.jpg" },
+            { name: "WDND005", image: "/doors/wooden-doors/WDND005.jpg" },
+            { name: "WDND006", image: "/doors/wooden-doors/WDND006.jpg" },
+            { name: "WDND007", image: "/doors/wooden-doors/WDND007.jpg" },
+            { name: "WDND008", image: "/doors/wooden-doors/WDND008.jpg" },
+            { name: "WDND009", image: "/doors/wooden-doors/WDND009.jpg" },
+            { name: "WDND010", image: "/doors/wooden-doors/WDND010.jpg" },
+            { name: "WDND011", image: "/doors/wooden-doors/WDND011.jpg" },
+            { name: "WDND012", image: "/doors/wooden-doors/WDND012.jpg" },
+            { name: "WDND013", image: "/doors/wooden-doors/WDND013.jpg" },
+            { name: "WDND014", image: "/doors/wooden-doors/WDND014.jpg" },
+            { name: "WDND015", image: "/doors/wooden-doors/WDND015.jpg" }
+        ]
     },
     {
         id: "aluminium-doors",
@@ -336,7 +371,7 @@ export const products = [
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "aluminium-doors",
         description: { en: "Modern aluminium doors available in glass and wood combinations.", ar: "أبواب ألومنيوم حديثة متوفرة في مجموعات الزجاج والخشب.", zh: "现代铝门，提供玻璃和木材组合。" },
-        images: ["https://images.unsplash.com/photo-1595166442656-7876a4ba0c7b?auto=format&fit=crop&w=800&q=80"],
+        images: ["/doors/aluminium-doors/ALD001.jpg"],
         features: {
             en: ["Lightweight", "Corrosion Resistant", "Modern Aesthetic"],
             ar: ["خفيفة الوزن", "مقاومة للتآكل", "جمالية حديثة"],
@@ -347,13 +382,28 @@ export const products = [
             "Glazing": "Double/Triple Glazed",
             "Profile Thickness": "1.4mm - 2.0mm"
         },
-        variants: Array.from({ length: 12 }, (_, i) => ({
-            name: `ALD-${800 + i}`,
-            image: `https://images.unsplash.com/photo-${[
-                '1595166442656-7876a4ba0c7b', '1613545325278-f24b0cae1224', '1600607686527-6fb886090705',
-                '1519710164239-da123dc03ef4', '1622372738946-67e0231446f1', '1487700160041-babef9c3cb55'
-            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        variants: [
+            { name: "ALD001", image: "/doors/aluminium-doors/ALD001.jpg" },
+            { name: "ALD002", image: "/doors/aluminium-doors/ALD002.jpg" },
+            { name: "ALD003", image: "/doors/aluminium-doors/ALD003.jpg" },
+            { name: "ALD004", image: "/doors/aluminium-doors/ALD004.jpg" },
+            { name: "ALD005", image: "/doors/aluminium-doors/ALD005.jpg" },
+            { name: "ALD006", image: "/doors/aluminium-doors/ALD006.jpg" },
+            { name: "ALD007", image: "/doors/aluminium-doors/ALD007.jpg" },
+            { name: "ALD008", image: "/doors/aluminium-doors/ALD008.jpg" },
+            { name: "ALD009", image: "/doors/aluminium-doors/ALD009.jpg" },
+            { name: "ALD010", image: "/doors/aluminium-doors/ALD010.jpg" },
+            { name: "ALD011", image: "/doors/aluminium-doors/ALD011.jpg" },
+            { name: "ALD012", image: "/doors/aluminium-doors/ALD012.jpg" },
+            { name: "ALD013", image: "/doors/aluminium-doors/ALD013.jpg" },
+            { name: "ALD014", image: "/doors/aluminium-doors/ALD014.jpg" },
+            { name: "ALD015", image: "/doors/aluminium-doors/ALD015.jpg" },
+            { name: "ALD016", image: "/doors/aluminium-doors/ALD016.jpg" },
+            { name: "ALD017", image: "/doors/aluminium-doors/ALD017.jpg" },
+            { name: "ALD018", image: "/doors/aluminium-doors/ALD018.jpg" },
+            { name: "ALD019", image: "/doors/aluminium-doors/ALD019.jpg" },
+            { name: "ALD020", image: "/doors/aluminium-doors/ALD020.jpg" }
+        ]
     },
     {
         id: "emergency-exit-doors",
@@ -361,7 +411,7 @@ export const products = [
         category: { en: "Doors", ar: "أبواب", zh: "门" },
         slug: "emergency-exit-doors",
         description: { en: "Certified emergency exit and fire-rated doors for safety.", ar: "أبواب خروج طوارئ ومقاومة للحريق معتمدة للسلامة.", zh: "经认证的紧急出口和防火门，确保安全。" },
-        images: ["https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=800&q=80"],
+        images: ["/doors/emergency-doors/EMGD001.jpg"],
         features: {
             en: ["Fire Resistant", "Panic Bar Included", "Certified Safety"],
             ar: ["مقاوم للحريق", "يشمل شريط الذعر", "سلامة معتمدة"],
@@ -372,30 +422,45 @@ export const products = [
             "Material": "Steel / Composite",
             "Certification": "UL / BS / EN"
         },
-        variants: Array.from({ length: 12 }, (_, i) => ({
-            name: `EXIT-${1000 + i}`,
-            image: `https://images.unsplash.com/photo-${[
-                '1613545325278-f24b0cae1224', '1519710164239-da123dc03ef4', '1595166442656-7876a4ba0c7b',
-                '1618220179428-22790b461013', '1622372738946-67e0231446f1', '1487700160041-babef9c3cb55'
-            ][i % 6]}?auto=format&fit=crop&w=300&q=80`
-        }))
+        variants: [
+            { name: "EMGD001", image: "/doors/emergency-doors/EMGD001.jpg" },
+            { name: "EMGD002", image: "/doors/emergency-doors/EMGD002.jpg" },
+            { name: "EMGD003", image: "/doors/emergency-doors/EMGD003.jpg" },
+            { name: "EMGD004", image: "/doors/emergency-doors/EMGD004.jpg" }
+        ]
     },
     {
-        id: "doors-color-cards",
-        name: { en: "DOORS COLOR CARDS", ar: "بطاقات ألوان الأبواب", zh: "门色卡" },
+        id: "glass-doors",
+        name: { en: "GLASS DOORS", ar: "أبواب زجاجية", zh: "玻璃门" },
         category: { en: "Doors", ar: "أبواب", zh: "门" },
-        slug: "doors-color-cards",
-        description: { en: "Explore our wide range of color options for your doors.", ar: "استكشف مجموعتنا الواسعة من خيارات الألوان لأبوابك.", zh: "探索我们为您的门提供的广泛颜色选项。" },
-        images: ["https://images.unsplash.com/photo-1523456722026-6b21ba37ee1d?auto=format&fit=crop&w=800&q=80"],
+        slug: "glass-doors",
+        description: { en: "Elegant glass doors for modern interiors with excellent light transmission.", ar: "أبواب زجاجية أنيقة للتصميمات الداخلية الحديثة مع نقل ممتاز للضوء.", zh: "优雅的玻璃门，适合现代室内设计，透光性极佳。" },
+        images: ["/doors/glass-doors/gl1.jpg"],
+        features: {
+            en: ["Light Transmission", "Modern Design", "Easy Maintenance"],
+            ar: ["نقل الضوء", "تصميم حديث", "صيانة سهلة"],
+            zh: ["透光", "现代设计", "易于维护"]
+        },
+        specifications: {
+            "Material": "Tempered Glass",
+            "Thickness": "8mm - 12mm",
+            "Warranty": "2 Years"
+        },
         variants: [
-            { name: "Classic Oak", image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=300&q=80" },
-            { name: "Dark Walnut", image: "https://images.unsplash.com/photo-1543444465-34372e90c51e?auto=format&fit=crop&w=300&q=80" },
-            { name: "Cherry Wood", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1960?auto=format&fit=crop&w=300&q=80" },
-            { name: "Mahogany", image: "https://images.unsplash.com/photo-1589139266795-8c01d3b07446?auto=format&fit=crop&w=300&q=80" },
-            { name: "Ash Grey", image: "https://images.unsplash.com/photo-1629898086082-f54c25bd2830?auto=format&fit=crop&w=300&q=80" },
-            { name: "Pure White", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=300&q=80" },
-            { name: "Matte Black", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=300&q=80" },
-            { name: "Teak Finish", image: "https://images.unsplash.com/photo-1610363060661-827d09b3054f?auto=format&fit=crop&w=300&q=80" }
+            { name: "GL1", image: "/doors/glass-doors/gl1.jpg" },
+            { name: "GL2", image: "/doors/glass-doors/gl2.jpg" },
+            { name: "GL3", image: "/doors/glass-doors/gl3.jpg" },
+            { name: "GL4", image: "/doors/glass-doors/gl4.jpg" },
+            { name: "GL5", image: "/doors/glass-doors/gl5.jpg" },
+            { name: "GL6", image: "/doors/glass-doors/gl6.jpg" },
+            { name: "GL7", image: "/doors/glass-doors/gl7.jpg" },
+            { name: "GL8", image: "/doors/glass-doors/gl8.jpg" },
+            { name: "GL9", image: "/doors/glass-doors/gl9.jpg" },
+            { name: "GL10", image: "/doors/glass-doors/gl10.jpg" },
+            { name: "GL11", image: "/doors/glass-doors/gl11.jpg" },
+            { name: "GL12", image: "/doors/glass-doors/gl12.jpg" },
+            { name: "GL13", image: "/doors/glass-doors/gl13.jpg" },
+            { name: "GL14", image: "/doors/glass-doors/gl14.jpg" }
         ]
     },
 
@@ -474,16 +539,38 @@ export const products = [
         category: { en: "Color Card", ar: "بطاقة الألوان", zh: "色卡" },
         slug: "color-card",
         description: { en: "View our extensive range of colors and textures.", ar: "شاهد مجموعتنا الواسعة من الألوان والقوام.", zh: "查看我们广泛的颜色和纹理选项。" },
-        images: ["https://images.unsplash.com/photo-1523456722026-6b21ba37ee1d?auto=format&fit=crop&w=800&q=80"],
+        images: ["/color-card/CLRC001.jpg"],
         colors: [
-            { name: "Classic Oak", image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=300&q=80" },
-            { name: "Dark Walnut", image: "https://images.unsplash.com/photo-1543444465-34372e90c51e?auto=format&fit=crop&w=300&q=80" },
-            { name: "Cherry Wood", image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1960?auto=format&fit=crop&w=300&q=80" },
-            { name: "Mahogany", image: "https://images.unsplash.com/photo-1589139266795-8c01d3b07446?auto=format&fit=crop&w=300&q=80" },
-            { name: "Ash Grey", image: "https://images.unsplash.com/photo-1629898086082-f54c25bd2830?auto=format&fit=crop&w=300&q=80" },
-            { name: "Pure White", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=300&q=80" },
-            { name: "Matte Black", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=300&q=80" },
-            { name: "Teak Finish", image: "https://images.unsplash.com/photo-1610363060661-827d09b3054f?auto=format&fit=crop&w=300&q=80" }
+            { name: "CLRC001", image: "/color-card/CLRC001.jpg" },
+            { name: "CLRC002", image: "/color-card/CLRC002.jpg" },
+            { name: "CLRC003", image: "/color-card/CLRC003.jpg" },
+            { name: "CLRC004", image: "/color-card/CLRC004.jpg" },
+            { name: "CLRC005", image: "/color-card/CLRC005.jpg" },
+            { name: "CLRC006", image: "/color-card/CLRC006.jpg" },
+            { name: "CLRC007", image: "/color-card/CLRC007.jpg" },
+            { name: "CLRC008", image: "/color-card/CLRC008.jpg" },
+            { name: "CLRC009", image: "/color-card/CLRC009.jpg" },
+            { name: "CLRC010", image: "/color-card/CLRC010.jpg" },
+            { name: "CLRC011", image: "/color-card/CLRC011.jpg" },
+            { name: "CLRC012", image: "/color-card/CLRC012.jpg" },
+            { name: "CLRC013", image: "/color-card/CLRC013.jpg" },
+            { name: "CLRC014", image: "/color-card/CLRC014.jpg" },
+            { name: "CLRC015", image: "/color-card/CLRC015.jpg" },
+            { name: "CLRC016", image: "/color-card/CLRC016.jpg" },
+            { name: "CLRC017", image: "/color-card/CLRC017.jpg" },
+            { name: "CLRC018", image: "/color-card/CLRC018.jpg" },
+            { name: "CLRC019", image: "/color-card/CLRC019.jpg" },
+            { name: "CLRC020", image: "/color-card/CLRC020.jpg" },
+            { name: "CLRC021", image: "/color-card/CLRC021.jpg" },
+            { name: "CLRC022", image: "/color-card/CLRC022.jpg" },
+            { name: "CLRC023", image: "/color-card/CLRC023.jpg" },
+            { name: "CLRC024", image: "/color-card/CLRC024.jpg" },
+            { name: "CLRC025", image: "/color-card/CLRC025.jpg" },
+            { name: "CLRC026", image: "/color-card/CLRC026.jpg" },
+            { name: "CLRC027", image: "/color-card/CLRC027.jpg" },
+            { name: "CLRC028", image: "/color-card/CLRC028.jpg" },
+            { name: "CLRC029", image: "/color-card/CLRC029.jpg" },
+            { name: "CLRC030", image: "/color-card/CLRC030.jpg" }
         ]
     },
 
