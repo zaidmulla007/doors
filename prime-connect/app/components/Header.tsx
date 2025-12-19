@@ -23,10 +23,10 @@ const TikTokIcon = ({ size = 16 }: { size?: number }) => (
 
 const socialLinks = [
     { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
-    { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-    { name: "TikTok", icon: TikTokIcon, href: "https://tiktok.com" },
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-    { name: "YouTube", icon: Youtube, href: "https://youtube.com" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/pc_doorsandcabinets/" },
+    { name: "TikTok", icon: TikTokIcon, href: "https://www.tiktok.com/@primedoorsolutions?lang=en" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://ae.linkedin.com/in/abde-mustafa-976a6236a" },
+    { name: "YouTube", icon: Youtube, href: "https://www.youtube.com/channel/UC70t69QZ4yDKnsyrM6C89AQ" },
 ];
 
 
