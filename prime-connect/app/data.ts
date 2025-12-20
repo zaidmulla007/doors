@@ -498,37 +498,28 @@ export const products = [
         ]
     },
     {
-        id: "closet",
-        name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" },
-        category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
-        slug: "closet",
-        description: { en: "Spacious and organized closets for your storage needs.", ar: "خزائن واسعة ومنظمة لاحتياجات التخزين الخاصة بك.", zh: "宽敞有序的衣柜，满足您的储物需求。" },
-        images: ["https://images.unsplash.com/photo-1595415729796-b072e2d96c81?auto=format&fit=crop&w=800&q=80"],
-        variants: [
-            { name: "CL-001", image: "https://images.unsplash.com/photo-1595415729796-b072e2d96c81?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-002", image: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-003", image: "https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-004", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-005", image: "https://images.unsplash.com/photo-1595515106918-0b3c220555a8?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-006", image: "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-007", image: "https://images.unsplash.com/photo-1616137615002-c743825832a8?auto=format&fit=crop&w=300&q=80" },
-            { name: "CL-008", image: "https://images.unsplash.com/photo-1522771753035-4a53c9d1314d?auto=format&fit=crop&w=300&q=80" }
-        ]
-    },
-    {
         id: "bar-cabinet",
         name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" },
         category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
         slug: "bar-cabinet",
         description: { en: "Stylish bar cabinets for entertaining and storage.", ar: "خزائن بار أنيقة للترفيه والتخزين.", zh: "时尚的酒柜，用于娱乐和储藏。" },
-        images: ["https://images.unsplash.com/photo-1594953932225-451950ccf8ba?auto=format&fit=crop&w=800&q=80"],
+        images: ["/barcabinet/barc-001.jpg"],
         variants: [
-            { name: "CB-001", image: "https://images.unsplash.com/photo-1594953932225-451950ccf8ba?auto=format&fit=crop&w=300&q=80" },
-            { name: "CB-002", image: "https://images.unsplash.com/photo-1595514588049-93878b277156?auto=format&fit=crop&w=300&q=80" },
-            { name: "CB-003", image: "https://images.unsplash.com/photo-1595514588037-124675704179?auto=format&fit=crop&w=300&q=80" },
-            { name: "CB-004", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80" },
-            { name: "CB-005", image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=300&q=80" },
-            { name: "CB-006", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=300&q=80" }
+            { name: "BAR001", image: "/barcabinet/barc-001.jpg" },
+            { name: "BAR002", image: "/barcabinet/barc-002.jpg" },
+            { name: "BAR003", image: "/barcabinet/barc-003.jpg" },
+            { name: "BAR004", image: "/barcabinet/barc-004.jpg" },
+            { name: "BAR005", image: "/barcabinet/barc-005.jpg" },
+            { name: "BAR006", image: "/barcabinet/barc-006.jpg" },
+            { name: "BAR007", image: "/barcabinet/barc-007.jpg" },
+            { name: "BAR008", image: "/barcabinet/barc-008.jpg" },
+            { name: "BAR009", image: "/barcabinet/barc-009.jpg" },
+            { name: "BAR010", image: "/barcabinet/barc-010.jpg" },
+            { name: "BAR011", image: "/barcabinet/barc-011.jpg" },
+            { name: "BAR012", image: "/barcabinet/barc-012.jpg" },
+            { name: "BAR013", image: "/barcabinet/barc-013.avif" },
+            { name: "BAR014", image: "/barcabinet/barc-014.jpg" },
+            { name: "BAR015", image: "/barcabinet/barc-015.jpg" }
         ]
     },
 
