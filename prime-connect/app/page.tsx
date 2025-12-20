@@ -124,11 +124,12 @@ export default function HomePage() {
   ];
 
   const productCategories = [
-    { id: 'corePanels', slug: 'core-panels', image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop", icon: Layers, color: "blue" },
-    { id: 'doors', slug: 'doors', image: "https://images.unsplash.com/photo-1517646288024-aa25232a514d?q=80&w=800&auto=format&fit=crop", icon: Home, color: "purple" },
-    { id: 'cabinet', slug: 'cabinet', image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop", icon: Building2, color: "indigo" },
-    { id: 'colorCard', slug: 'color-card', image: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=800&auto=format&fit=crop", icon: Layers, color: "pink" },
-    { id: 'hardware', slug: 'hardware-accessories', image: "https://images.unsplash.com/photo-1581141849291-1125c7b692b5?q=80&w=800&auto=format&fit=crop", icon: ShieldCheck, color: "orange" },
+    { id: 'corePanels', slug: 'core-panels', image: "/home/core-panels.jpg", icon: Layers, color: "blue" },
+    { id: 'doors', slug: 'doors', image: "/home/doors.jpg", icon: Home, color: "purple" },
+    { id: 'cabinet', slug: 'cabinet', image: "/home/cabinet.jpg", icon: Building2, color: "indigo" },
+    { id: 'colorCard', slug: 'color-card', image: "/home/color-card.webp", icon: Layers, color: "pink" },
+    { id: 'hardware', slug: 'hardware-accessories', image: "/home/hardware-accessories.jpg", icon: ShieldCheck, color: "orange" },
+    { id: 'wardrobe', slug: 'wardrobe', image: "/home/wardrobe.jpg", icon: Building2, color: "teal" },
   ];
 
   return (
@@ -299,7 +300,7 @@ export default function HomePage() {
                 whileHover={{ y: -12, scale: 1.02 }}
                 className="group relative rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col h-[420px] hover:shadow-blue-500/20 transition-all duration-500 border-4 border-white"
               >
-                <Link href={`/products?category=${cat.slug}`} className="flex flex-col h-full">
+                <Link href={cat.id === 'wardrobe' ? `/product/${cat.slug}` : `/products?category=${cat.slug}`} className="flex flex-col h-full">
                   {/* Image Area - 85% */}
                   <div className="relative overflow-hidden" style={{ height: '85%' }}>
                     <Image
