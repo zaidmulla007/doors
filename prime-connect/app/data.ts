@@ -227,6 +227,78 @@ export const products = [
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
         }
     },
+    {
+        id: "mdf-core-panel",
+        name: { en: "MDF Core Panel", ar: "لوح MDF الأساسي", zh: "MDF芯板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
+        slug: "mdf-core-panel",
+        description: {
+            en: "High-density MDF core panels offering smooth surfaces and excellent workability for furniture and interior applications.",
+            ar: "ألواح MDF أساسية عالية الكثافة توفر أسطحًا ناعمة وقابلية عمل ممتازة للأثاث والتطبيقات الداخلية.",
+            zh: "高密度MDF芯板，表面光滑，加工性能优异，适用于家具和室内应用。"
+        },
+        images: ["/core-panel/mdfcorepanel/1.jpg", "/core-panel/mdfcorepanel/2.jpg"],
+        specifications: {
+            "Product Name": "MDF Core Panel",
+            "Sizes": "1220x2440mm | 1525x2440mm | 1830x2440mm",
+            "Thickness": "2.0mm-30mm",
+            "Density": "660-750kg/m³",
+            "Moisture": "6-12%",
+            "Glue": "E0, E1, E2 formaldehyde emission standard",
+            "Surface finish": "Plain/Melamine/Veneer. Both one side or two sides are ok",
+            "Color": "Natural wood color/White/Beige or as your requirement",
+            "Usage": "For furniture manufacturing. Construction and other indoor/outdoor woodwork Applications. Widely suitable for moisture resistant wall paneling, partitions, ceilings, custom wardrobe cabinets, or other indoor furniture with low maintenance cost",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
+    },
+    {
+        id: "mr-mdf-core-panel",
+        name: { en: "MR MDF Core Panel", ar: "لوح MR MDF الأساسي", zh: "防潮MDF芯板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
+        slug: "mr-mdf-core-panel",
+        description: {
+            en: "Moisture-resistant MDF core panels designed for areas with higher humidity, providing enhanced durability and stability.",
+            ar: "ألواح MDF أساسية مقاومة للرطوبة مصممة للمناطق ذات الرطوبة العالية، توفر متانة واستقرارًا محسّنين.",
+            zh: "防潮MDF芯板，专为高湿度区域设计，提供增强的耐用性和稳定性。"
+        },
+        images: ["/core-panel/mrmdfcorepanel/1.jpg", "/core-panel/mrmdfcorepanel/2.jpg"],
+        specifications: {
+            "Product Name": "MR MDF Core Panel",
+            "Sizes": "1220x2440mm | 1525x2440mm | 1830x2440mm",
+            "Thickness": "6-35mm",
+            "Density": "660-780kg/m³",
+            "Moisture": "6-12%",
+            "Glue": "E0, E1, E2 formaldehyde emission standard, Melamine glue",
+            "Surface finish": "Plain/Melamine/Veneer. Both one side or two sides are ok",
+            "Color": "Natural wood color/White/Beige or customized as per requirement",
+            "Usage": "Ideal for use in moisture-prone areas such as kitchens, bathrooms, basements. Perfect for Damp Environment (Especially for bathroom cabinets, kitchen cabinets). Wide variety applications Flooring underlayment, Panels for furniture, Wall paneling",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
+    },
+    {
+        id: "marine-construction-plywood",
+        name: { en: "Marine & Construction Plywood", ar: "خشب رقائقي بحري وبناء", zh: "船用和建筑胶合板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
+        slug: "marine-construction-plywood",
+        description: {
+            en: "Premium marine-grade plywood with superior water resistance, ideal for construction, marine applications, and outdoor projects.",
+            ar: "خشب رقائقي بحري ممتاز مع مقاومة فائقة للماء، مثالي للبناء والتطبيقات البحرية والمشاريع الخارجية.",
+            zh: "优质船用胶合板，具有卓越的防水性能，适用于建筑、船舶应用和户外项目。"
+        },
+        images: ["/core-panel/marine/1.jpg", "/core-panel/marine/2.jpg"],
+        specifications: {
+            "Product Name": "Marine & Construction Plywood",
+            "Sizes": "1220x2440mm | 1525x2440mm",
+            "Thickness": "4mm-25mm",
+            "Density": "550-650kg/m³",
+            "Moisture": "8-14% (or 8-16% as alternative)",
+            "Glue": "WBP (Weather & Boil Proof), E0/E1/E2 formaldehad emission standards",
+            "Surface finish": "Film-faced (or black, brown, red). Applicable for formwork, marine decks, general marine use",
+            "Color": "Natural teak grain, Film faced (red, brown, black), Fancy colors as per client requirements",
+            "Usage": "Suitable for furniture, interior decoration decking, Marine/boat building projects, Construction formwork, Outdoor applications, Heavy-duty and/or re-usable formwork shuttering, Various heavy-duty building/construction projects. Designed to be strong, durable, and reusable with minimal deterioration in outdoor and marine conditions",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
+    },
 
     // --- DOORS ---
     // --- DOORS ---

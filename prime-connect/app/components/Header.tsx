@@ -118,8 +118,8 @@ export default function Header() {
                 <div className="container-custom flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-auto h-12">
-                            <Image src="/logo/3.png" alt="Prime Connect Logo" width={200} height={48} className="h-full w-auto object-contain" />
+                        <div className="relative w-auto h-12 overflow-visible">
+                            <Image src="/logo/3.png" alt="Prime Connect Logo" width={200} height={48} className="h-full w-auto object-contain" priority />
                         </div>
                     </Link>
 

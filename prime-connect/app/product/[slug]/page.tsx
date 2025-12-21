@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, CheckCircle, Package, Share2, Printer, X } from "lucide-react";
+import { ArrowLeft, CheckCircle, Package, Share2, Printer, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useParams, notFound } from "next/navigation";
 import { products } from "../../data";
 import { useLanguage } from "../../context/LanguageContext";
@@ -29,6 +29,7 @@ export default function ProductPage() {
     const [selectedColor, setSelectedColor] = useState<any>(null);
     const [showZoom, setShowZoom] = useState(false);
     const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+    const [currentSpecImage, setCurrentSpecImage] = useState(0);
     const params = useParams();
     const slug = params.slug as string;
     const product = products.find((p) => p.slug === slug);
@@ -152,8 +153,100 @@ export default function ProductPage() {
                                         </motion.div>
                                     )}
 
-                                    {/* Specifications Section */}
-                                    {product.specifications && Object.keys(product.specifications).length > 0 && (
+                                    {/* Specification Images Section */}
+                                    {(() => {
+                                        const specImages: { [key: string]: string[] } = {
+                                            'mdf-doors': ['/mdf-doors-details/3.png', '/mdf-doors-details/4.png', '/mdf-doors-details/5.png', '/mdf-doors-details/6.png', '/mdf-doors-details/7.png'],
+                                            'wpc-doors': ['/wpc-door-details/9.png', '/wpc-door-details/10.png', '/wpc-door-details/11.png', '/wpc-door-details/12.png', '/wpc-door-details/13.png'],
+                                            'iron-and-steel-doors': ['/iron-steel-doors-details/15.png', '/iron-steel-doors-details/16.png', '/iron-steel-doors-details/17.png'],
+                                            'wooden-doors': ['/wooden-doors-details/19.png', '/wooden-doors-details/20.png', '/wooden-doors-details/21.png', '/wooden-doors-details/22.png'],
+                                            'aluminium-doors': ['/aluminium-doors-details/24.png', '/aluminium-doors-details/25.png', '/aluminium-doors-details/26.png', '/aluminium-doors-details/27.png'],
+                                            'emergency-exit-doors': ['/emeregency-exit-doors-details/29.png', '/emeregency-exit-doors-details/30.png', '/emeregency-exit-doors-details/31.png']
+                                        };
+                                        const images = specImages[slug] || [];
+                                        if (images.length === 0) return null;
+
+                                        const handlePrevSpec = () => {
+                                            setCurrentSpecImage((prev) => prev === 0 ? images.length - 1 : prev - 1);
+                                        };
+
+                                        const handleNextSpec = () => {
+                                            setCurrentSpecImage((prev) => prev === images.length - 1 ? 0 : prev + 1);
+                                        };
+
+                                        return (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-12"
+                                            >
+                                                <h4 className="text-lg font-bold text-gray-900 mb-8">{t('productDetail.specifications')}</h4>
+                                                <div className="relative">
+                                                    {/* Carousel Container */}
+                                                    <div className="relative w-full h-[40vh] md:h-[50vh] lg:h-[55vh] rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white">
+                                                        <AnimatePresence initial={false} mode="wait">
+                                                            <motion.div
+                                                                key={currentSpecImage}
+                                                                initial={{ opacity: 0, x: 100 }}
+                                                                animate={{ opacity: 1, x: 0 }}
+                                                                exit={{ opacity: 0, x: -100 }}
+                                                                transition={{ duration: 0.3 }}
+                                                                className="absolute inset-0"
+                                                            >
+                                                                <Image
+                                                                    src={images[currentSpecImage]}
+                                                                    alt={`${productName} specification ${currentSpecImage + 1}`}
+                                                                    fill
+                                                                    className="object-contain bg-white p-0"
+                                                                />
+                                                            </motion.div>
+                                                        </AnimatePresence>
+
+                                                        {/* Navigation Arrows */}
+                                                        {images.length > 1 && (
+                                                            <>
+                                                                <button
+                                                                    onClick={handlePrevSpec}
+                                                                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md"
+                                                                    aria-label="Previous specification"
+                                                                >
+                                                                    <ChevronLeft size={24} />
+                                                                </button>
+                                                                <button
+                                                                    onClick={handleNextSpec}
+                                                                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md"
+                                                                    aria-label="Next specification"
+                                                                >
+                                                                    <ChevronRight size={24} />
+                                                                </button>
+                                                            </>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Dot Indicators */}
+                                                    {images.length > 1 && (
+                                                        <div className="flex justify-center gap-2 mt-6">
+                                                            {images.map((_, index) => (
+                                                                <button
+                                                                    key={index}
+                                                                    onClick={() => setCurrentSpecImage(index)}
+                                                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSpecImage
+                                                                        ? 'bg-blue-600 w-8'
+                                                                        : 'bg-gray-300 hover:bg-gray-400'
+                                                                        }`}
+                                                                    aria-label={`Go to specification ${index + 1}`}
+                                                                />
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })()}
+
+                                    {/* Specifications Table Section - Only show if no spec images */}
+                                    {product.specifications && Object.keys(product.specifications).length > 0 && !['mdf-doors', 'wpc-doors', 'iron-and-steel-doors', 'wooden-doors', 'aluminium-doors', 'emergency-exit-doors'].includes(slug) && (
                                         <motion.div
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
@@ -223,7 +316,7 @@ export default function ProductPage() {
                                                                 src={item.image}
                                                                 alt={item.name}
                                                                 fill
-                                                                className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                                                                className="object-contain p-2 group-hover:scale-125 transition-transform duration-700 ease-out"
                                                             />
                                                         </div>
                                                         <p className="text-center text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors">

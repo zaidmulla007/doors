@@ -8,6 +8,9 @@ export const navigationCategories = [
             { name: { en: "Melamine Faced MDF Panels", ar: "ألواح MDF مغطاة بالميلامين", zh: "三聚氰胺贴面MDF板" }, slug: "melamine-faced-mdf-panels" },
             { name: { en: "Film Faced MDF Panels", ar: "ألواح MDF مغطاة بالفيلم", zh: "覆膜MDF板" }, slug: "film-faced-mdf-panels" },
             { name: { en: "Core Panel Plywood", ar: "خشب رقائقي للألواح الأساسية", zh: "芯板胶合板" }, slug: "core-panel-plywood" },
+            { name: { en: "MDF Core Panel", ar: "لوح MDF الأساسي", zh: "MDF芯板" }, slug: "mdf-core-panel" },
+            { name: { en: "MR MDF Core Panel", ar: "لوح MR MDF الأساسي", zh: "防潮MDF芯板" }, slug: "mr-mdf-core-panel" },
+            { name: { en: "Marine & Construction Plywood", ar: "خشب رقائقي بحري وبناء", zh: "船用和建筑胶合板" }, slug: "marine-construction-plywood" },
         ]
     },
     {

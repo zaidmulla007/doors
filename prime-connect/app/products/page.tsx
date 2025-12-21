@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Search, SlidersHorizontal, ChevronDown, X } from "lucide-react";
+import { ArrowRight, Search, SlidersHorizontal, ChevronDown, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Suspense, useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { products } from "../data";
@@ -27,6 +27,7 @@ function ProductsContent() {
     const searchParams = useSearchParams();
     const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<any>(null);
+    const [currentSpecImage, setCurrentSpecImage] = useState(0);
 
     // Get filters from URL
     const activeCategory = searchParams.get('category');
@@ -102,6 +103,30 @@ function ProductsContent() {
         return null;
     }, [activeSlug, activeCategory, language, filteredAndSortedItems]);
 
+    // Specification images mapping for door types
+    const specImages: { [key: string]: string[] } = {
+        'mdf-doors': ['/mdf-doors-details/3.png', '/mdf-doors-details/4.png', '/mdf-doors-details/5.png', '/mdf-doors-details/6.png', '/mdf-doors-details/7.png'],
+        'wpc-doors': ['/wpc-door-details/9.png', '/wpc-door-details/10.png', '/wpc-door-details/11.png', '/wpc-door-details/12.png', '/wpc-door-details/13.png'],
+        'iron-and-steel-doors': ['/iron-steel-doors-details/15.png', '/iron-steel-doors-details/16.png', '/iron-steel-doors-details/17.png'],
+        'wooden-doors': ['/wooden-doors-details/19.png', '/wooden-doors-details/20.png', '/wooden-doors-details/21.png', '/wooden-doors-details/22.png'],
+        'aluminium-doors': ['/aluminium-doors-details/24.png', '/aluminium-doors-details/25.png', '/aluminium-doors-details/26.png', '/aluminium-doors-details/27.png'],
+        'emergency-exit-doors': ['/emeregency-exit-doors-details/29.png', '/emeregency-exit-doors-details/30.png', '/emeregency-exit-doors-details/31.png']
+    };
+
+    const currentSpecImages = activeSlug && specImages[activeSlug] ? specImages[activeSlug] : [];
+
+    const nextSpecImage = () => {
+        if (currentSpecImages.length > 0) {
+            setCurrentSpecImage((prev) => (prev + 1) % currentSpecImages.length);
+        }
+    };
+
+    const prevSpecImage = () => {
+        if (currentSpecImages.length > 0) {
+            setCurrentSpecImage((prev) => (prev - 1 + currentSpecImages.length) % currentSpecImages.length);
+        }
+    };
+
     return (
         <div className="flex flex-col lg:flex-row gap-10">
             {/* Mobile Filter Toggle */}
@@ -164,8 +189,71 @@ function ProductsContent() {
                     </div>
                 )}
 
+                {/* Specification Images Carousel - Only for door types */}
+                {currentSpecImages.length > 0 && (
+                    <div className="mb-8">
+                        <div className="relative w-full h-[40vh] md:h-[50vh] lg:h-[55vh] rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white">
+                            <AnimatePresence initial={false} mode="wait">
+                                <motion.div
+                                    key={currentSpecImage}
+                                    initial={{ opacity: 0, x: 100 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -100 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0"
+                                >
+                                    <Image
+                                        src={currentSpecImages[currentSpecImage]}
+                                        alt={`Specification ${currentSpecImage + 1}`}
+                                        fill
+                                        className="object-contain bg-white p-0"
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Navigation Arrows */}
+                            {currentSpecImages.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={prevSpecImage}
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg flex items-center justify-center hover:bg-white transition-all group"
+                                        aria-label="Previous image"
+                                    >
+                                        <ChevronLeft className="w-5 h-5 text-gray-700 group-hover:text-blue-600" />
+                                    </button>
+                                    <button
+                                        onClick={nextSpecImage}
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg flex items-center justify-center hover:bg-white transition-all group"
+                                        aria-label="Next image"
+                                    >
+                                        <ChevronRight className="w-5 h-5 text-gray-700 group-hover:text-blue-600" />
+                                    </button>
+                                </>
+                            )}
+
+                            {/* Dot Indicators */}
+                            {currentSpecImages.length > 1 && (
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                                    {currentSpecImages.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setCurrentSpecImage(index)}
+                                            className={`w-2 h-2 rounded-full transition-all ${
+                                                index === currentSpecImage
+                                                    ? 'bg-blue-600 w-6'
+                                                    : 'bg-gray-300 hover:bg-gray-400'
+                                            }`}
+                                            aria-label={`Go to image ${index + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+
                 {filteredAndSortedItems.length > 0 ? (
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {filteredAndSortedItems.map((item) => {
                             const itemName = item.name;
                             const parentName = getTranslated(item.parentProduct.name, language);
@@ -185,14 +273,13 @@ function ProductsContent() {
                                             whileHover={{ y: -5 }}
                                             className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all overflow-hidden group cursor-pointer"
                                         >
-                                            <div className="block relative bg-gray-50 aspect-square overflow-hidden mb-3">
+                                            <div className="block relative bg-white aspect-square overflow-hidden mb-3 border border-gray-200">
                                                 <Image
                                                     src={item.image || "/placeholder.jpg"}
                                                     alt={itemName}
                                                     fill
-                                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                    className="object-contain p-2 group-hover:scale-125 transition-transform duration-700 ease-out"
                                                 />
-                                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
                                             </div>
 
                                             <div className="p-3 md:p-4">
@@ -225,14 +312,13 @@ function ProductsContent() {
                                     className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all overflow-hidden group cursor-pointer"
                                     onClick={() => setSelectedItem(item)}
                                 >
-                                    <div className="block relative bg-gray-50 aspect-square overflow-hidden mb-3">
+                                    <div className="block relative bg-white aspect-square overflow-hidden mb-3 border border-gray-200">
                                         <Image
                                             src={item.image || "/placeholder.jpg"}
                                             alt={itemName}
                                             fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                            className="object-contain p-2 group-hover:scale-125 transition-transform duration-700 ease-out"
                                         />
-                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
                                     </div>
 
                                     <div className="p-3 md:p-4">
@@ -285,12 +371,12 @@ function ProductsContent() {
                             className="bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-4xl grid md:grid-cols-2 h-auto max-h-[90vh]"
                         >
                             {/* Image Section */}
-                            <div className="relative h-64 md:h-auto bg-gray-100 min-h-[300px]">
+                            <div className="relative h-64 md:h-auto bg-white min-h-[300px] flex items-center justify-center p-4">
                                 <Image
                                     src={selectedItem.image || "/placeholder.jpg"}
                                     alt={selectedItem.name}
                                     fill
-                                    className="object-cover"
+                                    className="object-contain p-4"
                                 />
                             </div>
 
@@ -402,7 +488,7 @@ export default function ProductsPage() {
 
     return (
         <main className="bg-gray-50 min-h-screen">
-            <section className="bg-white pt-32 pb-12 border-b border-gray-100">
+            <section className="bg-white pt-28 lg:pt-32 pb-12 border-b border-gray-100">
                 <div className="container-custom">
                     <div className="max-w-3xl">
                         <nav className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
