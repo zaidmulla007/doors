@@ -497,31 +497,32 @@ export const products = [
             { name: "KC028", image: "/kitchen-cabinets/KC028.jpg" }
         ]
     },
-    {
-        id: "bar-cabinet",
-        name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" },
-        category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
-        slug: "bar-cabinet",
-        description: { en: "Stylish bar cabinets for entertaining and storage.", ar: "خزائن بار أنيقة للترفيه والتخزين.", zh: "时尚的酒柜，用于娱乐和储藏。" },
-        images: ["/barcabinet/barc-001.jpg"],
-        variants: [
-            { name: "BAR001", image: "/barcabinet/barc-001.jpg" },
-            { name: "BAR002", image: "/barcabinet/barc-002.jpg" },
-            { name: "BAR003", image: "/barcabinet/barc-003.jpg" },
-            { name: "BAR004", image: "/barcabinet/barc-004.jpg" },
-            { name: "BAR005", image: "/barcabinet/barc-005.jpg" },
-            { name: "BAR006", image: "/barcabinet/barc-006.jpg" },
-            { name: "BAR007", image: "/barcabinet/barc-007.jpg" },
-            { name: "BAR008", image: "/barcabinet/barc-008.jpg" },
-            { name: "BAR009", image: "/barcabinet/barc-009.jpg" },
-            { name: "BAR010", image: "/barcabinet/barc-010.jpg" },
-            { name: "BAR011", image: "/barcabinet/barc-011.jpg" },
-            { name: "BAR012", image: "/barcabinet/barc-012.jpg" },
-            { name: "BAR013", image: "/barcabinet/barc-013.avif" },
-            { name: "BAR014", image: "/barcabinet/barc-014.jpg" },
-            { name: "BAR015", image: "/barcabinet/barc-015.jpg" }
-        ]
-    },
+    // {
+    //     id: "bar-cabinet",
+    //     name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" },
+    //     category: { en: "Cabinet", ar: "خزائن", zh: "橱柜" },
+    //     slug: "bar-cabinet",
+    //     description: { en: "Stylish bar cabinets for entertaining and storage.", ar: "خزائن بار أنيقة للترفيه والتخزين.", zh: "时尚的酒柜，用于娱乐和储藏。" },
+    //     images: ["/barcabinet/barc-001.jpg"],
+    //     variants: [
+    //         { name: "BAR001", image: "/barcabinet/barc-001.jpg" },
+    //         { name: "BAR002", image: "/barcabinet/barc-002.jpg" },
+    //         { name: "BAR003", image: "/barcabinet/barc-003.jpg" },
+    //         { name: "BAR004", image: "/barcabinet/barc-004.jpg" },
+    //         { name: "BAR005", image: "/barcabinet/barc-005.jpg" },
+    //         { name: "BAR006", image: "/barcabinet/barc-006.jpg" },
+    //         { name: "BAR007", image: "/barcabinet/barc-007.jpg" },
+    //         { name: "BAR008", image: "/barcabinet/barc-008.jpg" },
+    //         { name: "BAR009", image: "/barcabinet/barc-009.jpg" },
+    //         { name: "BAR010", image: "/barcabinet/barc-010.jpg" },
+    //         { name: "BAR011", image: "/barcabinet/barc-011.jpg" },
+    //         { name: "BAR012", image: "/barcabinet/barc-012.jpg" },
+    //         { name: "BAR013", image: "/barcabinet/barc-013.avif" },
+    //         { name: "BAR014", image: "/barcabinet/barc-014.jpg" },
+    //         { name: "BAR015", image: "/barcabinet/barc-015.jpg" }
+    //     ]
+    // },
+
 
     // --- COLOR CARD ---
     {

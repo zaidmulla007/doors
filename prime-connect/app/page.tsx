@@ -138,7 +138,7 @@ export default function HomePage() {
       <div className="h-[88px] lg:h-[112px]" />
 
       {/* Hero Section - Image Carousel */}
-      <section className="relative w-full h-screen overflow-hidden flex flex-col">
+      <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-screen overflow-hidden flex flex-col">
         {/* Slides Container */}
         <div className="relative flex-1 w-full">
           <AnimatePresence initial={false} custom={direction}>
@@ -244,13 +244,12 @@ export default function HomePage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-video">
+                <div className="aspect-[4/3] md:aspect-video">
                   <iframe
                     src="https://www.youtube.com/embed/WecEaqY_9PQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
                     title="Prime Connects Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full pointer-events-none"
+                    className="w-full h-full"
                   />
                 </div>
               </div>

@@ -28,7 +28,7 @@ export const navigationCategories = [
         slug: "cabinet",
         items: [
             { name: { en: "Kitchen Cabinet", ar: "خزانة مطبخ", zh: "厨柜" }, slug: "kitchen-cabinet" },
-            { name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" }, slug: "bar-cabinet" },
+            // { name: { en: "Bar Cabinet", ar: "خزانة بار", zh: "酒柜" }, slug: "bar-cabinet" },
         ]
     },
     {

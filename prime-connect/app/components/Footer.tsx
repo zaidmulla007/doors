@@ -32,16 +32,12 @@ export default function Footer() {
                     <div className="lg:col-span-1 flex flex-col">
                         <Link href="/" className="flex items-center gap-3 mb-4">
                             <Image
-                                src="/logo.png"
-                                alt="Prime Connects Logo"
-                                width={48}
-                                height={48}
-                                className="w-12 h-12 object-contain brightness-0 invert"
+                                src="/logo/2.png"
+                                alt="Prime Connect Logo"
+                                width={267}
+                                height={64}
+                                className="w-auto h-16 object-contain"
                             />
-                            <div>
-                                <span className="text-xl font-bold">{t('header.logoName')}</span>
-                                <p className="text-xs text-white/90">{t('header.logoTagline')}</p>
-                            </div>
                         </Link>
                         <p className="text-white/90 text-sm leading-relaxed mb-4 flex-1">
                             {t('hero.description')}

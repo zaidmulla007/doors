@@ -39,6 +39,8 @@ export default function Header() {
     const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [isBrochuresOpen, setIsBrochuresOpen] = useState(false);
+    const [openMobileCategory, setOpenMobileCategory] = useState<string | null>(null);
+    const [openSubCategory, setOpenSubCategory] = useState<string | null>(null);
 
     const languages = [
         { code: "en", label: t('header.langEn') },
@@ -110,20 +112,14 @@ export default function Header() {
 
             {/* Main Header */}
             <motion.header
-                className={`w-full transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-lg shadow-md py-2" : "bg-white/80 backdrop-blur-sm py-4"
+                className={`w-full transition-all duration-300 ${isScrolled ? "bg-white backdrop-blur-lg shadow-md py-5" : "bg-white/80 backdrop-blur-sm py-5"
                     }`}
             >
                 <div className="container-custom flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-10 h-10">
-                            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-                        </div>
-                        <div className="flex flex-col">
-                            <span className={`text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600`}>
-                                {t('header.logoName')}
-                            </span>
-                            <span className="text-[10px] text-gray-500 tracking-wider">{t('header.logoTagline')}</span>
+                        <div className="relative w-auto h-16">
+                            <Image src="/logo/3.png" alt="Prime Connect Logo" width={267} height={64} className="h-full w-auto object-contain" />
                         </div>
                     </Link>
 
@@ -331,79 +327,173 @@ export default function Header() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
+                            className="lg:hidden bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 overflow-hidden shadow-inner"
                         >
-                            <div className="container-custom py-6 flex flex-col gap-4">
+                            <div className="container-custom py-6 flex flex-col gap-3">
                                 {navLinks.map((link) => {
                                     const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                                     return (
                                         <div key={link.name}>
-                                            <Link
-                                                href={link.href}
-                                                onClick={() => !link.hasDropdown && setIsMobileMenuOpen(false)}
-                                                className={`text-lg font-medium block transition-all ${isActive
-                                                    ? "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500"
-                                                    : "text-gray-900"
-                                                    }`}
-                                            >
-                                                {link.name}
-                                            </Link>
-                                            {link.hasDropdown && (
-                                                <div className="mt-3 space-y-4">
-                                                    {productCategories.map((category, catIndex) => {
-                                                        const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
-                                                        return (
-                                                            <div key={catIndex} className="pl-4 border-l-2 border-blue-200">
-                                                                <div className="flex items-center gap-2 mb-2">
-                                                                    <span className="font-medium text-gray-800 text-sm">{categoryName}</span>
-                                                                </div>
-                                                                <div className="pl-4 space-y-1">
-                                                                    {category.items.map((item, itemIndex) => {
-                                                                        const itemName = item.name[language as keyof typeof item.name] || item.name.en;
+                                            {link.hasDropdown ? (
+                                                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                                                    <button
+                                                        onClick={() => setOpenMobileCategory(openMobileCategory === 'products' ? null : 'products')}
+                                                        className={`w-full px-4 py-3 text-left flex items-center justify-between transition-all ${isActive
+                                                            ? "bg-gradient-to-r from-blue-50 to-purple-50"
+                                                            : "hover:bg-gray-50"
+                                                            }`}
+                                                    >
+                                                        <span className={`font-semibold ${isActive
+                                                            ? "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600"
+                                                            : "text-gray-900"
+                                                            }`}>
+                                                            {link.name}
+                                                        </span>
+                                                        <ChevronDown
+                                                            className={`w-5 h-5 transition-all duration-300 ${openMobileCategory === 'products' ? 'rotate-180 text-blue-600' : 'text-gray-400'
+                                                                }`}
+                                                        />
+                                                    </button>
+                                                    <AnimatePresence>
+                                                        {openMobileCategory === 'products' && (
+                                                            <motion.div
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: "auto", opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                                transition={{ duration: 0.3 }}
+                                                                className="overflow-hidden bg-gradient-to-b from-gray-50 to-white"
+                                                            >
+                                                                <div className="px-4 pb-4 pt-2 space-y-3">
+                                                                    {productCategories.map((category, catIndex) => {
+                                                                        const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
+                                                                        // For categories without items (color-card, wardrobe)
+                                                                        if (category.slug === "color-card" || category.slug === "wardrobe") {
+                                                                            return (
+                                                                                <Link
+                                                                                    key={catIndex}
+                                                                                    href={`/product/${category.slug}`}
+                                                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                                                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
+                                                                                >
+                                                                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-125 transition-transform"></div>
+                                                                                    <span className="font-medium text-gray-800 text-sm group-hover:text-blue-600">{categoryName}</span>
+                                                                                </Link>
+                                                                            );
+                                                                        }
+                                                                        // Categories with sub-items - make them collapsible
                                                                         return (
-                                                                            <Link
-                                                                                key={itemIndex}
-                                                                                href={`/product/${item.slug}`}
-                                                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                                                className="block text-gray-600 text-xs py-1 hover:text-blue-600"
-                                                                            >
-                                                                                {itemName}
-                                                                            </Link>
+                                                                            <div key={catIndex} className="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                                                                                <button
+                                                                                    onClick={() => setOpenSubCategory(openSubCategory === category.slug ? null : category.slug)}
+                                                                                    className="w-full flex items-center justify-between px-3 py-2 hover:bg-gray-50 transition-colors"
+                                                                                >
+                                                                                    <div className="flex items-center gap-2">
+                                                                                        <div className="w-1 h-4 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+                                                                                        <span className="font-semibold text-gray-900 text-sm">{categoryName}</span>
+                                                                                    </div>
+                                                                                    <ChevronDown
+                                                                                        className={`w-4 h-4 transition-all duration-300 ${openSubCategory === category.slug ? 'rotate-180 text-blue-600' : 'text-gray-400'
+                                                                                            }`}
+                                                                                    />
+                                                                                </button>
+                                                                                <AnimatePresence>
+                                                                                    {openSubCategory === category.slug && (
+                                                                                        <motion.div
+                                                                                            initial={{ height: 0, opacity: 0 }}
+                                                                                            animate={{ height: "auto", opacity: 1 }}
+                                                                                            exit={{ height: 0, opacity: 0 }}
+                                                                                            transition={{ duration: 0.3 }}
+                                                                                            className="overflow-hidden bg-gray-50"
+                                                                                        >
+                                                                                            <div className="px-3 pb-3 pt-1 space-y-1">
+                                                                                                {category.items.map((item, itemIndex) => {
+                                                                                                    const itemName = item.name[language as keyof typeof item.name] || item.name.en;
+                                                                                                    return (
+                                                                                                        <Link
+                                                                                                            key={itemIndex}
+                                                                                                            href={`/product/${item.slug}`}
+                                                                                                            onClick={() => setIsMobileMenuOpen(false)}
+                                                                                                            className="flex items-center gap-2 px-2 py-1.5 rounded-md text-gray-600 text-xs hover:bg-white hover:text-blue-600 transition-colors"
+                                                                                                        >
+                                                                                                            <div className="w-1 h-1 rounded-full bg-gray-400"></div>
+                                                                                                            {itemName}
+                                                                                                        </Link>
+                                                                                                    );
+                                                                                                })}
+                                                                                            </div>
+                                                                                        </motion.div>
+                                                                                    )}
+                                                                                </AnimatePresence>
+                                                                            </div>
                                                                         );
                                                                     })}
                                                                 </div>
-                                                            </div>
-                                                        );
-                                                    })}
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
                                                 </div>
+                                            ) : (
+                                                <Link
+                                                    href={link.href}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    className={`block px-4 py-3 rounded-xl font-semibold transition-all shadow-sm border ${isActive
+                                                        ? "bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600"
+                                                        : "bg-white border-gray-100 text-gray-900 hover:bg-gray-50"
+                                                        }`}
+                                                >
+                                                    {link.name}
+                                                </Link>
                                             )}
                                         </div>
                                     );
                                 })}
 
                                 {/* Mobile Contact Info & Language */}
-                                <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-4">
-                                    <div className="flex flex-col gap-2">
-                                        <a href="mailto:info@primeconnects.ae" className="text-sm text-gray-600 flex items-center gap-2">
-                                            <Mail size={16} /> {t('common.emailInfo')}
+                                <div className="mt-4 pt-4 border-t border-gray-200">
+                                    <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm space-y-3">
+                                        <h4 className="font-semibold text-gray-900 text-sm mb-3">Contact Us</h4>
+                                        <a href="mailto:info@primeconnects.ae" className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                                            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+                                                <Mail size={16} className="text-blue-600" />
+                                            </div>
+                                            <span>{t('common.emailInfo')}</span>
                                         </a>
-                                        <a href="mailto:abde@primeconnects.ae" className="text-sm text-gray-600 flex items-center gap-2">
-                                            <Mail size={16} /> {t('common.emailAbde')}
+                                        <a href="mailto:abde@primeconnects.ae" className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                                            <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center">
+                                                <Mail size={16} className="text-purple-600" />
+                                            </div>
+                                            <span>{t('common.emailAbde')}</span>
                                         </a>
-                                        <a href="tel:+97165733816" className="text-sm text-gray-600 flex items-center gap-2">
-                                            <Phone size={16} /> {t('common.phoneAjman')}
+                                        <a href="tel:+97165733816" className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                                            <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center">
+                                                <Phone size={16} className="text-green-600" />
+                                            </div>
+                                            <span>{t('common.phoneAjman')}</span>
                                         </a>
-                                        <a href="tel:+971589126137" className="text-sm text-gray-600 flex items-center gap-2">
-                                            <Phone size={16} /> {t('common.phoneSales')}
+                                        <a href="tel:+971589126137" className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors">
+                                            <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center">
+                                                <Phone size={16} className="text-green-600" />
+                                            </div>
+                                            <span>{t('common.phoneSales')}</span>
                                         </a>
                                     </div>
 
-                                    <div className="flex gap-4 mt-2">
-                                        {socialLinks.map(social => (
-                                            <a key={social.name} href={social.href} className="text-gray-500 hover:text-blue-600">
-                                                {social.icon && <social.icon size={20} />}
-                                            </a>
-                                        ))}
+                                    {/* Social Links */}
+                                    <div className="mt-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                                        <h4 className="font-semibold text-gray-900 text-sm mb-3">Follow Us</h4>
+                                        <div className="flex gap-3 flex-wrap">
+                                            {socialLinks.map(social => (
+                                                <a
+                                                    key={social.name}
+                                                    href={social.href}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center text-gray-600 hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all shadow-sm"
+                                                >
+                                                    {social.icon && <social.icon size={18} />}
+                                                </a>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

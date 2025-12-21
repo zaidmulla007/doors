@@ -27,6 +27,8 @@ const getTranslated = (value: string | { en: string; ar: string; zh?: string } |
 export default function ProductPage() {
     const { t, language } = useLanguage();
     const [selectedColor, setSelectedColor] = useState<any>(null);
+    const [showZoom, setShowZoom] = useState(false);
+    const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
     const params = useParams();
     const slug = params.slug as string;
     const product = products.find((p) => p.slug === slug);
@@ -42,6 +44,15 @@ export default function ProductPage() {
     const productApplications = (product as any).applications?.[language] || (product as any).applications?.en || [];
 
     const variants = (product as any).variants || (product as any).colors || [];
+
+    // Zoom handler for modal image
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const container = e.currentTarget;
+        const rect = container.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setZoomPosition({ x, y });
+    };
 
     return (
         <>
@@ -207,12 +218,12 @@ export default function ProductPage() {
                                                         className="group flex flex-col gap-2 cursor-pointer"
                                                         onClick={() => setSelectedColor(item)}
                                                     >
-                                                        <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-200 shadow-sm group-hover:shadow-md transition-all bg-gray-50">
+                                                        <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-200 shadow-sm group-hover:shadow-md transition-all bg-white">
                                                             <Image
                                                                 src={item.image}
                                                                 alt={item.name}
                                                                 fill
-                                                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                                className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                                                             />
                                                         </div>
                                                         <p className="text-center text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors">
@@ -239,16 +250,39 @@ export default function ProductPage() {
                                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                                     onClick={(e) => e.stopPropagation()}
-                                                    className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-4xl grid md:grid-cols-2 max-h-[90vh]"
+                                                    className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-6xl grid md:grid-cols-2 max-h-[90vh]"
                                                 >
-                                                    {/* Image Section */}
-                                                    <div className="relative h-64 md:h-auto bg-gray-100">
-                                                        <Image
-                                                            src={selectedColor.image}
-                                                            alt={selectedColor.name}
-                                                            fill
-                                                            className="object-cover"
-                                                        />
+                                                    {/* Image Section with Zoom */}
+                                                    <div className="relative">
+                                                        <div
+                                                            className="relative h-64 md:h-[90vh] bg-white flex items-center justify-center p-4 cursor-zoom-in"
+                                                            onMouseMove={handleMouseMove}
+                                                            onMouseEnter={() => setShowZoom(true)}
+                                                            onMouseLeave={() => setShowZoom(false)}
+                                                        >
+                                                            {/* Main Image */}
+                                                            <Image
+                                                                src={selectedColor.image}
+                                                                alt={selectedColor.name}
+                                                                fill
+                                                                className="object-contain p-4"
+                                                            />
+                                                        </div>
+
+                                                        {/* Flipkart-style Zoomed Image Panel */}
+                                                        {showZoom && (
+                                                            <div className="hidden md:block absolute left-full top-0 ml-4 w-[400px] h-[400px] bg-white border-2 border-gray-200 rounded-xl shadow-2xl overflow-hidden z-50">
+                                                                <div
+                                                                    className="relative w-full h-full"
+                                                                    style={{
+                                                                        backgroundImage: `url(${selectedColor.image})`,
+                                                                        backgroundSize: '200%',
+                                                                        backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                                                                        backgroundRepeat: 'no-repeat',
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        )}
                                                     </div>
 
                                                     {/* Info & Inquiry Section */}
