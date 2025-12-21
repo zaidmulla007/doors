@@ -82,7 +82,7 @@ export default function Header() {
     return (
         <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
             {/* Top Bar */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs py-2 hidden lg:block">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs py-1 hidden lg:block">
                 <div className="container-custom flex justify-center items-center gap-6">
                     <div className="flex items-center gap-4">
                         <a href="mailto:info@primeconnects.ae" className="flex items-center gap-1 hover:text-gray-200">
@@ -112,14 +112,14 @@ export default function Header() {
 
             {/* Main Header */}
             <motion.header
-                className={`w-full transition-all duration-300 ${isScrolled ? "bg-white backdrop-blur-lg shadow-md py-5" : "bg-white/80 backdrop-blur-sm py-5"
+                className={`w-full transition-all duration-300 ${isScrolled ? "bg-white backdrop-blur-lg shadow-md py-3" : "bg-white/80 backdrop-blur-sm py-3"
                     }`}
             >
                 <div className="container-custom flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-auto h-16">
-                            <Image src="/logo/3.png" alt="Prime Connect Logo" width={267} height={64} className="h-full w-auto object-contain" />
+                        <div className="relative w-auto h-12">
+                            <Image src="/logo/3.png" alt="Prime Connect Logo" width={200} height={48} className="h-full w-auto object-contain" />
                         </div>
                     </Link>
 

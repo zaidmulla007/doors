@@ -135,7 +135,7 @@ export default function HomePage() {
   return (
     <>
       {/* Spacer for fixed header */}
-      <div className="h-[88px] lg:h-[112px]" />
+      <div className="h-[60px] lg:h-[80px]" />
 
       {/* Hero Section - Image Carousel */}
       <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-screen overflow-hidden flex flex-col">
