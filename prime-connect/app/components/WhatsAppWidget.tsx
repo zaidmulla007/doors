@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 export default function WhatsAppWidget() {
-    const phoneNumber = "971501924105"; // +971 50 192 4105 (remove spaces and +)
+    const phoneNumber = "971589126137"; // +971 58 912 6137 (remove spaces and +)
     const message = encodeURIComponent("Hello! I want to know more about your services. Please call me back. Thanks");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

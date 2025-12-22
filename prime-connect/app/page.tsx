@@ -244,10 +244,10 @@ export default function HomePage() {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-[4/3] md:aspect-video">
+                <div className="aspect-[4/3] md:aspect-video lg:aspect-[4/3] xl:h-[500px]">
                   <iframe
-                    src="https://www.youtube.com/embed/WecEaqY_9PQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
-                    title="Prime Connects Video"
+                    src="https://www.youtube.com/embed/WecEaqY_9PQ?autoplay=1&mute=1&loop=1&playlist=WecEaqY_9PQ&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+                    title="Prime Connect Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     className="w-full h-full"
                   />

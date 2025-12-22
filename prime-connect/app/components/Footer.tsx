@@ -27,17 +27,25 @@ export default function Footer() {
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
             <div className="relative container-custom py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10">
                     {/* Company Info */}
-                    <div className="lg:col-span-1 flex flex-col">
-                        <Link href="/" className="flex items-center gap-3 mb-4">
+                    <div className="lg:col-span-2 flex flex-col">
+                        <Link href="/" className="flex items-center gap-1.5 mb-4">
                             <Image
-                                src="/logo/2.png"
+                                src="/logo.png"
                                 alt="Prime Connect Logo"
-                                width={267}
-                                height={64}
-                                className="w-auto h-16 object-contain"
+                                width={200}
+                                height={48}
+                                className="w-auto h-12 object-contain"
                             />
+                            <div className="flex flex-col">
+                                <span className="text-sm font-bold text-white leading-tight whitespace-nowrap">
+                                    {t('header.taglineArabic')}
+                                </span>
+                                <span className="text-xs font-semibold text-white leading-tight whitespace-nowrap">
+                                    {t('header.taglineEnglish')}
+                                </span>
+                            </div>
                         </Link>
                         <p className="text-white/90 text-sm leading-relaxed mb-4 flex-1">
                             {t('hero.description')}
@@ -73,7 +81,7 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="flex flex-col">
+                    <div className="lg:col-span-2 flex flex-col">
                         <h4 className="text-lg font-semibold mb-4 relative inline-block">
                             {t('footer.contactUs')}
                             <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-white/80" />
@@ -124,18 +132,18 @@ export default function Footer() {
                         <p className="text-white/90 text-sm mb-6 leading-relaxed">
                             {t('footer.companyDesc')}
                         </p>
-                        <div className="flex gap-6 justify-start">
+                        <div className="flex gap-3 justify-start">
                             <div className="flex flex-col">
                                 <span className="text-2xl font-bold text-white">{t('common.stat25Plus')}</span>
-                                <p className="text-xs text-white/80 mt-1">{t('hero.stats.years')}</p>
+                                <p className="text-xs text-white/80 mt-1 whitespace-nowrap">{t('hero.stats.years')}</p>
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-2xl font-bold text-white">{t('common.stat6')}</span>
-                                <p className="text-xs text-white/80 mt-1">{t('hero.stats.factories')}</p>
+                                <p className="text-xs text-white/80 mt-1 whitespace-nowrap">{t('hero.stats.factories')}</p>
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-2xl font-bold text-white">{t('common.stat2')}</span>
-                                <p className="text-xs text-white/80 mt-1">{t('hero.stats.countries')}</p>
+                                <p className="text-xs text-white/80 mt-1 whitespace-nowrap">{t('hero.stats.countries')}</p>
                             </div>
                         </div>
                     </div>

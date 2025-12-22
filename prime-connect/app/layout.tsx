@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Prime Connects | Doors & Cabinets Solutions",
+  title: "Prime Connect | Doors & Cabinets Solutions",
   description: "Multinational manufacturer of doors, panels, and cabinetry serving commercial, residential, hospitality, education, and healthcare projects. 25+ years of excellence.",
   keywords: "doors, cabinets, panels, manufacturing, UAE, China, construction, interior",
 };

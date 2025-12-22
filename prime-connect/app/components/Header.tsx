@@ -52,11 +52,11 @@ export default function Header() {
 
     // Brochures data with translations
     const brochures = [
-        { name: t('br.general'), file: "/brochures/PrimeconnectsGeneralCatalogue.pdf" },
+        { name: t('br.general'), file: "/brochures/PrimeconnectGeneralCatalogue.pdf" },
         { name: t('br.doors'), file: "/brochures/PrimeConnectsDoorscatalogue.pdf" },
-        { name: t('br.locks'), file: "/brochures/PrimeconnectsCylinderLocks.pdf" },
-        { name: t('br.hinges'), file: "/brochures/PrimeconnectsHinges.pdf" },
-        { name: t('br.smartLocks'), file: "/brochures/PrimeconnectsSmartRimLocks.pdf" },
+        { name: t('br.locks'), file: "/brochures/PrimeconnectCylinderLocks.pdf" },
+        { name: t('br.hinges'), file: "/brochures/PrimeconnectHinges.pdf" },
+        { name: t('br.smartLocks'), file: "/brochures/PrimeconnectSmartRimLocks.pdf" },
     ];
 
 
@@ -76,6 +76,8 @@ export default function Header() {
         { name: t('header.home'), href: "/" },
         { name: t('header.products'), href: "/products", hasDropdown: true },
         { name: t('header.about'), href: "/about" },
+        { name: t('header.projects'), href: "/projects" },
+        { name: t('header.certificates'), href: "/certificates" },
         { name: t('header.contact'), href: "/contact" },
     ];
 
@@ -117,9 +119,17 @@ export default function Header() {
             >
                 <div className="container-custom flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3 group">
+                    <Link href="/" className="flex items-center gap-1.5 group">
                         <div className="relative w-auto h-12 overflow-visible">
-                            <Image src="/logo/3.png" alt="Prime Connect Logo" width={200} height={48} className="h-full w-auto object-contain" priority />
+                            <Image src="/logo.png" alt="Prime Connect Logo" width={200} height={48} className="h-full w-auto object-contain" priority />
+                        </div>
+                        <div className={`hidden md:flex flex-col ${language === 'ar' ? 'items-end' : 'items-start'}`}>
+                            <span className="text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
+                                {t('header.taglineArabic')}
+                            </span>
+                            <span className="text-xs font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
+                                {t('header.taglineEnglish')}
+                            </span>
                         </div>
                     </Link>
 

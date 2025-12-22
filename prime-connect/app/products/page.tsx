@@ -28,6 +28,17 @@ function ProductsContent() {
     const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<any>(null);
     const [currentSpecImage, setCurrentSpecImage] = useState(0);
+    const [showZoom, setShowZoom] = useState(false);
+    const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+
+    // Zoom handler for modal image
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const container = e.currentTarget;
+        const rect = container.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setZoomPosition({ x, y });
+    };
 
     // Get filters from URL
     const activeCategory = searchParams.get('category');
@@ -238,11 +249,10 @@ function ProductsContent() {
                                         <button
                                             key={index}
                                             onClick={() => setCurrentSpecImage(index)}
-                                            className={`w-2 h-2 rounded-full transition-all ${
-                                                index === currentSpecImage
-                                                    ? 'bg-blue-600 w-6'
-                                                    : 'bg-gray-300 hover:bg-gray-400'
-                                            }`}
+                                            className={`w-2 h-2 rounded-full transition-all ${index === currentSpecImage
+                                                ? 'bg-blue-600 w-6'
+                                                : 'bg-gray-300 hover:bg-gray-400'
+                                                }`}
                                             aria-label={`Go to image ${index + 1}`}
                                         />
                                     ))}
@@ -370,14 +380,37 @@ function ProductsContent() {
                             onClick={(e) => e.stopPropagation()}
                             className="bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-4xl grid md:grid-cols-2 h-auto max-h-[90vh]"
                         >
-                            {/* Image Section */}
-                            <div className="relative h-64 md:h-auto bg-white min-h-[300px] flex items-center justify-center p-4">
-                                <Image
-                                    src={selectedItem.image || "/placeholder.jpg"}
-                                    alt={selectedItem.name}
-                                    fill
-                                    className="object-contain p-4"
-                                />
+                            {/* Image Section with Zoom */}
+                            <div className="relative h-64 md:h-full">
+                                <div
+                                    className="relative w-full h-full bg-white flex items-center justify-center p-4 cursor-zoom-in"
+                                    onMouseMove={handleMouseMove}
+                                    onMouseEnter={() => setShowZoom(true)}
+                                    onMouseLeave={() => setShowZoom(false)}
+                                >
+                                    {/* Main Image */}
+                                    <Image
+                                        src={selectedItem.image || "/placeholder.jpg"}
+                                        alt={selectedItem.name}
+                                        fill
+                                        className="object-contain p-4"
+                                    />
+                                </div>
+
+                                {/* Flipkart-style Zoomed Image Panel */}
+                                {showZoom && (
+                                    <div className="hidden md:block absolute left-full top-0 ml-4 w-[400px] h-[400px] bg-white border-2 border-gray-200 rounded-xl shadow-2xl overflow-hidden z-50">
+                                        <div
+                                            className="relative w-full h-full"
+                                            style={{
+                                                backgroundImage: `url(${selectedItem.image || "/placeholder.jpg"})`,
+                                                backgroundSize: '200%',
+                                                backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                                                backgroundRepeat: 'no-repeat',
+                                            }}
+                                        />
+                                    </div>
+                                )}
                             </div>
 
                             {/* Info & Inquiry Section */}
