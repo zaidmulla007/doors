@@ -323,7 +323,7 @@ export default function AboutPage() {
 
                                 <div className="mt-auto space-y-4">
                                     <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border-2 border-blue-100">
-                                        <div className="flex items-center gap-3 mb-4">
+                                        <div className="flex items-center gap-3">
                                             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
                                                 <Award className="w-6 h-6 text-white" />
                                             </div>
@@ -331,23 +331,6 @@ export default function AboutPage() {
                                                 <h4 className="font-bold text-gray-900">Verified Certificate</h4>
                                                 <p className="text-sm text-gray-600">Internationally recognized</p>
                                             </div>
-                                        </div>
-                                        <div className="flex gap-3">
-                                            <a
-                                                href={`/certificates/${selectedCert.index + 1}.pdf`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex-1 text-center px-4 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all"
-                                            >
-                                                View PDF
-                                            </a>
-                                            <a
-                                                href={`/certificates/${selectedCert.index + 1}.pdf`}
-                                                download
-                                                className="flex-1 text-center px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all"
-                                            >
-                                                Download
-                                            </a>
                                         </div>
                                     </div>
                                 </div>
