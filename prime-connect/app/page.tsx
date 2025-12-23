@@ -497,53 +497,54 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-16"
-          >
-            <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
-              {t('features.sectionTitle')}
-            </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-gray-900 mb-4">
-              {t('features.headingStart')}
-              <br /><span className="gradient-text">{t('features.headingGradient')}</span>
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-gray-600 max-w-2xl mx-auto">
-              {t('features.description')}
-            </motion.p>
-          </motion.div>
+          <div className="grid lg:grid-cols-[350px_1fr] gap-12 items-start">
+            {/* Left Content Panel */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="lg:sticky lg:top-32"
+            >
+              <motion.span variants={fadeInUp} className="text-blue-600 font-semibold mb-4 block">
+                {t('features.sectionTitle')}
+              </motion.span>
+              <motion.h2 variants={fadeInUp} className="text-gray-900 mb-6">
+                {t('features.headingStart')}
+                <br /><span className="gradient-text">{t('features.headingGradient')}</span>
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="text-gray-600 text-lg leading-relaxed mb-6">
+                {t('features.description')}
+              </motion.p>
+              <motion.p variants={fadeInUp} className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 italic">
+                As long as you can think of it, we can do it.
+              </motion.p>
+            </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                whileHover={{ y: -5 }}
-                className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white hover:shadow-xl transition-all group"
-                style={{
-                  border: '4px solid transparent',
-                  backgroundImage: 'linear-gradient(135deg, rgb(249, 250, 251), white), linear-gradient(to right, rgb(59, 130, 246), rgb(168, 85, 247))',
-                  backgroundOrigin: 'border-box',
-                  backgroundClip: 'padding-box, border-box',
-                }}
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center mb-6 group-hover:from-blue-500 group-hover:to-purple-500 transition-all">
-                  <feature.icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{t(`features.items.${feature.id}.title`)}</h3>
-                <p className="text-gray-600">{t(`features.items.${feature.id}.desc`)}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Right Grid of Features */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  whileHover={{ y: -5 }}
+                  className="p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white hover:shadow-xl transition-all group border border-gray-200"
+                >
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center mb-4 group-hover:from-blue-500 group-hover:to-purple-500 transition-all mx-auto">
+                    <feature.icon className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{t(`features.items.${feature.id}.title`)}</h3>
+                  <p className="text-gray-600 text-sm text-center leading-relaxed">{t(`features.items.${feature.id}.desc`)}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
           {/* Additional Info */}
           <motion.div

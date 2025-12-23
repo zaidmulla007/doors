@@ -147,7 +147,14 @@ export const products = [
             ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع. مثالي للأثاث والخزائن وألواح الجدران والديكور الداخلي.",
             zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。是家具、橱柜、墙板和室内装饰的理想选择。"
         },
-        images: ["/core-panel/MelamineFacedMDFPanels/1.jpg"],
+        images: [
+            "/core-panel/MelamineFacedMDFPanels/1.jpg",
+            "/core-panel/MelamineFacedMDFPanels/2.jpg",
+            "/core-panel/MelamineFacedMDFPanels/3.jpg",
+            "/core-panel/MelamineFacedMDFPanels/4.jpg",
+            "/core-panel/MelamineFacedMDFPanels/5.jpg",
+            "/core-panel/MelamineFacedMDFPanels/6.jpg"
+        ],
         specifications: {
             "Thickness": "Ranges from 2.5 mm to 25 mm, with common options like 9 mm, 12 mm, 15 mm, 17 mm, 18 mm",
             "Glue": "Uses E0/E1/E2 bonding systems, and can include melamine glue depending on the application",
@@ -276,26 +283,68 @@ export const products = [
         }
     },
     {
-        id: "marine-construction-plywood",
-        name: { en: "Marine & Construction Plywood", ar: "خشب رقائقي بحري وبناء", zh: "船用和建筑胶合板" },
+        id: "marine-plywood",
+        name: { en: "Marine Plywood", ar: "خشب رقائقي بحري", zh: "船用胶合板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
-        slug: "marine-construction-plywood",
+        slug: "marine-plywood",
         description: {
-            en: "Premium marine-grade plywood with superior water resistance, ideal for construction, marine applications, and outdoor projects.",
-            ar: "خشب رقائقي بحري ممتاز مع مقاومة فائقة للماء، مثالي للبناء والتطبيقات البحرية والمشاريع الخارجية.",
-            zh: "优质船用胶合板，具有卓越的防水性能，适用于建筑、船舶应用和户外项目。"
+            en: "Premium marine-grade plywood with superior water resistance, ideal for marine applications, boat building, and outdoor marine projects.",
+            ar: "خشب رقائقي بحري ممتاز مع مقاومة فائقة للماء، مثالي للتطبيقات البحرية وبناء القوارب والمشاريع البحرية الخارجية.",
+            zh: "优质船用胶合板，具有卓越的防水性能，适用于船舶应用、造船和户外船舶项目。"
         },
-        images: ["/core-panel/marine/1.jpg", "/core-panel/marine/2.jpg"],
+        images: [
+            "/core-panel/marine/1.jpg",
+            "/core-panel/marine/2.jpg",
+            "/core-panel/marine/3.jpg",
+            "/core-panel/marine/4.jpg",
+            "/core-panel/marine/5.jpg",
+            "/core-panel/marine/6.avif",
+            "/core-panel/marine/7.jpg"
+        ],
         specifications: {
-            "Product Name": "Marine & Construction Plywood",
+            "Product Name": "Marine Plywood",
             "Sizes": "1220x2440mm | 1525x2440mm",
             "Thickness": "4mm-25mm",
             "Density": "550-650kg/m³",
             "Moisture": "8-14% (or 8-16% as alternative)",
             "Glue": "WBP (Weather & Boil Proof), E0/E1/E2 formaldehad emission standards",
-            "Surface finish": "Film-faced (or black, brown, red). Applicable for formwork, marine decks, general marine use",
+            "Surface finish": "Film-faced (or black, brown, red). Applicable for marine decks, general marine use",
             "Color": "Natural teak grain, Film faced (red, brown, black), Fancy colors as per client requirements",
-            "Usage": "Suitable for furniture, interior decoration decking, Marine/boat building projects, Construction formwork, Outdoor applications, Heavy-duty and/or re-usable formwork shuttering, Various heavy-duty building/construction projects. Designed to be strong, durable, and reusable with minimal deterioration in outdoor and marine conditions",
+            "Usage": "Suitable for furniture, interior decoration decking, Marine/boat building projects, Outdoor marine applications. Designed to be strong, durable, and reusable with minimal deterioration in outdoor and marine conditions",
+            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        }
+    },
+    {
+        id: "construction-plywood",
+        name: { en: "Construction Plywood", ar: "خشب رقائقي للبناء", zh: "建筑胶合板" },
+        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
+        slug: "construction-plywood",
+        description: {
+            en: "Heavy-duty construction plywood with excellent durability, ideal for construction formwork, shuttering, and outdoor construction projects.",
+            ar: "خشب رقائقي للبناء متين مع متانة ممتازة، مثالي لقوالب صب الخرسانة والبناء والمشاريع الخارجية.",
+            zh: "重型建筑胶合板，具有出色的耐用性，适用于建筑模板、模板和户外建筑项目。"
+        },
+        images: [
+            "/core-panel/construction-plywood/1.jpg",
+            "/core-panel/construction-plywood/2.jpg",
+            "/core-panel/construction-plywood/3.jpg",
+            "/core-panel/construction-plywood/4.jpg",
+            "/core-panel/construction-plywood/5.jpg",
+            "/core-panel/construction-plywood/6.jpg",
+            "/core-panel/construction-plywood/7.jpg",
+            "/core-panel/construction-plywood/8.jpg",
+            "/core-panel/construction-plywood/9.jpg"
+        ],
+        specifications: {
+            "Product Name": "Construction Plywood",
+            "Sizes": "1220x2440mm | 1525x2440mm",
+            "Thickness": "4mm-25mm",
+            "Density": "550-650kg/m³",
+            "Moisture": "8-14% (or 8-16% as alternative)",
+            "Glue": "WBP (Weather & Boil Proof), E0/E1/E2 formaldehad emission standards",
+            "Surface finish": "Film-faced (or black, brown, red). Applicable for formwork, construction shuttering",
+            "Color": "Film faced (red, brown, black), Fancy colors as per client requirements",
+            "Usage": "Construction formwork, Outdoor construction applications, Heavy-duty and/or re-usable formwork shuttering, Various heavy-duty building/construction projects. Designed to be strong, durable, and reusable in construction conditions",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
         }
     },

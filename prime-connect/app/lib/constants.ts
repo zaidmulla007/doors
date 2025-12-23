@@ -10,7 +10,8 @@ export const navigationCategories = [
             { name: { en: "Core Panel Plywood", ar: "خشب رقائقي للألواح الأساسية", zh: "芯板胶合板" }, slug: "core-panel-plywood" },
             { name: { en: "MDF Core Panel", ar: "لوح MDF الأساسي", zh: "MDF芯板" }, slug: "mdf-core-panel" },
             { name: { en: "MR MDF Core Panel", ar: "لوح MR MDF الأساسي", zh: "防潮MDF芯板" }, slug: "mr-mdf-core-panel" },
-            { name: { en: "Marine & Construction Plywood", ar: "خشب رقائقي بحري وبناء", zh: "船用和建筑胶合板" }, slug: "marine-construction-plywood" },
+            { name: { en: "Marine Plywood", ar: "خشب رقائقي بحري", zh: "船用胶合板" }, slug: "marine-plywood" },
+            { name: { en: "Construction Plywood", ar: "خشب رقائقي للبناء", zh: "建筑胶合板" }, slug: "construction-plywood" },
         ]
     },
     {

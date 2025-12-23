@@ -825,7 +825,14 @@ export const products: Product[] = [
         'مثالي للأثاث والخزائن'
       ]
     },
-    images: ['/images/products/melamine-mdf.jpg']
+    images: [
+      '/core-panel/MelamineFacedMDFPanels/1.jpg',
+      '/core-panel/MelamineFacedMDFPanels/2.jpg',
+      '/core-panel/MelamineFacedMDFPanels/3.jpg',
+      '/core-panel/MelamineFacedMDFPanels/4.jpg',
+      '/core-panel/MelamineFacedMDFPanels/5.jpg',
+      '/core-panel/MelamineFacedMDFPanels/6.jpg'
+    ]
   }
 ];
 

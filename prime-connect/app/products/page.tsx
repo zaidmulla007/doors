@@ -26,7 +26,7 @@ function ProductsContent() {
     const { t, language } = useLanguage();
     const searchParams = useSearchParams();
     const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState<any>(null);
+    const [selectedItem, setSelectedItem] = useState<{ name: string; image: string; parentProduct: typeof products[0] } | null>(null);
     const [currentSpecImage, setCurrentSpecImage] = useState(0);
     const [showZoom, setShowZoom] = useState(false);
     const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
@@ -61,11 +61,11 @@ function ProductsContent() {
         }
 
         // 2. Flatten into variants or colors
-        let items: any[] = [];
+        const items: { name: string; image: string; id: string; parentProduct: typeof products[0]; category: typeof products[0]['category'] }[] = [];
         sourceProducts.forEach(p => {
-            const productVars = p.variants || (p as any).colors || [];
+            const productVars = (p.variants || (p as Record<string, unknown>).colors || []) as { name: string; image: string }[];
             if (productVars.length > 0) {
-                productVars.forEach((v: any) => {
+                productVars.forEach((v) => {
                     items.push({
                         ...v,
                         id: `${p.id}-${v.name}`,
@@ -107,7 +107,7 @@ function ProductsContent() {
             // Fallback to navigation categories if no items found
             const navCat = navigationCategories.find(c => c.slug === activeCategory);
             if (navCat) {
-                return getTranslated(navCat.name as any, language);
+                return getTranslated(navCat.name as string | { en: string; ar: string; zh: string }, language);
             }
             return activeCategory;
         }
@@ -267,10 +267,9 @@ function ProductsContent() {
                         {filteredAndSortedItems.map((item) => {
                             const itemName = item.name;
                             const parentName = getTranslated(item.parentProduct.name, language);
-                            const isCorePanels = item.parentProduct.category &&
-                                (typeof item.parentProduct.category === 'string'
-                                    ? item.parentProduct.category.toLowerCase().includes('core panel')
-                                    : item.parentProduct.category.en.toLowerCase().includes('core panel'));
+                            const category = item.parentProduct.category;
+                            const categoryText = typeof category === 'string' ? category : (category as { en: string; ar: string; zh: string }).en;
+                            const isCorePanels = categoryText.toLowerCase().includes('core panel');
 
                             // For Core Panels, use Link to navigate to product page
                             if (isCorePanels) {
@@ -445,9 +444,9 @@ function ProductsContent() {
                                     <div className="mb-6 bg-gray-50 rounded-xl p-4 border border-gray-100">
                                         <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">{t('productDetail.specifications')}</h4>
                                         <div className="space-y-2">
-                                            {Object.entries(selectedItem.parentProduct.specifications).map(([k, v]: [string, any]) => (
+                                            {Object.entries(selectedItem.parentProduct.specifications).map(([k, v]: [string, string | number]) => (
                                                 <div key={k} className="flex justify-between text-xs py-1 border-b border-gray-100 last:border-0">
-                                                    <span className="text-gray-500 capitalize pr-4">{t(`common.productSpecs.${k.toLowerCase().replace(/\s+/g, '')}` as any) || k}:</span>
+                                                    <span className="text-gray-500 capitalize pr-4">{(t as (key: string) => string)(`common.productSpecs.${k.toLowerCase().replace(/\s+/g, '')}`) || k}:</span>
                                                     <span className="font-semibold text-gray-900 text-right">{v}</span>
                                                 </div>
                                             ))}
@@ -460,7 +459,7 @@ function ProductsContent() {
                                     <div className="mb-6">
                                         <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">{t('productDetail.applications')}</h4>
                                         <ul className="space-y-2">
-                                            {((selectedItem.parentProduct.applications as any)[language] || (selectedItem.parentProduct.applications as any).en || []).map((app: string, idx: number) => (
+                                            {((selectedItem.parentProduct.applications as Record<string, string[]>)[language] || (selectedItem.parentProduct.applications as Record<string, string[]>).en || []).map((app: string, idx: number) => (
                                                 <li key={idx} className="flex items-start gap-2 text-xs text-gray-600">
                                                     <div className="w-1 h-1 rounded-full bg-blue-500 mt-1.5 flex-shrink-0" />
                                                     <span>{app}</span>

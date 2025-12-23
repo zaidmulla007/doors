@@ -26,7 +26,7 @@ const getTranslated = (value: string | { en: string; ar: string; zh?: string } |
 
 export default function ProductPage() {
     const { t, language } = useLanguage();
-    const [selectedColor, setSelectedColor] = useState<any>(null);
+    const [selectedColor, setSelectedColor] = useState<{ name: string; image: string } | null>(null);
     const [showZoom, setShowZoom] = useState(false);
     const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
     const [currentSpecImage, setCurrentSpecImage] = useState(0);
@@ -41,10 +41,10 @@ export default function ProductPage() {
     // Get translated product data
     const productName = getTranslated(product.name, language);
     const productDescription = getTranslated(product.description, language);
-    const productFeatures = (product as any).features?.[language] || (product as any).features?.en || [];
-    const productApplications = (product as any).applications?.[language] || (product as any).applications?.en || [];
+    const productFeatures = (product as unknown as Record<string, { [key: string]: string[] }>).features?.[language] || (product as unknown as Record<string, { en: string[] }>).features?.en || [];
+    const productApplications = (product as unknown as Record<string, { [key: string]: string[] }>).applications?.[language] || (product as unknown as Record<string, { en: string[] }>).applications?.en || [];
 
-    const variants = (product as any).variants || (product as any).colors || [];
+    const variants = ((product as unknown as Record<string, unknown>).variants || (product as unknown as Record<string, unknown>).colors || []) as { name: string; image: string }[];
 
     // Zoom handler for modal image
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -95,18 +95,66 @@ export default function ProductPage() {
                                                         <h3 className="font-semibold text-gray-900">{t('productDetail.productImages')}</h3>
                                                     </div>
 
-                                                    <div className="relative aspect-[4/3] bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group">
-                                                        {product.images?.[0] ? (
-                                                            <Image
-                                                                src={product.images[0]}
-                                                                alt={productName}
-                                                                fill
-                                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                                            />
-                                                        ) : (
-                                                            <div className="flex items-center justify-center h-full text-gray-400">{t('productDetail.noImage')}</div>
-                                                        )}
-                                                    </div>
+                                                    {product.images && product.images.length > 0 ? (
+                                                        <div className="space-y-4">
+                                                            {/* Main Image Display */}
+                                                            <div className="relative aspect-[4/3] bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group">
+                                                                <Image
+                                                                    src={product.images[currentSpecImage] || product.images[0]}
+                                                                    alt={`${productName} ${currentSpecImage + 1}`}
+                                                                    fill
+                                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                                />
+
+                                                                {/* Navigation Arrows - only show if more than 1 image */}
+                                                                {product.images.length > 1 && (
+                                                                    <>
+                                                                        <button
+                                                                            onClick={() => setCurrentSpecImage(prev => prev === 0 ? product.images!.length - 1 : prev - 1)}
+                                                                            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md"
+                                                                        >
+                                                                            <ChevronLeft size={20} />
+                                                                        </button>
+                                                                        <button
+                                                                            onClick={() => setCurrentSpecImage(prev => prev === product.images!.length - 1 ? 0 : prev + 1)}
+                                                                            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md"
+                                                                        >
+                                                                            <ChevronRight size={20} />
+                                                                        </button>
+                                                                    </>
+                                                                )}
+                                                            </div>
+
+                                                            {/* Thumbnail Gallery - only show if more than 1 image */}
+                                                            {product.images.length > 1 && (
+                                                                <div className="overflow-x-auto pb-2">
+                                                                    <div className="flex gap-2 min-w-max">
+                                                                        {product.images.map((img, idx) => (
+                                                                            <button
+                                                                                key={idx}
+                                                                                onClick={() => setCurrentSpecImage(idx)}
+                                                                                className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${idx === currentSpecImage
+                                                                                        ? 'border-blue-500 shadow-md'
+                                                                                        : 'border-gray-200 hover:border-blue-300'
+                                                                                    }`}
+                                                                            >
+                                                                                <Image
+                                                                                    src={img}
+                                                                                    alt={`${productName} thumbnail ${idx + 1}`}
+                                                                                    fill
+                                                                                    className="object-cover"
+                                                                                />
+                                                                            </button>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    ) : (
+                                                        <div className="relative aspect-[4/3] bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex items-center justify-center">
+                                                            <div className="text-gray-400">{t('productDetail.noImage')}</div>
+                                                        </div>
+                                                    )}
                                                 </div>
 
                                                 {/* Info */}
@@ -260,7 +308,7 @@ export default function ProductPage() {
                                                         {Object.entries(product.specifications).map(([key, value], index) => (
                                                             <tr key={index} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                                                 <th className="py-4 px-6 bg-gray-50/50 font-medium text-gray-900 w-1/3 border-r border-gray-100 capitalize">
-                                                                    {t(`common.productSpecs.${key.toLowerCase().replace(/\s+/g, '')}` as any) || key.replace(/([A-Z])/g, ' $1').trim()}
+                                                                    {(t as (key: string) => string)(`common.productSpecs.${key.toLowerCase().replace(/\s+/g, '')}`) || key.replace(/([A-Z])/g, ' $1').trim()}
                                                                 </th>
                                                                 <td className="py-4 px-6 text-gray-600">
                                                                     {typeof value === 'object' ? JSON.stringify(value) : String(value)}
@@ -305,7 +353,7 @@ export default function ProductPage() {
                                                 {slug === 'color-card' ? t('productDetail.colorShades') : `${t('productDetail.availableModels')} ${productName}`}
                                             </h4>
                                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                                                {variants.map((item: any, index: number) => (
+                                                {variants.map((item, index: number) => (
                                                     <div
                                                         key={index}
                                                         className="group flex flex-col gap-2 cursor-pointer"

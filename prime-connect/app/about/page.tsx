@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, Award, Factory, MapPin, X } from "lucide-react";
+import { ArrowRight, Calendar, Award, Factory, MapPin, X, MessageSquare, Palette, CheckCircle2, Headphones } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -23,10 +23,11 @@ export default function AboutPage() {
     const [showZoom, setShowZoom] = useState(false);
     const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
 
-    const timeline = [
-        { year: t('aboutPage.timeline1Year'), title: t('aboutPage.timeline1Title'), description: t('aboutPage.timeline1Desc') },
-        { year: t('aboutPage.timeline2Year'), title: t('aboutPage.timeline2Title'), description: t('aboutPage.timeline2Desc') },
-        { year: t('aboutPage.timeline3Year'), title: t('aboutPage.timeline3Title'), description: t('aboutPage.timeline3Desc') },
+    const processStages = [
+        { title: t('aboutPage.process1Title'), description: t('aboutPage.process1Desc') },
+        { title: t('aboutPage.process2Title'), description: t('aboutPage.process2Desc') },
+        { title: t('aboutPage.process3Title'), description: t('aboutPage.process3Desc') },
+        { title: t('aboutPage.process4Title'), description: t('aboutPage.process4Desc') },
     ];
 
     const certifications = [
@@ -119,13 +120,14 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="shadow-2xl rounded-2xl overflow-hidden p-1 bg-gradient-to-r from-blue-500 to-purple-500">
-                                <div className="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center rounded-xl">
-                                    <div className="text-center p-8">
-                                        <Image src="/logo.png" alt="Prime Connect" width={150} height={150} className="mx-auto mb-6" />
-                                        <h3 className="text-2xl font-bold text-gray-800">{t('aboutPage.companyName')}</h3>
-                                        <p className="text-gray-600">{t('aboutPage.companyTagline')}</p>
-                                    </div>
+                            <div className="shadow-2xl rounded-2xl overflow-hidden border-4 border-white">
+                                <div className="relative aspect-square">
+                                    <Image
+                                        src="/about/1.jpg"
+                                        alt="Prime Connect"
+                                        fill
+                                        className="object-cover"
+                                    />
                                 </div>
                             </div>
                             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-500 rounded-2xl -z-10 border-4 border-blue-600" />
@@ -135,7 +137,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Timeline Section */}
+            {/* Work Process Section */}
             <section className="section-padding bg-gradient-to-br from-blue-500 to-purple-500 text-white relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "var(--gradient-radial)" }} />
                 <div className="container-custom relative">
@@ -146,37 +148,47 @@ export default function AboutPage() {
                         variants={staggerContainer}
                         className="text-center mb-16"
                     >
+                        <motion.span variants={fadeInUp} className="text-white/90 font-semibold mb-2 block uppercase tracking-wider text-sm">
+                            {t('aboutPage.processTitle').toUpperCase()} {t('aboutPage.processHighlight').toUpperCase()}
+                        </motion.span>
                         <motion.h2 variants={fadeInUp} className="text-white mb-4">
-                            {t('aboutPage.journeyTitle')} <span className="text-white">{t('aboutPage.journeyHighlight')}</span>
+                            {t('aboutPage.processSubtitle')}
                         </motion.h2>
                     </motion.div>
 
-                    <div className="max-w-3xl mx-auto">
-                        {timeline.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.2 }}
-                                className="flex gap-6 mb-12 last:mb-0 bg-white/10 backdrop-blur-md p-6 rounded-2xl border-4 border-white"
-                            >
-                                <div className="flex flex-col items-center">
-                                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-bold shadow-lg border-2 border-white/40">
-                                        <Calendar className="w-6 h-6" />
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    >
+                        {processStages.map((stage, index) => {
+                            const icons = [MessageSquare, Palette, CheckCircle2, Headphones];
+                            const Icon = icons[index];
+                            return (
+                                <motion.div
+                                    key={index}
+                                    variants={fadeInUp}
+                                    className="text-center"
+                                >
+                                    <div className="relative mb-6 flex justify-center">
+                                        <div className="w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-2xl transform transition-transform duration-300 hover:scale-110">
+                                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                                                <Icon className="w-10 h-10 text-white" />
+                                            </div>
+                                        </div>
                                     </div>
-                                    {index < timeline.length - 1 && (
-                                        <div className="w-0.5 h-full bg-white/30 mt-4" />
-                                    )}
-                                </div>
-                                <div className="flex-1 pb-8">
-                                    <span className="text-white font-bold text-lg">{item.year}</span>
-                                    <h3 className="text-xl font-bold text-white mt-1 mb-2">{item.title}</h3>
-                                    <p className="text-white/90">{item.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-3">
+                                        {stage.title}
+                                    </h3>
+                                    <p className="text-white/90 text-sm leading-relaxed">
+                                        {stage.description}
+                                    </p>
+                                </motion.div>
+                            );
+                        })}
+                    </motion.div>
                 </div>
             </section>
 

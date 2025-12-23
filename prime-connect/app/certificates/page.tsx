@@ -61,6 +61,38 @@ export default function CertificatesPage() {
             frontImage: "/certificate-images/5.pdf/1.jpeg",
             backImage: "/certificate-images/5.pdf/2.jpeg",
             description: t('certificatesPage.cert5Desc')
+        },
+        {
+            id: 6,
+            title: t('certificatesPage.cert6Title'),
+            frontImage: "/certificates/1.png",
+            backImage: "/certificates/1.png",
+            description: t('certificatesPage.cert6Desc'),
+            singlePage: true
+        },
+        {
+            id: 7,
+            title: t('certificatesPage.cert7Title'),
+            frontImage: "/certificates/2.png",
+            backImage: "/certificates/2.png",
+            description: t('certificatesPage.cert7Desc'),
+            singlePage: true
+        },
+        {
+            id: 8,
+            title: t('certificatesPage.cert8Title'),
+            frontImage: "/certificates/3.png",
+            backImage: "/certificates/3.png",
+            description: t('certificatesPage.cert8Desc'),
+            singlePage: true
+        },
+        {
+            id: 9,
+            title: t('certificatesPage.cert9Title'),
+            frontImage: "/certificates/4.png",
+            backImage: "/certificates/4.png",
+            description: t('certificatesPage.cert9Desc'),
+            singlePage: true
         }
     ];
 
@@ -194,28 +226,33 @@ export default function CertificatesPage() {
                                         className="object-contain p-4"
                                     />
 
-                                    {/* Page Navigation Arrows */}
-                                    <button
-                                        onClick={() => setCurrentPage(1)}
-                                        disabled={currentPage === 1}
-                                        className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                        aria-label="Previous page"
-                                    >
-                                        <ChevronLeft size={24} />
-                                    </button>
-                                    <button
-                                        onClick={() => setCurrentPage(2)}
-                                        disabled={currentPage === 2}
-                                        className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md ${currentPage === 2 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                        aria-label="Next page"
-                                    >
-                                        <ChevronRight size={24} />
-                                    </button>
 
-                                    {/* Page Indicator */}
-                                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-4 py-2 bg-black/70 text-white rounded-full text-sm font-semibold">
-                                        Page {currentPage} of 2
-                                    </div>
+                                    {/* Page Navigation Arrows */}
+                                    {!certificates[selectedCert.index].singlePage && (
+                                        <>
+                                            <button
+                                                onClick={() => setCurrentPage(1)}
+                                                disabled={currentPage === 1}
+                                                className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                aria-label="Previous page"
+                                            >
+                                                <ChevronLeft size={24} />
+                                            </button>
+                                            <button
+                                                onClick={() => setCurrentPage(2)}
+                                                disabled={currentPage === 2}
+                                                className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white transition-all border border-gray-200 shadow-md ${currentPage === 2 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                aria-label="Next page"
+                                            >
+                                                <ChevronRight size={24} />
+                                            </button>
+
+                                            {/* Page Indicator */}
+                                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-4 py-2 bg-black/70 text-white rounded-full text-sm font-semibold">
+                                                Page {currentPage} of 2
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
 
                                 {/* Flipkart-style Zoomed Image Panel */}
@@ -260,23 +297,29 @@ export default function CertificatesPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-gray-900">Verified Certificate</h4>
-                                                <p className="text-sm text-gray-600">Internationally recognized - Page {currentPage} of 2</p>
+                                                <p className="text-sm text-gray-600">
+                                                    {certificates[selectedCert.index].singlePage
+                                                        ? "Internationally recognized"
+                                                        : `Internationally recognized - Page ${currentPage} of 2`}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="flex gap-2 mb-3">
-                                            <button
-                                                onClick={() => setCurrentPage(1)}
-                                                className={`flex-1 text-center px-3 py-2 text-sm rounded-lg font-semibold transition-all ${currentPage === 1 ? 'bg-blue-600 text-white' : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'}`}
-                                            >
-                                                Front Page
-                                            </button>
-                                            <button
-                                                onClick={() => setCurrentPage(2)}
-                                                className={`flex-1 text-center px-3 py-2 text-sm rounded-lg font-semibold transition-all ${currentPage === 2 ? 'bg-blue-600 text-white' : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'}`}
-                                            >
-                                                Back Page
-                                            </button>
-                                        </div>
+                                        {!certificates[selectedCert.index].singlePage && (
+                                            <div className="flex gap-2 mb-3">
+                                                <button
+                                                    onClick={() => setCurrentPage(1)}
+                                                    className={`flex-1 text-center px-3 py-2 text-sm rounded-lg font-semibold transition-all ${currentPage === 1 ? 'bg-blue-600 text-white' : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'}`}
+                                                >
+                                                    Front Page
+                                                </button>
+                                                <button
+                                                    onClick={() => setCurrentPage(2)}
+                                                    className={`flex-1 text-center px-3 py-2 text-sm rounded-lg font-semibold transition-all ${currentPage === 2 ? 'bg-blue-600 text-white' : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'}`}
+                                                >
+                                                    Back Page
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>

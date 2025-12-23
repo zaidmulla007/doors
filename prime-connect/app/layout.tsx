@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import WhatsAppWidget from "./components/WhatsAppWidget";
+import FloatingActions from "./components/FloatingActions";
+import ConsultationModal from "./components/ConsultationModal";
 import { LanguageProvider } from "./context/LanguageContext";
 
 const inter = Inter({
@@ -30,7 +31,8 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
-          <WhatsAppWidget />
+          <FloatingActions />
+          <ConsultationModal />
         </LanguageProvider>
       </body>
     </html>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Globe, Download } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Globe, Download, Images, Video } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { navigationCategories } from "../lib/constants";
 
@@ -76,7 +76,7 @@ export default function Header() {
         { name: t('header.home'), href: "/" },
         { name: t('header.products'), href: "/products", hasDropdown: true },
         { name: t('header.about'), href: "/about" },
-        { name: t('header.projects'), href: "/projects" },
+        { name: t('header.projects'), href: "/projects", hasDropdown: true, isProjects: true },
         { name: t('header.certificates'), href: "/certificates" },
         { name: t('header.contact'), href: "/contact" },
     ];
@@ -182,88 +182,111 @@ export default function Header() {
                                                     transition={{ duration: 0.2 }}
                                                     className="absolute left-0 top-full pt-4 z-50"
                                                 >
-                                                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex shadow-blue-900/5">
-                                                        {/* Left Sidebar: Categories */}
-                                                        <div className="w-64 bg-white p-2 flex flex-col gap-1">
-                                                            {productCategories.map((category) => {
-                                                                const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
-                                                                // Special handling for categories without sub-items
-                                                                if (category.slug === "color-card" || category.slug === "wardrobe") {
+                                                    {link.isProjects ? (
+                                                        /* Projects Dropdown */
+                                                        <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden w-56">
+                                                            <Link
+                                                                href="/projects"
+                                                                className="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-100"
+                                                                onClick={() => setActiveDropdown(null)}
+                                                            >
+                                                                <Images className="w-5 h-5 text-blue-600" />
+                                                                <span className="text-sm font-medium text-gray-700">Images</span>
+                                                            </Link>
+                                                            <Link
+                                                                href="/projects?type=videos"
+                                                                className="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 transition-colors"
+                                                                onClick={() => setActiveDropdown(null)}
+                                                            >
+                                                                <Video className="w-5 h-5 text-purple-600" />
+                                                                <span className="text-sm font-medium text-gray-700">Videos</span>
+                                                            </Link>
+                                                        </div>
+                                                    ) : (
+                                                        /* Products Mega Menu */
+                                                        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex shadow-blue-900/5">
+                                                            {/* Left Sidebar: Categories */}
+                                                            <div className="w-64 bg-white p-2 flex flex-col gap-1">
+                                                                {productCategories.map((category) => {
+                                                                    const categoryName = category.name[language as keyof typeof category.name] || category.name.en;
+                                                                    // Special handling for categories without sub-items
+                                                                    if (category.slug === "color-card" || category.slug === "wardrobe") {
+                                                                        return (
+                                                                            <Link
+                                                                                key={category.slug}
+                                                                                href={`/product/${category.slug}`}
+                                                                                onMouseEnter={() => setActiveCategory(null)}
+                                                                                className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                                                            >
+                                                                                <div className="flex items-center gap-3">
+                                                                                    <span className="font-medium text-sm">{categoryName}</span>
+                                                                                </div>
+                                                                            </Link>
+                                                                        );
+                                                                    }
                                                                     return (
-                                                                        <Link
+                                                                        <div
                                                                             key={category.slug}
-                                                                            href={`/product/${category.slug}`}
-                                                                            onMouseEnter={() => setActiveCategory(null)}
-                                                                            className="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                                                            onMouseEnter={() => setActiveCategory(category.slug)}
+                                                                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.slug
+                                                                                ? "bg-blue-50 text-blue-600"
+                                                                                : "text-gray-600 hover:bg-gray-50"
+                                                                                }`}
                                                                         >
                                                                             <div className="flex items-center gap-3">
                                                                                 <span className="font-medium text-sm">{categoryName}</span>
                                                                             </div>
-                                                                        </Link>
-                                                                    );
-                                                                }
-                                                                return (
-                                                                    <div
-                                                                        key={category.slug}
-                                                                        onMouseEnter={() => setActiveCategory(category.slug)}
-                                                                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200 ${activeCategory === category.slug
-                                                                            ? "bg-blue-50 text-blue-600"
-                                                                            : "text-gray-600 hover:bg-gray-50"
-                                                                            }`}
-                                                                    >
-                                                                        <div className="flex items-center gap-3">
-                                                                            <span className="font-medium text-sm">{categoryName}</span>
+                                                                            {activeCategory === category.slug && (
+                                                                                <ChevronDown className="w-4 h-4 rotate-[-90deg] text-blue-600" />
+                                                                            )}
                                                                         </div>
-                                                                        {activeCategory === category.slug && (
-                                                                            <ChevronDown className="w-4 h-4 rotate-[-90deg] text-blue-600" />
-                                                                        )}
+                                                                    );
+                                                                })}
+                                                            </div>
+
+                                                            {/* Right Content: Items - Only Visible if Category Active */}
+                                                            {activeCategory && (() => {
+                                                                const activeCat = productCategories.find(c => c.slug === activeCategory);
+                                                                if (!activeCat) return null;
+                                                                const activeCatName = activeCat.name[language as keyof typeof activeCat.name] || activeCat.name.en;
+                                                                return (
+                                                                    <div className="w-64 p-4 bg-gray-50/50 border-l border-gray-100">
+                                                                        <div className="h-full flex flex-col">
+                                                                            <div className="mb-3 pb-2 border-b border-gray-200 flex items-baseline justify-between">
+                                                                                <h3 className="text-sm font-bold text-gray-900">
+                                                                                    {activeCatName}
+                                                                                </h3>
+                                                                                <Link
+                                                                                    href={`/products?category=${activeCat.slug}`}
+                                                                                    className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                                                                                >
+                                                                                    {t('header.viewAll')} <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
+                                                                                </Link>
+                                                                            </div>
+
+                                                                            <div className="flex flex-col gap-1">
+                                                                                {activeCat.items.map((item, idx) => {
+                                                                                    const itemName = item.name[language as keyof typeof item.name] || item.name.en;
+                                                                                    return (
+                                                                                        <Link
+                                                                                            key={idx}
+                                                                                            href={`/product/${item.slug}`}
+                                                                                            className="group flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-blue-50 transition-all"
+                                                                                        >
+                                                                                            <div className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
+                                                                                            <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
+                                                                                                {itemName}
+                                                                                            </span>
+                                                                                        </Link>
+                                                                                    );
+                                                                                })}
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 );
-                                                            })}
+                                                            })()}
                                                         </div>
-
-                                                        {/* Right Content: Items - Only Visible if Category Active */}
-                                                        {activeCategory && (() => {
-                                                            const activeCat = productCategories.find(c => c.slug === activeCategory);
-                                                            if (!activeCat) return null;
-                                                            const activeCatName = activeCat.name[language as keyof typeof activeCat.name] || activeCat.name.en;
-                                                            return (
-                                                                <div className="w-64 p-4 bg-gray-50/50 border-l border-gray-100">
-                                                                    <div className="h-full flex flex-col">
-                                                                        <div className="mb-3 pb-2 border-b border-gray-200 flex items-baseline justify-between">
-                                                                            <h3 className="text-sm font-bold text-gray-900">
-                                                                                {activeCatName}
-                                                                            </h3>
-                                                                            <Link
-                                                                                href={`/products?category=${activeCat.slug}`}
-                                                                                className="text-xs font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
-                                                                            >
-                                                                                {t('header.viewAll')} <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
-                                                                            </Link>
-                                                                        </div>
-
-                                                                        <div className="flex flex-col gap-1">
-                                                                            {activeCat.items.map((item, idx) => {
-                                                                                const itemName = item.name[language as keyof typeof item.name] || item.name.en;
-                                                                                return (
-                                                                                    <Link
-                                                                                        key={idx}
-                                                                                        href={`/product/${item.slug}`}
-                                                                                        className="group flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-blue-50 transition-all"
-                                                                                    >
-                                                                                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-blue-500 transition-colors" />
-                                                                                        <span className="text-sm text-gray-700 group-hover:text-blue-700 font-medium transition-colors">
-                                                                                            {itemName}
-                                                                                        </span>
-                                                                                    </Link>
-                                                                                );
-                                                                            })}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            );
-                                                        })()}
-                                                    </div>
+                                                    )}
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
