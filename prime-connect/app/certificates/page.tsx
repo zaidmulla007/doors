@@ -54,6 +54,13 @@ export default function CertificatesPage() {
             frontImage: "/certificate-images/4.pdf/1.png",
             backImage: "/certificate-images/4.pdf/2.png",
             description: t('certificatesPage.cert4Desc')
+        },
+        {
+            id: 5,
+            title: t('certificatesPage.cert5Title'),
+            frontImage: "/certificate-images/5.pdf/1.jpeg",
+            backImage: "/certificate-images/5.pdf/2.jpeg",
+            description: t('certificatesPage.cert5Desc')
         }
     ];
 
