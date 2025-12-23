@@ -123,11 +123,11 @@ export default function Header() {
                         <div className="relative w-auto h-12 overflow-visible">
                             <Image src="/logo.png" alt="Prime Connect Logo" width={200} height={48} className="h-full w-auto object-contain" priority />
                         </div>
-                        <div className={`hidden md:flex flex-col ${language === 'ar' ? 'items-end' : 'items-start'}`}>
-                            <span className="text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
+                        <div className={`flex flex-col ${language === 'ar' ? 'items-end' : 'items-start'}`}>
+                            <span className="text-xs md:text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
                                 {t('header.taglineArabic')}
                             </span>
-                            <span className="text-xs font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
+                            <span className="text-[10px] md:text-xs font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent leading-tight">
                                 {t('header.taglineEnglish')}
                             </span>
                         </div>
