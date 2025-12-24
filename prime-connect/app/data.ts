@@ -381,7 +381,7 @@ export const products = [
             { name: "MDFD011", image: "/doors/mdf-doors/MDFD011.jpg" },
             { name: "MDFD012", image: "/doors/mdf-doors/MDFD012.jpg" },
             { name: "MDFD013", image: "/doors/mdf-doors/MDFD013.jpg" },
-            { name: "MDFD014", image: "/doors/mdf-doors/MDFD014.jpg" }
+            { name: "MDFD014", image: "/doors/mdf-doors/MDFD014.png" }
         ]
     },
     {
