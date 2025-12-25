@@ -377,7 +377,7 @@ function ProductsContent() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-4xl grid md:grid-cols-2 h-auto max-h-[90vh]"
+                            className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto overflow-x-hidden custom-scrollbar md:grid md:grid-cols-2 md:overflow-hidden"
                         >
                             {/* Image Section with Zoom */}
                             <div className="relative h-64 md:h-full">
@@ -413,7 +413,12 @@ function ProductsContent() {
                             </div>
 
                             {/* Info & Inquiry Section */}
-                            <div className="p-8 flex flex-col h-full max-h-[90vh] overflow-y-auto custom-scrollbar">
+                            <div className="p-6 md:p-8 flex flex-col md:overflow-y-scroll custom-scrollbar"
+                                style={{
+                                    maxHeight: 'calc(90vh - 2rem)',
+                                    WebkitOverflowScrolling: 'touch'
+                                }}
+                            >
                                 <div className="flex justify-between items-start mb-6">
                                     <div>
                                         <span className="text-[10px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-1 block">
@@ -469,7 +474,7 @@ function ProductsContent() {
                                     </div>
                                 )}
 
-                                <div className="space-y-4 pb-4">
+                                <div className="space-y-4 pb-8 md:pb-4">
                                     <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
                                         <h4 className="font-bold text-blue-900 mb-2">
                                             {selectedItem.parentProduct.slug === 'color-card' ? t('productDetail.interestedFinish') : t('productDetail.interestedModel')}
@@ -500,7 +505,7 @@ function ProductsContent() {
                                                 placeholder={t('productDetail.messageRequirements')}
                                                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white resize-none"
                                             ></textarea>
-                                            <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:opacity-90 transition-all shadow-lg shadow-blue-200 uppercase tracking-widest text-xs">
+                                            <button className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-blue-200 uppercase tracking-widest text-xs">
                                                 {t('productDetail.sendInquiry')}
                                             </button>
                                         </form>

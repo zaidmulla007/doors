@@ -647,14 +647,14 @@ export const products: Product[] = [
   // CORE PANELS - MDF
   {
     id: 'panel-mdf-001',
-    slug: 'mdf-core-panels',
+    slug: 'mdf-core-panel',
     categoryId: 'core-panels',
     name: {
-      en: 'MDF Core Panels',
+      en: 'MDF Core Panel',
       ar: 'ألواح MDF الأساسية'
     },
     description: {
-      en: 'Medium Density Fiberboard panels with smooth surface and consistent strength for furniture, cabinets, and doors',
+      en: 'Medium Density Fiberboard panels designed with a smooth surface and consistent strength, making them perfect for furniture, cabinets, doors, and various interior applications',
       ar: 'ألواح ألياف متوسطة الكثافة بسطح ناعم وقوة متسقة للأثاث والخزائن والأبواب'
     },
     features: {
@@ -674,12 +674,15 @@ export const products: Product[] = [
       ]
     },
     specifications: {
-      thickness: '1-25mm or customized',
-      sizes: '1220x2440mm, 1830x2440mm, 1830x2750mm, and more',
-      density: '680-1000kgs/m3',
-      moisture: '4-12%',
+      thickness: '1-25mm or customized as per clients requirements',
+      sizes: '1220*2440*3-25mm, 1830*2440*2.7/3/8/12/16/18mm, 1830*2750*9-25mm, (1830+610)*3660*8/12/16/18/25mm, 1220*2800*12/16mm, 1300*2800*6/8/17/18mm, 2070*2440*4.5/7/11/13/16mm, 2070*2800*4.5/5/7/8/11/13/16mm, 2200*2800*5/8/12/16/18/25mm, etc (or customized as per clients requirements)',
       glue: 'E2, E1, E0, CARB',
+      density: '680kgs/m3 ~ 1000kgs/m3',
+      moisture: '4-12%',
       surfaceFinish: 'Melamine paper',
+      color: 'Solid colors, wood grain colors, fancy colors, stone colors,etc or customized as per clients requirements',
+      material: 'Poplar, Pine and hardwood combi',
+      usage: 'Furniture, kitchen, construction, decoration, Carving, counter, office table, ceiling, etc',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
     images: ['/images/products/mdf-panels.jpg']
@@ -688,14 +691,14 @@ export const products: Product[] = [
   // CORE PANELS - MR MDF
   {
     id: 'panel-mrmdf-001',
-    slug: 'mr-mdf-core-panels',
+    slug: 'mr-mdf-core-panel',
     categoryId: 'core-panels',
     name: {
-      en: 'MR MDF Core Panels (Moisture Resistant)',
+      en: 'MR MDF Core Panel (Moisture Resistant)',
       ar: 'ألواح MR MDF الأساسية (مقاومة للرطوبة)'
     },
     description: {
-      en: 'Moisture resistant MDF with improved performance for kitchens, bathrooms, and humid environments',
+      en: 'Moisture resistant MDF board is a modified triamine cyanide adhesive or mdi type adhesive, and the use of water repellent is improved to achieve moisture-proof performance',
       ar: 'MDF مقاوم للرطوبة مع أداء محسن للمطابخ والحمامات والبيئات الرطبة'
     },
     features: {
@@ -715,51 +718,134 @@ export const products: Product[] = [
       ]
     },
     specifications: {
-      thickness: '1-25mm or customized',
-      sizes: '1220x2440mm, 1830x2440mm, 1830x2750mm',
-      density: '680-1000kgs/m3',
-      moisture: '4-12%',
+      thickness: '1-25mm or customized as per clients requirements',
+      sizes: '1220*2440*3-25mm, 1830*2440*2.7/3/8/12/16/18mm, 1830*2750*9-25mm, (1830+610)*3660*8/12/16/18/25mm, 1220*2800*12/16mm, 1300*2800*6/8/17/18mm, 2070*2440*4.5/7/11/13/16mm, 2070*2800*4.5/5/7/8/11/13/16mm, 2200*2800*5/8/12/16/18/25mm, etc (or customized as per clients requirements)',
       glue: 'E2, E1, E0, CARB',
-      usage: 'Kitchen cabinets, wardrobe, bathroom cabinets, doors, flooring',
+      density: '680kgs/m3 ~ 1000kgs/m3',
+      moisture: '4-12%',
+      surfaceFinish: 'Melamine paper',
+      color: 'Solid colors, wood grain colors, fancy colors, stone colors,etc or customized as per clients requirements',
+      material: 'Poplar, Pine and hardwood combi',
+      usage: 'Widly used for furniture (Kitchen cabinet, wardrobe and bathroom cabinets), doors, flooring, packing, construction-decoration materials etc',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
     images: ['/images/products/mr-mdf-panels.jpg']
   },
 
-  // CORE PANELS - Plywood
+  // CORE PANELS - Marine Plywood
   {
-    id: 'panel-plywood-001',
-    slug: 'marine-construction-plywood',
+    id: 'panel-marine-001',
+    slug: 'marine-plywood',
     categoryId: 'core-panels',
     name: {
-      en: 'Marine & Construction Plywood',
-      ar: 'خشب رقائقي بحري وبناء'
+      en: 'Marine Plywood',
+      ar: 'خشب رقائقي بحري'
     },
     description: {
-      en: 'High-quality, water-resistant plywood for marine, construction, and heavy-duty applications',
+      en: 'A high-quality, water-resistant plywood designed to withstand moisture and humidity, making it ideal for kitchens, bathrooms, boats, outdoor furniture and heavy-duty construction',
       ar: 'خشب رقائقي عالي الجودة ومقاوم للماء للتطبيقات البحرية والبناء والثقيلة'
     },
     features: {
       en: [
-        'Water-resistant',
-        'High strength and stability',
+        'Waterproof and resistant to moisture',
+        'High strength and durability',
         'Layered wood veneer construction',
-        'Suitable for outdoor use',
+        'Suitable for outdoor and marine use',
         'Ideal for boats, kitchens, bathrooms, outdoor furniture'
       ],
       ar: [
-        'مقاوم للماء',
+        'مقاوم للماء والرطوبة',
         'قوة واستقرار عالي',
         'بناء قشرة خشبية متعددة الطبقات',
-        'مناسب للاستخدام الخارجي',
+        'مناسب للاستخدام الخارجي والبحري',
         'مثالي للقوارب والمطابخ والحمامات والأثاث الخارجي'
+      ]
+    },
+    specifications: {
+      types: 'Marine plywood is categorized based on its core material, such as Okoume, Birch, and Poplar',
+      thickness: 'Available in various thicknesses, including 3mm, 4mm, 6mm, 9mm, 12mm, 15mm, 18mm, and 21mm',
+      strength: 'Exhibits high strength and durability, with a bending strength of up to 85.1 MPa and a modulus of elasticity of up to 9500 MPa',
+      resistance: 'Waterproof and resistant to moisture, with some types having a formaldehyde emission standard of E0 or E1',
+      coreMaterial: 'Common core materials include Poplar, Hardwood, and Finger Jointed core',
+      usage: 'Boat Building & Ship Decking, Outdoor Furniture & Garden Structures, Construction & Framework, Bathrooms & Kitchens, Interior Design & Paneling, Transport Industry'
+    },
+    images: ['/images/products/marine-plywood.jpg']
+  },
+
+  // CORE PANELS - Construction Plywood
+  {
+    id: 'panel-construction-001',
+    slug: 'construction-plywood',
+    categoryId: 'core-panels',
+    name: {
+      en: 'Construction Plywood',
+      ar: 'خشب رقائقي للبناء'
+    },
+    description: {
+      en: 'High-quality plywood designed for construction and heavy-duty applications including flooring, roofing, wall sheathing, and concrete formwork',
+      ar: 'خشب رقائقي عالي الجودة مصمم للبناء والتطبيقات الثقيلة'
+    },
+    features: {
+      en: [
+        'Moderate to high strength',
+        'Versatile construction material',
+        'Cost-effective solution',
+        'Suitable for various applications',
+        'Durable and reliable'
+      ],
+      ar: [
+        'قوة معتدلة إلى عالية',
+        'مادة بناء متعددة الاستخدامات',
+        'حل فعال من حيث التكلفة',
+        'مناسب لتطبيقات مختلفة',
+        'متين وموثوق'
+      ]
+    },
+    specifications: {
+      types: 'Construction plywood includes CDX plywood, structural plywood, and film-faced plywood',
+      thickness: 'Available in various thicknesses, including 1/2", 3/4", 5/8", 7/16", 12mm, 15mm, 18mm, and 21mm',
+      strength: 'Exhibits moderate to high strength, with some types having a bending strength of up to 40 MPa',
+      resistance: 'May have some resistance to moisture, but not entirely waterproof',
+      coreMaterial: 'Common core materials include Pine, Poplar, and Spruce',
+      usage: 'Flooring, Roofing, Wall Sheathing, Concrete Formwork (Shuttering), Partitions, Packaging & Crates'
+    },
+    images: ['/images/products/construction-plywood.jpg']
+  },
+
+  // CORE PANELS - Core Panel Plywood
+  {
+    id: 'panel-core-001',
+    slug: 'core-panel-plywood',
+    categoryId: 'core-panels',
+    name: {
+      en: 'Core Panel Plywood',
+      ar: 'خشب رقائقي أساسي'
+    },
+    description: {
+      en: 'Core Panel Plywood – Strong and stable plywood made with layered wood veneers at the core, ideal for doors, partitions, furniture, and wall panels',
+      ar: 'خشب رقائقي أساسي قوي ومستقر مصنوع من قشرة خشبية متعددة الطبقات'
+    },
+    features: {
+      en: [
+        'Strong and stable construction',
+        'Layered wood veneer core',
+        'Versatile application',
+        'Excellent for interior use',
+        'Consistent quality'
+      ],
+      ar: [
+        'بناء قوي ومستقر',
+        'قلب من القشرة الخشبية متعددة الطبقات',
+        'تطبيق متعدد الاستخدامات',
+        'ممتاز للاستخدام الداخلي',
+        'جودة متسقة'
       ]
     },
     specifications: {
       material: 'Poplar, Pine and hardwood combi',
       usage: 'Doors, partitions, furniture, wall panels, construction'
     },
-    images: ['/images/products/plywood.jpg']
+    images: ['/images/products/core-panel-plywood.jpg']
   },
 
   // CORE PANELS - Film Faced MDF
@@ -772,7 +858,7 @@ export const products: Product[] = [
       ar: 'ألواح MDF بطلاء فيلم'
     },
     description: {
-      en: 'Strong panel with smooth film coating providing resistance to moisture, wear, and abrasion for construction and heavy-duty use',
+      en: 'A strong and durable panel with a smooth film coating that provides resistance to moisture, wear, and abrasion. It is widely used in construction formwork, shuttering, and other heavy-duty applications where reusability and strength are essential',
       ar: 'لوح قوي بطلاء فيلم ناعم يوفر مقاومة للرطوبة والتآكل والكشط للبناء والاستخدام الثقيل'
     },
     features: {
@@ -791,6 +877,17 @@ export const products: Product[] = [
         'بناء عالي القوة'
       ]
     },
+    specifications: {
+      thickness: 'Ranges from 2 mm to 25 mm, with common options like 9 mm, 12 mm, 15 mm, 17 mm, 18 mm',
+      glue: 'Waterproof phenolic (WBP), melamine WBP, or formaldehyde-grade glues (E0, E1, E2)',
+      density: 'Birch plywood with density between 600–680 kg/m³; core materials include birch, poplar, pine, or a combination',
+      moisture: 'Approximately 8–14 % at shipment; water absorption ≤ 10 %',
+      surfaceFinish: 'Film-faced surfaces in black, brown, red, matte or textured finishes',
+      color: 'Veneer options include natural wood grains like birch, oak, walnut, beech, cherry, or solid colors with UV/matte/gloss coating',
+      material: 'High-quality hardwoods (commonly birch, poplar, eucalyptus, pine) or a combination for strength',
+      usage: 'Suited for furniture, interior decoration, and wood flooring',
+      certifications: 'CARB, CE, ISO9001:2000, ISO14001'
+    },
     images: ['/images/products/film-faced-mdf.jpg']
   },
 
@@ -804,7 +901,7 @@ export const products: Product[] = [
       ar: 'ألواح MDF بطلاء ميلامين'
     },
     description: {
-      en: 'Elegant board with melamine surface offering decorative finish and resistance to scratches and stains',
+      en: 'An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor',
       ar: 'لوح أنيق بسطح ميلامين يوفر تشطيبًا زخرفيًا ومقاومة للخدوش والبقع'
     },
     features: {
@@ -825,6 +922,17 @@ export const products: Product[] = [
         'مثالي للأثاث والخزائن'
       ]
     },
+    specifications: {
+      thickness: 'Also ranges from 2.5 mm to 25 mm',
+      glue: 'Uses E0/E1/E2 bonding systems, and can include melamine glue depending on the application',
+      density: 'Wood fiber core from poplar, pine, hardwood, or combinations',
+      moisture: 'Standard moisture resistance (not marine-grade); ideal for dry interiors',
+      surfaceFinish: 'Options include plain, various melamine finishes (matt, textured, high-gloss, embossed), with colors ranging from solid to wood grains, cloth or marble patterns',
+      color: 'Solid colors, wood grain colors, fancy colors, stone colors,etc or customized as per clients requirements',
+      material: 'Made from wood fiber, typically poplar, pine, or a combination ("combi") – offering a stable and lightweight core',
+      usage: 'Widely used for furniture, interior decoration, and as a wood flooring material. Mainly intended for indoor environments; not specified as marine-grade or moisture-resistant for outdoor exposure',
+      certifications: 'CARB, CE, ISO9001:2000, ISO14001'
+    },
     images: [
       '/core-panel/MelamineFacedMDFPanels/1.jpg',
       '/core-panel/MelamineFacedMDFPanels/2.jpg',
@@ -833,6 +941,94 @@ export const products: Product[] = [
       '/core-panel/MelamineFacedMDFPanels/5.jpg',
       '/core-panel/MelamineFacedMDFPanels/6.jpg'
     ]
+  },
+
+  // CORE PANELS - Film Faced Plywood
+  {
+    id: 'panel-filmfacedplywood-001',
+    slug: 'film-faced-plywood',
+    categoryId: 'core-panels',
+    name: {
+      en: 'Film Faced Plywood',
+      ar: 'خشب رقائقي بطلاء فيلم'
+    },
+    description: {
+      en: 'Film Faced Plywood is a durable, water-resistant plywood coated with a protective film, widely used for concrete formwork and construction',
+      ar: 'خشب رقائقي متين ومقاوم للماء مغطى بفيلم واقي'
+    },
+    features: {
+      en: [
+        'Durable and water-resistant',
+        'Protective film coating',
+        'Reusable and long-lasting',
+        'Ideal for concrete formwork',
+        'Smooth surface finish'
+      ],
+      ar: [
+        'متين ومقاوم للماء',
+        'طلاء فيلم واقي',
+        'قابل لإعادة الاستخدام وطويل الأمد',
+        'مثالي للقوالب الخرسانية',
+        'تشطيب سطح ناعم'
+      ]
+    },
+    specifications: {
+      thickness: '1-25mm or customized as per clients requirements',
+      sizes: '1220x2440mm, 1535x2440mm, 1830x2440mm or as clients requirement',
+      glue: 'E2, E1, E0, CARB',
+      density: '680kgs/m3 ~ 1000kgs/m3',
+      moisture: '4-12%',
+      surfaceFinish: 'VENEER',
+      color: 'Solid colors, wood grain colors, fancy colors, stone colors,etc or customized as per clients requirements',
+      material: 'Poplar, Pine and hardwood combi',
+      usage: 'It is widely used in furniture manufacturing, such as beds, tables, cabinets, etc. It is also used in building decoration, like wall panels, ceilings, etc. Moreover, it can be used to make display racks, decorative moldings, etc., enhancing the aesthetics and quality of the space',
+      certifications: 'CARB, CE, ISO9001:2000, ISO14001'
+    },
+    images: ['/images/products/film-faced-plywood.jpg']
+  },
+
+  // CORE PANELS - Melamine Faced Plywood
+  {
+    id: 'panel-melamineplywood-001',
+    slug: 'melamine-faced-plywood',
+    categoryId: 'core-panels',
+    name: {
+      en: 'Melamine Faced Plywood',
+      ar: 'خشب رقائقي بطلاء ميلامين'
+    },
+    description: {
+      en: 'An elegant and durable board with a melamine-coated surface that offers a decorative finish and resistance to scratches and stains. Ideal for furniture, cabinets, wall paneling, and interior décor',
+      ar: 'خشب رقائقي أنيق بسطح ميلامين'
+    },
+    features: {
+      en: [
+        'Elegant melamine surface',
+        'Scratch and stain resistant',
+        'Wide color and pattern options',
+        'Easy maintenance',
+        'High-end furniture grade'
+      ],
+      ar: [
+        'سطح ميلامين أنيق',
+        'مقاوم للخدوش والبقع',
+        'خيارات واسعة من الألوان والأنماط',
+        'صيانة سهلة',
+        'درجة أثاث عالية'
+      ]
+    },
+    specifications: {
+      thickness: '6-25mm',
+      sizes: '1220X2440X18mm,1220X2440X15mm or as per customers required specifications',
+      glue: 'E0,E1,E2,MR',
+      density: '680-780KG/m3',
+      moisture: '8–20 %',
+      surfaceFinish: 'Melamine Paper',
+      color: 'solid color(white,black,blue,yellow,red etc.);wood grain(cherry,beech,walnut,teak etc.) cloth grain',
+      material: 'Wood Chips(Poplar,Pine,Combi etc.)',
+      usage: 'Widely used for High-end Furniture Wardrobe/Kitchen Cabinet/TV Cabinet/Closets',
+      certifications: 'CARB, CE, ISO9001:2000, ISO14001'
+    },
+    images: ['/images/products/melamine-faced-plywood.jpg']
   }
 ];
 

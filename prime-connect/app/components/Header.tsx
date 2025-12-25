@@ -54,6 +54,7 @@ export default function Header() {
     const brochures = [
         { name: t('br.general'), file: "/brochures/PrimeconnectGeneralCatalogue.pdf" },
         { name: t('br.doors'), file: "/brochures/PrimeConnectsDoorscatalogue.pdf" },
+        { name: t('br.wpcDoors'), file: "/brochures/Primeconnectwpcdoorcatalogforbbdhome.pdf" },
         { name: t('br.locks'), file: "/brochures/PrimeconnectCylinderLocks.pdf" },
         { name: t('br.hinges'), file: "/brochures/PrimeconnectHinges.pdf" },
         { name: t('br.smartLocks'), file: "/brochures/PrimeconnectSmartRimLocks.pdf" },
@@ -580,7 +581,7 @@ export default function Header() {
                                         <a
                                             href={brochure.file}
                                             download
-                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-blue-600 hover:text-white text-gray-700 rounded-md text-xs font-medium transition-colors"
+                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-md text-xs font-medium transition-all shadow-sm"
                                         >
                                             <Download size={14} />
                                             {t('header.download')}

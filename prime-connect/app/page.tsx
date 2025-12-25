@@ -138,9 +138,9 @@ export default function HomePage() {
       <div className="h-[72px] lg:h-[104px]" />
 
       {/* Hero Section - Image Carousel */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-screen overflow-hidden flex flex-col">
+      <section className="relative w-full overflow-hidden">
         {/* Slides Container */}
-        <div className="relative flex-1 w-full">
+        <div className="relative w-full">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentSlide}
@@ -153,17 +153,20 @@ export default function HomePage() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="absolute inset-0 shadow-2xl"
+              className="w-full shadow-2xl"
             >
-              <Image
-                src={heroSlides[currentSlide].image}
-                alt={heroSlides[currentSlide].alt}
-                fill
-                className="object-cover object-center"
-                priority
-              />
-              {/* Overlay with a bit more depth */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+              <div className="relative w-full">
+                <Image
+                  src={heroSlides[currentSlide].image}
+                  alt={heroSlides[currentSlide].alt}
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto"
+                  priority
+                />
+                {/* Overlay with a bit more depth */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

@@ -391,7 +391,7 @@ export default function ProductPage() {
                                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                                     onClick={(e) => e.stopPropagation()}
-                                                    className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-6xl grid md:grid-cols-2 max-h-[90vh]"
+                                                    className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-y-auto overflow-x-hidden custom-scrollbar md:grid md:grid-cols-2 md:overflow-hidden"
                                                 >
                                                     {/* Image Section with Zoom */}
                                                     <div className="relative">
@@ -427,7 +427,12 @@ export default function ProductPage() {
                                                     </div>
 
                                                     {/* Info & Inquiry Section */}
-                                                    <div className="p-8 flex flex-col overflow-y-auto">
+                                                    <div className="p-6 md:p-8 flex flex-col md:overflow-y-auto custom-scrollbar"
+                                                        style={{
+                                                            maxHeight: 'calc(90vh - 2rem)',
+                                                            WebkitOverflowScrolling: 'touch'
+                                                        }}
+                                                    >
                                                         <div className="flex justify-between items-start mb-6">
                                                             <div>
                                                                 <h3 className="text-2xl font-bold text-gray-900">{selectedColor.name}</h3>
@@ -443,8 +448,8 @@ export default function ProductPage() {
                                                             </button>
                                                         </div>
 
-                                                        <div className="mt-auto space-y-4">
-                                                            <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                                        <div className="mt-auto space-y-4 pb-8 md:pb-4">
+                                                            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
                                                                 <h4 className="font-semibold text-blue-900 mb-2">
                                                                     {slug === 'color-card' ? t('productDetail.interestedFinish') : t('productDetail.interestedModel')}
                                                                 </h4>
@@ -472,7 +477,7 @@ export default function ProductPage() {
                                                                         placeholder={t('productDetail.messageRequirements')}
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none"
                                                                     ></textarea>
-                                                                    <button className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">
+                                                                    <button className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-blue-200 uppercase tracking-widest text-xs">
                                                                         {t('productDetail.sendInquiry')}
                                                                     </button>
                                                                 </form>

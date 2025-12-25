@@ -60,7 +60,11 @@ export const translations = {
                 glazing: "Glazing",
                 profilethickness: "Profile Thickness",
                 firerating: "Fire Rating",
-                certification: "Certification"
+                certification: "Certification",
+                types: "Types",
+                strength: "Strength",
+                resistance: "Resistance",
+                corematerial: "Core Material"
             }
         },
         hero: {
@@ -123,7 +127,7 @@ export const translations = {
                 woodenDoor: { type: "Wooden Door Factory", city: "Zhejiang, China" },
                 cabinet: { type: "Cabinet Factory", city: "Zhejiang, China" },
                 steelDoor: { type: "Steel Entrance Door Factory", city: "Zhejiang, China" },
-                fireproof: { type: "Fireproof Door Factory", city: "" }
+                fireproof: { type: "Fireproof Door Factory", city: "Zhejiang, China" }
             }
         },
         sectors: {
@@ -321,11 +325,12 @@ export const translations = {
             contactUs: "Contact Us"
         },
         br: {
-            general: "Primeconnect General Catalogue",
+            general: "Prime Connect General Catalogue",
             doors: "Prime Connect Doors Brochure",
-            locks: "Primeconnect Cylinder Locks Brochure",
-            hinges: "Primeconnect Hinges Brochure",
-            smartLocks: "Primeconnect Smart Rim Locks Brochure"
+            wpcDoors: "Prime Connect WPC Door Catalogue",
+            locks: "Prime Connect Cylinder Locks Brochure",
+            hinges: "Prime Connect Hinges Brochure",
+            smartLocks: "Prime Connect Smart Rim Locks Brochure"
         }
     },
     ar: {
@@ -387,7 +392,11 @@ export const translations = {
                 glazing: "الزجاج",
                 profilethickness: "سماكة البروفيل",
                 firerating: "تصنيف الحريق",
-                certification: "الشهادة"
+                certification: "الشهادة",
+                types: "الأنواع",
+                strength: "القوة",
+                resistance: "المقاومة",
+                corematerial: "المادة الأساسية"
             }
         },
         hero: {
@@ -450,7 +459,7 @@ export const translations = {
                 woodenDoor: { type: "مصنع الأبواب الخشبية", city: "تشجيانغ، الصين" },
                 cabinet: { type: "مصنع الخزائن", city: "تشجيانغ، الصين" },
                 steelDoor: { type: "مصنع أبواب الصلب", city: "تشجيانغ، الصين" },
-                fireproof: { type: "مصنع الأبواب المقاومة للحريق", city: "" }
+                fireproof: { type: "مصنع الأبواب المقاومة للحريق", city: "تشجيانغ، الصين" }
             }
         },
         sectors: {
@@ -648,11 +657,12 @@ export const translations = {
             contactUs: "اتصل بنا"
         },
         br: {
-            general: "كتالوج برايم كونيكتس العام",
-            doors: "كتيب أبواب برايم كونيكتس",
-            locks: "كتيب أقفال السلندر من برايم كونيكتس",
-            hinges: "كتيب مفصلات برايم كونيكتس",
-            smartLocks: "كتيب أقفال ريم الذكية من برايم كونيكتس"
+            general: "كتالوج برايم كونيكت العام",
+            doors: "كتيب أبواب برايم كونيكت",
+            wpcDoors: "كتالوج أبواب WPC من برايم كونيكت",
+            locks: "كتيب أقفال السلندر من برايم كونيكت",
+            hinges: "كتيب مفصلات برايم كونيكت",
+            smartLocks: "كتيب أقفال ريم الذكية من برايم كونيكت"
         }
     },
     zh: {
@@ -714,7 +724,11 @@ export const translations = {
                 glazing: "玻璃窗",
                 profilethickness: "剖面厚度",
                 firerating: "防火等级",
-                certification: "认证"
+                certification: "认证",
+                types: "类型",
+                strength: "强度",
+                resistance: "阻力",
+                corematerial: "芯材"
             }
         },
         hero: {
@@ -777,7 +791,7 @@ export const translations = {
                 woodenDoor: { type: "木门工厂", city: "中国浙江" },
                 cabinet: { type: "橱柜厂", city: "中国浙江" },
                 steelDoor: { type: "钢制入户门厂", city: "中国浙江" },
-                fireproof: { type: "防火门厂", city: "" }
+                fireproof: { type: "防火门厂", city: "浙江，中国" }
             }
         },
         sectors: {
@@ -977,6 +991,7 @@ export const translations = {
         br: {
             general: "普莱姆连接通用产品目录",
             doors: "普莱姆连接门手册",
+            wpcDoors: "普莱姆连接WPC门产品目录",
             locks: "普莱姆连接锁芯手册",
             hinges: "普莱姆连接合页手册",
             smartLocks: "普莱姆连接智能门锁手册"
