@@ -79,7 +79,14 @@ export const products = [
             ar: "لوح أنيق ومتين بسطح مطلي بالميلامين يوفر لمسة زخرفية ومقاومة للخدوش والبقع. مثالي للأثاث والخزائن وألواح الجدران والديكور الداخلي.",
             zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。是家具、橱柜、墙板和室内装饰的理想选择。"
         },
-        images: ["/core-panel/MelamineFacedPlywood/1.jpg"],
+        images: [
+            "/core-panels/MelamineFacedPlywood/mfp-001.jpg",
+            "/core-panels/MelamineFacedPlywood/mfp-002.jpg",
+            "/core-panels/MelamineFacedPlywood/mfp-003.jpg",
+            "/core-panels/MelamineFacedPlywood/mfp-004.jpg",
+            "/core-panels/MelamineFacedPlywood/mfp-005.jpg",
+            "/core-panels/MelamineFacedPlywood/mfp-006.jpg"
+        ],
         specifications: {
             "Thickness": "6mm-25mm",
             "Sizes": "1220X2440X18mm, 1220X2440X15mm or as per customers' required specifications",
@@ -91,6 +98,26 @@ export const products = [
             "Material": "Wood Chips(Poplar,Pine,Combi etc.)",
             "Usage": "Widely used for High-end Furniture Wardrobe/Kitchen Cabinet/TV Cabinet/Closets",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        },
+        applications: {
+            en: [
+                "Furniture Manufacturing: Used for making strong, stylish, and durable furniture pieces",
+                "Cabinets & Wardrobes: Ideal for modular kitchens and wardrobes with smooth finishes",
+                "Partitions & Displays: Strong and decorative option for office and retail partitions",
+                "Construction & Flooring: Durable and reusable panels widely used in formwork and flooring"
+            ],
+            ar: [
+                "تصنيع الأثاث: يستخدم لصنع قطع أثاث قوية وأنيقة ومتينة",
+                "الخزائن والخزائن: مثالي للمطابخ والخزائن المعيارية ذات التشطيبات الناعمة",
+                "القواطع والعروض: خيار قوي وزخرفي لقواطع المكاتب والتجزئة",
+                "البناء والأرضيات: ألواح متينة وقابلة لإعادة الاستخدام تستخدم على نطاق واسع في القوالب والأرضيات"
+            ],
+            zh: [
+                "家具制造：用于制造坚固、时尚且耐用的家具部件",
+                "橱柜和衣柜：是具有光滑饰面的模块化厨房和衣柜的理想选择",
+                "隔断和展示：办公和零售隔断的坚固且具装饰性的选择",
+                "建筑和地板：耐用且可重复使用的面板，广泛用于模板和地板"
+            ]
         }
     },
     {
@@ -103,7 +130,15 @@ export const products = [
             ar: "الخشب الرقائقي المغطى بالفيلم هو خشب رقائقي متين ومقاوم للماء ومطلي بفيلم واقٍ، ويستخدم على نطاق واسع في قوالب الخرسانة والبناء.",
             zh: "覆膜胶合板是一种耐用、防水的胶合板，涂有保护膜，广泛用于混凝土模板和建筑。"
         },
-        images: ["/core-panel/FilmFacedPlywood/1.jpg"],
+        images: [
+            "/core-panels/FilmFacedPlywood/FFP-001.jpg",
+            "/core-panels/FilmFacedPlywood/FFP-002.jpg",
+            "/core-panels/FilmFacedPlywood/FFP-003.jpg",
+            "/core-panels/FilmFacedPlywood/FFP-004.jpg",
+            "/core-panels/FilmFacedPlywood/FFP-005.jpg",
+            "/core-panels/FilmFacedPlywood/FFP-006.jpg",
+            "/core-panels/FilmFacedPlywood/FFP-007.jpg"
+        ],
         specifications: {
             "Thickness": "1-25mm or customized as per clients' requirements",
             "Sizes": "1220x2440mm, 1535x2440mm 1830x2440mm or as clients requirement",
@@ -120,14 +155,14 @@ export const products = [
             en: [
                 "Furniture Manufacturing: Used for making strong, stylish, and durable furniture pieces",
                 "Cabinets & Wardrobes: Ideal for modular kitchens and wardrobes with smooth finishes",
-                "Partitions & Displays: Strong and Decorative option for office and retail partitions",
+                "Partitions & Displays: Strong and decorative option for office and retail partitions",
                 "Construction & Flooring: Durable and reusable panels widely used in formwork and flooring"
             ],
             ar: [
                 "تصنيع الأثاث: يستخدم لصنع قطع أثاث قوية وأنيقة ومتينة",
                 "الخزائن والخزائن: مثالي للمطابخ والخزائن المعيارية ذات التشطيبات الناعمة",
                 "القواطع والعروض: خيار قوي وزخرفي لقواطع المكاتب والتجزئة",
-                "البناء والأرضيات: ألواح متينة وقابلة لإعادة الاستخدام تستخدم على نطاق واسع في قوالب صب الخرسانة والأرضيات"
+                "البناء والأرضيات: ألواح متينة وقابلة لإعادة الاستخدام تستخدم على نطاق واسع في القوالب والأرضيات"
             ],
             zh: [
                 "家具制造：用于制造坚固、时尚且耐用的家具部件",
@@ -148,12 +183,13 @@ export const products = [
             zh: "一种优雅耐用的板材，表面涂有三聚氰胺，具有装饰性饰面，耐刮擦和耐污渍。是家具、橱柜、墙板和室内装饰的理想选择。"
         },
         images: [
-            "/core-panel/MelamineFacedMDFPanels/1.jpg",
-            "/core-panel/MelamineFacedMDFPanels/2.jpg",
-            "/core-panel/MelamineFacedMDFPanels/3.jpg",
-            "/core-panel/MelamineFacedMDFPanels/4.jpg",
-            "/core-panel/MelamineFacedMDFPanels/5.jpg",
-            "/core-panel/MelamineFacedMDFPanels/6.jpg"
+            "/core-panels/MelamineFacedMDFPanels/mfmp-001.jpg",
+            "/core-panels/MelamineFacedMDFPanels/mfmp-002.jpg",
+            "/core-panels/MelamineFacedMDFPanels/mfmp-003.jpg",
+            "/core-panels/MelamineFacedMDFPanels/mfmp-004.jpg",
+            "/core-panels/MelamineFacedMDFPanels/mfmp-005.jpg",
+            "/core-panels/MelamineFacedMDFPanels/mfmp-006.jpg",
+            "/core-panels/MelamineFacedMDFPanels/mfmp-007.jpg"
         ],
         specifications: {
             "Thickness": "Ranges from 2.5 mm to 25 mm, with common options like 9 mm, 12 mm, 15 mm, 17 mm, 18 mm",
@@ -168,22 +204,22 @@ export const products = [
         },
         applications: {
             en: [
-                "Shelving & Racks: Strong and stylish option for storage shelves in homes or shops.",
-                "Doors & Panels: Provides smooth and durable surface for interior doors.",
+                "Shelving & Racks: Strong and stylish option for storage shelves in homes or shops",
+                "Doors & Panels: Provides smooth and durable surface for interior doors",
                 "Hotel & Restaurant Interiors: Adds warmth and elegance to hospitality spaces",
-                "False Ceilings: Enhances interiors with decorative wooden ceiling panels."
+                "False Ceilings: Enhances interiors with decorative wooden ceiling panels"
             ],
             ar: [
-                "الأرفف والرفوف: خيار قوي وأنيق لرفوف التخزين في المنازل أو المحلات التجارية.",
-                "الأبواب والألواح: يوفر سطحًا ناعمًا ومتينًا للأبواب الداخلية.",
-                "الديكورات الداخلية للفنادق والمطاعم: يضيف الدفء والأناقة لمساحات الضيافة",
-                "الأسقف المستعارة: يعزز الديكورات الداخلية بألواح سقف خشبية زخرفية."
+                "الأرفف والرفوف: خيار قوي وأنيق لرفوف التخزين في المنازل أو المحلات",
+                "الأبواب والألواح: توفر سطحًا ناعمًا ومتينًا للأبواب الداخلية",
+                "ديكورات الفنادق والمطاعم: يضيف الدفء والأناقة لمساحات الضيافة",
+                "الأسقف المستعارة: يعزز الديكورات الداخلية بألواح السقف الخشبية الزخرفية"
             ],
             zh: [
-                "货架和架子：家庭或商店存储货架的坚固且时尚的选择。",
-                "门和面板：为室内门提供光滑耐用的表面。",
-                "酒店和餐厅内饰：为接待空间增添温馨和优雅",
-                "吊顶：用装饰木制天花板增强室内效果。"
+                "货架和架子：家庭或商店存储货架的坚固且时尚的选择",
+                "门和面板：为室内门提供光滑耐用的表面",
+                "酒店和餐厅内饰：为接待空间增添温暖和优雅",
+                "吊顶：用装饰木制天花板增强室内效果"
             ]
         }
     },
@@ -197,7 +233,17 @@ export const products = [
             ar: "لوح قوي ومتين بطبقة فيلم ناعمة توفر مقاومة للرطوبة والتآكل والاحتكاك. يستخدم على نطاق واسع في قوالب صب الخرسانة والبناء والتطبيقات الشاقة الأخرى حيث تكون إعادة الاستخدام والقوة أمرًا ضروريًا.",
             zh: "一种坚固耐用的面板，具有光滑的薄膜涂层，可防潮、耐磨和耐磨损。它广泛用于建筑模板、模板和其他重型应用，在这些应用中，重复使用性和强度至关重要。"
         },
-        images: ["/core-panel/FILMFACEDMDFPANELS/1.jpg"],
+        images: [
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-001.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-002.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-003.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-004.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-005.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-006.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-007.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-008.jpg",
+            "/core-panels/FILMFACEDMDFPANELS/ffmp-009.jpg"
+        ],
         specifications: {
             "Thickness": "1-25mm or customized as per clients' requirements",
             "Sizes": "1220x2440mm, 1535x2440mm 1830x2440mm or as clients requirement",
@@ -209,6 +255,26 @@ export const products = [
             "Material": "Poplar, Pine and hardwood combi",
             "Usage": "It is widely used in furniture manufacturing, such as beds, tables, cabinets, etc. It is also used in building decoration, like wall panels, ceilings, etc. Moreover, it can be used to make display racks, decorative moldings, etc., enhancing the aesthetics and quality of the space.",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        },
+        applications: {
+            en: [
+                "Shelving & Racks: Strong and stylish option for storage shelves in homes or shops",
+                "Doors & Panels: Provides smooth and durable surface for interior doors",
+                "Hotel & Restaurant Interiors: Adds warmth and elegance to hospitality spaces",
+                "False Ceilings: Enhances interiors with decorative wooden ceiling panels"
+            ],
+            ar: [
+                "الأرفف والرفوف: خيار قوي وأنيق لرفوف التخزين في المنازل أو المحلات",
+                "الأبواب والألواح: توفر سطحًا ناعمًا ومتينًا للأبواب الداخلية",
+                "ديكورات الفنادق والمطاعم: يضيف الدفء والأناقة لمساحات الضيافة",
+                "الأسقف المستعارة: يعزز الديكورات الداخلية بألواح السقف الخشبية الزخرفية"
+            ],
+            zh: [
+                "货架和架子：家庭或商店存储货架的坚固且时尚的选择",
+                "门和面板：为室内门提供光滑耐用的表面",
+                "酒店和餐厅内饰：为接待空间增添温暖和优雅",
+                "吊顶：用装饰木制天花板增强室内效果"
+            ]
         }
     },
     {
@@ -221,7 +287,13 @@ export const products = [
             ar: "الخشب الرقائقي للألواح الأساسية خشب رقائقي قوي ومستقر مصنوع من قشور خشبية ذات طبقات في القلب، مثالي للأبواب والقواطع والأثاث وألواح الجدران.",
             zh: "芯板胶合板，坚固稳定的胶合板，核心由层状木单板制成，是门、隔断、家具和墙板的理想选择。"
         },
-        images: ["/core-panel/CORE-PANEL-PLYWOOD/1.jpg"],
+        images: [
+            "/core-panels/CORE-PANEL-PLYWOOD/CPP-001.jpg",
+            "/core-panels/CORE-PANEL-PLYWOOD/CPP-002.jpg",
+            "/core-panels/CORE-PANEL-PLYWOOD/CPP-003.jpg",
+            "/core-panels/CORE-PANEL-PLYWOOD/CPP-004.jpg",
+            "/core-panels/CORE-PANEL-PLYWOOD/CPP-005.jpg"
+        ],
         specifications: {
             "Thickness": "Also ranges from 2.5 mm to 25 mm",
             "Glue": "Uses E0/E1/E2 bonding systems, and can include melamine glue depending on the application",
@@ -232,6 +304,26 @@ export const products = [
             "Material": "Made from wood fiber, typically poplar, pine, or a combination (\"combi\") offering a stable and lightweight core.",
             "Usage": "Widely used for furniture, interior decoration, and as a wood flooring material. Mainly intended for indoor environments; not specified as marine-grade or moisture-resistant for outdoor exposure.",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        },
+        applications: {
+            en: [
+                "Boat Building: Used in boat building for its water resistance and durability",
+                "Construction & Formwork: Used for formwork, flooring, and scaffolding due to its strength and stability",
+                "Partitions & Paneling: Provides stable and aesthetic solutions for interior partitions and wall paneling",
+                "Wall Cladding & Ceilings: Enhances interiors with decorative and protective wooden finishes"
+            ],
+            ar: [
+                "بناء القوارب: يستخدم في بناء القوارب لمقاومته للماء ومتانته",
+                "البناء والقوالب: يستخدم للقوالب والأرضيات والسقالات بسبب قوته واستقراره",
+                "القواطع والألواح: يوفر حلولاً مستقرة وجمالية للقواطع الداخلية وألواح الجدران",
+                "كسوة الجدران والأسقف: يعزز الديكورات الداخلية بتشطيبات خشبية زخرفية وواقية"
+            ],
+            zh: [
+                "造船：因其防水性和耐用性而用于造船",
+                "建筑和模板：因其强度和稳定性而用于模板、地板和脚手架",
+                "隔断和面板：为室内隔断和墙板提供稳定和美观的解决方案",
+                "墙面覆层和天花板：通过装饰性和保护性的木质饰面增强室内效果"
+            ]
         }
     },
     {
@@ -244,7 +336,13 @@ export const products = [
             ar: "ألواح MDF أساسية عالية الكثافة توفر أسطحًا ناعمة وقابلية عمل ممتازة للأثاث والتطبيقات الداخلية.",
             zh: "高密度MDF芯板，表面光滑，加工性能优异，适用于家具和室内应用。"
         },
-        images: ["/core-panel/mdfcorepanel/1.jpg", "/core-panel/mdfcorepanel/2.jpg"],
+        images: [
+            "/core-panels/mdfcorepanel/mdf-001.jpg",
+            "/core-panels/mdfcorepanel/mdf-002.jpg",
+            "/core-panels/mdfcorepanel/mdf-003.jpg",
+            "/core-panels/mdfcorepanel/mdf-004.jpg",
+            "/core-panels/mdfcorepanel/mdf-005.jpg"
+        ],
         specifications: {
             "Product Name": "MDF Core Panel",
             "Sizes": "1220x2440mm | 1525x2440mm | 1830x2440mm",
@@ -256,6 +354,26 @@ export const products = [
             "Color": "Natural wood color/White/Beige or as your requirement",
             "Usage": "For furniture manufacturing. Construction and other indoor/outdoor woodwork Applications. Widely suitable for moisture resistant wall paneling, partitions, ceilings, custom wardrobe cabinets, or other indoor furniture with low maintenance cost",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        },
+        applications: {
+            en: [
+                "Residential Doors: MDF panels are widely used in homes for interior doors because they are smooth, durable, and cost-effective",
+                "Office Partitions & Doors: MDF panels are suitable for office cabins and doors due to their uniform surface and ability to be laminated or painted",
+                "Hotels & Hospitality Interiors: MDF door panels are commonly used in hotels for room doors, giving a premium yet budget-friendly look",
+                "Commercial Spaces (Shops & Showrooms): MDF panels can be used for entrance or internal doors in shops, boutiques, and showrooms because they can be customized with veneers/laminates"
+            ],
+            ar: [
+                "الأبواب السكنية: تستخدم ألواح MDF على نطاق واسع في المنازل للأبواب الداخلية لأنها ناعمة ومتينة وفعالة من حيث التكلفة",
+                "قواطع وأبواب المكاتب: ألواح MDF مناسبة لكبائن وأبواب المكاتب بسبب سطحها الموحد وقدرتها على التصفيح أو الطلاء",
+                "الفنادق والديكورات الداخلية للضيافة: تستخدم ألواح أبواب MDF عادة في الفنادق لأبواب الغرف، مما يعطي مظهرًا ممتازًا وصديقًا للميزانية",
+                "المساحات التجارية (المحلات وصالات العرض): يمكن استخدام ألواح MDF للأبواب الخارجية أو الداخلية في المحلات والبوتيكات وصالات العرض لأنه يمكن تخصيصها بالقشرة/الصفائح"
+            ],
+            zh: [
+                "住宅门：MDF板材广泛用于家庭室内门，因为它们光滑、耐用且经济实惠",
+                "办公隔断和门：MDF板材适用于办公隔间和门，因为其表面均匀，可以层压或油漆",
+                "酒店和接待空间内饰：MDF门板通常用于酒店房门，提供优质且预算友好的外观",
+                "商业空间（商店和展厅）：MDF板材可用于商店、精品店和展厅的入口或内部门，因为可以用饰面/层压板定制"
+            ]
         }
     },
     {
@@ -268,7 +386,17 @@ export const products = [
             ar: "ألواح MDF أساسية مقاومة للرطوبة مصممة للمناطق ذات الرطوبة العالية، توفر متانة واستقرارًا محسّنين.",
             zh: "防潮MDF芯板，专为高湿度区域设计，提供增强的耐用性和稳定性。"
         },
-        images: ["/core-panel/mrmdfcorepanel/1.jpg", "/core-panel/mrmdfcorepanel/2.jpg"],
+        images: [
+            "/core-panels/mrmdfcorepanel/mrmdf-001.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-002.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-003.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-004.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-005.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-006.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-007.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-008.jpg",
+            "/core-panels/mrmdfcorepanel/mrmdf-009.jpg"
+        ],
         specifications: {
             "Product Name": "MR MDF Core Panel",
             "Sizes": "1220x2440mm | 1525x2440mm | 1830x2440mm",
@@ -280,72 +408,83 @@ export const products = [
             "Color": "Natural wood color/White/Beige or customized as per requirement",
             "Usage": "Ideal for use in moisture-prone areas such as kitchens, bathrooms, basements. Perfect for Damp Environment (Especially for bathroom cabinets, kitchen cabinets). Wide variety applications Flooring underlayment, Panels for furniture, Wall paneling",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        },
+        applications: {
+            en: [
+                "Residential Doors: MDF panels are widely used in homes for interior doors because they are smooth, durable, and cost-effective",
+                "Office Partitions & Doors: MDF panels are suitable for office cabins and doors due to their uniform surface and ability to be laminated or painted",
+                "Hotels & Hospitality Interiors: MDF door panels are commonly used in hotels for room doors, giving a premium yet budget-friendly look",
+                "Commercial Spaces (Shops & Showrooms): MDF panels can be used for entrance or internal doors in shops, boutiques, and showrooms because they can be customized with veneers/laminates"
+            ],
+            ar: [
+                "الأبواب السكنية: تستخدم ألواح MDF على نطاق واسع في المنازل للأبواب الداخلية لأنها ناعمة ومتينة وفعالة من حيث التكلفة",
+                "قواطع وأبواب المكاتب: ألواح MDF مناسبة لكبائن وأبواب المكاتب بسبب سطحها الموحد وقدرتها على التصفيح أو الطلاء",
+                "الفنادق والديكورات الداخلية للضيافة: تستخدم ألواح أبواب MDF عادة في الفنادق لأبواب الغرف، مما يعطي مظهرًا ممتازًا وصديقًا للميزانية",
+                "المساحات التجارية (المحلات وصالات العرض): يمكن استخدام ألواح MDF للأبواب الخارجية أو الداخلية في المحلات والبوتيكات وصالات العرض لأنه يمكن تخصيصها بالقشرة/الصفائح"
+            ],
+            zh: [
+                "住宅门：MDF板材广泛用于家庭室内门，因为它们光滑、耐用且经济实惠",
+                "办公隔断和门：MDF板材适用于办公隔间和门，因为其表面均匀，可以层压或油漆",
+                "酒店和接待空间内饰：MDF门板通常用于酒店房门，提供优质且预算友好的外观",
+                "商业空间（商店和展厅）：MDF板材可用于商店、精品店和展厅的入口或内部门，因为可以用饰面/层压板定制"
+            ]
         }
     },
     {
-        id: "marine-plywood",
-        name: { en: "Marine Plywood", ar: "خشب رقائقي بحري", zh: "船用胶合板" },
+        id: "marine-construction-plywood",
+        name: { en: "Marine & Construction Plywood", ar: "خشب رقائقي بحري وإنشائي", zh: "船用和建筑胶合板" },
         category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
-        slug: "marine-plywood",
+        slug: "marine-construction-plywood",
         description: {
-            en: "Premium marine-grade plywood with superior water resistance, ideal for marine applications, boat building, and outdoor marine projects.",
-            ar: "خشب رقائقي بحري ممتاز مع مقاومة فائقة للماء، مثالي للتطبيقات البحرية وبناء القوارب والمشاريع البحرية الخارجية.",
-            zh: "优质船用胶合板，具有卓越的防水性能，适用于船舶应用、造船和户外船舶项目。"
+            en: "High-quality marine and construction grade plywood combining superior water resistance and structural strength. Ideal for marine applications, boat building, construction formwork, and heavy-duty projects requiring exceptional durability.",
+            ar: "خشب رقائقي بحري وإنشائي عالي الجودة يجمع بين المقاومة الفائقة للماء والقوة الهيكلية. مثالي للتطبيقات البحرية وبناء القوارب وقوالب البناء والمشاريع الثقيلة التي تتطلب متانة استثنائية.",
+            zh: "高品质船用和建筑级胶合板，结合卓越的防水性能和结构强度。适用于船舶应用、造船、建筑模板和需要卓越耐用性的重型项目。"
         },
         images: [
-            "/core-panel/marine/1.jpg",
-            "/core-panel/marine/2.jpg",
-            "/core-panel/marine/3.jpg",
-            "/core-panel/marine/4.jpg",
-            "/core-panel/marine/5.jpg",
-            "/core-panel/marine/6.avif",
-            "/core-panel/marine/7.jpg"
+            "/core-panels/marinaconstractionPLYWOOD/CNT-001.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-002.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-003.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-004.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-005.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-006.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-007.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-008.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/CNT-009.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/marine-001.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/marine-002.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/marine-005.jpg",
+            "/core-panels/marinaconstractionPLYWOOD/marine-004.avif"
         ],
         specifications: {
-            "Product Name": "Marine Plywood",
-            "Sizes": "1220x2440mm | 1525x2440mm",
-            "Thickness": "4mm-25mm",
-            "Density": "550-650kg/m³",
-            "Moisture": "8-14% (or 8-16% as alternative)",
-            "Glue": "WBP (Weather & Boil Proof), E0/E1/E2 formaldehad emission standards",
-            "Surface finish": "Film-faced (or black, brown, red). Applicable for marine decks, general marine use",
-            "Color": "Natural teak grain, Film faced (red, brown, black), Fancy colors as per client requirements",
-            "Usage": "Suitable for furniture, interior decoration decking, Marine/boat building projects, Outdoor marine applications. Designed to be strong, durable, and reusable with minimal deterioration in outdoor and marine conditions",
+            "Thickness/Sizes": "Ranges from 2 mm to 25 mm, with common options like 9 mm, 12 mm, 15 mm, 17 mm, 18 mm",
+            "Glue": "Waterproof phenolic (WBP), melamine WBP, or formaldehyde-grade glues (E0, E1, E2)",
+            "Density": "Birch plywood with density between 600-680 kg/m³; core materials include birch, poplar, pine, or a combination",
+            "Moisture": "Approximately 8-14% at shipment; water absorption ≤ 10%",
+            "Surface finish": "Film-faced surfaces in black, brown, red, matte or textured finishes",
+            "Color": "Veneer options include natural wood grains like birch, oak, walnut, beech, cherry, or solid colors with UV/matte/gloss coating",
+            "Material": "High-quality hardwoods (commonly birch, poplar, eucalyptus, pine) or a combination for strength",
+            "Usage": "Suited for furniture, interior decoration, and wood flooring. Ideal for marine applications, boat building, construction formwork, shuttering, and heavy-duty outdoor projects",
             "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
-        }
-    },
-    {
-        id: "construction-plywood",
-        name: { en: "Construction Plywood", ar: "خشب رقائقي للبناء", zh: "建筑胶合板" },
-        category: { en: "Core Panels", ar: "ألواح أساسية", zh: "核心板" },
-        slug: "construction-plywood",
-        description: {
-            en: "Heavy-duty construction plywood with excellent durability, ideal for construction formwork, shuttering, and outdoor construction projects.",
-            ar: "خشب رقائقي للبناء متين مع متانة ممتازة، مثالي لقوالب صب الخرسانة والبناء والمشاريع الخارجية.",
-            zh: "重型建筑胶合板，具有出色的耐用性，适用于建筑模板、模板和户外建筑项目。"
         },
-        images: [
-            "/core-panel/construction-plywood/1.jpg",
-            "/core-panel/construction-plywood/2.jpg",
-            "/core-panel/construction-plywood/3.jpg",
-            "/core-panel/construction-plywood/4.jpg",
-            "/core-panel/construction-plywood/5.jpg",
-            "/core-panel/construction-plywood/6.jpg",
-            "/core-panel/construction-plywood/7.jpg",
-            "/core-panel/construction-plywood/8.jpg",
-            "/core-panel/construction-plywood/9.jpg"
-        ],
-        specifications: {
-            "Product Name": "Construction Plywood",
-            "Sizes": "1220x2440mm | 1525x2440mm",
-            "Thickness": "4mm-25mm",
-            "Density": "550-650kg/m³",
-            "Moisture": "8-14% (or 8-16% as alternative)",
-            "Glue": "WBP (Weather & Boil Proof), E0/E1/E2 formaldehad emission standards",
-            "Surface finish": "Film-faced (or black, brown, red). Applicable for formwork, construction shuttering",
-            "Color": "Film faced (red, brown, black), Fancy colors as per client requirements",
-            "Usage": "Construction formwork, Outdoor construction applications, Heavy-duty and/or re-usable formwork shuttering, Various heavy-duty building/construction projects. Designed to be strong, durable, and reusable in construction conditions",
-            "Certifications": "CARB, CE, ISO9001:2000, ISO14001"
+        applications: {
+            en: [
+                "Marine Applications: Superior water resistance for boat building and ship decking",
+                "Construction Formwork: Durable and reusable panels for concrete formwork and shuttering",
+                "Outdoor Projects: Weather-resistant plywood for outdoor furniture and structures",
+                "Heavy-Duty Construction: Strong and stable material for structural applications"
+            ],
+            ar: [
+                "التطبيقات البحرية: مقاومة فائقة للماء لبناء القوارب وسطح السفن",
+                "قوالب البناء: ألواح متينة وقابلة لإعادة الاستخدام لقوالب الخرسانة والإغلاق",
+                "المشاريع الخارجية: خشب رقائقي مقاوم للعوامل الجوية للأثاث والهياكل الخارجية",
+                "البناء الثقيل: مادة قوية ومستقرة للتطبيقات الهيكلية"
+            ],
+            zh: [
+                "船舶应用：卓越的防水性能，适用于造船和船舶甲板",
+                "建筑模板：耐用且可重复使用的混凝土模板和模板面板",
+                "户外项目：耐候胶合板，适用于户外家具和结构",
+                "重型建筑：坚固稳定的结构应用材料"
+            ]
         }
     },
 

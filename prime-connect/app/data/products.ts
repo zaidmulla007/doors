@@ -685,7 +685,13 @@ export const products: Product[] = [
       usage: 'Furniture, kitchen, construction, decoration, Carving, counter, office table, ceiling, etc',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
-    images: ['/images/products/mdf-panels.jpg']
+    images: [
+      '/core-panels/mdfcorepanel/mdf-001.jpg',
+      '/core-panels/mdfcorepanel/mdf-002.jpg',
+      '/core-panels/mdfcorepanel/mdf-003.jpg',
+      '/core-panels/mdfcorepanel/mdf-004.jpg',
+      '/core-panels/mdfcorepanel/mdf-005.jpg'
+    ]
   },
 
   // CORE PANELS - MR MDF
@@ -729,87 +735,76 @@ export const products: Product[] = [
       usage: 'Widly used for furniture (Kitchen cabinet, wardrobe and bathroom cabinets), doors, flooring, packing, construction-decoration materials etc',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
-    images: ['/images/products/mr-mdf-panels.jpg']
+    images: [
+      '/core-panels/mrmdfcorepanel/mrmdf-001.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-002.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-003.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-004.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-005.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-006.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-007.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-008.jpg',
+      '/core-panels/mrmdfcorepanel/mrmdf-009.jpg'
+    ]
   },
 
-  // CORE PANELS - Marine Plywood
+  // CORE PANELS - Marine & Construction Plywood
   {
-    id: 'panel-marine-001',
-    slug: 'marine-plywood',
+    id: 'panel-marine-construction-001',
+    slug: 'marine-construction-plywood',
     categoryId: 'core-panels',
     name: {
-      en: 'Marine Plywood',
-      ar: 'خشب رقائقي بحري'
+      en: 'Marine & Construction Plywood',
+      ar: 'خشب رقائقي بحري وإنشائي'
     },
     description: {
-      en: 'A high-quality, water-resistant plywood designed to withstand moisture and humidity, making it ideal for kitchens, bathrooms, boats, outdoor furniture and heavy-duty construction',
-      ar: 'خشب رقائقي عالي الجودة ومقاوم للماء للتطبيقات البحرية والبناء والثقيلة'
+      en: 'High-quality marine and construction grade plywood combining superior water resistance and structural strength. Ideal for marine applications, boat building, construction formwork, and heavy-duty projects requiring exceptional durability.',
+      ar: 'خشب رقائقي بحري وإنشائي عالي الجودة يجمع بين المقاومة الفائقة للماء والقوة الهيكلية'
     },
     features: {
       en: [
-        'Waterproof and resistant to moisture',
-        'High strength and durability',
-        'Layered wood veneer construction',
-        'Suitable for outdoor and marine use',
-        'Ideal for boats, kitchens, bathrooms, outdoor furniture'
+        'Superior waterproof and weather resistance',
+        'Film-faced surfaces for durability',
+        'High strength and structural stability',
+        'Suitable for marine and outdoor use',
+        'Reusable for construction formwork',
+        'Premium hardwood construction'
       ],
       ar: [
-        'مقاوم للماء والرطوبة',
-        'قوة واستقرار عالي',
-        'بناء قشرة خشبية متعددة الطبقات',
-        'مناسب للاستخدام الخارجي والبحري',
-        'مثالي للقوارب والمطابخ والحمامات والأثاث الخارجي'
+        'مقاومة فائقة للماء والعوامل الجوية',
+        'أسطح مغطاة بالفيلم للمتانة',
+        'قوة عالية واستقرار هيكلي',
+        'مناسب للاستخدام البحري والخارجي',
+        'قابل لإعادة الاستخدام لقوالب البناء',
+        'بناء من الخشب الصلب الفاخر'
       ]
     },
     specifications: {
-      types: 'Marine plywood is categorized based on its core material, such as Okoume, Birch, and Poplar',
-      thickness: 'Available in various thicknesses, including 3mm, 4mm, 6mm, 9mm, 12mm, 15mm, 18mm, and 21mm',
-      strength: 'Exhibits high strength and durability, with a bending strength of up to 85.1 MPa and a modulus of elasticity of up to 9500 MPa',
-      resistance: 'Waterproof and resistant to moisture, with some types having a formaldehyde emission standard of E0 or E1',
-      coreMaterial: 'Common core materials include Poplar, Hardwood, and Finger Jointed core',
-      usage: 'Boat Building & Ship Decking, Outdoor Furniture & Garden Structures, Construction & Framework, Bathrooms & Kitchens, Interior Design & Paneling, Transport Industry'
+      thicknessSizes: 'Ranges from 2 mm to 25 mm, with common options like 9 mm, 12 mm, 15 mm, 17 mm, 18 mm',
+      glue: 'Waterproof phenolic (WBP), melamine WBP, or formaldehyde-grade glues (E0, E1, E2)',
+      density: 'Birch plywood with density between 600-680 kg/m³; core materials include birch, poplar, pine, or a combination',
+      moisture: 'Approximately 8-14% at shipment; water absorption ≤ 10%',
+      surfaceFinish: 'Film-faced surfaces in black, brown, red, matte or textured finishes',
+      color: 'Veneer options include natural wood grains like birch, oak, walnut, beech, cherry, or solid colors with UV/matte/gloss coating',
+      material: 'High-quality hardwoods (commonly birch, poplar, eucalyptus, pine) or a combination for strength',
+      usage: 'Suited for furniture, interior decoration, and wood flooring. Ideal for marine applications, boat building, construction formwork, shuttering, and heavy-duty outdoor projects',
+      certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
-    images: ['/images/products/marine-plywood.jpg']
-  },
-
-  // CORE PANELS - Construction Plywood
-  {
-    id: 'panel-construction-001',
-    slug: 'construction-plywood',
-    categoryId: 'core-panels',
-    name: {
-      en: 'Construction Plywood',
-      ar: 'خشب رقائقي للبناء'
-    },
-    description: {
-      en: 'High-quality plywood designed for construction and heavy-duty applications including flooring, roofing, wall sheathing, and concrete formwork',
-      ar: 'خشب رقائقي عالي الجودة مصمم للبناء والتطبيقات الثقيلة'
-    },
-    features: {
-      en: [
-        'Moderate to high strength',
-        'Versatile construction material',
-        'Cost-effective solution',
-        'Suitable for various applications',
-        'Durable and reliable'
-      ],
-      ar: [
-        'قوة معتدلة إلى عالية',
-        'مادة بناء متعددة الاستخدامات',
-        'حل فعال من حيث التكلفة',
-        'مناسب لتطبيقات مختلفة',
-        'متين وموثوق'
-      ]
-    },
-    specifications: {
-      types: 'Construction plywood includes CDX plywood, structural plywood, and film-faced plywood',
-      thickness: 'Available in various thicknesses, including 1/2", 3/4", 5/8", 7/16", 12mm, 15mm, 18mm, and 21mm',
-      strength: 'Exhibits moderate to high strength, with some types having a bending strength of up to 40 MPa',
-      resistance: 'May have some resistance to moisture, but not entirely waterproof',
-      coreMaterial: 'Common core materials include Pine, Poplar, and Spruce',
-      usage: 'Flooring, Roofing, Wall Sheathing, Concrete Formwork (Shuttering), Partitions, Packaging & Crates'
-    },
-    images: ['/images/products/construction-plywood.jpg']
+    images: [
+      '/core-panels/marinaconstractionPLYWOOD/CNT-001.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-002.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-003.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-004.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-005.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-006.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-007.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-008.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/CNT-009.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/marine-001.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/marine-002.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/marine-005.jpg',
+      '/core-panels/marinaconstractionPLYWOOD/marine-004.avif'
+    ]
   },
 
   // CORE PANELS - Core Panel Plywood
@@ -845,7 +840,13 @@ export const products: Product[] = [
       material: 'Poplar, Pine and hardwood combi',
       usage: 'Doors, partitions, furniture, wall panels, construction'
     },
-    images: ['/images/products/core-panel-plywood.jpg']
+    images: [
+      '/core-panels/CORE-PANEL-PLYWOOD/CPP-001.jpg',
+      '/core-panels/CORE-PANEL-PLYWOOD/CPP-002.jpg',
+      '/core-panels/CORE-PANEL-PLYWOOD/CPP-003.jpg',
+      '/core-panels/CORE-PANEL-PLYWOOD/CPP-004.jpg',
+      '/core-panels/CORE-PANEL-PLYWOOD/CPP-005.jpg'
+    ]
   },
 
   // CORE PANELS - Film Faced MDF
@@ -888,7 +889,17 @@ export const products: Product[] = [
       usage: 'Suited for furniture, interior decoration, and wood flooring',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
-    images: ['/images/products/film-faced-mdf.jpg']
+    images: [
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-001.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-002.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-003.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-004.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-005.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-006.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-007.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-008.jpg',
+      '/core-panels/FILMFACEDMDFPANELS/ffmp-009.jpg'
+    ]
   },
 
   // CORE PANELS - Melamine Faced MDF
@@ -934,12 +945,13 @@ export const products: Product[] = [
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
     images: [
-      '/core-panel/MelamineFacedMDFPanels/1.jpg',
-      '/core-panel/MelamineFacedMDFPanels/2.jpg',
-      '/core-panel/MelamineFacedMDFPanels/3.jpg',
-      '/core-panel/MelamineFacedMDFPanels/4.jpg',
-      '/core-panel/MelamineFacedMDFPanels/5.jpg',
-      '/core-panel/MelamineFacedMDFPanels/6.jpg'
+      '/core-panels/MelamineFacedMDFPanels/mfmp-001.jpg',
+      '/core-panels/MelamineFacedMDFPanels/mfmp-002.jpg',
+      '/core-panels/MelamineFacedMDFPanels/mfmp-003.jpg',
+      '/core-panels/MelamineFacedMDFPanels/mfmp-004.jpg',
+      '/core-panels/MelamineFacedMDFPanels/mfmp-005.jpg',
+      '/core-panels/MelamineFacedMDFPanels/mfmp-006.jpg',
+      '/core-panels/MelamineFacedMDFPanels/mfmp-007.jpg'
     ]
   },
 
@@ -984,7 +996,15 @@ export const products: Product[] = [
       usage: 'It is widely used in furniture manufacturing, such as beds, tables, cabinets, etc. It is also used in building decoration, like wall panels, ceilings, etc. Moreover, it can be used to make display racks, decorative moldings, etc., enhancing the aesthetics and quality of the space',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
-    images: ['/images/products/film-faced-plywood.jpg']
+    images: [
+      '/core-panels/FilmFacedPlywood/FFP-001.jpg',
+      '/core-panels/FilmFacedPlywood/FFP-002.jpg',
+      '/core-panels/FilmFacedPlywood/FFP-003.jpg',
+      '/core-panels/FilmFacedPlywood/FFP-004.jpg',
+      '/core-panels/FilmFacedPlywood/FFP-005.jpg',
+      '/core-panels/FilmFacedPlywood/FFP-006.jpg',
+      '/core-panels/FilmFacedPlywood/FFP-007.jpg'
+    ]
   },
 
   // CORE PANELS - Melamine Faced Plywood
@@ -1028,7 +1048,14 @@ export const products: Product[] = [
       usage: 'Widely used for High-end Furniture Wardrobe/Kitchen Cabinet/TV Cabinet/Closets',
       certifications: 'CARB, CE, ISO9001:2000, ISO14001'
     },
-    images: ['/images/products/melamine-faced-plywood.jpg']
+    images: [
+      '/core-panels/MelamineFacedPlywood/mfp-001.jpg',
+      '/core-panels/MelamineFacedPlywood/mfp-002.jpg',
+      '/core-panels/MelamineFacedPlywood/mfp-003.jpg',
+      '/core-panels/MelamineFacedPlywood/mfp-004.jpg',
+      '/core-panels/MelamineFacedPlywood/mfp-005.jpg',
+      '/core-panels/MelamineFacedPlywood/mfp-006.jpg'
+    ]
   }
 ];
 
