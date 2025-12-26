@@ -44,33 +44,62 @@ const ConsultationModal = () => {
     setIsSubmitting(true);
 
     try {
-      // You can integrate with your backend API here
-      // For now, we'll just show a success message
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
+      // Determine API URL based on environment
+      const apiUrl = window.location.hostname === 'localhost'
+        ? 'http://localhost/prime-connect/out/api-for-email/send-email.php'
+        : 'https://primeconnects.ae/api-for-email/send-email.php';
 
-      // Success - Show SweetAlert2 success message
-      await Swal.fire({
-        title: 'Thank You!',
-        text: 'Thank you for submitting the form. We will get back to you shortly!',
-        icon: 'success',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#3b82f6',
-        customClass: {
-          confirmButton: 'font-bold',
-        }
+      // Send email via PHP API
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: 'consultation',
+        }),
       });
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
+      const data = await response.json();
 
-      // Close modal
-      closeModal();
+      if (response.ok && data.status === 'success') {
+        // Success - Show SweetAlert2 success message with blue-to-purple gradient
+        await Swal.fire({
+          title: 'Thank You!',
+          text: 'Thank you for submitting the form. We will get back to you shortly!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3b82f6',
+          customClass: {
+            confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+          }
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+        });
+
+        // Close modal
+        closeModal();
+      } else {
+        // Server error or validation error
+        await Swal.fire({
+          title: 'Oops!',
+          text: data.message || 'Something went wrong. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3b82f6',
+          customClass: {
+            confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+          }
+        });
+      }
     } catch (error) {
       // Network or other error
       console.error('Error submitting form:', error);
@@ -80,6 +109,9 @@ const ConsultationModal = () => {
         icon: 'error',
         confirmButtonText: 'OK',
         confirmButtonColor: '#3b82f6',
+        customClass: {
+          confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+        }
       });
     } finally {
       setIsSubmitting(false);
@@ -213,7 +245,7 @@ const ConsultationModal = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  className={`w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg text-sm ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/50 text-sm ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? (
                     <>

@@ -9,6 +9,7 @@ import { useParams, notFound } from "next/navigation";
 import { products } from "../../data";
 import { useLanguage } from "../../context/LanguageContext";
 import ProductSidebar from "../../components/ProductSidebar";
+import Swal from "sweetalert2";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -30,6 +31,13 @@ export default function ProductPage() {
     const [showZoom, setShowZoom] = useState(false);
     const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
     const [currentSpecImage, setCurrentSpecImage] = useState(0);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [inquiryForm, setInquiryForm] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+    });
     const params = useParams();
     const slug = params.slug as string;
     const product = products.find((p) => p.slug === slug);
@@ -53,6 +61,86 @@ export default function ProductPage() {
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
         setZoomPosition({ x, y });
+    };
+
+    // Handle inquiry form submission
+    const handleInquirySubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
+
+        try {
+            // Determine API URL based on environment
+            const apiUrl = window.location.hostname === 'localhost'
+                ? 'http://localhost/prime-connect/out/api-for-email/send-email.php'
+                : 'https://primeconnects.ae/api-for-email/send-email.php';
+
+            // Send email via PHP API
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...inquiryForm,
+                    subject: `Product Inquiry: ${selectedColor?.name || productName}`,
+                    productName: selectedColor?.name || productName,
+                    formType: 'product-inquiry',
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.status === 'success') {
+                // Success - Show SweetAlert2 success message
+                await Swal.fire({
+                    title: 'Thank You!',
+                    text: 'Thank you for your inquiry. We will get back to you shortly!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3b82f6',
+                    customClass: {
+                        confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+                    }
+                });
+
+                // Reset form
+                setInquiryForm({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    message: '',
+                });
+            } else {
+                // Server error
+                await Swal.fire({
+                    title: 'Oops!',
+                    text: data.message || 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3b82f6',
+                    customClass: {
+                        confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error submitting inquiry:', error);
+            await Swal.fire({
+                title: 'Connection Error',
+                text: 'Unable to send your inquiry. Please check your internet connection and try again.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3b82f6',
+                customClass: {
+                    confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+                }
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -456,29 +544,56 @@ export default function ProductPage() {
                                                                 <p className="text-sm text-blue-700 mb-4">
                                                                     {t('productDetail.fillForm')} <span className="font-bold">{selectedColor.name}</span> {t('productDetail.option')}.
                                                                 </p>
-                                                                <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+                                                                <form className="space-y-3" onSubmit={handleInquirySubmit}>
                                                                     <input
                                                                         type="text"
+                                                                        name="name"
+                                                                        value={inquiryForm.name}
+                                                                        onChange={(e) => setInquiryForm({ ...inquiryForm, name: e.target.value })}
                                                                         placeholder={t('productDetail.yourName')}
+                                                                        required
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                                                                     />
                                                                     <input
                                                                         type="email"
+                                                                        name="email"
+                                                                        value={inquiryForm.email}
+                                                                        onChange={(e) => setInquiryForm({ ...inquiryForm, email: e.target.value })}
                                                                         placeholder={t('productDetail.emailAddress')}
+                                                                        required
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                                                                     />
                                                                     <input
                                                                         type="tel"
+                                                                        name="phone"
+                                                                        value={inquiryForm.phone}
+                                                                        onChange={(e) => setInquiryForm({ ...inquiryForm, phone: e.target.value })}
                                                                         placeholder={t('productDetail.phoneNumber')}
+                                                                        required
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                                                                     />
                                                                     <textarea
                                                                         rows={3}
+                                                                        name="message"
+                                                                        value={inquiryForm.message}
+                                                                        onChange={(e) => setInquiryForm({ ...inquiryForm, message: e.target.value })}
                                                                         placeholder={t('productDetail.messageRequirements')}
+                                                                        required
                                                                         className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none"
                                                                     ></textarea>
-                                                                    <button className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-blue-200 uppercase tracking-widest text-xs">
-                                                                        {t('productDetail.sendInquiry')}
+                                                                    <button
+                                                                        type="submit"
+                                                                        disabled={isSubmitting}
+                                                                        className={`w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-bold hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-blue-500/50 uppercase tracking-widest text-xs flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                                                    >
+                                                                        {isSubmitting ? (
+                                                                            <>
+                                                                                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                                                Sending...
+                                                                            </>
+                                                                        ) : (
+                                                                            t('productDetail.sendInquiry')
+                                                                        )}
                                                                     </button>
                                                                 </form>
                                                             </div>

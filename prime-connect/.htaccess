@@ -1,0 +1,234 @@
+# Prime Connect - Apache Configuration for Hostinger
+# This file handles URL rewriting for Next.js static export
+
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Force HTTPS (SSL) - Redirect all HTTP traffic to HTTPS (except localhost)
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Force WWW or Non-WWW (Choose one - currently set to non-WWW)
+    # Uncomment the following lines to force non-WWW
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # To force WWW instead, comment the above and uncomment these:
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # Prevent directory listing
+    Options -Indexes
+
+    # Handle Next.js exported static files
+    # If the request is for a file or directory that exists, serve it directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite clean URLs to .html files (Next.js static export)
+    # Example: /about -> /about.html
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+
+    # Handle dynamic routes (e.g., /product/mdf-doors)
+    # If the file doesn't exist, try to serve from nested directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^/]+)/([^/]+)/?$ $1/$2.html [L]
+
+    # Fallback to index.html for all other routes (SPA behavior)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.html [L]
+
+    # Remove trailing slash (optional but recommended for consistency)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Content Security Policy (adjust as needed)
+    Header always set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:;"
+</IfModule>
+
+# CORS for API endpoint
+<IfModule mod_headers.c>
+    <FilesMatch "\.(php)$">
+        # Allow CORS from your domain and localhost
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </FilesMatch>
+</IfModule>
+
+# Compression - Improve site speed
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+
+    # Remove browser bugs (only needed for ancient browsers)
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# Browser Caching - Speed up returning visitor experience
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Default expiration: 1 hour
+    ExpiresDefault "access plus 1 hour"
+
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Video
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+
+    # Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+
+    # HTML (shorter cache for dynamic content)
+    ExpiresByType text/html "access plus 1 hour"
+
+    # Data
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+
+    # PDF
+    ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    # 1 YEAR - Images, Videos, Fonts
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|mp4|webm|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # 1 MONTH - CSS and JavaScript
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+
+    # 1 HOUR - HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=3600, public, must-revalidate"
+    </FilesMatch>
+
+    # NO CACHE - API and Dynamic content
+    <FilesMatch "\.(php|json)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect config files
+<FilesMatch "(package\.json|package-lock\.json|tsconfig\.json|next\.config\.ts|\.env|\.env\.local)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Custom Error Pages (create these files in your root directory)
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# PHP Settings (if needed)
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 20M
+    php_value post_max_size 20M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# Prevent access to backup and source files
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Block bad bots and scanners
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|curl|scan|java|winhttp|clshttp|loader) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (<|>|'|%0A|%0D|%27|%3C|%3E|%00) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (;|<|>|'|"|\)|\(|%0A|%0D|%22|%27|%28|%3C|%3E|%00).*(libwww-perl|wget|python|nikto|curl|scan|java|winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# UTF-8 encoding
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+
+# File concatenation (if supported by server)
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
+            Header set X-Content-Type-Options "nosniff"
+        </FilesMatch>
+    </IfModule>
+</IfModule>

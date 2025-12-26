@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ArrowRight, MapPin, Phone, Mail, User, Send, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import Swal from "sweetalert2";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -25,11 +26,92 @@ export default function ContactPage() {
         message: "",
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 3000);
+
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
+
+        try {
+            // Determine API URL based on environment
+            const apiUrl = window.location.hostname === 'localhost'
+                ? 'http://localhost/prime-connect/out/api-for-email/send-email.php'
+                : 'https://primeconnects.ae/api-for-email/send-email.php';
+
+            // Send email via PHP API
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formState.name,
+                    email: formState.email,
+                    phone: formState.phone,
+                    subject: `Contact Form: ${formState.company || 'General Inquiry'}`,
+                    message: formState.message + (formState.company ? `\n\nCompany: ${formState.company}` : ''),
+                    formType: 'contact',
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.status === 'success') {
+                // Success - Show SweetAlert2 success message
+                await Swal.fire({
+                    title: 'Thank You!',
+                    text: 'Thank you for submitting the form. We will get back to you shortly!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3b82f6',
+                    customClass: {
+                        confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+                    }
+                });
+
+                // Reset form
+                setFormState({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    company: "",
+                    message: "",
+                });
+
+                // Show success state briefly
+                setIsSubmitted(true);
+                setTimeout(() => setIsSubmitted(false), 3000);
+            } else {
+                // Server error
+                await Swal.fire({
+                    title: 'Oops!',
+                    text: data.message || 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3b82f6',
+                    customClass: {
+                        confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            await Swal.fire({
+                title: 'Connection Error',
+                text: 'Unable to send your message. Please check your internet connection and try again.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3b82f6',
+                customClass: {
+                    confirmButton: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600',
+                }
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -274,12 +356,22 @@ export default function ContactPage() {
 
                                             <motion.button
                                                 type="submit"
-                                                whileHover={{ scale: 1.02 }}
-                                                whileTap={{ scale: 0.98 }}
-                                                className="w-full btn-primary justify-center"
+                                                disabled={isSubmitting}
+                                                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                                                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                                                className={`w-full btn-primary justify-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                                             >
-                                                {t('contact.send')}
-                                                <Send className="w-5 h-5" />
+                                                {isSubmitting ? (
+                                                    <>
+                                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                        Sending...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        {t('contact.send')}
+                                                        <Send className="w-5 h-5" />
+                                                    </>
+                                                )}
                                             </motion.button>
 
                                             <p className="text-center text-sm text-gray-500">

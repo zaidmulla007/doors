@@ -361,7 +361,7 @@ export default function Header() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="lg:hidden bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 overflow-hidden shadow-inner"
+                            className="lg:hidden bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 shadow-inner max-h-[calc(100vh-80px)] overflow-y-auto"
                         >
                             <div className="container-custom py-6 flex flex-col gap-3">
                                 {navLinks.map((link) => {
@@ -482,8 +482,43 @@ export default function Header() {
                                     );
                                 })}
 
-                                {/* Mobile Contact Info & Language */}
-                                <div className="mt-4 pt-4 border-t border-gray-200">
+                                {/* Mobile Language Selector & Download Brochure */}
+                                <div className="mt-4 space-y-3">
+                                    {/* Language Selector */}
+                                    <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+                                        <h4 className="font-semibold text-gray-900 text-sm mb-3 flex items-center gap-2">
+                                            <Globe size={16} className="text-blue-600" />
+                                            Please Select a Language
+                                        </h4>
+                                        <div className="flex gap-2">
+                                            {languages.map(lang => (
+                                                <button
+                                                    key={lang.code}
+                                                    onClick={() => setLanguage(lang.code as any)}
+                                                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                                                        language === lang.code
+                                                            ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                                    }`}
+                                                >
+                                                    {lang.label}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Download Brochures Button */}
+                                    <button
+                                        onClick={() => setIsBrochuresOpen(true)}
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl text-sm font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-md"
+                                    >
+                                        <Download size={18} />
+                                        {t('header.downloadBrochures')}
+                                    </button>
+                                </div>
+
+                                {/* Mobile Contact Info */}
+                                <div className="mt-3 pt-4 border-t border-gray-200">
                                     <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm space-y-3">
                                         <h4 className="font-semibold text-gray-900 text-sm mb-3">Contact Us</h4>
                                         <a href="mailto:info@primeconnects.ae" className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors">

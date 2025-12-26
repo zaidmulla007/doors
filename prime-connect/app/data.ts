@@ -884,7 +884,15 @@ export const products = [
             { name: "DHG002", image: "/door-mech-access/door-hinges/DHG002.jpg" },
             { name: "DHG003", image: "/door-mech-access/door-hinges/DHG003.jpg" },
             { name: "DHG005", image: "/door-mech-access/door-hinges/DHG005.jpg" },
-            { name: "DHG006", image: "/door-mech-access/door-hinges/DHG006.jpg" }
+            { name: "DHG006", image: "/door-mech-access/door-hinges/DHG006.jpg" },
+            { name: "DHG007", image: "/door-mech-access/door-hinges/DHG007.jpg" },
+            { name: "DHG008", image: "/door-mech-access/door-hinges/DHG008.jpg" },
+            { name: "DHG010", image: "/door-mech-access/door-hinges/DHG010.jpeg" },
+            { name: "DHG011", image: "/door-mech-access/door-hinges/DHG011.jpeg" },
+            { name: "DHG012", image: "/door-mech-access/door-hinges/DHG012.jpeg" },
+            { name: "DHG013", image: "/door-mech-access/door-hinges/DHG013.jpeg" },
+            { name: "DHG014", image: "/door-mech-access/door-hinges/DHG014.jpeg" },
+            { name: "DHG015", image: "/door-mech-access/door-hinges/DHG015.jpg" }
         ]
     },
     {
