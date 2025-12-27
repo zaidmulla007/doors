@@ -330,7 +330,8 @@ export const translations = {
             wpcDoors: "Prime Connect WPC Door Catalogue",
             locks: "Prime Connect Cylinder Locks Brochure",
             hinges: "Prime Connect Hinges Brochure",
-            smartLocks: "Prime Connect Smart Rim Locks Brochure"
+            smartLocks: "Prime Connect Smart Rim Locks Brochure",
+            corePanels: "Prime Connect Core Panels"
         }
     },
     ar: {
@@ -662,7 +663,8 @@ export const translations = {
             wpcDoors: "كتالوج أبواب WPC من برايم كونيكت",
             locks: "كتيب أقفال السلندر من برايم كونيكت",
             hinges: "كتيب مفصلات برايم كونيكت",
-            smartLocks: "كتيب أقفال ريم الذكية من برايم كونيكت"
+            smartLocks: "كتيب أقفال ريم الذكية من برايم كونيكت",
+            corePanels: "برايم كونيكت الألواح الأساسية"
         }
     },
     zh: {
@@ -994,7 +996,8 @@ export const translations = {
             wpcDoors: "普莱姆连接WPC门产品目录",
             locks: "普莱姆连接锁芯手册",
             hinges: "普莱姆连接合页手册",
-            smartLocks: "普莱姆连接智能门锁手册"
+            smartLocks: "普莱姆连接智能门锁手册",
+            corePanels: "普莱姆连接核心板材"
         }
     }
 };

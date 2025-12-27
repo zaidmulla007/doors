@@ -52,6 +52,7 @@ export default function Header() {
 
     // Brochures data with translations
     const brochures = [
+        { name: t('br.corePanels'), file: "/brochures/core-panes.pdf" },
         { name: t('br.general'), file: "/brochures/PrimeconnectGeneralCatalogue.pdf" },
         { name: t('br.doors'), file: "/brochures/PrimeConnectsDoorscatalogue.pdf" },
         { name: t('br.wpcDoors'), file: "/brochures/Primeconnectwpcdoorcatalogforbbdhome.pdf" },
@@ -495,11 +496,10 @@ export default function Header() {
                                                 <button
                                                     key={lang.code}
                                                     onClick={() => setLanguage(lang.code as any)}
-                                                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                                                        language === lang.code
-                                                            ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                                    }`}
+                                                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${language === lang.code
+                                                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                                        }`}
                                                 >
                                                     {lang.label}
                                                 </button>
