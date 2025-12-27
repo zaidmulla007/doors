@@ -130,8 +130,6 @@ export default function AboutPage() {
                                     />
                                 </div>
                             </div>
-                            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-500 rounded-2xl -z-10 border-4 border-blue-600" />
-                            <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/20 rounded-2xl -z-10 border-4 border-purple-400/40" />
                         </motion.div>
                     </div>
                 </div>

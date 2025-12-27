@@ -139,9 +139,9 @@ export default function HomePage() {
 
       {/* Hero Section - Image Carousel */}
       <section className="relative w-full overflow-hidden">
-        {/* Slides Container */}
-        <div className="relative w-full">
-          <AnimatePresence initial={false} custom={direction}>
+        {/* Slides Container with Fixed Aspect Ratio */}
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-auto lg:h-[500px] xl:h-[600px]">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
               key={currentSlide}
               custom={direction}
@@ -153,16 +153,16 @@ export default function HomePage() {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 }
               }}
-              className="w-full shadow-2xl"
+              className="absolute inset-0 w-full h-full"
             >
-              <div className="relative w-full">
+              <div className="relative w-full h-full">
                 <Image
                   src={heroSlides[currentSlide].image}
                   alt={heroSlides[currentSlide].alt}
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto"
+                  fill
+                  className="object-cover"
                   priority
+                  sizes="100vw"
                 />
                 {/* Overlay with a bit more depth */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
@@ -256,9 +256,6 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-              {/* Decorative Elements */}
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-500 rounded-2xl -z-10" />
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-purple-500/20 rounded-2xl -z-10" />
             </motion.div>
           </div>
         </div>
