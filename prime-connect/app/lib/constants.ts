@@ -5,8 +5,8 @@ export const navigationCategories = [
         items: [
             { name: { en: "MDF DOORS", ar: "أبواب MDF", zh: "MDF门" }, slug: "mdf-doors" },
             { name: { en: "WPC DOORS", ar: "أبواب WPC", zh: "WPC门" }, slug: "wpc-doors" },
-            { name: { en: "IRON AND STEEL DOORS", ar: "أبواب حديدية وفولاذية", zh: "钢铁门" }, slug: "iron-and-steel-doors" },
             { name: { en: "WOODEN DOORS", ar: "أبواب خشبية", zh: "木门" }, slug: "wooden-doors" },
+            { name: { en: "IRON AND STEEL DOORS", ar: "أبواب حديدية وفولاذية", zh: "钢铁门" }, slug: "iron-and-steel-doors" },
             { name: { en: "ALUMINIUM DOORS", ar: "أبواب ألومنيوم", zh: "铝门" }, slug: "aluminium-doors" },
             { name: { en: "EMERGENCY EXIT DOORS", ar: "أبواب الخروج في حالات الطوارئ", zh: "紧急出口门" }, slug: "emergency-exit-doors" },
             { name: { en: "GLASS DOORS", ar: "أبواب زجاجية", zh: "玻璃门" }, slug: "glass-doors" },
@@ -50,10 +50,10 @@ export const navigationCategories = [
             { name: { en: "MDF Core Panel", ar: "لوح MDF الأساسي", zh: "MDF芯板" }, slug: "mdf-core-panel" },
             { name: { en: "MR MDF Core Panel", ar: "لوح MR MDF الأساسي", zh: "防潮MDF芯板" }, slug: "mr-mdf-core-panel" },
             { name: { en: "Marine & Construction Plywood", ar: "خشب رقائقي بحري وإنشائي", zh: "船用和建筑胶合板" }, slug: "marine-construction-plywood" },
-            { name: { en: "Core Panel Plywood", ar: "خشب رقائقي للألواح الأساسية", zh: "芯板胶合板" }, slug: "core-panel-plywood" },
-            { name: { en: "Film Faced MDF Panels", ar: "ألواح MDF مغطاة بالفيلم", zh: "覆膜MDF板" }, slug: "film-faced-mdf-panels" },
+            // { name: { en: "Core Panel Plywood", ar: "خشب رقائقي للألواح الأساسية", zh: "芯板胶合板" }, slug: "core-panel-plywood" },
+            // { name: { en: "Film Faced MDF Panels", ar: "ألواح MDF مغطاة بالفيلم", zh: "覆膜MDF板" }, slug: "film-faced-mdf-panels" },
             { name: { en: "Melamine Faced MDF Panels", ar: "ألواح MDF مغطاة بالميلامين", zh: "三聚氰胺贴面MDF板" }, slug: "melamine-faced-mdf-panels" },
-            { name: { en: "Film Faced Plywood", ar: "خشب رقائقي مغطى بالفيلم", zh: "覆膜胶合板" }, slug: "film-faced-plywood" },
+            // { name: { en: "Film Faced Plywood", ar: "خشب رقائقي مغطى بالفيلم", zh: "覆膜胶合板" }, slug: "film-faced-plywood" },
             { name: { en: "Melamine Faced Plywood", ar: "خشب رقائقي مغطى بالميلامين", zh: "三聚氰胺贴面胶合板" }, slug: "melamine-faced-plywood" }
         ]
     },

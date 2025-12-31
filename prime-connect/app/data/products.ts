@@ -800,9 +800,6 @@ export const products: Product[] = [
       '/core-panels/marinaconstractionPLYWOOD/CNT-007.jpg',
       '/core-panels/marinaconstractionPLYWOOD/CNT-008.jpg',
       '/core-panels/marinaconstractionPLYWOOD/CNT-009.jpg',
-      '/core-panels/marinaconstractionPLYWOOD/marine-001.jpg',
-      '/core-panels/marinaconstractionPLYWOOD/marine-002.jpg',
-      '/core-panels/marinaconstractionPLYWOOD/marine-005.jpg',
       '/core-panels/marinaconstractionPLYWOOD/marine-004.avif'
     ]
   },

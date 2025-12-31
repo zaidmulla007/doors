@@ -52,13 +52,13 @@ export default function Header() {
 
     // Brochures data with translations
     const brochures = [
-        { name: t('br.corePanels'), file: "/brochures/core-panes.pdf" },
-        { name: t('br.general'), file: "/brochures/PrimeconnectGeneralCatalogue.pdf" },
+        { name: t('br.corePanels'), file: "/brochures/core-panels.pdf" },
+        { name: t('br.general'), file: "/brochures/PrimeconnectsGeneralCatalogue.pdf" },
         { name: t('br.doors'), file: "/brochures/PrimeConnectsDoorscatalogue.pdf" },
         { name: t('br.wpcDoors'), file: "/brochures/Primeconnectwpcdoorcatalogforbbdhome.pdf" },
-        { name: t('br.locks'), file: "/brochures/PrimeconnectCylinderLocks.pdf" },
-        { name: t('br.hinges'), file: "/brochures/PrimeconnectHinges.pdf" },
-        { name: t('br.smartLocks'), file: "/brochures/PrimeconnectSmartRimLocks.pdf" },
+        { name: t('br.locks'), file: "/brochures/PrimeconnectsCylinderLocks.pdf" },
+        { name: t('br.hinges'), file: "/brochures/PrimeconnectsHinges.pdf" },
+        { name: t('br.smartLocks'), file: "/brochures/PrimeconnectsSmartRimLocks.pdf" },
     ];
 
 

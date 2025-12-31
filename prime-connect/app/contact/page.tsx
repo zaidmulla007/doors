@@ -159,7 +159,7 @@ export default function ContactPage() {
                             variants={staggerContainer}
                         >
                             <motion.h2 variants={fadeInUp} className="text-gray-900 mb-8">
-                                {t('contact.dubaiOffice')} <span className="gradient-text">{t('contact.officeHighlight')}</span>
+                                <span className="gradient-text">{t('contact.officeHighlight')}</span>
                             </motion.h2>
 
                             <motion.div variants={fadeInUp} className="space-y-6 mb-10">
