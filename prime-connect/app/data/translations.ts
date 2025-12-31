@@ -105,11 +105,11 @@ export const translations = {
             headingGradient: "Product Range",
             description: "From precision-built doors to engineered panels and bespoke cabinetry, we deliver reliable solutions for residential and commercial projects.",
             categories: {
-                corePanels: { title: "Core Panels", desc: "Premium melamine and film faced panels" },
+                corePanels: { title: "Core Panel", desc: "Premium melamine and film faced panels" },
                 doors: { title: "Doors", desc: "Expertly crafted MDF, WPC and wooden doors" },
                 cabinet: { title: "Cabinet", desc: "Custom kitchen and wardrobe solutions" },
                 colorCard: { title: "Color Card", desc: "Vibrant palettes and material finishes" },
-                hardware: { title: "Hardware Accessories", desc: "High-grade locks, hinges and fittings" },
+                hardware: { title: "Doors Hardware & Accessories", desc: "High-grade locks, hinges and fittings" },
                 wardrobe: { title: "Wardrobe", desc: "Premium wardrobe and storage systems" }
             },
             explore: "Explore",
@@ -438,11 +438,11 @@ export const translations = {
             headingGradient: "مجموعة منتجاتنا",
             description: "من الأبواب المبنية بدقة إلى الألواح الهندسية والخزائن المصممة خصيصًا، نقدم حلولًا موثوقة للمشاريع السكنية والتجارية.",
             categories: {
-                corePanels: { title: "الألواح الأساسية", desc: "ألواح الميلامين والألواح المغطاة بالفيلم الممتازة" },
+                corePanels: { title: "اللوح الأساسي", desc: "ألواح الميلامين والألواح المغطاة بالفيلم الممتازة" },
                 doors: { title: "الأبواب", desc: "أبواب MDF و WPC والخشبية المصنوعة ببراعة" },
                 cabinet: { title: "الخزائن", desc: "حلول المطابخ وخزائن الملابس المخصصة" },
                 colorCard: { title: "بطاقة الألوان", desc: "لوحات ألوان نابضة بالحياة وتشطيبات مادية" },
-                hardware: { title: "ملحقات الأجهزة", desc: "أقفال ومفصلات وتركيبات عالية الجودة" },
+                hardware: { title: "أجهزة وملحقات الأبواب", desc: "أقفال ومفصلات وتركيبات عالية الجودة" },
                 wardrobe: { title: "خزانة الملابس", desc: "أنظمة خزائن الملابس والتخزين المتميزة" }
             },
             explore: "استكشف",
@@ -775,7 +775,7 @@ export const translations = {
                 doors: { title: "门业", desc: "专业制造的 MDF、WPC 和木门" },
                 cabinet: { title: "橱柜", desc: "定制厨房和衣柜解决方案" },
                 colorCard: { title: "色卡", desc: "鲜艳的色彩搭配和材质饰面" },
-                hardware: { title: "五金配件", desc: "高档锁具、合页及配件" },
+                hardware: { title: "门五金配件", desc: "高档锁具、合页及配件" },
                 wardrobe: { title: "衣柜", desc: "优质衣柜和储物系统" }
             },
             explore: "探索",

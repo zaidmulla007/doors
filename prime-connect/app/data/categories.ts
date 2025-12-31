@@ -27,9 +27,22 @@ export const categories: Category[] = [
     slug: 'doors'
   },
   {
+    id: 'color-options',
+    name: {
+      en: 'Color Card',
+      ar: 'بطاقة الألوان'
+    },
+    description: {
+      en: 'Wide range of colors and finishes for doors and cabinets',
+      ar: 'مجموعة واسعة من الألوان والتشطيبات للأبواب والخزائن'
+    },
+    image: '/images/categories/colors.jpg',
+    slug: 'color-options'
+  },
+  {
     id: 'door-hardware',
     name: {
-      en: 'Door Hardware & Accessories',
+      en: 'Doors Hardware & Accessories',
       ar: 'أجهزة وملحقات الأبواب'
     },
     description: {
@@ -42,8 +55,8 @@ export const categories: Category[] = [
   {
     id: 'kitchen-cabinets',
     name: {
-      en: 'Kitchen Cabinets',
-      ar: 'خزائن المطبخ'
+      en: 'Cabinet',
+      ar: 'خزائن'
     },
     description: {
       en: 'Durable and stylish cabinets for an organized kitchen',
@@ -55,8 +68,8 @@ export const categories: Category[] = [
   {
     id: 'wardrobes',
     name: {
-      en: 'Wardrobes',
-      ar: 'خزانات الملابس'
+      en: 'Wardrobe',
+      ar: 'خزانة ملابس'
     },
     description: {
       en: 'Smart storage solutions for everyday style with customizable designs',
@@ -68,8 +81,8 @@ export const categories: Category[] = [
   {
     id: 'core-panels',
     name: {
-      en: 'Core Panels',
-      ar: 'الألواح الأساسية'
+      en: 'Core Panel',
+      ar: 'اللوح الأساسي'
     },
     description: {
       en: 'MDF, MR MDF, Plywood, Film Faced, and Melamine panels for various applications',
@@ -77,18 +90,5 @@ export const categories: Category[] = [
     },
     image: '/images/categories/panels.jpg',
     slug: 'core-panels'
-  },
-  {
-    id: 'color-options',
-    name: {
-      en: 'Color Options',
-      ar: 'خيارات الألوان'
-    },
-    description: {
-      en: 'Wide range of colors and finishes for doors and cabinets',
-      ar: 'مجموعة واسعة من الألوان والتشطيبات للأبواب والخزائن'
-    },
-    image: '/images/categories/colors.jpg',
-    slug: 'color-options'
   }
 ];
